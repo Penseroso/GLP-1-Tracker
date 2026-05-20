@@ -42,17 +42,15 @@ export function PipelineTable({ assets }: PipelineTableProps) {
           </button>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[1180px] border-collapse text-left text-sm">
+          <table className="w-full min-w-[980px] border-collapse text-left text-sm">
             <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
               <tr>
                 {[
                   "Company",
                   "Asset",
-                  "Code",
                   "Target Class",
                   "Indication",
                   "Route",
-                  "Dosage Form",
                   "Dosing Interval",
                   "Stage",
                   "Differentiator",
@@ -77,18 +75,12 @@ export function PipelineTable({ assets }: PipelineTableProps) {
                   <td className="px-4 py-4 font-semibold text-foreground">
                     {asset.assetName}
                   </td>
-                  <td className="px-4 py-4 text-muted-foreground">
-                    {optionalText(asset.codeName)}
-                  </td>
                   <td className="px-4 py-4 text-foreground">{asset.targetClass}</td>
                   <td className="px-4 py-4 text-muted-foreground">
                     {asset.indication.join(", ")}
                   </td>
                   <td className="px-4 py-4 text-muted-foreground">
                     {optionalText(asset.route)}
-                  </td>
-                  <td className="px-4 py-4 text-muted-foreground">
-                    {optionalText(asset.dosageForm)}
                   </td>
                   <td className="px-4 py-4 text-muted-foreground">
                     {optionalText(asset.dosingInterval)}
@@ -121,7 +113,7 @@ export function PipelineTable({ assets }: PipelineTableProps) {
               {filteredAssets.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={11}
+                    colSpan={9}
                     className="px-4 py-12 text-center text-sm text-muted-foreground"
                   >
                     No assets match the selected filters.
