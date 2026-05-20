@@ -12,7 +12,7 @@ export default function AssetsPage() {
           GLP-1 Asset Register
         </h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
-          Search and filter GLP-1-related mock pipeline assets by company,
+          Search and filter a GLP-1-related sample dataset by company,
           indication, target class, route, dosing format, interval, and stage.
         </p>
       </section>

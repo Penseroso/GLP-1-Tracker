@@ -30,7 +30,7 @@ export function PipelineTable({ assets }: PipelineTableProps) {
               Asset Register
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              {filteredAssets.length} of {assets.length} mock assets shown
+              {filteredAssets.length} of {assets.length} dataset assets shown
             </p>
           </div>
           <button

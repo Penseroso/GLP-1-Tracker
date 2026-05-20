@@ -2,10 +2,12 @@ import Link from "next/link";
 import { CompanyCard } from "@/components/CompanyCard";
 import { StatCard } from "@/components/StatCard";
 import { companySummaries, pipelineAssets } from "@/lib/data";
+import type { DevelopmentStage } from "@/lib/types";
 
 export default function OverviewPage() {
+  const clinicalStages: DevelopmentStage[] = ["Phase 1", "Phase 2", "Phase 3", "Filed"];
   const clinicalStageAssets = pipelineAssets.filter((asset) =>
-    ["Phase 1", "Phase 2", "Phase 3", "Filed"].includes(asset.stage),
+    clinicalStages.includes(asset.stage),
   ).length;
   const lastUpdated = pipelineAssets
     .map((asset) => asset.lastChecked)
@@ -24,9 +26,9 @@ export default function OverviewPage() {
             GLP-1 Pipeline Board
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
-            Tracks GLP-1-related pipeline assets across companies, indications,
-            target classes, routes, dosing formats, intervals, and development
-            stages using neutral placeholder records.
+            Organizes GLP-1-related pipeline assets across companies,
+            indications, target classes, routes, dosing formats, intervals, and
+            development stages using a source-ready sample dataset.
           </p>
         </div>
         <Link
@@ -39,24 +41,24 @@ export default function OverviewPage() {
 
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
-          label="Tracked Companies"
+          label="Dataset Companies"
           value={companySummaries.length}
-          helper="Mock company profiles"
+          helper="Curated company summaries"
         />
         <StatCard
-          label="Tracked Assets"
+          label="Dataset Assets"
           value={pipelineAssets.length}
-          helper="Placeholder asset records"
+          helper="Source-ready asset records"
         />
         <StatCard
           label="Clinical-stage Assets"
           value={clinicalStageAssets}
-          helper="Phase 1 or later in mock data"
+          helper="Phase 1 or later in the sample dataset"
         />
         <StatCard
           label="Last Updated"
           value={lastUpdated ?? "—"}
-          helper="Latest mock source check"
+          helper="Latest sample source review date"
         />
       </section>
 
@@ -67,7 +69,7 @@ export default function OverviewPage() {
               Company Overview
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Neutral company summaries structured for future scraper output.
+              Company summaries structured around a source-ready schema.
             </p>
           </div>
         </div>
@@ -85,8 +87,9 @@ export default function OverviewPage() {
               Recent Source Checks
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Placeholder operational view only. Change intelligence and
-              automated scraping are intentionally excluded from this MVP.
+              Sample source review dates for dataset readiness. Change
+              intelligence and automated collection are not enabled in this
+              version.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3 lg:w-[30rem]">

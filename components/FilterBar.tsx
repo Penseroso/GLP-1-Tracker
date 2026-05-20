@@ -94,7 +94,7 @@ export function FilterBar({ filters, options, onChange }: FilterBarProps) {
           label="Stage"
           value={filters.stage}
           options={options.stages}
-          onChange={(stage) => update({ stage })}
+          onChange={(stage) => update({ stage: stage as AssetFilters["stage"] })}
         />
       </div>
     </section>

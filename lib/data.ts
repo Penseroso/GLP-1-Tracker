@@ -1,103 +1,69 @@
-import type { CompanySummary, PipelineAsset } from "./types";
+import generatedPipelineAssets from "@/data/generated/pipeline-assets.json";
+import type { CompanySummary, DevelopmentStage, PipelineAsset } from "./types";
 
-export const pipelineAssets: PipelineAsset[] = [
-  {
-    id: "asset-a",
-    company: "Company A",
-    assetName: "Asset A",
-    codeName: "CA-101",
-    targetClass: "GLP-1 receptor agonist",
-    mechanism: "Selective incretin receptor pathway modulation",
-    indication: ["Obesity", "Type 2 diabetes"],
-    route: "Subcutaneous",
-    dosageForm: "Prefilled pen",
-    dosingInterval: "Weekly",
-    stage: "Phase 2",
-    differentiator: "Designed for durable exposure and simplified administration",
-    description:
-      "Neutral mock asset record for evaluating pipeline search, filters, and detail workflows.",
-    sourceUrl: "https://example.com/source-a",
-    lastChecked: "2026-05-01",
-  },
-  {
-    id: "asset-b",
-    company: "Company B",
-    assetName: "Asset B",
-    codeName: "CB-204",
-    targetClass: "GLP-1/GIP dual agonist",
-    mechanism: "Dual incretin pathway agonism",
-    indication: ["Obesity"],
-    route: "Oral",
-    dosageForm: "Tablet",
-    dosingInterval: "Daily",
-    stage: "Phase 1",
-    differentiator: "Oral formulation concept for lifecycle optionality",
-    description:
-      "Placeholder record structured for future scraper-generated source data.",
-    sourceUrl: "https://example.com/source-b",
-    lastChecked: "2026-05-03",
-  },
-  {
-    id: "asset-c",
-    company: "Company C",
-    assetName: "Asset C",
-    targetClass: "GLP-1 receptor agonist",
-    mechanism: "Long-acting receptor agonism",
-    indication: ["Metabolic dysfunction-associated steatohepatitis"],
-    route: "Subcutaneous",
-    dosageForm: "Autoinjector",
-    dosingInterval: "Monthly",
-    stage: "Preclinical",
-    differentiator: "Extended-interval dosing hypothesis",
-    description:
-      "Mock early-stage program included to exercise stage and indication filtering.",
-    sourceUrl: "https://example.com/source-c",
-    lastChecked: "2026-05-06",
-  },
-  {
-    id: "asset-d",
-    company: "Company A",
-    assetName: "Asset D",
-    codeName: "CA-302",
-    targetClass: "GLP-1/glucagon dual agonist",
-    indication: ["Obesity", "Cardiometabolic risk"],
-    route: "Subcutaneous",
-    dosageForm: "Vial",
-    dosingInterval: "Weekly",
-    stage: "IND-enabling",
-    differentiator: "Balanced metabolic activity profile concept",
-    description:
-      "Neutral placeholder asset for testing multi-asset company summaries.",
-    lastChecked: "2026-05-08",
-  },
-];
+export const pipelineAssets = generatedPipelineAssets as PipelineAsset[];
 
-export const companySummaries: CompanySummary[] = [
-  {
-    id: "company-a",
-    name: "Company A",
-    focusAreas: ["Obesity", "Cardiometabolic risk"],
-    assetCount: 2,
-    mostAdvancedStage: "Phase 2",
-    sourceUrl: "https://example.com/company-a",
-    lastChecked: "2026-05-08",
-  },
-  {
-    id: "company-b",
-    name: "Company B",
-    focusAreas: ["Obesity", "Oral incretin formats"],
-    assetCount: 1,
-    mostAdvancedStage: "Phase 1",
-    sourceUrl: "https://example.com/company-b",
-    lastChecked: "2026-05-03",
-  },
-  {
-    id: "company-c",
-    name: "Company C",
-    focusAreas: ["Metabolic disease", "Long-acting injectables"],
-    assetCount: 1,
-    mostAdvancedStage: "Preclinical",
-    sourceUrl: "https://example.com/company-c",
-    lastChecked: "2026-05-06",
-  },
-];
+const stageRank: Record<DevelopmentStage, number> = {
+  Unknown: 0,
+  Discovery: 1,
+  Preclinical: 2,
+  "IND-enabling": 3,
+  "Phase 1": 4,
+  "Phase 2": 5,
+  "Phase 3": 6,
+  Filed: 7,
+  Approved: 8,
+  Discontinued: -1,
+};
+
+function slugifyCompanyName(name: string) {
+  return name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function uniqueSorted(values: string[]) {
+  return Array.from(new Set(values.filter(Boolean))).sort((a, b) =>
+    a.localeCompare(b),
+  );
+}
+
+function latestDate(values: Array<string | undefined>) {
+  return values.filter(Boolean).sort().at(-1);
+}
+
+function getMostAdvancedStage(assets: PipelineAsset[]) {
+  return assets.reduce<DevelopmentStage | undefined>((current, asset) => {
+    if (!current) {
+      return asset.stage;
+    }
+
+    return stageRank[asset.stage] > stageRank[current] ? asset.stage : current;
+  }, undefined);
+}
+
+function buildCompanySummaries(assets: PipelineAsset[]): CompanySummary[] {
+  const assetsByCompany = new Map<string, PipelineAsset[]>();
+
+  for (const asset of assets) {
+    const companyAssets = assetsByCompany.get(asset.company) ?? [];
+    companyAssets.push(asset);
+    assetsByCompany.set(asset.company, companyAssets);
+  }
+
+  return Array.from(assetsByCompany.entries())
+    .map(([company, companyAssets]) => ({
+      id: slugifyCompanyName(company),
+      name: company,
+      focusAreas: uniqueSorted(companyAssets.flatMap((asset) => asset.indication)),
+      assetCount: companyAssets.length,
+      mostAdvancedStage: getMostAdvancedStage(companyAssets),
+      sourceUrl: companyAssets.find((asset) => asset.sourceUrl)?.sourceUrl,
+      lastChecked: latestDate(companyAssets.map((asset) => asset.lastChecked)),
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export const companySummaries = buildCompanySummaries(pipelineAssets);

@@ -13,7 +13,7 @@ export function optionalText(value?: string) {
   return value?.trim() ? value : "—";
 }
 
-export function uniqueSorted(values: string[]) {
+export function uniqueSorted<T extends string>(values: T[]) {
   return Array.from(new Set(values.filter(Boolean))).sort((a, b) =>
     a.localeCompare(b),
   );
@@ -57,6 +57,7 @@ export function filterAssets(assets: PipelineAsset[], filters: AssetFilters) {
       asset.dosageForm,
       asset.dosingInterval,
       asset.stage,
+      asset.stageRaw,
       asset.differentiator,
       asset.description,
     ]

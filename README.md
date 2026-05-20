@@ -7,7 +7,7 @@ Initial frontend skeleton for a GLP-1-focused biopharma pipeline intelligence we
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Local typed mock data
+- Local typed sample dataset
 
 ## Scripts
 
@@ -23,6 +23,6 @@ npm run lint
 - Overview dashboard
 - Searchable and filterable asset register
 - Asset detail drawer
-- Neutral placeholder records only
+- Neutral sample records only
 
 No scraping, authentication, backend, real database, alerts, or real company/product data are implemented in this MVP.

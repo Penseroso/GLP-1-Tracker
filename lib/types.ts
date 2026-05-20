@@ -1,3 +1,15 @@
+export type DevelopmentStage =
+  | "Discovery"
+  | "Preclinical"
+  | "IND-enabling"
+  | "Phase 1"
+  | "Phase 2"
+  | "Phase 3"
+  | "Filed"
+  | "Approved"
+  | "Discontinued"
+  | "Unknown";
+
 export type PipelineAsset = {
   id: string;
   company: string;
@@ -9,7 +21,8 @@ export type PipelineAsset = {
   route?: string;
   dosageForm?: string;
   dosingInterval?: string;
-  stage: string;
+  stage: DevelopmentStage;
+  stageRaw?: string;
   differentiator?: string;
   description?: string;
   sourceUrl?: string;
@@ -21,16 +34,18 @@ export type CompanySummary = {
   name: string;
   focusAreas: string[];
   assetCount: number;
-  mostAdvancedStage?: string;
+  mostAdvancedStage?: DevelopmentStage;
   sourceUrl?: string;
   lastChecked?: string;
 };
+
+export type DevelopmentStageFilter = DevelopmentStage | "All";
 
 export type AssetFilters = {
   company: string;
   targetClass: string;
   indication: string;
   route: string;
-  stage: string;
+  stage: DevelopmentStageFilter;
   keyword: string;
 };
