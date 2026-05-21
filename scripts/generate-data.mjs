@@ -129,7 +129,7 @@ function rowToRecord(headers, row, rowNumber) {
   }
 
   const indication = rawRecord.indication
-    .split("|")
+    .split(";")
     .map((value) => value.trim())
     .filter(Boolean);
 

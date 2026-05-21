@@ -1,0 +1,76 @@
+[
+  {
+    "id": "asset-a",
+    "company": "Company A",
+    "assetName": "Asset A",
+    "targetClass": "GLP-1 receptor agonist",
+    "indication": [
+      "Obesity",
+      "Type 2 diabetes"
+    ],
+    "stage": "Phase 2",
+    "codeName": "CA-101",
+    "mechanism": "Selective incretin receptor pathway modulation",
+    "route": "Subcutaneous",
+    "dosageForm": "Prefilled pen",
+    "dosingInterval": "Weekly",
+    "differentiator": "Designed for durable exposure and simplified administration",
+    "description": "Neutral mock asset record for evaluating pipeline search, filters, and detail workflows.",
+    "sourceUrl": "https://example.com/source-a",
+    "lastChecked": "2026-05-01"
+  },
+  {
+    "id": "asset-b",
+    "company": "Company B",
+    "assetName": "Asset B",
+    "targetClass": "GLP-1/GIP dual agonist",
+    "indication": [
+      "Obesity"
+    ],
+    "stage": "Phase 1",
+    "codeName": "CB-204",
+    "mechanism": "Dual incretin pathway agonism",
+    "route": "Oral",
+    "dosageForm": "Tablet",
+    "dosingInterval": "Daily",
+    "differentiator": "Oral formulation concept for lifecycle optionality",
+    "description": "Placeholder record structured for future scraper-generated source data.",
+    "sourceUrl": "https://example.com/source-b",
+    "lastChecked": "2026-05-03"
+  },
+  {
+    "id": "asset-c",
+    "company": "Company C",
+    "assetName": "Asset C",
+    "targetClass": "GLP-1 receptor agonist",
+    "indication": [
+      "Metabolic dysfunction-associated steatohepatitis"
+    ],
+    "stage": "Preclinical",
+    "mechanism": "Long-acting receptor agonism",
+    "route": "Subcutaneous",
+    "dosageForm": "Autoinjector",
+    "dosingInterval": "Monthly",
+    "differentiator": "Extended-interval dosing hypothesis",
+    "description": "Mock early-stage program included to exercise stage and indication filtering.",
+    "sourceUrl": "https://example.com/source-c",
+    "lastChecked": "2026-05-06"
+  },
+  {
+    "id": "asset-d",
+    "company": "Company A",
+    "assetName": "Asset D",
+    "targetClass": "GLP-1/glucagon dual agonist",
+    "indication": [
+      "Obesity",
+      "Cardiometabolic risk"
+    ],
+    "stage": "IND-enabling",
+    "codeName": "CA-302",
+    "route": "Subcutaneous",
+    "dosageForm": "Vial",
+    "dosingInterval": "Weekly",
+    "differentiator": "Balanced metabolic activity profile concept",
+    "description": "Neutral placeholder asset for testing multi-asset company summaries."
+  }
+]

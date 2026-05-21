@@ -1,0 +1,14 @@
+{
+  "company": "QL Biopharm",
+  "companyId": "qlbiopharm",
+  "candidateFile": "data/candidates/qlbiopharm.pipeline.refresh.candidate.json",
+  "reviewedAt": "",
+  "reviewer": "",
+  "overallQaStatus": "Needs review",
+  "approvedAssetIds": [],
+  "rejectedAssetIds": [],
+  "assetReviews": [],
+  "notes": [
+    "Template only. No assets are approved automatically."
+  ]
+}
