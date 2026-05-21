@@ -55,6 +55,11 @@ export type RefreshCandidateFile = {
   unresolvedQuestions?: string[];
 };
 
+export type CandidateFileRecord = {
+  fileName: string;
+  candidate: RefreshCandidateFile;
+};
+
 export type ApproveRequest = {
   candidateFile: string;
   assetIds: string[];
