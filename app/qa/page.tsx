@@ -1,57 +1,12 @@
+"use client";
+
 import candidateFile from "@/data/candidates/qlbiopharm.pipeline.refresh.candidate.json";
+import type { ApproveResponse, RefreshCandidateFile } from "@/lib/qa-types";
 import type { ReactNode } from "react";
-
-type CandidateSummary = {
-  status?: string;
-  newAssets?: number;
-  updatedAssets?: number;
-  removedOrNoLongerListedAssets?: number;
-  unchangedAssets?: number;
-  notes?: string;
-};
-
-type AssetCandidate = {
-  assetName?: string;
-  codeName?: string;
-  targetClass?: string;
-  indication?: string[] | string;
-  route?: string[] | string;
-  dosageForm?: string;
-  dosingInterval?: string;
-  stage?: string;
-  stageRaw?: string;
-  confidence?: string;
-  qaStatus?: string;
-  sourceUrl?: string;
-  notes?: string;
-};
-
-type DiffRecord = {
-  type?: string;
-  assetId?: string;
-  field?: string;
-  approvedValue?: unknown;
-  candidateValue?: unknown;
-  confidence?: string;
-  qaStatus?: string;
-  notes?: string;
-};
-
-type RefreshCandidateFile = {
-  company?: string;
-  companyId?: string;
-  sourceUrl?: string;
-  checkedAt?: string;
-  refreshMode?: string;
-  comparisonBase?: string;
-  summary?: CandidateSummary;
-  assets?: AssetCandidate[];
-  diffs?: DiffRecord[];
-  extractionNotes?: string[];
-  unresolvedQuestions?: string[];
-};
+import { useMemo, useState } from "react";
 
 const candidate = candidateFile as RefreshCandidateFile;
+const candidateFileName = "qlbiopharm.pipeline.refresh.candidate.json";
 const assets = candidate.assets ?? [];
 const diffs = candidate.diffs ?? [];
 const isTemplate = candidate.refreshMode === "template";
@@ -109,6 +64,60 @@ function NotesList({ items }: { items?: string[] }) {
 }
 
 export default function QaPage() {
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [isApproving, setIsApproving] = useState(false);
+  const [approvalResult, setApprovalResult] = useState<ApproveResponse | null>(null);
+  const [approvalError, setApprovalError] = useState<string | null>(null);
+
+  const selectedSet = useMemo(() => new Set(selectedIds), [selectedIds]);
+  const approvalDisabled = selectedIds.length === 0 || assets.length === 0 || isApproving;
+
+  function toggleAsset(assetId: string) {
+    setApprovalResult(null);
+    setApprovalError(null);
+    setSelectedIds((current) =>
+      current.includes(assetId)
+        ? current.filter((id) => id !== assetId)
+        : [...current, assetId],
+    );
+  }
+
+  async function approveSelected() {
+    if (approvalDisabled) {
+      return;
+    }
+
+    setIsApproving(true);
+    setApprovalResult(null);
+    setApprovalError(null);
+
+    try {
+      const response = await fetch("/api/qa/approve", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          candidateFile: candidateFileName,
+          assetIds: selectedIds,
+        }),
+      });
+
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error ?? "Approval failed.");
+      }
+
+      setApprovalResult(payload as ApproveResponse);
+      setSelectedIds([]);
+    } catch (error) {
+      setApprovalError(error instanceof Error ? error.message : "Approval failed.");
+    } finally {
+      setIsApproving(false);
+    }
+  }
+
   return (
     <div className="space-y-6 pb-10">
       <section>
@@ -196,6 +205,8 @@ export default function QaPage() {
         <section className="rounded-lg border border-border bg-muted p-4">
           <p className="text-sm font-medium text-muted-foreground">
             This candidate file is a template state, not real research output.
+            Local approval writes to repository files during local development.
+            Production persistence will require GitHub API or a database later.
           </p>
         </section>
       ) : null}
@@ -210,16 +221,53 @@ export default function QaPage() {
       ) : null}
 
       <section className="rounded-lg border border-border bg-card shadow-soft">
-        <div className="border-b border-border px-5 py-4">
-          <h2 className="text-xl font-semibold tracking-tight text-card-foreground">
-            Asset Candidates
-          </h2>
+        <div className="flex flex-col gap-4 border-b border-border px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight text-card-foreground">
+              Asset Candidates
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {selectedIds.length} selected for local approval.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={approveSelected}
+            disabled={approvalDisabled}
+            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground"
+          >
+            {isApproving ? "Approving..." : "Approve selected"}
+          </button>
         </div>
+        {approvalResult ? (
+          <div className="border-b border-border bg-accent px-5 py-4 text-sm text-accent-foreground">
+            <p className="font-semibold">
+              Approved {approvalResult.approvedCount} selected assets:
+              {" "}
+              {approvalResult.insertedCount} inserted, {approvalResult.updatedCount} updated,
+              {" "}
+              {approvalResult.skippedCount} skipped.
+            </p>
+            {approvalResult.warnings.length > 0 ? (
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {approvalResult.warnings.map((warning) => (
+                  <li key={warning}>{warning}</li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        ) : null}
+        {approvalError ? (
+          <div className="border-b border-border bg-muted px-5 py-4 text-sm font-semibold text-foreground">
+            {approvalError}
+          </div>
+        ) : null}
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[84rem] border-collapse text-left text-sm">
+          <table className="w-full min-w-[88rem] border-collapse text-left text-sm">
             <thead className="bg-muted text-xs uppercase tracking-wide text-muted-foreground">
               <tr>
                 {[
+                  "Select",
                   "Asset",
                   "Code",
                   "Target",
@@ -244,6 +292,20 @@ export default function QaPage() {
               {assets.length > 0 ? (
                 assets.map((asset, index) => (
                   <tr key={`${asset.assetName ?? "asset"}-${index}`}>
+                    <td className="px-4 py-3">
+                      <input
+                        type="checkbox"
+                        aria-label={`Select ${asset.assetName ?? asset.id ?? "candidate asset"}`}
+                        checked={Boolean(asset.id && selectedSet.has(asset.id))}
+                        disabled={!asset.id}
+                        onChange={() => {
+                          if (asset.id) {
+                            toggleAsset(asset.id);
+                          }
+                        }}
+                        className="h-4 w-4 rounded border-border accent-[hsl(var(--primary))]"
+                      />
+                    </td>
                     <td className="px-4 py-3 font-semibold text-foreground">
                       {displayValue(asset.assetName)}
                     </td>
@@ -299,7 +361,7 @@ export default function QaPage() {
               ) : (
                 <tr>
                   <td
-                    colSpan={13}
+                    colSpan={14}
                     className="px-4 py-6 text-center text-muted-foreground"
                   >
                     No asset candidates in this file.
