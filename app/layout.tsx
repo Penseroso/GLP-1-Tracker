@@ -43,6 +43,12 @@ export default function RootLayout({
               >
                 Assets
               </Link>
+              <Link
+                href="/qa"
+                className="rounded-md px-3 py-2 transition hover:bg-muted hover:text-foreground"
+              >
+                QA
+              </Link>
             </nav>
           </header>
           <main className="flex-1">{children}</main>
