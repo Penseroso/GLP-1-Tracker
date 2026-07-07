@@ -8,10 +8,11 @@ indication, route, dosage form, dosing interval, development stage, and
 development status. It is designed as a frontend foundation for future
 source-based research and periodic updates.
 
-The current dataset is empty:
+The current operating dataset is empty:
 
-- `data/companies.json` contains `[]`
-- `data/pipeline-programs.json` contains `[]`
+- `data/generated/companies.json` contains `[]`
+- `data/generated/pipeline-programs.json` contains `[]`
+- `data/generated/regimens.json` contains `[]`
 
 ## Program Row Rule
 
@@ -26,9 +27,32 @@ For company research and automatic record updates, see the [`docs/research-workf
 
 ## Architecture
 
-- `data/companies.json` and `data/pipeline-programs.json` are the source data files.
+- `data/companies/<company-id>/company.json` and
+  `data/companies/<company-id>/pipeline-programs.json` are the human-edited
+  operating source-of-truth files. New company folders also include
+  `regimens.json`, using `[]` when no regimens are tracked.
+- `data/generated/companies.json` and
+  `data/generated/pipeline-programs.json` are generated aggregate files read by
+  the UI and data loader. `data/generated/regimens.json` is generated and
+  type-safe for future use but is not displayed by the current UI. Do not edit
+  generated files directly.
+- `data/stress-tests/<case-id>/` contains isolated diagnostic references from
+  stress-test pilots. These archives are excluded from production aggregate
+  generation and are not golden expected output.
+- `data/registries/development-stages.json` and
+  `data/registries/regulatory-states.json` define accepted development-stage
+  and regulatory-state vocabulary. `data/registries/company-relationship-roles.json`
+  defines program/regimen relationship roles.
+- Internal component and relationship references are company-folder-local.
+  Assets or companies owned by another company are stored with names and
+  `externalCompanyName`; generated aggregates do not perform cross-company
+  reference resolution.
+- Regimens with the same principal company, component set, and indication scope
+  may use `configurationKey` only when official evidence confirms a distinct
+  stable configuration.
 - `lib/programs/types.ts` defines the program data contract.
-- `lib/programs/data.ts` loads JSON data and resolves program `companyId` values to companies.
+- `lib/programs/data.ts` loads generated JSON data and resolves program
+  `companyId` values to companies.
 - `lib/programs/selectors.ts` owns derived-data calculations.
 - `lib/programs/filters.ts` owns program filtering.
 - `lib/format.ts` owns shared display formatting.
@@ -36,7 +60,9 @@ For company research and automatic record updates, see the [`docs/research-workf
 - Components form the presentation layer.
 
 ```text
-companies.json + pipeline-programs.json
+data/companies/<company-id>/*
+-> data:generate
+-> data/generated/*.json
 -> data.ts
 -> selectors / filters
 -> components
@@ -56,6 +82,12 @@ npm install
 npm run dev
 npm run build
 npm run lint
+npm run data:validate:registries
+npm run data:validate:companies
+npm run data:generate
+npm run data:validate:generated
+npm run data:validate:stress
+npm run data:validate:synthetic
 ```
 
 ## Scope

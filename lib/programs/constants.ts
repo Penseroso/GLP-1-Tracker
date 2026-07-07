@@ -1,14 +1,19 @@
-export const developmentStages = [
-  "Discovery",
-  "Preclinical",
-  "IND-enabling",
-  "Phase 1",
-  "Phase 2",
-  "Phase 3",
-  "Filed",
-  "Approved",
-  "Unknown",
-] as const;
+import developmentStageRegistry from "@/data/registries/development-stages.json";
+
+export type DevelopmentStageRegistryEntry = {
+  id: string;
+  label: string;
+  family: string;
+  aliases: string[];
+  sortRank: number;
+};
+
+const stageRegistry = developmentStageRegistry as DevelopmentStageRegistryEntry[];
+
+export const developmentStages = stageRegistry
+  .slice()
+  .sort((a, b) => a.sortRank - b.sortRank || a.label.localeCompare(b.label))
+  .map((stage) => stage.label);
 
 export const developmentStatuses = [
   "Planned",
@@ -18,25 +23,11 @@ export const developmentStatuses = [
   "Unknown",
 ] as const;
 
-export const developmentStageRank: Record<
-  (typeof developmentStages)[number],
-  number
-> = {
-  Unknown: 0,
-  Discovery: 1,
-  Preclinical: 2,
-  "IND-enabling": 3,
-  "Phase 1": 4,
-  "Phase 2": 5,
-  "Phase 3": 6,
-  Filed: 7,
-  Approved: 8,
-};
+export const developmentStageRank = Object.fromEntries(
+  stageRegistry.map((stage) => [stage.label, stage.sortRank]),
+) as Record<string, number>;
 
-export const clinicalDevelopmentStages = [
-  "Phase 1",
-  "Phase 2",
-  "Phase 3",
-  "Filed",
-  "Approved",
-] as const satisfies readonly (typeof developmentStages)[number][];
+export const clinicalDevelopmentStages = developmentStages.filter((stage) => {
+  const rank = developmentStageRank[stage] ?? 0;
+  return rank >= 40;
+});

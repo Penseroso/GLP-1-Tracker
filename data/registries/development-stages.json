@@ -1,0 +1,121 @@
+[
+  {
+    "id": "unknown",
+    "label": "Unknown",
+    "family": "Unknown",
+    "aliases": [],
+    "sortRank": 0
+  },
+  {
+    "id": "discovery",
+    "label": "Discovery",
+    "family": "Discovery",
+    "aliases": [],
+    "sortRank": 10
+  },
+  {
+    "id": "preclinical",
+    "label": "Preclinical",
+    "family": "Preclinical",
+    "aliases": [],
+    "sortRank": 20
+  },
+  {
+    "id": "ind-enabling",
+    "label": "IND-enabling",
+    "family": "Preclinical",
+    "aliases": [
+      "IND enabling"
+    ],
+    "sortRank": 30
+  },
+  {
+    "id": "phase-1",
+    "label": "Phase 1",
+    "family": "Phase 1",
+    "aliases": [
+      "Phase I"
+    ],
+    "sortRank": 40
+  },
+  {
+    "id": "phase-1a",
+    "label": "Phase 1a",
+    "family": "Phase 1",
+    "aliases": [
+      "Phase Ia"
+    ],
+    "sortRank": 41
+  },
+  {
+    "id": "phase-1b",
+    "label": "Phase 1b",
+    "family": "Phase 1",
+    "aliases": [
+      "Phase Ib"
+    ],
+    "sortRank": 42
+  },
+  {
+    "id": "phase-1-2",
+    "label": "Phase 1/2",
+    "family": "Phase 1/2",
+    "aliases": [
+      "Phase I/II",
+      "Phase 1/Phase 2"
+    ],
+    "sortRank": 45
+  },
+  {
+    "id": "phase-2",
+    "label": "Phase 2",
+    "family": "Phase 2",
+    "aliases": [
+      "Phase II"
+    ],
+    "sortRank": 50
+  },
+  {
+    "id": "phase-2a",
+    "label": "Phase 2a",
+    "family": "Phase 2",
+    "aliases": [
+      "Phase IIa"
+    ],
+    "sortRank": 51
+  },
+  {
+    "id": "phase-2b",
+    "label": "Phase 2b",
+    "family": "Phase 2",
+    "aliases": [
+      "Phase IIb"
+    ],
+    "sortRank": 52
+  },
+  {
+    "id": "phase-3",
+    "label": "Phase 3",
+    "family": "Phase 3",
+    "aliases": [
+      "Phase III"
+    ],
+    "sortRank": 60
+  },
+  {
+    "id": "filed",
+    "label": "Filed",
+    "family": "Regulatory review",
+    "aliases": [
+      "Submitted for approval"
+    ],
+    "sortRank": 70
+  },
+  {
+    "id": "approved",
+    "label": "Approved",
+    "family": "Approved",
+    "aliases": [],
+    "sortRank": 80
+  }
+]

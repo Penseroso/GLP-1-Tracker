@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ind-submitted",
+    "label": "IND submitted",
+    "aliases": [
+      "Investigational New Drug application submitted",
+      "IND application submitted"
+    ]
+  },
+  {
+    "id": "ind-cleared",
+    "label": "IND cleared",
+    "aliases": [
+      "IND clearance",
+      "Investigational New Drug clearance"
+    ]
+  },
+  {
+    "id": "cta-submitted",
+    "label": "CTA submitted",
+    "aliases": [
+      "Clinical Trial Application submitted"
+    ]
+  },
+  {
+    "id": "cta-approved",
+    "label": "CTA approved",
+    "aliases": [
+      "Clinical Trial Application approved"
+    ]
+  }
+]

@@ -18,9 +18,11 @@ updating its records in the same execution. Follow these steps:
    [`docs/research-workflow.md`](../docs/research-workflow.md). They are
    authoritative for scope, evidence, identity, row, and entry rules.
 
-2. **Inspect current data.** Read `data/companies.json` and
-   `data/pipeline-programs.json`, plus `lib/programs/types.ts` for the current
-   contract. Find any existing records for `<COMPANY_NAME>` and its programs.
+2. **Inspect current data.** Read company source folders under
+   `data/companies/`, generated aggregate files under `data/generated/`,
+   registries under `data/registries/`, and `lib/programs/types.ts` for the
+   current contract. Find any existing program and regimen records for
+   `<COMPANY_NAME>`.
 
 3. **Choose the approach automatically.** If the company is absent, perform an
    **initial company-wide investigation**; if the company or related records are
@@ -35,25 +37,54 @@ updating its records in the same execution. Follow these steps:
 
 5. **Apply the Module 5 rules.** Enforce the dataset scope, stage evidence
    thresholds, entity/asset/program identity, row-splitting rules, and
-   field-entry rules from the data protocol.
+   field-entry rules from the data protocol. Keep regulatory state separate
+   from development stage. Distinguish single asset programs, combination
+   products, regimens, external background therapies, and company relationships.
 
-6. **Update records in the same execution.** Automatically create or update a
+6. **Promote registry values when justified.** If official evidence requires a
+   development-stage, regulatory-state, or company-relationship-role value that
+   is semantically distinct from existing registry labels and aliases, add it to
+   the relevant registry in the same execution and commit. Do not approximate a
+   precise official value to an existing broader value. If officiality or
+   meaning is unclear, defer it.
+
+7. **Update records in the same execution.** Automatically create or update a
    company/program record only when it is in scope, identity and required
    non-null fields are confirmed, sources satisfy the field-specific source
    policy, it is representable by the current contract, and it is not a duplicate
    configuration.
 
-7. **Defer, do not block.** Report unsupported or structurally unresolved
+   Enter regimen records only when official regimen development intent,
+   component identity, and indication are sufficiently confirmed. Enter company
+   relationships only when role, company identity, and any stored rights or
+   territory are directly supported.
+
+   Treat internal references as company-source-local: use component `assetId`
+   only for assets in the current company folder, and use component or
+   relationship `companyId` only for the current folder's company. For another
+   company's asset, store `assetName` or `codeName` with `externalCompanyName`.
+   For another company relationship, store `externalCompanyName`. Do not search
+   another company folder for IDs, and do not promote external references to
+   internal references.
+
+   For regimens, the base identity is principal company, component set, and
+   indication scope. If multiple official configurations share that base
+   identity, store a stable `configurationKey` confirmed from official evidence
+   and base any regimen ID suffix on it. Do not use display name, stage/status,
+   dates, results, or arbitrary numbering. If the configuration discriminator is
+   needed but unconfirmed, defer the additional regimen.
+
+8. **Defer, do not block.** Report unsupported or structurally unresolved
    findings (ambiguous ownership, unrepresentable configurations, unconfirmed
    identity) without blocking the company's other valid updates.
 
-8. **Protect existing data.** Reuse stable company, asset, and program IDs;
+9. **Protect existing data.** Reuse stable company, asset, and program IDs;
    never regenerate them because a name, stage, or status changed. Update
    mutable stage/status in place. Do not delete confirmed values merely because
    current sources omit them, and do not overwrite strong evidence with weaker
    secondary reporting. Preserve useful historical sources; avoid duplicates.
 
-9. **Apply the provisional deterministic ID rules when creating new records.**
+10. **Apply the provisional deterministic ID rules when creating new records.**
    Search existing identities first and reuse IDs whenever applicable. For new
    IDs: `companyId` is a lowercase kebab-case slug of the canonical official
    company name; `assetId` is a lowercase kebab-case slug of the official
@@ -65,22 +96,24 @@ updating its records in the same execution. Follow these steps:
    identity information, defer the record rather than inventing an arbitrary
    ID. These rules are provisional pending the first pilot.
 
-10. **Apply the Company creation rule.** Create a new `Company` record only
+11. **Apply the Company creation rule.** Create a new `Company` record only
     when both the canonical company name and `headquartersCountry` are
     confirmed from reliable current sources. If `headquartersCountry` is
     unresolved, do not guess and do not create a partial Company record —
     defer and report the finding instead.
 
-11. **Use current dates for verification metadata.** On a value change, update
+12. **Use current dates for verification metadata.** On a value change, update
    `updatedAt` and `lastVerifiedAt` and add/update sources with `checkedAt`. On
    reverification without change, keep `updatedAt`, update `lastVerifiedAt`, and
    refresh source verification metadata. Use `YYYY-MM-DD`. Do not estimate
    unknown dates. Do not mark unchecked programs as reverified.
 
-12. **Validate.** Run `npm run lint`, `npm run build`, and `git diff --check`.
-    Confirm any data edits keep the JSON valid.
+13. **Regenerate and validate.** Run aggregate generation and validation
+    commands, then run `npm run lint`, `npm run build`, and `git diff --check`.
+    Confirm any data edits keep the JSON valid and generated aggregate files are
+    deterministic.
 
-13. **Report flexibly but completely.** In whatever form suits the company's
+14. **Report flexibly but completely.** In whatever form suits the company's
     complexity (tables, asset-by-asset sections, or concise lists — no fixed
     template), communicate: whether this was an initial investigation or a
     refresh; the relevant assets found; records created or changed; important
