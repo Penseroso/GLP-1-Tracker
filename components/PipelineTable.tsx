@@ -105,7 +105,7 @@ export function PipelineTable({ assets }: PipelineTableProps) {
                         Source
                       </a>
                     ) : (
-                      <span className="text-muted-foreground">—</span>
+                      <span className="text-muted-foreground">None</span>
                     )}
                   </td>
                 </tr>
@@ -116,7 +116,7 @@ export function PipelineTable({ assets }: PipelineTableProps) {
                     colSpan={9}
                     className="px-4 py-12 text-center text-sm text-muted-foreground"
                   >
-                    No assets match the selected filters.
+                    No assets to display.
                   </td>
                 </tr>
               ) : null}

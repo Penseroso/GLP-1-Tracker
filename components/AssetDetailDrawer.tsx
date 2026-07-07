@@ -79,7 +79,7 @@ export function AssetDetailDrawer({ asset, onClose }: AssetDetailDrawerProps) {
                     {asset.sourceUrl}
                   </a>
                 ) : (
-                  <span className="text-foreground">—</span>
+                  <span className="text-foreground">None</span>
                 )}
               </dd>
             </div>

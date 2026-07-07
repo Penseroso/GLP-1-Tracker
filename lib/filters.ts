@@ -10,7 +10,7 @@ export const emptyAssetFilters: AssetFilters = {
 };
 
 export function optionalText(value?: string) {
-  return value?.trim() ? value : "—";
+  return value?.trim() ? value : "None";
 }
 
 export function uniqueSorted<T extends string>(values: T[]) {

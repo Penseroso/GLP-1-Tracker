@@ -1,7 +1,7 @@
-import approvedPipelineAssets from "@/data/approved/pipeline-assets.json";
+import pipelineAssetData from "@/data/pipeline-assets.json";
 import type { CompanySummary, DevelopmentStage, PipelineAsset } from "./types";
 
-export const pipelineAssets = approvedPipelineAssets as PipelineAsset[];
+export const pipelineAssets = pipelineAssetData as PipelineAsset[];
 
 const stageRank: Record<DevelopmentStage, number> = {
   Unknown: 0,

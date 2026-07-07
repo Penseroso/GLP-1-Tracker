@@ -28,7 +28,7 @@ export default function OverviewPage() {
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
             Organizes GLP-1-related pipeline assets across companies,
             indications, target classes, routes, dosing formats, intervals, and
-            development stages using a source-ready sample dataset.
+            development stages. The app starts with an empty local dataset.
           </p>
         </div>
         <Link
@@ -43,22 +43,22 @@ export default function OverviewPage() {
         <StatCard
           label="Dataset Companies"
           value={companySummaries.length}
-          helper="Curated company summaries"
+          helper="Generated company summaries"
         />
         <StatCard
           label="Dataset Assets"
           value={pipelineAssets.length}
-          helper="Source-ready asset records"
+          helper="Local asset records"
         />
         <StatCard
           label="Clinical-stage Assets"
           value={clinicalStageAssets}
-          helper="Phase 1 or later in the sample dataset"
+          helper="Phase 1 or later"
         />
         <StatCard
           label="Last Updated"
-          value={lastUpdated ?? "—"}
-          helper="Latest sample source review date"
+          value={lastUpdated ?? "None"}
+          helper="Latest local record date"
         />
       </section>
 
@@ -69,44 +69,54 @@ export default function OverviewPage() {
               Company Overview
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Company summaries structured around a source-ready schema.
+              Company summaries are generated from local asset records.
             </p>
           </div>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {companySummaries.map((company) => (
-            <CompanyCard key={company.id} company={company} />
-          ))}
-        </div>
+        {companySummaries.length > 0 ? (
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {companySummaries.map((company) => (
+              <CompanyCard key={company.id} company={company} />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-lg border border-border bg-card p-6 text-sm text-muted-foreground shadow-soft">
+            No companies to display yet.
+          </div>
+        )}
       </section>
 
       <section className="rounded-lg border border-border bg-card p-5 shadow-soft">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="text-xl font-semibold tracking-tight text-card-foreground">
-              Recent Source Checks
+              Recent Updates
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Sample source review dates for dataset readiness. Change
-              intelligence and automated collection are not enabled in this
-              version.
+              Update dates appear here when local asset records include them.
             </p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-3 lg:w-[30rem]">
-            {companySummaries.map((company) => (
-              <div
-                key={company.id}
-                className="rounded-md border border-border bg-background px-3 py-2"
-              >
-                <p className="text-sm font-semibold text-foreground">
-                  {company.name}
-                </p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {company.lastChecked ?? "—"}
-                </p>
-              </div>
-            ))}
-          </div>
+          {companySummaries.length > 0 ? (
+            <div className="grid gap-3 sm:grid-cols-3 lg:w-[30rem]">
+              {companySummaries.map((company) => (
+                <div
+                  key={company.id}
+                  className="rounded-md border border-border bg-background px-3 py-2"
+                >
+                  <p className="text-sm font-semibold text-foreground">
+                    {company.name}
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {company.lastChecked ?? "None"}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-md border border-border bg-background px-3 py-2 text-sm text-muted-foreground">
+              No updates yet.
+            </div>
+          )}
         </div>
       </section>
     </div>
