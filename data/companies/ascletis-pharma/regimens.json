@@ -1,1 +1,39 @@
-[]
+[
+  {
+    "id": "ascletis-pharma-asc37-asc36-combination",
+    "companyId": "ascletis-pharma",
+    "name": "ASC37 plus ASC36 combination",
+    "components": [
+      {
+        "assetId": "asc37",
+        "role": "GLP-1R/GIPR/GCGR triple agonist"
+      },
+      {
+        "codeName": "ASC36",
+        "companyId": "ascletis-pharma",
+        "role": "amylin receptor agonist"
+      }
+    ],
+    "indications": [
+      "Obesity",
+      "Diabetes"
+    ],
+    "development": {
+      "stage": "Unknown",
+      "status": "Planned"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/ascletis-selects-a-next-generation-once-monthly-subcutaneously-administered-glp-1rgiprgcgr-triple-peptide-agonist-asc37-for-clinical-development-302665194.html",
+          "title": "Ascletis Selects a Next-Generation Once-Monthly Subcutaneously Administered GLP-1R/GIPR/GCGR Triple Peptide Agonist, ASC37, for Clinical Development",
+          "sourceType": "company press release",
+          "publishedAt": "2026-01-20",
+          "checkedAt": "2026-07-07"
+        }
+      ]
+    }
+  }
+]
