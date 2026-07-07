@@ -3,6 +3,7 @@ node_modules/
 
 # Next.js
 .next/
+next-env.d.ts
 out/
 
 # production
@@ -23,4 +24,3 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 .vscode/
-
