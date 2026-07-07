@@ -34,3 +34,4 @@ is invented here.**
 | Regulatory state display | Store registry-backed regulatory states separately from development stage. | Current UI does not display regulatory state. | provisionally usable | Yes |
 | Diagnostic stress-test archives | Keep diagnostic references outside production aggregate generation. | Archives are not golden expected output. | provisionally usable | No |
 | Regimen display | Store regimens separately from pipeline programs. | Current UI does not display regimens. | provisionally usable | Yes |
+| Cross-company entity resolution | Use external names for other companies and their assets. | No global company/asset graph, alias registry, or automatic linking. | open until needed | Yes |

@@ -175,6 +175,12 @@ Rules by field.
 - **Company relationships** — program/regimen-level company roles, territories,
   rights, and dates only as published.
 
+Company source folders are independent validation units. Use component
+`assetId`, component `companyId`, and relationship `companyId` only for entities
+inside the current company folder. For another company's asset, use `assetName`
+or `codeName` plus `externalCompanyName`. For another company relationship, use
+`externalCompanyName`. Do not look up or guess another company folder's IDs.
+
 General requirements:
 
 - **Preserve official spelling.**
@@ -296,6 +302,8 @@ Before entering or updating a record:
 - [ ] Distinguish single asset, combination product, regimen, and external
   background therapy.
 - [ ] Confirm component identities and company relationships without inference.
+- [ ] Keep internal references company-folder-local and represent other
+  companies/assets as external references.
 - [ ] Check registry labels and aliases before adding new vocabulary.
 - [ ] Retrieve appropriate **primary or direct official sources** for each claim.
 - [ ] Record **publication and access dates**.

@@ -43,6 +43,10 @@ For company research and automatic record updates, see the [`docs/research-workf
   `data/registries/regulatory-states.json` define accepted development-stage
   and regulatory-state vocabulary. `data/registries/company-relationship-roles.json`
   defines program/regimen relationship roles.
+- Internal component and relationship references are company-folder-local.
+  Assets or companies owned by another company are stored with names and
+  `externalCompanyName`; generated aggregates do not perform cross-company
+  reference resolution.
 - `lib/programs/types.ts` defines the program data contract.
 - `lib/programs/data.ts` loads generated JSON data and resolves program
   `companyId` values to companies.

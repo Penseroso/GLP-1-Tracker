@@ -119,6 +119,16 @@
         "sourceUrls": [
           "https://example.com/fixture-license"
         ]
+      },
+      {
+        "externalCompanyName": "Fixture B",
+        "role": "licensee",
+        "territories": [
+          "China"
+        ],
+        "rights": [
+          "commercialization"
+        ]
       }
     ],
     "metadata": {

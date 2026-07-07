@@ -59,6 +59,14 @@ updating its records in the same execution. Follow these steps:
    relationships only when role, company identity, and any stored rights or
    territory are directly supported.
 
+   Treat internal references as company-source-local: use component `assetId`
+   only for assets in the current company folder, and use component or
+   relationship `companyId` only for the current folder's company. For another
+   company's asset, store `assetName` or `codeName` with `externalCompanyName`.
+   For another company relationship, store `externalCompanyName`. Do not search
+   another company folder for IDs, and do not promote external references to
+   internal references.
+
 8. **Defer, do not block.** Report unsupported or structurally unresolved
    findings (ambiguous ownership, unrepresentable configurations, unconfirmed
    identity) without blocking the company's other valid updates.

@@ -99,6 +99,8 @@ Research and record update occur in the **same execution**. There is no separate
   precision.
 - unconfirmed component identity, regimen identity, company role, rights, or
   territory.
+- another company's asset or company represented as an internal `assetId` or
+  `companyId`.
 
 Unresolved findings must be **reported but must not block** valid records from
 the same company. One unresolvable asset does not prevent entering the
@@ -202,6 +204,19 @@ Do not infer component identity, FDC versus regimen status, principal-company
 adjacent roles, rights, territory, or external asset developer. Store confirmed
 company relationships at the program or regimen level while preserving the
 principal `companyId`.
+
+Internal component `assetId` and internal relationship/component `companyId`
+references are local to the company source folder being edited. Use
+`externalCompanyName` with `assetName` or `codeName` for another company's
+asset. Use `externalCompanyName` for another company relationship. Do not link
+to another company folder or convert external names into internal IDs during
+research or generation.
+
+This trade-off keeps company research independent, allows external assets
+outside tracker scope, and keeps validation/generation simple. The limitation is
+that the same external asset may appear by name in multiple company records, and
+aliases or renames are not unified until a future cross-company entity
+resolution module exists.
 
 ## 10. Result reporting
 

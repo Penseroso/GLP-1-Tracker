@@ -327,13 +327,13 @@ function validateComponent(component, context, dataset) {
   );
   assert(
     !(component.companyId && component.externalCompanyName),
-    `${context}: use either companyId or externalCompanyName, not both`,
+    `${context}: companyId and externalCompanyName cannot both be used. Use companyId only for the current company source folder; use externalCompanyName for another company.`,
   );
 
   if (component.assetId) {
     assert(
       dataset.assetIds.has(component.assetId),
-      `${context}: internal assetId ${component.assetId} does not exist`,
+      `${context}: component assetId "${component.assetId}" does not exist in the current company source folder. Use assetName or codeName with externalCompanyName for an asset owned by another company.`,
     );
     assert(
       component.assetName === undefined && component.codeName === undefined,
@@ -349,7 +349,7 @@ function validateComponent(component, context, dataset) {
   if (component.companyId) {
     assert(
       dataset.companyIds.has(component.companyId),
-      `${context}: internal companyId ${component.companyId} does not exist`,
+      `${context}: companyId "${component.companyId}" is not valid in the current company source folder. Use externalCompanyName for another company.`,
     );
   }
 }
@@ -406,13 +406,13 @@ function validateRelationships(relationships, context, registries, dataset) {
     );
     assert(
       !(relationship.companyId && relationship.externalCompanyName),
-      `${relationshipContext}: use either companyId or externalCompanyName, not both`,
+      `${relationshipContext}: companyId and externalCompanyName cannot both be used. Use companyId only for the current company source folder; use externalCompanyName for another company.`,
     );
 
     if (relationship.companyId) {
       assert(
         dataset.companyIds.has(relationship.companyId),
-        `${relationshipContext}: internal companyId ${relationship.companyId} does not exist`,
+        `${relationshipContext}: companyId "${relationship.companyId}" is not valid in the current company source folder. Use externalCompanyName for another company.`,
       );
     }
 
@@ -434,10 +434,19 @@ function validateRelationships(relationships, context, registries, dataset) {
   }
 }
 
-function createDatasetContext(companies, programs) {
+function createDatasetContext(companies, programs, ownerCompanyId) {
+  const ownerCompanyIds = ownerCompanyId
+    ? [ownerCompanyId]
+    : companies.map((company) => company.id);
+  const ownerCompanyIdSet = new Set(ownerCompanyIds);
+
   return {
-    companyIds: new Set(companies.map((company) => company.id)),
-    assetIds: new Set(programs.map((program) => program.assetId)),
+    companyIds: ownerCompanyIdSet,
+    assetIds: new Set(
+      programs
+        .filter((program) => ownerCompanyIdSet.has(program.companyId))
+        .map((program) => program.assetId),
+    ),
   };
 }
 
@@ -498,7 +507,14 @@ function validateRegimen(regimen, context, registries, dataset) {
   validateMetadata(regimen.metadata, context);
 }
 
-function validateDataset(companies, programs, regimens, context, registries) {
+function validateDataset(
+  companies,
+  programs,
+  regimens,
+  context,
+  registries,
+  options = {},
+) {
   assert(Array.isArray(companies), `${context}: companies must be an array`);
   assert(Array.isArray(programs), `${context}: programs must be an array`);
   assert(Array.isArray(regimens), `${context}: regimens must be an array`);
@@ -517,9 +533,11 @@ function validateDataset(companies, programs, regimens, context, registries) {
     companyIds.add(company.id);
   }
 
-  const dataset = createDatasetContext(companies, programs);
-
   for (const program of programs) {
+    const ownerCompanyId = options.companyLocalReferences
+      ? program.companyId
+      : undefined;
+    const dataset = createDatasetContext(companies, programs, ownerCompanyId);
     validateProgram(program, `${context}: ${program.id ?? "unknown-program"}`, registries, dataset);
     assert(!programIds.has(program.id), `${context}: duplicate program id ${program.id}`);
     assert(companyIds.has(program.companyId), `${context}: missing companyId reference ${program.companyId}`);
@@ -567,6 +585,10 @@ function validateDataset(companies, programs, regimens, context, registries) {
   }
 
   for (const regimen of regimens) {
+    const ownerCompanyId = options.companyLocalReferences
+      ? regimen.companyId
+      : undefined;
+    const dataset = createDatasetContext(companies, programs, ownerCompanyId);
     validateRegimen(regimen, `${context}: ${regimen.id ?? "unknown-regimen"}`, registries, dataset);
     assert(!regimenIds.has(regimen.id), `${context}: duplicate regimen id ${regimen.id}`);
     regimenIds.add(regimen.id);
@@ -620,7 +642,9 @@ function validateCompanySources() {
 
   for (const folder of folders) {
     const { company, programs, regimens } = readCompanyFolder(companySourceDir, folder, true);
-    validateDataset([company], programs, regimens, `data/companies/${folder}`, registries);
+    validateDataset([company], programs, regimens, `data/companies/${folder}`, registries, {
+      companyLocalReferences: true,
+    });
   }
 
   console.log(`Validated ${folders.length} company source folder(s).`);
@@ -666,13 +690,17 @@ function generateAggregates() {
       programs: companyPrograms,
       regimens: companyRegimens,
     } = readCompanyFolder(companySourceDir, folder, true);
-    validateDataset([company], companyPrograms, companyRegimens, `data/companies/${folder}`, registries);
+    validateDataset([company], companyPrograms, companyRegimens, `data/companies/${folder}`, registries, {
+      companyLocalReferences: true,
+    });
     companies.push(company);
     programs.push(...companyPrograms);
     regimens.push(...companyRegimens);
   }
 
-  validateDataset(companies, programs, regimens, "generated aggregate", registries);
+  validateDataset(companies, programs, regimens, "generated aggregate", registries, {
+    companyLocalReferences: true,
+  });
   companies.sort((a, b) => a.id.localeCompare(b.id));
   programs.sort((a, b) => a.companyId.localeCompare(b.companyId) || a.id.localeCompare(b.id));
   regimens.sort((a, b) => a.companyId.localeCompare(b.companyId) || a.id.localeCompare(b.id));
@@ -692,7 +720,9 @@ function validateGenerated() {
   const programs = readJson(path.join(generatedDir, "pipeline-programs.json"));
   const regimens = readJson(path.join(generatedDir, "regimens.json"));
 
-  validateDataset(companies, programs, regimens, "data/generated", registries);
+  validateDataset(companies, programs, regimens, "data/generated", registries, {
+    companyLocalReferences: true,
+  });
   console.log(
     `Validated generated aggregate with ${companies.length} company record(s), ${programs.length} program record(s), and ${regimens.length} regimen record(s).`,
   );
@@ -708,13 +738,16 @@ function validateSyntheticFixtures() {
     valid.regimens,
     "data/validation-fixtures/synthetic/valid/fixture-co",
     registries,
+    { companyLocalReferences: true },
   );
 
   const invalidExpectations = [
     ["duplicate-combination-order", /duplicate combination identity/],
     ["duplicate-regimen-order", /duplicate regimen identity/],
     ["unregistered-relationship-role", /not in the registry/],
-    ["bad-internal-reference", /does not exist/],
+    ["bad-internal-reference", /Use assetName or codeName with externalCompanyName/],
+    ["foreign-company-id", /Use externalCompanyName for another company/],
+    ["mixed-company-identity", /companyId and externalCompanyName cannot both be used/],
   ];
 
   for (const [folder, expectedError] of invalidExpectations) {
@@ -727,6 +760,7 @@ function validateSyntheticFixtures() {
         fixture.regimens,
         `data/validation-fixtures/synthetic/invalid/${folder}`,
         registries,
+        { companyLocalReferences: true },
       );
     } catch (error) {
       failed = true;

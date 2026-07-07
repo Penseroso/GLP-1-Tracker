@@ -256,3 +256,20 @@ when decided, recorded as a new appended ADR.
 - **Consequences:** Stress validation checks archive integrity and production
   exclusion, not semantic completeness. A future fresh Ascletis investigation
   and explicit review is required before any golden fixture promotion.
+
+## ADR-0022 — Internal references are company-source-local
+
+- **Date:** 2026-07-07
+- **Status:** Accepted (fixed now)
+- **Decision:** Component `assetId`, component `companyId`, and relationship
+  `companyId` are internal references only within the current
+  `data/companies/<company-id>/` source folder. Assets and companies owned by
+  another company are represented with `assetName` or `codeName` plus
+  `externalCompanyName`, or with relationship `externalCompanyName`.
+- **Rationale:** Company folders are independent research and validation units.
+  Data entry for one company should not depend on another company's folder,
+  asset coverage, aliases, or load order.
+- **Consequences:** The same external asset may be repeated by name in multiple
+  company records. Generator and validator do not perform cross-company entity
+  resolution, external-to-internal conversion, alias matching, or automatic
+  deduplication. A future cross-company resolution module can revisit this.

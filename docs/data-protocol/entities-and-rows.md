@@ -15,6 +15,10 @@ status are mutable state and are never part of program identity or stable IDs**.
   regional rights holder, or every co-development partner.
 - Additional program/regimen-level company roles, rights, and territories belong
   in `relationships`, not in a company-global record.
+- Internal `companyId` references inside components or relationships are local
+  to the current company source folder and should normally refer to that
+  folder's principal company. Other companies are represented with
+  `externalCompanyName`.
 
 ## Asset
 
@@ -26,6 +30,9 @@ status are mutable state and are never part of program identity or stable IDs**.
 - Fixed-dose combinations and co-formulations keep one stable combination
   `assetId` and may store component references. Component order does not affect
   identity.
+- Component `assetId` references are local to the current company source folder.
+  Use `assetName` or `codeName` with `externalCompanyName` for another company's
+  asset, even when that company or asset exists elsewhere in the tracker.
 - Salt, prodrug, and conjugate identity rules remain **provisional** and must be
   documented as edge cases (see `edge-cases.md`).
 
@@ -38,6 +45,8 @@ status are mutable state and are never part of program identity or stable IDs**.
 - Regimen identity uses principal company, component set, indication or official
   regimen identity, and never development stage or status.
 - Component order does not create a distinct regimen.
+- Regimen components follow the same local/external reference rule as
+  combination components.
 
 ## Program identity
 

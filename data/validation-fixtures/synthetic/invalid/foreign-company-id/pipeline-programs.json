@@ -1,0 +1,36 @@
+[
+  {
+    "id": "fixture-a-asset-oral-tablet",
+    "assetId": "fixture-a-asset",
+    "companyId": "fixture-a",
+    "assetName": "Fixture A Asset",
+    "codeName": null,
+    "technical": {
+      "mechanism": null,
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablet",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Preclinical",
+      "status": "Active"
+    },
+    "relationships": [
+      {
+        "companyId": "fixture-b",
+        "role": "licensee"
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": []
+    }
+  }
+]
