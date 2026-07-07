@@ -33,7 +33,13 @@ updating its records in the same execution. Follow these steps:
    pipeline, build an in-scope asset inventory, run asset/code-name reverse
    searches, and verify each included asset independently against registry,
    partner, rights, and official sources. Do not stop at the first obvious
-   asset.
+   asset. Review each official source completely for every distinct development
+   entity and configuration it discloses — other assets, additional routes or
+   formulations, combination products, regimens, and relationships — not only
+   the record that led you to the source. Every named program, formulation,
+   combination product, regimen, or relationship you surface must finish the run
+   classified as entered/updated, deferred with a specific reason, or excluded
+   with a scope or evidence reason; nothing surfaced is silently dropped.
 
 5. **Apply the Module 5 rules.** Enforce the dataset scope, stage evidence
    thresholds, entity/asset/program identity, row-splitting rules, and
@@ -66,6 +72,11 @@ updating its records in the same execution. Follow these steps:
    For another company relationship, store `externalCompanyName`. Do not search
    another company folder for IDs, and do not promote external references to
    internal references.
+
+   When official evidence confirms future regimen development intent but
+   regimen-specific development has not started or its stage is not disclosed,
+   use `status: "Planned"` and `stage: "Unknown"` where appropriate, and do not
+   inherit stage, status, or administration details from the component programs.
 
    For regimens, the base identity is principal company, component set, and
    indication scope. If multiple official configurations share that base
@@ -106,7 +117,9 @@ updating its records in the same execution. Follow these steps:
    `updatedAt` and `lastVerifiedAt` and add/update sources with `checkedAt`. On
    reverification without change, keep `updatedAt`, update `lastVerifiedAt`, and
    refresh source verification metadata. Use `YYYY-MM-DD`. Do not estimate
-   unknown dates. Do not mark unchecked programs as reverified.
+   unknown dates. Do not mark unchecked programs as reverified. Give each source
+   the most precise verified `publishedAt` available, and set `sourceType` to
+   describe the artifact actually at the stored URL, not the claim it supports.
 
 13. **Regenerate and validate.** Run aggregate generation and validation
     commands, then run `npm run lint`, `npm run build`, and `git diff --check`.

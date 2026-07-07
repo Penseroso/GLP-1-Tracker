@@ -228,6 +228,10 @@ Additional rules:
 - **Delay alone** does **not** prove `On hold`.
 - **Explicit evidence** should support `On hold` and `Discontinued`.
 - A confirmed program with unresolved current status may use `Unknown`.
+- When official evidence confirms **future regimen development intent** but
+  regimen-specific development has not started or its stage is not disclosed, use
+  `status: "Planned"` with `stage: "Unknown"` where appropriate. Do **not**
+  inherit stage, status, or administration details from the component programs.
 
 ## Date semantics
 
@@ -255,6 +259,13 @@ months or days, and do **not** fill unknown values with `01`.
 The current contract supports **record-level provenance only**
 (`metadata.sources` on the program record). There is no field-level source
 attribution.
+
+Each stored source must use the **most precise verified publication date**
+available (`YYYY-MM-DD` when the exact date is known; a partial `YYYY-MM` or
+`YYYY` only when finer precision is not verifiable), and its `sourceType` must
+**describe the artifact actually at the stored URL** (for example, `press
+release`, `trial registry`, `scientific presentation`), not the fact it happens
+to support.
 
 Agents should store the most authoritative minimum sufficient set of sources.
 A single authoritative source may be enough when it confirms all core fields.
@@ -314,7 +325,13 @@ Before entering or updating a record:
   discriminator is needed and confirmed.
 - [ ] Check registry labels and aliases before adding new vocabulary.
 - [ ] Retrieve appropriate **primary or direct official sources** for each claim.
-- [ ] Record **publication and access dates**.
+- [ ] Review **each source completely** for every distinct entity and
+  configuration it discloses, not only the record that led to it.
+- [ ] Record **publication and access dates** at the most precise verified
+  precision, and set `sourceType` to describe the artifact at the URL.
 - [ ] Check for **unsupported inference**.
 - [ ] Check for a **duplicate program configuration**.
+- [ ] Confirm every surfaced entity is finally **entered/updated, deferred with
+  a specific reason, or excluded with a scope or evidence reason** — none
+  silently dropped.
 - [ ] Log any **structural ambiguity** as an edge case.
