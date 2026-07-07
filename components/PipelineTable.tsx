@@ -9,11 +9,14 @@ import {
 import {
   emptyProgramFilters,
   filterPrograms,
-  getFilterOptions,
-  joinValues,
-  optionalText,
-} from "@/lib/filters";
-import type { PipelineProgram, ProgramFilters } from "@/lib/types";
+} from "@/lib/programs/filters";
+import { getProgramFilterOptions } from "@/lib/programs/selectors";
+import type { PipelineProgram, ProgramFilters } from "@/lib/programs/types";
+import {
+  formatDevelopment,
+  formatInlineValues,
+  formatNullableValue,
+} from "@/lib/format";
 import { FilterBar } from "./FilterBar";
 import { ProgramDetailDrawer } from "./ProgramDetailDrawer";
 
@@ -33,25 +36,25 @@ function getProgramCellValue(
 ) {
   switch (columnId) {
     case "company":
-      return optionalText(program.company?.name);
+      return formatNullableValue(program.company?.name);
     case "asset":
       return getAssetLabel(program);
     case "route":
-      return optionalText(program.administration.route);
+      return formatNullableValue(program.administration.route);
     case "dosageForm":
-      return optionalText(program.administration.dosageForm);
+      return formatNullableValue(program.administration.dosageForm);
     case "dosingInterval":
-      return optionalText(program.administration.dosingInterval);
+      return formatNullableValue(program.administration.dosingInterval);
     case "indications":
-      return joinValues(program.indications);
+      return formatInlineValues(program.indications);
     case "development":
-      return `${program.development.stage} \u00b7 ${program.development.status}`;
+      return formatDevelopment(program.development);
     case "mechanism":
-      return optionalText(program.technical.mechanism);
+      return formatNullableValue(program.technical.mechanism);
     case "platform":
-      return optionalText(program.technical.platform);
+      return formatNullableValue(program.technical.platform);
     case "companyCountry":
-      return optionalText(program.company?.headquartersCountry);
+      return formatNullableValue(program.company?.headquartersCountry);
   }
 }
 
@@ -61,7 +64,7 @@ export function PipelineTable({ programs }: PipelineTableProps) {
     null,
   );
 
-  const options = useMemo(() => getFilterOptions(programs), [programs]);
+  const options = useMemo(() => getProgramFilterOptions(programs), [programs]);
   const filteredPrograms = useMemo(
     () => filterPrograms(programs, filters),
     [programs, filters],

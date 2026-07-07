@@ -1,5 +1,5 @@
-import { optionalText } from "@/lib/filters";
-import type { CompanySummary } from "@/lib/types";
+import { formatNullableValue } from "@/lib/format";
+import type { CompanySummary } from "@/lib/programs/types";
 
 type CompanyCardProps = {
   company: CompanySummary;
@@ -19,7 +19,7 @@ export function CompanyCard({ company }: CompanyCardProps) {
           </p>
         </div>
         <span className="rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
-          {optionalText(company.mostAdvancedStage)}
+          {formatNullableValue(company.mostAdvancedStage)}
         </span>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
@@ -33,7 +33,7 @@ export function CompanyCard({ company }: CompanyCardProps) {
         ))}
       </div>
       <div className="mt-5 border-t border-border pt-4 text-xs text-muted-foreground">
-        Updated {optionalText(company.lastUpdated)}
+        Updated {formatNullableValue(company.lastUpdated)}
       </div>
     </article>
   );

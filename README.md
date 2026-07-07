@@ -20,6 +20,24 @@ The current dataset is empty:
 - Multiple indications may share one record only when their stage and status are the same.
 - Records for the same asset share the same `assetId` and use different program `id` values.
 
+## Architecture
+
+- `data/companies.json` and `data/pipeline-programs.json` are the source data files.
+- `lib/programs/types.ts` defines the program data contract.
+- `lib/programs/data.ts` loads JSON data and resolves program `companyId` values to companies.
+- `lib/programs/selectors.ts` owns derived-data calculations.
+- `lib/programs/filters.ts` owns program filtering.
+- `lib/format.ts` owns shared display formatting.
+- `config/program-table.ts` owns table display configuration.
+- Components form the presentation layer.
+
+```text
+companies.json + pipeline-programs.json
+-> data.ts
+-> selectors / filters
+-> components
+```
+
 ## Stack
 
 - Next.js App Router

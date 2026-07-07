@@ -1,5 +1,5 @@
 import { PipelineTable } from "@/components/PipelineTable";
-import { pipelinePrograms } from "@/lib/data";
+import { pipelinePrograms } from "@/lib/programs/data";
 
 export default function AssetsPage() {
   return (

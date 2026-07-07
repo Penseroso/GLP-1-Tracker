@@ -90,3 +90,11 @@ export type ProgramFilters = {
   status: DevelopmentStatusFilter;
   keyword: string;
 };
+
+export type ProgramFilterOptions = {
+  companies: string[];
+  indications: string[];
+  routes: string[];
+  stages: string[];
+  statuses: string[];
+};

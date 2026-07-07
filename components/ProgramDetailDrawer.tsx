@@ -1,7 +1,7 @@
 "use client";
 
-import { joinValues, optionalText } from "@/lib/filters";
-import type { PipelineProgram } from "@/lib/types";
+import { formatInlineValues, formatNullableValue } from "@/lib/format";
+import type { PipelineProgram } from "@/lib/programs/types";
 
 type ProgramDetailDrawerProps = {
   program: PipelineProgram | null;
@@ -14,7 +14,7 @@ function DetailRow({ label, value }: { label: string; value?: string | null }) {
       <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
         {label}
       </dt>
-      <dd className="text-sm text-foreground">{optionalText(value)}</dd>
+      <dd className="text-sm text-foreground">{formatNullableValue(value)}</dd>
     </div>
   );
 }
@@ -39,13 +39,13 @@ export function ProgramDetailDrawer({
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-medium text-primary">
-                {optionalText(program.company?.name)}
+                {formatNullableValue(program.company?.name)}
               </p>
               <h2 className="mt-1 text-2xl font-semibold tracking-tight text-card-foreground">
                 {program.assetName}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Code {optionalText(program.codeName)}
+                Code {formatNullableValue(program.codeName)}
               </p>
             </div>
             <button
@@ -83,7 +83,7 @@ export function ProgramDetailDrawer({
             />
             <DetailRow
               label="Indications"
-              value={joinValues(program.indications)}
+              value={formatInlineValues(program.indications)}
             />
             <DetailRow label="Stage" value={program.development.stage} />
             <DetailRow label="Status" value={program.development.status} />

@@ -1,18 +1,10 @@
 "use client";
 
-import type { ProgramFilters } from "@/lib/types";
-
-type FilterOptions = {
-  companies: string[];
-  indications: string[];
-  routes: string[];
-  stages: string[];
-  statuses: string[];
-};
+import type { ProgramFilterOptions, ProgramFilters } from "@/lib/programs/types";
 
 type FilterBarProps = {
   filters: ProgramFilters;
-  options: FilterOptions;
+  options: ProgramFilterOptions;
   onChange: (filters: ProgramFilters) => void;
 };
 

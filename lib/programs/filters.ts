@@ -9,32 +9,6 @@ export const emptyProgramFilters: ProgramFilters = {
   keyword: "",
 };
 
-export function optionalText(value?: string | null) {
-  return value?.trim() ? value : "N/A";
-}
-
-export function joinValues(values: string[]) {
-  return values.length > 0 ? values.join(" / ") : "N/A";
-}
-
-export function uniqueSorted<T extends string>(values: T[]) {
-  return Array.from(new Set(values.filter(Boolean))).sort((a, b) =>
-    a.localeCompare(b),
-  );
-}
-
-export function getFilterOptions(programs: PipelineProgram[]) {
-  return {
-    companies: uniqueSorted(
-      programs.map((program) => program.company?.name ?? ""),
-    ),
-    indications: uniqueSorted(programs.flatMap((program) => program.indications)),
-    routes: uniqueSorted(programs.map((program) => program.administration.route)),
-    stages: uniqueSorted(programs.map((program) => program.development.stage)),
-    statuses: uniqueSorted(programs.map((program) => program.development.status)),
-  };
-}
-
 export function filterPrograms(
   programs: PipelineProgram[],
   filters: ProgramFilters,

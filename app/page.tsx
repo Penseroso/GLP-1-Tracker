@@ -1,19 +1,17 @@
 import Link from "next/link";
 import { CompanyCard } from "@/components/CompanyCard";
 import { StatCard } from "@/components/StatCard";
-import { companySummaries, pipelinePrograms } from "@/lib/data";
-import type { DevelopmentStage } from "@/lib/types";
+import { companies, pipelinePrograms } from "@/lib/programs/data";
+import {
+  getClinicalStageProgramCount,
+  getCompanySummaries,
+  getLatestUpdateDate,
+} from "@/lib/programs/selectors";
 
 export default function OverviewPage() {
-  const clinicalStages: DevelopmentStage[] = ["Phase 1", "Phase 2", "Phase 3", "Filed"];
-  const clinicalStagePrograms = pipelinePrograms.filter((program) =>
-    clinicalStages.includes(program.development.stage),
-  ).length;
-  const lastUpdated = pipelinePrograms
-    .map((program) => program.metadata.updatedAt)
-    .filter(Boolean)
-    .sort()
-    .at(-1);
+  const companySummaries = getCompanySummaries(companies, pipelinePrograms);
+  const clinicalStagePrograms = getClinicalStageProgramCount(pipelinePrograms);
+  const lastUpdated = getLatestUpdateDate(pipelinePrograms);
 
   return (
     <div className="space-y-8 pb-10">
