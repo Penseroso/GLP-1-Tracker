@@ -8,7 +8,7 @@ type ProgramDetailDrawerProps = {
   onClose: () => void;
 };
 
-function DetailRow({ label, value }: { label: string; value?: string }) {
+function DetailRow({ label, value }: { label: string; value?: string | null }) {
   return (
     <div className="grid gap-1 border-b border-border py-3 sm:grid-cols-[10rem_1fr] sm:gap-4">
       <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
@@ -39,7 +39,7 @@ export function ProgramDetailDrawer({
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-medium text-primary">
-                {program.company.name}
+                {optionalText(program.company?.name)}
               </p>
               <h2 className="mt-1 text-2xl font-semibold tracking-tight text-card-foreground">
                 {program.assetName}
@@ -61,21 +61,30 @@ export function ProgramDetailDrawer({
           <dl>
             <DetailRow label="Program ID" value={program.id} />
             <DetailRow label="Asset ID" value={program.assetId} />
-            <DetailRow label="Company" value={program.company.name} />
-            <DetailRow label="Country" value={program.company.country} />
-            <DetailRow label="Target class" value={program.tpp.targetClass} />
-            <DetailRow label="Mechanism" value={program.tpp.mechanism} />
-            <DetailRow label="Platform" value={program.tpp.platform} />
+            <DetailRow label="Company ID" value={program.companyId} />
+            <DetailRow label="Company" value={program.company?.name} />
+            <DetailRow
+              label="Company country"
+              value={program.company?.headquartersCountry}
+            />
+            <DetailRow label="Mechanism" value={program.technical.mechanism} />
+            <DetailRow label="Platform" value={program.technical.platform} />
+            <DetailRow
+              label="Route"
+              value={program.administration.route}
+            />
+            <DetailRow
+              label="Dosage form"
+              value={program.administration.dosageForm}
+            />
+            <DetailRow
+              label="Interval"
+              value={program.administration.dosingInterval}
+            />
             <DetailRow
               label="Indications"
-              value={joinValues(program.tpp.indications)}
+              value={joinValues(program.indications)}
             />
-            <DetailRow label="Routes" value={joinValues(program.tpp.routes)} />
-            <DetailRow
-              label="Dosage forms"
-              value={joinValues(program.tpp.dosageForms)}
-            />
-            <DetailRow label="Interval" value={program.tpp.dosingInterval} />
             <DetailRow label="Stage" value={program.development.stage} />
             <DetailRow label="Status" value={program.development.status} />
             <DetailRow
@@ -101,7 +110,7 @@ export function ProgramDetailDrawer({
                     </a>
                   ))
                 ) : (
-                  <span className="text-foreground">—</span>
+                  <span className="text-foreground">N/A</span>
                 )}
               </dd>
             </div>

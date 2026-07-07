@@ -8,14 +8,24 @@ indication, route, dosage form, dosing interval, development stage, and
 development status. It is designed as a frontend foundation for future
 source-based research and periodic updates.
 
-The current dataset is empty: `data/pipeline-assets.json` contains `[]`.
+The current dataset is empty:
+
+- `data/companies.json` contains `[]`
+- `data/pipeline-programs.json` contains `[]`
+
+## Program Row Rule
+
+- One program record represents one asset with one route, one dosage form, one development stage, and one development status.
+- Programs with different routes, dosage forms, stages, or statuses must use separate records.
+- Multiple indications may share one record only when their stage and status are the same.
+- Records for the same asset share the same `assetId` and use different program `id` values.
 
 ## Stack
 
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Empty local JSON dataset
+- Empty local JSON datasets
 
 ## Scripts
 
@@ -31,7 +41,7 @@ npm run lint
 - Overview dashboard
 - Searchable and filterable pipeline program register
 - Program detail drawer
-- Empty `data/pipeline-assets.json` ready for future source-based records
+- Empty company and program JSON files ready for future source-based records
 
 No scraping, authentication, backend, real database, alerts, or automation are
 implemented in this skeleton.

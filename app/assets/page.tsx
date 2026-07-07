@@ -13,8 +13,7 @@ export default function AssetsPage() {
         </h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
           Search and filter local GLP-1-related pipeline programs by company,
-          indication, target class, route, development stage, and development
-          status.
+          indication, route, development stage, and development status.
         </p>
       </section>
       <PipelineTable programs={pipelinePrograms} />

@@ -4,7 +4,6 @@ import type { ProgramFilters } from "@/lib/types";
 
 type FilterOptions = {
   companies: string[];
-  targetClasses: string[];
   indications: string[];
   routes: string[];
   stages: string[];
@@ -57,7 +56,7 @@ export function FilterBar({ filters, options, onChange }: FilterBarProps) {
 
   return (
     <section className="rounded-lg border border-border bg-card p-4 shadow-soft">
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-7">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-6">
         <label className="flex min-w-0 flex-col gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground xl:col-span-2">
           Keyword
           <input
@@ -72,12 +71,6 @@ export function FilterBar({ filters, options, onChange }: FilterBarProps) {
           value={filters.company}
           options={options.companies}
           onChange={(company) => update({ company })}
-        />
-        <SelectFilter
-          label="Target"
-          value={filters.targetClass}
-          options={options.targetClasses}
-          onChange={(targetClass) => update({ targetClass })}
         />
         <SelectFilter
           label="Indication"

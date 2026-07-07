@@ -43,7 +43,7 @@ export default function OverviewPage() {
         <StatCard
           label="Dataset Companies"
           value={companySummaries.length}
-          helper="Generated company summaries"
+          helper="Configured company records"
         />
         <StatCard
           label="Dataset Programs"
@@ -57,7 +57,7 @@ export default function OverviewPage() {
         />
         <StatCard
           label="Last Updated"
-          value={lastUpdated ?? "—"}
+          value={lastUpdated ?? "N/A"}
           helper="Latest local record update"
         />
       </section>
@@ -69,8 +69,8 @@ export default function OverviewPage() {
               Company Overview
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Company summaries are generated from local pipeline program
-              records.
+              Company summaries are generated from company records and resolved
+              pipeline programs.
             </p>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function OverviewPage() {
                     {company.name}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    {company.lastUpdated ?? "—"}
+                    {company.lastUpdated ?? "N/A"}
                   </p>
                 </div>
               ))}

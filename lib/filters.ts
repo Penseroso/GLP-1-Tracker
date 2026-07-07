@@ -2,7 +2,6 @@ import type { PipelineProgram, ProgramFilters } from "./types";
 
 export const emptyProgramFilters: ProgramFilters = {
   company: "All",
-  targetClass: "All",
   indication: "All",
   route: "All",
   stage: "All",
@@ -10,12 +9,12 @@ export const emptyProgramFilters: ProgramFilters = {
   keyword: "",
 };
 
-export function optionalText(value?: string) {
-  return value?.trim() ? value : "—";
+export function optionalText(value?: string | null) {
+  return value?.trim() ? value : "N/A";
 }
 
 export function joinValues(values: string[]) {
-  return values.length > 0 ? values.join(" / ") : "—";
+  return values.length > 0 ? values.join(" / ") : "N/A";
 }
 
 export function uniqueSorted<T extends string>(values: T[]) {
@@ -26,12 +25,11 @@ export function uniqueSorted<T extends string>(values: T[]) {
 
 export function getFilterOptions(programs: PipelineProgram[]) {
   return {
-    companies: uniqueSorted(programs.map((program) => program.company.name)),
-    targetClasses: uniqueSorted(programs.map((program) => program.tpp.targetClass)),
-    indications: uniqueSorted(
-      programs.flatMap((program) => program.tpp.indications),
+    companies: uniqueSorted(
+      programs.map((program) => program.company?.name ?? ""),
     ),
-    routes: uniqueSorted(programs.flatMap((program) => program.tpp.routes)),
+    indications: uniqueSorted(programs.flatMap((program) => program.indications)),
+    routes: uniqueSorted(programs.map((program) => program.administration.route)),
     stages: uniqueSorted(programs.map((program) => program.development.stage)),
     statuses: uniqueSorted(programs.map((program) => program.development.status)),
   };
@@ -44,16 +42,15 @@ export function filterPrograms(
   const keyword = filters.keyword.trim().toLowerCase();
 
   return programs.filter((program) => {
+    const companyName = program.company?.name ?? "";
+    const companyCountry = program.company?.headquartersCountry ?? "";
     const matchesCompany =
-      filters.company === "All" || program.company.name === filters.company;
-    const matchesTarget =
-      filters.targetClass === "All" ||
-      program.tpp.targetClass === filters.targetClass;
+      filters.company === "All" || companyName === filters.company;
     const matchesIndication =
       filters.indication === "All" ||
-      program.tpp.indications.includes(filters.indication);
+      program.indications.includes(filters.indication);
     const matchesRoute =
-      filters.route === "All" || program.tpp.routes.includes(filters.route);
+      filters.route === "All" || program.administration.route === filters.route;
     const matchesStage =
       filters.stage === "All" || program.development.stage === filters.stage;
     const matchesStatus =
@@ -62,17 +59,17 @@ export function filterPrograms(
     const searchable = [
       program.id,
       program.assetId,
-      program.company.name,
-      program.company.country,
+      program.companyId,
+      companyName,
+      companyCountry,
       program.assetName,
       program.codeName,
-      program.tpp.targetClass,
-      program.tpp.mechanism,
-      program.tpp.platform,
-      program.tpp.indications.join(" "),
-      program.tpp.routes.join(" "),
-      program.tpp.dosageForms.join(" "),
-      program.tpp.dosingInterval,
+      program.technical.mechanism,
+      program.technical.platform,
+      program.administration.route,
+      program.administration.dosageForm,
+      program.administration.dosingInterval,
+      program.indications.join(" "),
       program.development.stage,
       program.development.status,
     ]
@@ -82,7 +79,6 @@ export function filterPrograms(
 
     return (
       matchesCompany &&
-      matchesTarget &&
       matchesIndication &&
       matchesRoute &&
       matchesStage &&

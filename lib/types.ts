@@ -1,27 +1,7 @@
-export type DevelopmentStage =
-  | "Discovery"
-  | "Preclinical"
-  | "IND-enabling"
-  | "Phase 1"
-  | "Phase 2"
-  | "Phase 3"
-  | "Filed"
-  | "Approved"
-  | "Discontinued"
-  | "Unknown";
-
-export type DevelopmentStatus =
-  | "Planned"
-  | "Active"
-  | "On hold"
-  | "Completed"
-  | "Discontinued"
-  | "Approved"
-  | "Unknown";
-
-export type CompanyInfo = {
+export type Company = {
+  id: string;
   name: string;
-  country: string;
+  headquartersCountry: string;
 };
 
 export type SourceReference = {
@@ -32,41 +12,67 @@ export type SourceReference = {
   checkedAt: string;
 };
 
-export type TppProfile = {
-  targetClass: string;
-  mechanism?: string;
-  platform?: string;
-  indications: string[];
-  routes: string[];
-  dosageForms: string[];
-  dosingInterval?: string;
-};
-
-export type DevelopmentProfile = {
-  stage: DevelopmentStage;
-  status: DevelopmentStatus;
-};
-
 export type RecordMetadata = {
   lastVerifiedAt: string;
   updatedAt: string;
   sources: SourceReference[];
 };
 
-export type PipelineProgram = {
+export type TechnicalProfile = {
+  mechanism: string | null;
+  platform: string | null;
+};
+
+export type AdministrationProfile = {
+  route: string;
+  dosageForm: string;
+  dosingInterval: string | null;
+};
+
+export type DevelopmentStage =
+  | "Discovery"
+  | "Preclinical"
+  | "IND-enabling"
+  | "Phase 1"
+  | "Phase 2"
+  | "Phase 3"
+  | "Filed"
+  | "Approved"
+  | "Unknown";
+
+export type DevelopmentStatus =
+  | "Planned"
+  | "Active"
+  | "On hold"
+  | "Discontinued"
+  | "Unknown";
+
+export type DevelopmentProfile = {
+  stage: DevelopmentStage;
+  status: DevelopmentStatus;
+};
+
+export type PipelineProgramRecord = {
   id: string;
   assetId: string;
-  company: CompanyInfo;
+  companyId: string;
   assetName: string;
-  codeName?: string;
-  tpp: TppProfile;
+  codeName: string | null;
+  technical: TechnicalProfile;
+  administration: AdministrationProfile;
+  indications: string[];
   development: DevelopmentProfile;
   metadata: RecordMetadata;
+};
+
+export type PipelineProgram = PipelineProgramRecord & {
+  company: Company | null;
 };
 
 export type CompanySummary = {
   id: string;
   name: string;
+  headquartersCountry: string;
   focusAreas: string[];
   programCount: number;
   mostAdvancedStage?: DevelopmentStage;
@@ -78,7 +84,6 @@ export type DevelopmentStatusFilter = DevelopmentStatus | "All";
 
 export type ProgramFilters = {
   company: string;
-  targetClass: string;
   indication: string;
   route: string;
   stage: DevelopmentStageFilter;

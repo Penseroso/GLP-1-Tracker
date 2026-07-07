@@ -2,6 +2,11 @@
 
 import { useMemo, useState } from "react";
 import {
+  defaultProgramTableColumns,
+  getProgramTableColumnLabel,
+  type ProgramTableColumnId,
+} from "@/config/program-table";
+import {
   emptyProgramFilters,
   filterPrograms,
   getFilterOptions,
@@ -16,8 +21,38 @@ type PipelineTableProps = {
   programs: PipelineProgram[];
 };
 
-function inlineValues(values: Array<string | undefined>) {
-  return joinValues(values.filter((value): value is string => Boolean(value)));
+function getAssetLabel(program: PipelineProgram) {
+  return program.codeName
+    ? `${program.assetName} (${program.codeName})`
+    : program.assetName;
+}
+
+function getProgramCellValue(
+  program: PipelineProgram,
+  columnId: ProgramTableColumnId,
+) {
+  switch (columnId) {
+    case "company":
+      return optionalText(program.company?.name);
+    case "asset":
+      return getAssetLabel(program);
+    case "route":
+      return optionalText(program.administration.route);
+    case "dosageForm":
+      return optionalText(program.administration.dosageForm);
+    case "dosingInterval":
+      return optionalText(program.administration.dosingInterval);
+    case "indications":
+      return joinValues(program.indications);
+    case "development":
+      return `${program.development.stage} \u00b7 ${program.development.status}`;
+    case "mechanism":
+      return optionalText(program.technical.mechanism);
+    case "platform":
+      return optionalText(program.technical.platform);
+    case "companyCountry":
+      return optionalText(program.company?.headquartersCountry);
+  }
 }
 
 export function PipelineTable({ programs }: PipelineTableProps) {
@@ -31,6 +66,7 @@ export function PipelineTable({ programs }: PipelineTableProps) {
     () => filterPrograms(programs, filters),
     [programs, filters],
   );
+  const visibleColumns = defaultProgramTableColumns;
 
   return (
     <div className="space-y-4">
@@ -57,17 +93,9 @@ export function PipelineTable({ programs }: PipelineTableProps) {
           <table className="w-full min-w-[980px] border-collapse text-left text-sm">
             <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
               <tr>
-                {[
-                  "개발사 / 자산",
-                  "기전 / 플랫폼",
-                  "경로 / 제형",
-                  "투여주기",
-                  "적응증",
-                  "개발단계",
-                  "개발상태",
-                ].map((header) => (
-                  <th key={header} className="px-4 py-3 font-semibold">
-                    {header}
+                {visibleColumns.map((column) => (
+                  <th key={column.id} className="px-4 py-3 font-semibold">
+                    {getProgramTableColumnLabel(column)}
                   </th>
                 ))}
               </tr>
@@ -79,48 +107,26 @@ export function PipelineTable({ programs }: PipelineTableProps) {
                   onClick={() => setSelectedProgram(program)}
                   className="cursor-pointer bg-card transition hover:bg-accent/45"
                 >
-                  <td className="px-4 py-4 font-medium text-foreground">
-                    {inlineValues([
-                      program.company.name,
-                      program.assetName,
-                      program.codeName,
-                    ])}
-                  </td>
-                  <td className="px-4 py-4 text-foreground">
-                    {inlineValues([
-                      program.tpp.targetClass,
-                      program.tpp.mechanism,
-                      program.tpp.platform,
-                    ])}
-                  </td>
-                  <td className="px-4 py-4 text-muted-foreground">
-                    {inlineValues([
-                      ...program.tpp.routes,
-                      ...program.tpp.dosageForms,
-                    ])}
-                  </td>
-                  <td className="px-4 py-4 text-muted-foreground">
-                    {optionalText(program.tpp.dosingInterval)}
-                  </td>
-                  <td className="px-4 py-4 text-muted-foreground">
-                    {joinValues(program.tpp.indications)}
-                  </td>
-                  <td className="px-4 py-4">
-                    <span className="rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
-                      {program.development.stage}
-                    </span>
-                  </td>
-                  <td className="px-4 py-4">
-                    <span className="rounded-md bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
-                      {program.development.status}
-                    </span>
-                  </td>
+                  {visibleColumns.map((column) => (
+                    <td
+                      key={column.id}
+                      className="whitespace-nowrap px-4 py-4 text-muted-foreground"
+                    >
+                      {column.id === "development" ? (
+                        <span className="rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
+                          {getProgramCellValue(program, column.id)}
+                        </span>
+                      ) : (
+                        getProgramCellValue(program, column.id)
+                      )}
+                    </td>
+                  ))}
                 </tr>
               ))}
               {filteredPrograms.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={7}
+                    colSpan={visibleColumns.length}
                     className="px-4 py-12 text-center text-sm text-muted-foreground"
                   >
                     No programs to display.

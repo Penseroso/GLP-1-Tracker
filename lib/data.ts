@@ -1,7 +1,25 @@
-import pipelineProgramData from "@/data/pipeline-assets.json";
-import type { CompanySummary, DevelopmentStage, PipelineProgram } from "./types";
+import companyData from "@/data/companies.json";
+import pipelineProgramData from "@/data/pipeline-programs.json";
+import type {
+  Company,
+  CompanySummary,
+  DevelopmentStage,
+  PipelineProgram,
+  PipelineProgramRecord,
+} from "./types";
 
-export const pipelinePrograms = pipelineProgramData as PipelineProgram[];
+export const companies = companyData as Company[];
+export const pipelineProgramRecords =
+  pipelineProgramData as PipelineProgramRecord[];
+
+const companiesById = new Map(companies.map((company) => [company.id, company]));
+
+export const pipelinePrograms: PipelineProgram[] = pipelineProgramRecords.map(
+  (program) => ({
+    ...program,
+    company: companiesById.get(program.companyId) ?? null,
+  }),
+);
 
 const stageRank: Record<DevelopmentStage, number> = {
   Unknown: 0,
@@ -13,16 +31,7 @@ const stageRank: Record<DevelopmentStage, number> = {
   "Phase 3": 6,
   Filed: 7,
   Approved: 8,
-  Discontinued: -1,
 };
-
-function slugifyCompanyName(name: string) {
-  return name
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
 
 function uniqueSorted(values: string[]) {
   return Array.from(new Set(values.filter(Boolean))).sort((a, b) =>
@@ -46,29 +55,40 @@ function getMostAdvancedStage(programs: PipelineProgram[]) {
   }, undefined);
 }
 
-function buildCompanySummaries(programs: PipelineProgram[]): CompanySummary[] {
-  const programsByCompany = new Map<string, PipelineProgram[]>();
+function buildCompanySummaries(
+  companyRecords: Company[],
+  programs: PipelineProgram[],
+): CompanySummary[] {
+  const programsByCompanyId = new Map<string, PipelineProgram[]>();
 
   for (const program of programs) {
-    const companyPrograms = programsByCompany.get(program.company.name) ?? [];
+    const companyPrograms = programsByCompanyId.get(program.companyId) ?? [];
     companyPrograms.push(program);
-    programsByCompany.set(program.company.name, companyPrograms);
+    programsByCompanyId.set(program.companyId, companyPrograms);
   }
 
-  return Array.from(programsByCompany.entries())
-    .map(([company, companyPrograms]) => ({
-      id: slugifyCompanyName(company),
-      name: company,
-      focusAreas: uniqueSorted(
-        companyPrograms.flatMap((program) => program.tpp.indications),
-      ),
-      programCount: companyPrograms.length,
-      mostAdvancedStage: getMostAdvancedStage(companyPrograms),
-      lastUpdated: latestDate(
-        companyPrograms.map((program) => program.metadata.updatedAt),
-      ),
-    }))
+  return companyRecords
+    .map((company) => {
+      const companyPrograms = programsByCompanyId.get(company.id) ?? [];
+
+      return {
+        id: company.id,
+        name: company.name,
+        headquartersCountry: company.headquartersCountry,
+        focusAreas: uniqueSorted(
+          companyPrograms.flatMap((program) => program.indications),
+        ),
+        programCount: companyPrograms.length,
+        mostAdvancedStage: getMostAdvancedStage(companyPrograms),
+        lastUpdated: latestDate(
+          companyPrograms.map((program) => program.metadata.updatedAt),
+        ),
+      };
+    })
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export const companySummaries = buildCompanySummaries(pipelinePrograms);
+export const companySummaries = buildCompanySummaries(
+  companies,
+  pipelinePrograms,
+);
