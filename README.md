@@ -8,11 +8,11 @@ indication, route, dosage form, dosing interval, development stage, and
 development status. It is designed as a frontend foundation for future
 source-based research and periodic updates.
 
-The current operating dataset is empty:
+The operating dataset is generated from `data/companies/` source folders:
 
-- `data/generated/companies.json` contains `[]`
-- `data/generated/pipeline-programs.json` contains `[]`
-- `data/generated/regimens.json` contains `[]`
+- `data/generated/companies.json` aggregates company records.
+- `data/generated/pipeline-programs.json` aggregates pipeline program records.
+- `data/generated/regimens.json` aggregates regimen records.
 
 ## Program Row Rule
 
@@ -73,7 +73,7 @@ data/companies/<company-id>/*
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Empty local JSON datasets
+- Generated local JSON datasets
 
 ## Scripts
 
@@ -95,7 +95,7 @@ npm run data:validate:synthetic
 - Overview dashboard
 - Searchable and filterable pipeline program register
 - Program detail drawer
-- Empty company and program JSON files ready for future source-based records
+- Company and program JSON files driven by source-based records
 
 No scraping, authentication, backend, real database, alerts, or automation are
 implemented in this skeleton.
