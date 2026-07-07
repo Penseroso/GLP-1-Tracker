@@ -1,5 +1,5 @@
-import type { CompanySummary } from "@/lib/types";
 import { optionalText } from "@/lib/filters";
+import type { CompanySummary } from "@/lib/types";
 
 type CompanyCardProps = {
   company: CompanySummary;
@@ -14,7 +14,8 @@ export function CompanyCard({ company }: CompanyCardProps) {
             {company.name}
           </h3>
           <p className="mt-1 text-sm text-muted-foreground">
-            {company.assetCount} tracked {company.assetCount === 1 ? "asset" : "assets"}
+            {company.programCount} tracked{" "}
+            {company.programCount === 1 ? "program" : "programs"}
           </p>
         </div>
         <span className="rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
@@ -31,20 +32,8 @@ export function CompanyCard({ company }: CompanyCardProps) {
           </span>
         ))}
       </div>
-      <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
-        <span>Checked {optionalText(company.lastChecked)}</span>
-        {company.sourceUrl ? (
-          <a
-            href={company.sourceUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium text-primary hover:underline"
-          >
-            Source
-          </a>
-        ) : (
-          <span>Source —</span>
-        )}
+      <div className="mt-5 border-t border-border pt-4 text-xs text-muted-foreground">
+        Updated {optionalText(company.lastUpdated)}
       </div>
     </article>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import type { AssetFilters } from "@/lib/types";
+import type { ProgramFilters } from "@/lib/types";
 
 type FilterOptions = {
   companies: string[];
@@ -8,12 +8,13 @@ type FilterOptions = {
   indications: string[];
   routes: string[];
   stages: string[];
+  statuses: string[];
 };
 
 type FilterBarProps = {
-  filters: AssetFilters;
+  filters: ProgramFilters;
   options: FilterOptions;
-  onChange: (filters: AssetFilters) => void;
+  onChange: (filters: ProgramFilters) => void;
 };
 
 const selectClassName =
@@ -50,19 +51,19 @@ function SelectFilter({
 }
 
 export function FilterBar({ filters, options, onChange }: FilterBarProps) {
-  const update = (partial: Partial<AssetFilters>) => {
+  const update = (partial: Partial<ProgramFilters>) => {
     onChange({ ...filters, ...partial });
   };
 
   return (
     <section className="rounded-lg border border-border bg-card p-4 shadow-soft">
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-6">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-7">
         <label className="flex min-w-0 flex-col gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground xl:col-span-2">
           Keyword
           <input
             value={filters.keyword}
             onChange={(event) => update({ keyword: event.target.value })}
-            placeholder="Search assets, mechanisms, differentiators"
+            placeholder="Search programs, mechanisms, platforms"
             className="h-10 rounded-md border border-border bg-card px-3 text-sm font-normal normal-case tracking-normal text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/15"
           />
         </label>
@@ -94,7 +95,15 @@ export function FilterBar({ filters, options, onChange }: FilterBarProps) {
           label="Stage"
           value={filters.stage}
           options={options.stages}
-          onChange={(stage) => update({ stage: stage as AssetFilters["stage"] })}
+          onChange={(stage) => update({ stage: stage as ProgramFilters["stage"] })}
+        />
+        <SelectFilter
+          label="Status"
+          value={filters.status}
+          options={options.statuses}
+          onChange={(status) =>
+            update({ status: status as ProgramFilters["status"] })
+          }
         />
       </div>
     </section>

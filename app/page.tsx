@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { CompanyCard } from "@/components/CompanyCard";
 import { StatCard } from "@/components/StatCard";
-import { companySummaries, pipelineAssets } from "@/lib/data";
+import { companySummaries, pipelinePrograms } from "@/lib/data";
 import type { DevelopmentStage } from "@/lib/types";
 
 export default function OverviewPage() {
   const clinicalStages: DevelopmentStage[] = ["Phase 1", "Phase 2", "Phase 3", "Filed"];
-  const clinicalStageAssets = pipelineAssets.filter((asset) =>
-    clinicalStages.includes(asset.stage),
+  const clinicalStagePrograms = pipelinePrograms.filter((program) =>
+    clinicalStages.includes(program.development.stage),
   ).length;
-  const lastUpdated = pipelineAssets
-    .map((asset) => asset.lastChecked)
+  const lastUpdated = pipelinePrograms
+    .map((program) => program.metadata.updatedAt)
     .filter(Boolean)
     .sort()
     .at(-1);
@@ -26,16 +26,16 @@ export default function OverviewPage() {
             GLP-1 Pipeline Board
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
-            Organizes GLP-1-related pipeline assets across companies,
-            indications, target classes, routes, dosing formats, intervals, and
-            development stages. The app starts with an empty local dataset.
+            Tracks companies and development programs related to GLP-1 receptor
+            agonists and adjacent incretin therapies. The current dataset is
+            empty.
           </p>
         </div>
         <Link
           href="/assets"
           className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
         >
-          Browse assets
+          Browse programs
         </Link>
       </section>
 
@@ -46,19 +46,19 @@ export default function OverviewPage() {
           helper="Generated company summaries"
         />
         <StatCard
-          label="Dataset Assets"
-          value={pipelineAssets.length}
-          helper="Local asset records"
+          label="Dataset Programs"
+          value={pipelinePrograms.length}
+          helper="Local pipeline program records"
         />
         <StatCard
-          label="Clinical-stage Assets"
-          value={clinicalStageAssets}
+          label="Clinical-stage Programs"
+          value={clinicalStagePrograms}
           helper="Phase 1 or later"
         />
         <StatCard
           label="Last Updated"
-          value={lastUpdated ?? "None"}
-          helper="Latest local record date"
+          value={lastUpdated ?? "—"}
+          helper="Latest local record update"
         />
       </section>
 
@@ -69,7 +69,8 @@ export default function OverviewPage() {
               Company Overview
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Company summaries are generated from local asset records.
+              Company summaries are generated from local pipeline program
+              records.
             </p>
           </div>
         </div>
@@ -93,7 +94,8 @@ export default function OverviewPage() {
               Recent Updates
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Update dates appear here when local asset records include them.
+              Update dates appear here when local pipeline program records
+              include them.
             </p>
           </div>
           {companySummaries.length > 0 ? (
@@ -107,7 +109,7 @@ export default function OverviewPage() {
                     {company.name}
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    {company.lastChecked ?? "None"}
+                    {company.lastUpdated ?? "—"}
                   </p>
                 </div>
               ))}

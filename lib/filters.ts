@@ -1,16 +1,21 @@
-import type { AssetFilters, PipelineAsset } from "./types";
+import type { PipelineProgram, ProgramFilters } from "./types";
 
-export const emptyAssetFilters: AssetFilters = {
+export const emptyProgramFilters: ProgramFilters = {
   company: "All",
   targetClass: "All",
   indication: "All",
   route: "All",
   stage: "All",
+  status: "All",
   keyword: "",
 };
 
 export function optionalText(value?: string) {
-  return value?.trim() ? value : "None";
+  return value?.trim() ? value : "—";
+}
+
+export function joinValues(values: string[]) {
+  return values.length > 0 ? values.join(" / ") : "—";
 }
 
 export function uniqueSorted<T extends string>(values: T[]) {
@@ -19,47 +24,57 @@ export function uniqueSorted<T extends string>(values: T[]) {
   );
 }
 
-export function getFilterOptions(assets: PipelineAsset[]) {
+export function getFilterOptions(programs: PipelineProgram[]) {
   return {
-    companies: uniqueSorted(assets.map((asset) => asset.company)),
-    targetClasses: uniqueSorted(assets.map((asset) => asset.targetClass)),
-    indications: uniqueSorted(assets.flatMap((asset) => asset.indication)),
-    routes: uniqueSorted(assets.map((asset) => asset.route ?? "")),
-    stages: uniqueSorted(assets.map((asset) => asset.stage)),
+    companies: uniqueSorted(programs.map((program) => program.company.name)),
+    targetClasses: uniqueSorted(programs.map((program) => program.tpp.targetClass)),
+    indications: uniqueSorted(
+      programs.flatMap((program) => program.tpp.indications),
+    ),
+    routes: uniqueSorted(programs.flatMap((program) => program.tpp.routes)),
+    stages: uniqueSorted(programs.map((program) => program.development.stage)),
+    statuses: uniqueSorted(programs.map((program) => program.development.status)),
   };
 }
 
-export function filterAssets(assets: PipelineAsset[], filters: AssetFilters) {
+export function filterPrograms(
+  programs: PipelineProgram[],
+  filters: ProgramFilters,
+) {
   const keyword = filters.keyword.trim().toLowerCase();
 
-  return assets.filter((asset) => {
+  return programs.filter((program) => {
     const matchesCompany =
-      filters.company === "All" || asset.company === filters.company;
+      filters.company === "All" || program.company.name === filters.company;
     const matchesTarget =
       filters.targetClass === "All" ||
-      asset.targetClass === filters.targetClass;
+      program.tpp.targetClass === filters.targetClass;
     const matchesIndication =
       filters.indication === "All" ||
-      asset.indication.includes(filters.indication);
+      program.tpp.indications.includes(filters.indication);
     const matchesRoute =
-      filters.route === "All" || asset.route === filters.route;
+      filters.route === "All" || program.tpp.routes.includes(filters.route);
     const matchesStage =
-      filters.stage === "All" || asset.stage === filters.stage;
+      filters.stage === "All" || program.development.stage === filters.stage;
+    const matchesStatus =
+      filters.status === "All" || program.development.status === filters.status;
 
     const searchable = [
-      asset.company,
-      asset.assetName,
-      asset.codeName,
-      asset.targetClass,
-      asset.mechanism,
-      asset.indication.join(" "),
-      asset.route,
-      asset.dosageForm,
-      asset.dosingInterval,
-      asset.stage,
-      asset.stageRaw,
-      asset.differentiator,
-      asset.description,
+      program.id,
+      program.assetId,
+      program.company.name,
+      program.company.country,
+      program.assetName,
+      program.codeName,
+      program.tpp.targetClass,
+      program.tpp.mechanism,
+      program.tpp.platform,
+      program.tpp.indications.join(" "),
+      program.tpp.routes.join(" "),
+      program.tpp.dosageForms.join(" "),
+      program.tpp.dosingInterval,
+      program.development.stage,
+      program.development.status,
     ]
       .filter(Boolean)
       .join(" ")
@@ -71,6 +86,7 @@ export function filterAssets(assets: PipelineAsset[], filters: AssetFilters) {
       matchesIndication &&
       matchesRoute &&
       matchesStage &&
+      matchesStatus &&
       (!keyword || searchable.includes(keyword))
     );
   });

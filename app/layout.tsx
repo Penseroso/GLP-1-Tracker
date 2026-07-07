@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "GLP-1 Pipeline Board",
-  description: "Presentation-quality board for GLP-1-related pipeline assets.",
+  description: "Frontend skeleton for GLP-1-related pipeline programs.",
 };
 
 export default function RootLayout({
@@ -41,7 +41,7 @@ export default function RootLayout({
                 href="/assets"
                 className="rounded-md px-3 py-2 transition hover:bg-muted hover:text-foreground"
               >
-                Assets
+                Programs
               </Link>
             </nav>
           </header>

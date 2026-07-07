@@ -1,23 +1,35 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { emptyAssetFilters, filterAssets, getFilterOptions, optionalText } from "@/lib/filters";
-import type { AssetFilters, PipelineAsset } from "@/lib/types";
-import { AssetDetailDrawer } from "./AssetDetailDrawer";
+import {
+  emptyProgramFilters,
+  filterPrograms,
+  getFilterOptions,
+  joinValues,
+  optionalText,
+} from "@/lib/filters";
+import type { PipelineProgram, ProgramFilters } from "@/lib/types";
 import { FilterBar } from "./FilterBar";
+import { ProgramDetailDrawer } from "./ProgramDetailDrawer";
 
 type PipelineTableProps = {
-  assets: PipelineAsset[];
+  programs: PipelineProgram[];
 };
 
-export function PipelineTable({ assets }: PipelineTableProps) {
-  const [filters, setFilters] = useState<AssetFilters>(emptyAssetFilters);
-  const [selectedAsset, setSelectedAsset] = useState<PipelineAsset | null>(null);
+function inlineValues(values: Array<string | undefined>) {
+  return joinValues(values.filter((value): value is string => Boolean(value)));
+}
 
-  const options = useMemo(() => getFilterOptions(assets), [assets]);
-  const filteredAssets = useMemo(
-    () => filterAssets(assets, filters),
-    [assets, filters],
+export function PipelineTable({ programs }: PipelineTableProps) {
+  const [filters, setFilters] = useState<ProgramFilters>(emptyProgramFilters);
+  const [selectedProgram, setSelectedProgram] = useState<PipelineProgram | null>(
+    null,
+  );
+
+  const options = useMemo(() => getFilterOptions(programs), [programs]);
+  const filteredPrograms = useMemo(
+    () => filterPrograms(programs, filters),
+    [programs, filters],
   );
 
   return (
@@ -27,15 +39,15 @@ export function PipelineTable({ assets }: PipelineTableProps) {
         <div className="flex flex-col gap-2 border-b border-border px-5 py-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-base font-semibold text-card-foreground">
-              Asset Register
+              Program Register
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              {filteredAssets.length} of {assets.length} dataset assets shown
+              {filteredPrograms.length} of {programs.length} dataset programs shown
             </p>
           </div>
           <button
             type="button"
-            onClick={() => setFilters(emptyAssetFilters)}
+            onClick={() => setFilters(emptyProgramFilters)}
             className="self-start rounded-md border border-border px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground sm:self-auto"
           >
             Reset filters
@@ -46,15 +58,13 @@ export function PipelineTable({ assets }: PipelineTableProps) {
             <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
               <tr>
                 {[
-                  "Company",
-                  "Asset",
-                  "Target Class",
-                  "Indication",
-                  "Route",
-                  "Dosing Interval",
-                  "Stage",
-                  "Differentiator",
-                  "Source",
+                  "개발사 / 자산",
+                  "기전 / 플랫폼",
+                  "경로 / 제형",
+                  "투여주기",
+                  "적응증",
+                  "개발단계",
+                  "개발상태",
                 ].map((header) => (
                   <th key={header} className="px-4 py-3 font-semibold">
                     {header}
@@ -63,60 +73,57 @@ export function PipelineTable({ assets }: PipelineTableProps) {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {filteredAssets.map((asset) => (
+              {filteredPrograms.map((program) => (
                 <tr
-                  key={asset.id}
-                  onClick={() => setSelectedAsset(asset)}
+                  key={program.id}
+                  onClick={() => setSelectedProgram(program)}
                   className="cursor-pointer bg-card transition hover:bg-accent/45"
                 >
                   <td className="px-4 py-4 font-medium text-foreground">
-                    {asset.company}
+                    {inlineValues([
+                      program.company.name,
+                      program.assetName,
+                      program.codeName,
+                    ])}
                   </td>
-                  <td className="px-4 py-4 font-semibold text-foreground">
-                    {asset.assetName}
+                  <td className="px-4 py-4 text-foreground">
+                    {inlineValues([
+                      program.tpp.targetClass,
+                      program.tpp.mechanism,
+                      program.tpp.platform,
+                    ])}
                   </td>
-                  <td className="px-4 py-4 text-foreground">{asset.targetClass}</td>
                   <td className="px-4 py-4 text-muted-foreground">
-                    {asset.indication.join(", ")}
+                    {inlineValues([
+                      ...program.tpp.routes,
+                      ...program.tpp.dosageForms,
+                    ])}
                   </td>
                   <td className="px-4 py-4 text-muted-foreground">
-                    {optionalText(asset.route)}
+                    {optionalText(program.tpp.dosingInterval)}
                   </td>
                   <td className="px-4 py-4 text-muted-foreground">
-                    {optionalText(asset.dosingInterval)}
+                    {joinValues(program.tpp.indications)}
                   </td>
                   <td className="px-4 py-4">
                     <span className="rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground">
-                      {asset.stage}
+                      {program.development.stage}
                     </span>
                   </td>
-                  <td className="max-w-[17rem] px-4 py-4 text-muted-foreground">
-                    {optionalText(asset.differentiator)}
-                  </td>
                   <td className="px-4 py-4">
-                    {asset.sourceUrl ? (
-                      <a
-                        href={asset.sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={(event) => event.stopPropagation()}
-                        className="font-medium text-primary hover:underline"
-                      >
-                        Source
-                      </a>
-                    ) : (
-                      <span className="text-muted-foreground">None</span>
-                    )}
+                    <span className="rounded-md bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                      {program.development.status}
+                    </span>
                   </td>
                 </tr>
               ))}
-              {filteredAssets.length === 0 ? (
+              {filteredPrograms.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={9}
+                    colSpan={7}
                     className="px-4 py-12 text-center text-sm text-muted-foreground"
                   >
-                    No assets to display.
+                    No programs to display.
                   </td>
                 </tr>
               ) : null}
@@ -124,9 +131,9 @@ export function PipelineTable({ assets }: PipelineTableProps) {
           </table>
         </div>
       </section>
-      <AssetDetailDrawer
-        asset={selectedAsset}
-        onClose={() => setSelectedAsset(null)}
+      <ProgramDetailDrawer
+        program={selectedProgram}
+        onClose={() => setSelectedProgram(null)}
       />
     </div>
   );
