@@ -4,6 +4,21 @@ ADR-lite, **append-only** record of protocol decisions. Add new entries at the
 bottom; do not rewrite history. Each entry: decision ID, date, status,
 decision, rationale, consequences.
 
+## Current-decision index
+
+Quick pointer to the currently governing ADR per topic. Superseded ADRs are
+kept below for history; consult the index instead of the oldest matching
+entry.
+
+- **Stress-test / Ascletis archive semantics:** ADR-0021 (supersedes
+  ADR-0012).
+- **Combination asset identity:** ADR-0016.
+- **Rights and regional ownership model:** ADR-0018 / ADR-0019.
+- **Regimen vs. pipeline program:** ADR-0017.
+- **Regimen configuration identity:** ADR-0023.
+- **Company relationship roles:** ADR-0020.
+- **Internal reference scope:** ADR-0022.
+
 ---
 
 ## ADR-0001 — Current-state snapshot
@@ -114,12 +129,12 @@ when decided, recorded as a new appended ADR.
 - **Indication-level row granularity** — how far to split rows by indication.
 - **Primary company for co-development** — how to choose/represent the principal
   entity when development is shared.
-- **Rights and regional ownership model** — whether to model licensor/licensee
-  and territories.
+- ~~**Rights and regional ownership model** — whether to model licensor/licensee
+  and territories.~~ Resolved by ADR-0018/ADR-0019.
 - **Device granularity** — whether device/injector differences split programs.
 - **Controlled vocabulary for mechanism and platform** — free-text vs. enum.
-- **Combination asset identity** — how fixed-dose combinations relate to
-  components.
+- ~~**Combination asset identity** — how fixed-dose combinations relate to
+  components.~~ Resolved by ADR-0016.
 - **Field-level provenance** — whether sources should attach per field.
 - **Exact adjacent-program inclusion boundary** — precise criteria for tracking
   non-GLP-1 strategic competitors.
@@ -143,7 +158,7 @@ when decided, recorded as a new appended ADR.
 ## ADR-0012 — Stress-test fixture isolation
 
 - **Date:** 2026-07-07
-- **Status:** Accepted (fixed now)
+- **Status:** Superseded by ADR-0021
 - **Decision:** Ascletis pilot data is retained under
   `data/stress-tests/ascletis-pharma/` as a fixture rather than operating data.
 - **Rationale:** The pilot is contract evidence, not production coverage.

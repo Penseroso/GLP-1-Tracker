@@ -25,8 +25,8 @@ export default function OverviewPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
             Tracks companies and development programs related to GLP-1 receptor
-            agonists and adjacent incretin therapies. The current dataset is
-            empty.
+            agonists and adjacent incretin therapies as company source records
+            are added.
           </p>
         </div>
         <Link
