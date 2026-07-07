@@ -1,0 +1,30 @@
+[
+  {
+    "id": "fixture-a-shared-oral-tablets",
+    "assetId": "shared-asset",
+    "companyId": "fixture-a",
+    "assetName": "Alpha Asset",
+    "codeName": "AAA",
+    "technical": {
+      "mechanism": null,
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Preclinical",
+      "status": "Active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": []
+    }
+  }
+]

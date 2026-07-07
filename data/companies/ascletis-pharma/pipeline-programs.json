@@ -1,53 +1,5 @@
 [
   {
-    "id": "ascletis-pharma-asc30-39-fdc-oral-tablets",
-    "assetId": "asc30-39-fdc",
-    "companyId": "ascletis-pharma",
-    "assetType": "fixed-dose-combination",
-    "assetName": "ASC30_39 FDC",
-    "codeName": "ASC30_39 FDC",
-    "components": [
-      {
-        "assetId": "asc30",
-        "role": "GLP-1R agonist"
-      },
-      {
-        "codeName": "ASC39",
-        "companyId": "ascletis-pharma",
-        "role": "amylin receptor agonist"
-      }
-    ],
-    "technical": {
-      "mechanism": "GLP-1R agonist plus amylin receptor agonist",
-      "platform": "AISBDD"
-    },
-    "administration": {
-      "route": "Oral",
-      "dosageForm": "Tablets",
-      "dosingInterval": "Once daily"
-    },
-    "indications": [
-      "Obesity"
-    ],
-    "development": {
-      "stage": "Preclinical",
-      "status": "Active"
-    },
-    "metadata": {
-      "lastVerifiedAt": "2026-07-07",
-      "updatedAt": "2026-07-07",
-      "sources": [
-        {
-          "url": "https://www.prnewswire.com/news-releases/ascletis-announces-fixed-dose-combination-of-asc30-once-daily-oral-small-molecule-glp-1r-agonist-and-asc39-once-daily-oral-small-molecule-amylin-selective-amylin-receptor-agonist-for-clinical-development-302735615.html",
-          "title": "Ascletis Announces Fixed-Dose Combination of ASC30, Once-Daily Oral Small Molecule GLP-1R Agonist, and ASC39, Once-Daily Oral Small Molecule Amylin-Selective Amylin Receptor Agonist, for Clinical Development",
-          "sourceType": "company press release",
-          "publishedAt": "2026-04-07",
-          "checkedAt": "2026-07-07"
-        }
-      ]
-    }
-  },
-  {
     "id": "ascletis-pharma-asc30-oral-tablets",
     "assetId": "asc30",
     "companyId": "ascletis-pharma",
@@ -344,6 +296,54 @@
           "title": "Ascletis Selects a Next-Generation Once-Monthly Subcutaneously Administered GLP-1R/GIPR/GCGR Triple Peptide Agonist, ASC37, for Clinical Development",
           "sourceType": "company press release",
           "publishedAt": "2026-01-20",
+          "checkedAt": "2026-07-07"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ascletis-pharma-asc30-39-fdc-oral-tablets",
+    "assetId": "asc30-39-fdc",
+    "companyId": "ascletis-pharma",
+    "assetType": "fixed-dose-combination",
+    "assetName": "ASC30_39 FDC",
+    "codeName": "ASC30_39 FDC",
+    "components": [
+      {
+        "assetId": "asc30",
+        "role": "GLP-1R agonist"
+      },
+      {
+        "codeName": "ASC39",
+        "companyId": "ascletis-pharma",
+        "role": "amylin receptor agonist"
+      }
+    ],
+    "technical": {
+      "mechanism": "GLP-1R agonist plus amylin receptor agonist",
+      "platform": "AISBDD"
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": "Once daily"
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Preclinical",
+      "status": "Active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/ascletis-announces-fixed-dose-combination-of-asc30-once-daily-oral-small-molecule-glp-1r-agonist-and-asc39-once-daily-oral-small-molecule-amylin-selective-amylin-receptor-agonist-for-clinical-development-302735615.html",
+          "title": "Ascletis Announces Fixed-Dose Combination of ASC30, Once-Daily Oral Small Molecule GLP-1R Agonist, and ASC39, Once-Daily Oral Small Molecule Amylin-Selective Amylin Receptor Agonist, for Clinical Development",
+          "sourceType": "company press release",
+          "publishedAt": "2026-04-07",
           "checkedAt": "2026-07-07"
         }
       ]

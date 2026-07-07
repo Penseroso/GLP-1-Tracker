@@ -579,12 +579,13 @@ function validateDataset(
       assetName: program.assetName,
       codeName: program.codeName,
     });
-    const priorIdentity = assetIdentityById.get(program.assetId);
+    const assetIdentityKey = `${program.companyId}|${program.assetId}`;
+    const priorIdentity = assetIdentityById.get(assetIdentityKey);
     assert(
       priorIdentity === undefined || priorIdentity === identity,
       `${context}: assetId ${program.assetId} is reused with conflicting asset identity`,
     );
-    assetIdentityById.set(program.assetId, identity);
+    assetIdentityById.set(assetIdentityKey, identity);
 
     const programIdentityKey = [
       program.companyId,
@@ -792,7 +793,20 @@ function validateSyntheticFixtures() {
     { companyLocalReferences: true },
   );
 
+  const multiCompanyDir = path.join(syntheticFixtureDir, "valid-multi-company");
+  const multiCompanyA = readCompanyFolder(multiCompanyDir, "company-a", true);
+  const multiCompanyB = readCompanyFolder(multiCompanyDir, "company-b", true);
+  validateDataset(
+    [multiCompanyA.company, multiCompanyB.company],
+    [...multiCompanyA.programs, ...multiCompanyB.programs],
+    [...multiCompanyA.regimens, ...multiCompanyB.regimens],
+    "data/validation-fixtures/synthetic/valid-multi-company",
+    registries,
+    { companyLocalReferences: true },
+  );
+
   const invalidExpectations = [
+    ["conflicting-asset-identity", /conflicting asset identity/],
     ["duplicate-combination-order", /duplicate combination identity/],
     ["duplicate-regimen-order", /duplicate regimen identity/],
     ["duplicate-regimen-configuration", /duplicate regimen identity/],

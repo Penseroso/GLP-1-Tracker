@@ -1,0 +1,30 @@
+[
+  {
+    "id": "fixture-b-shared-subcutaneous-injection",
+    "assetId": "shared-asset",
+    "companyId": "fixture-b",
+    "assetName": "Beta Asset",
+    "codeName": "BBB",
+    "technical": {
+      "mechanism": null,
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Preclinical",
+      "status": "Active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": []
+    }
+  }
+]

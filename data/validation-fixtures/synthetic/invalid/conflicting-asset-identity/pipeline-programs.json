@@ -1,0 +1,58 @@
+[
+  {
+    "id": "fixture-co-shared-oral-tablets",
+    "assetId": "shared",
+    "companyId": "fixture-co",
+    "assetName": "First Name",
+    "codeName": "FIRST",
+    "technical": {
+      "mechanism": null,
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Preclinical",
+      "status": "Active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": []
+    }
+  },
+  {
+    "id": "fixture-co-shared-subcutaneous-injection",
+    "assetId": "shared",
+    "companyId": "fixture-co",
+    "assetName": "Second Name",
+    "codeName": "SECOND",
+    "technical": {
+      "mechanism": null,
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Preclinical",
+      "status": "Active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": []
+    }
+  }
+]

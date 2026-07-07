@@ -51,6 +51,12 @@ company-centred discovery
 -> unresolved items deferred and reported
 ```
 
+**Review each official source completely.** When a source is opened for one
+record, extract every distinct development entity and configuration it discloses
+(other assets, additional routes or formulations, combination products,
+regimens, and company relationships), not only the record that led you to it. A
+single release often announces multiple programs.
+
 ### Initial investigation
 
 - Inspect the company's **current pipeline broadly**.
@@ -105,6 +111,18 @@ Research and record update occur in the **same execution**. There is no separate
 Unresolved findings must be **reported but must not block** valid records from
 the same company. One unresolvable asset does not prevent entering the
 company's other, fully confirmed assets.
+
+**Classify every surfaced entity.** Each named program, formulation, combination
+product, regimen, or relationship surfaced during research must end the run in
+exactly one of three states:
+
+- **entered/updated** — confirmed and representable, so a record was written.
+- **deferred** — with a specific reason (for example, unconfirmed route,
+  unconfirmed configuration discriminator, or ambiguous identity).
+- **excluded** — with a scope or evidence reason (for example, out of dataset
+  scope, or existence unconfirmed).
+
+Nothing surfaced may be silently dropped.
 
 ## 4. Existing-record protection
 
@@ -217,6 +235,12 @@ outside tracker scope, and keeps validation/generation simple. The limitation is
 that the same external asset may appear by name in multiple company records, and
 aliases or renames are not unified until a future cross-company entity
 resolution module exists.
+
+When official evidence confirms **future regimen development intent** but
+regimen-specific development has not started or its stage is not disclosed, use
+`status: "Planned"` and `stage: "Unknown"` where appropriate. Do **not** inherit
+stage, status, or administration details from the component programs — a regimen
+is a distinct entity, not the sum of its components.
 
 When two regimens share the same principal company, component set, and
 indication scope, create separate records only if an official stable
