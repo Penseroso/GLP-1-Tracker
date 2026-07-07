@@ -125,3 +125,61 @@ when decided, recorded as a new appended ADR.
   non-GLP-1 strategic competitors.
 - **Program-ID suffix scheme** — the exact algorithm for the stable
   configuration suffix referenced in ADR-0002.
+
+---
+
+## ADR-0011 — Generated operating aggregates
+
+- **Date:** 2026-07-07
+- **Status:** Accepted (fixed now)
+- **Decision:** Company folders under `data/companies/` are the human-edited
+  operating source of truth. `data/generated/*.json` files are deterministic
+  generated aggregates consumed by the UI and loader.
+- **Rationale:** Company-scoped source files reduce merge conflicts and make
+  ownership of data updates clearer while preserving the existing UI contract.
+- **Consequences:** Generated files must not be edited directly. Aggregate
+  generation excludes `data/stress-tests/`.
+
+## ADR-0012 — Stress-test fixture isolation
+
+- **Date:** 2026-07-07
+- **Status:** Accepted (fixed now)
+- **Decision:** Ascletis pilot data is retained under
+  `data/stress-tests/ascletis-pharma/` as a fixture rather than operating data.
+- **Rationale:** The pilot is contract evidence, not production coverage.
+- **Consequences:** Fixture data uses the same validator but is excluded from
+  generated operating aggregates.
+
+## ADR-0013 — Registry-backed development stages
+
+- **Date:** 2026-07-07
+- **Status:** Accepted (fixed now)
+- **Decision:** Development-stage vocabulary is stored in
+  `data/registries/development-stages.json` with canonical labels, aliases,
+  family, and sort rank.
+- **Rationale:** Official stage precision such as `Phase 1b` or `Phase 1/2`
+  must not be collapsed into broader labels.
+- **Consequences:** Validators reject stages absent from the registry. New
+  official values can be promoted during the same research execution and commit.
+
+## ADR-0014 — Regulatory state separated from development stage
+
+- **Date:** 2026-07-07
+- **Status:** Accepted (fixed now)
+- **Decision:** Regulatory state is stored separately from development stage as
+  registry-backed program data with jurisdiction, authority, and optional date.
+- **Rationale:** Regulatory milestones such as `IND submitted` and `IND cleared`
+  are not clinical development stages.
+- **Consequences:** Validators reject regulatory states absent from
+  `data/registries/regulatory-states.json`.
+
+## ADR-0015 — ISO 8601 partial evidence dates
+
+- **Date:** 2026-07-07
+- **Status:** Accepted (fixed now)
+- **Decision:** Evidence dates such as `publishedAt` and regulatory-state date
+  may use `YYYY`, `YYYY-MM`, or `YYYY-MM-DD`. Verification metadata remains
+  full-date only.
+- **Rationale:** Sources often disclose only month or year precision.
+- **Consequences:** Unknown months or days must not be filled with artificial
+  `01` values.

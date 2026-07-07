@@ -46,11 +46,15 @@ Treat these as **mutable properties**, not identity:
 
 - development stage
 - development status
+- regulatory state
 
 - When a program progresses from **Phase 1 to Phase 2**, update the existing
   record rather than creating a new record solely because the stage changed.
 - When a program changes from **Active to Discontinued**, update the existing
   record rather than creating a new record solely because the status changed.
+- When a program receives **IND submitted** or **IND cleared** evidence, update
+  regulatory-state data without promoting or approximating the development
+  stage unless actual development-stage evidence also changed.
 
 ## Row splitting
 

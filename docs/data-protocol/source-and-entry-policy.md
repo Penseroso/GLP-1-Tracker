@@ -41,6 +41,28 @@ Prefer:
 Use registry evidence where available, but **allow direct official company
 evidence** when registration is delayed or unavailable.
 
+Phase sub-stages and combined stages must preserve their official semantic
+precision. For example, `Phase 1b`, `Phase 2a`, and `Phase 1/2` are not reduced
+to broader labels solely to fit existing vocabulary; if they satisfy the
+registry promotion rules, add the canonical value to the registry and use it.
+
+### Regulatory state
+
+Regulatory progress is separate from development stage. Examples include:
+
+- `IND submitted`
+- `IND cleared`
+- `CTA submitted`
+- `CTA approved`
+
+Do not enter `IND submitted` as `IND-enabling`, and do not enter `IND cleared`
+as `Phase 1` unless there is separate evidence that a Phase 1 trial has begun
+or is otherwise stage-confirmed under the stage evidence rules.
+
+Each regulatory-state entry should preserve the official state, jurisdiction,
+authority, and official date when disclosed. A program may have multiple
+regulatory-state entries.
+
 ### Filed and Approved
 
 Prefer:
@@ -134,6 +156,8 @@ Rules by field.
   in `entities-and-rows.md`.
 - **Development stage** — one of the enumerated stages; see status/stage rules.
 - **Development status** — one of the enumerated statuses; see status rules.
+- **Regulatory state** — one or more registry-backed regulatory milestones,
+  separate from development stage.
 
 General requirements:
 
@@ -148,6 +172,8 @@ General requirements:
 - Use `Unknown` **only** for the unresolved stage or status of a **confirmed**
   program.
 - Use consistent normalized expressions where practical.
+- Use registry canonical labels for development stage and regulatory state.
+  If the source uses an alias with the same meaning, store the canonical label.
 - **Required non-null fields** — if route, dosage form, indication, asset
   identity, or responsible company **cannot be confirmed**, do **not** infer a
   value and do **not** enter the record. Defer it as an unresolved pilot case
@@ -179,16 +205,34 @@ Additional rules:
 
 - **`checkedAt`** — date the source was accessed.
 - **`publishedAt`** — official publication date when known.
+- **Regulatory-state date** — official regulatory milestone date when known.
 - **`lastVerifiedAt`** — date the whole record was rechecked.
 - **`updatedAt`** — date stored record values were changed.
 
-Use **`YYYY-MM-DD`**. Do **not** estimate unknown dates.
+Use **`YYYY-MM-DD`** for `checkedAt`, `lastVerifiedAt`, and `updatedAt`.
+
+Use ISO 8601 partial dates for evidence dates when the source only supports
+partial precision:
+
+- `YYYY`
+- `YYYY-MM`
+- `YYYY-MM-DD`
+
+This applies to `publishedAt`, regulatory-state dates, and other evidence dates
+that may be introduced under the current contract. Do **not** estimate unknown
+months or days, and do **not** fill unknown values with `01`.
 
 ## Source metadata
 
 The current contract supports **record-level provenance only**
 (`metadata.sources` on the program record). There is no field-level source
 attribution.
+
+Agents should store the most authoritative minimum sufficient set of sources.
+A single authoritative source may be enough when it confirms all core fields.
+Use multiple sources when stage, formulation, platform, regulatory state, or
+other core facts require different evidence. Do not add redundant sources that
+only repeat the same fact.
 
 Minimum source coverage should **collectively** support:
 
@@ -198,8 +242,28 @@ Minimum source coverage should **collectively** support:
 - indication
 - stage and status
 
+When authoritative sources conflict, preserve the relevant conflicting sources
+and do not invent a resolution.
+
 Do **not** redesign the schema for field-level provenance in Module 5;
 field-level provenance is logged as an edge case.
+
+## Registry promotion
+
+During research, add a new development-stage or regulatory-state registry entry
+only when all of the following are true:
+
+- the value is confirmed by a regulator, trial registry, official company
+  announcement, or official scientific material.
+- the meaning is distinct from all existing registry labels and aliases.
+- the difference is not only style, case, punctuation, or Roman numeral wording.
+- the value is needed to represent actual pipeline state.
+- the expression is not abnormal, one-off, or purely promotional language.
+
+If an official value has the same meaning as an existing registry entry, add it
+as an alias if useful. Do not create a duplicate canonical entry. If officiality
+or meaning is insufficiently supported, do not promote it; report it as a
+deferred finding.
 
 ## Research checklist
 
@@ -212,6 +276,8 @@ Before entering or updating a record:
 - [ ] Confirm **route** and **dosage form**.
 - [ ] Confirm **indication**.
 - [ ] Confirm **stage** and **status**.
+- [ ] Confirm regulatory state separately from development stage when present.
+- [ ] Check registry labels and aliases before adding new vocabulary.
 - [ ] Retrieve appropriate **primary or direct official sources** for each claim.
 - [ ] Record **publication and access dates**.
 - [ ] Check for **unsupported inference**.

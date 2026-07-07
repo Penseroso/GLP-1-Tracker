@@ -14,8 +14,10 @@ identity, row, or entry rules, they apply here unchanged.
 A **company name is the normal input**. Commands such as `Research Company A` or
 `Update Company A` are equivalent triggers, not distinct modes.
 
-Before any research, the agent **inspects the current datasets**
-(`data/companies.json`, `data/pipeline-programs.json`) and decides internally:
+Before any research, the agent **inspects the current source datasets**
+(`data/companies/<company-id>/company.json`,
+`data/companies/<company-id>/pipeline-programs.json`, and generated aggregate
+files as a readback check) and decides internally:
 
 - **company absent** → perform an **initial company-wide investigation**.
 - **company or related records present** → perform a **refresh** against the
@@ -42,6 +44,8 @@ company-centred discovery
 -> registry, partner, rights, and official-source verification
 -> comparison with existing records
 -> confirmed record creation or update
+-> registry promotion when needed and justified
+-> aggregate regeneration and validation
 -> unresolved items deferred and reported
 ```
 
@@ -76,6 +80,8 @@ Research and record update occur in the **same execution**. There is no separate
 - **required non-null fields** are confirmed (route, dosage form, indication,
   asset identity, responsible company).
 - sources satisfy the **field-specific source policy**.
+- any new development-stage or regulatory-state vocabulary has been promoted to
+  the relevant registry under the registry promotion rules.
 - the record **can be represented** by the current contract.
 - the record is **not a duplicate configuration**.
 
@@ -86,6 +92,8 @@ Research and record update occur in the **same execution**. There is no separate
 - unresolved asset identity.
 - unsupported primary-company assignments.
 - facts that cannot be represented by the current enums or contract.
+- stage or regulatory-state approximations that lose official semantic
+  precision.
 
 Unresolved findings must be **reported but must not block** valid records from
 the same company. One unresolvable asset does not prevent entering the
@@ -163,7 +171,17 @@ When a record is **reverified without a value change**:
 Do **not** mark unrelated programs as reverified when they were not actually
 checked in this run.
 
-## 8. Result reporting
+## 8. Registry updates
+
+Development-stage and regulatory-state values are registry-backed. During a
+company research execution, promote a new registry value in the same commit as
+the program data only when the data protocol's registry promotion criteria are
+met. Use an existing canonical label when a source phrase is only an alias,
+stylistic variant, case variant, or Roman numeral spelling of an existing
+concept. If officiality or semantic distinctness is unclear, defer the finding
+instead of approximating it.
+
+## 9. Result reporting
 
 There is **no rigid report schema**, no fixed table set, and no mandatory
 section order. Choose a form appropriate to the company's complexity — tables,
@@ -177,9 +195,10 @@ Whatever the form, the final response must communicate:
 - important records **reverified without change**.
 - findings **deferred or excluded**, and why.
 - the **main supporting sources**.
+- registry additions, if any.
 - **validation results**.
 
-## 9. Failure handling
+## 10. Failure handling
 
 Before modifying any data, verify that **current external sources can actually
 be accessed**.
@@ -193,7 +212,7 @@ If current-source research is unavailable:
 A record must never be created or updated from memory or assumption when live
 sources could not be reached.
 
-## 10. Non-goals
+## 11. Non-goals
 
 This workflow does **not** introduce:
 

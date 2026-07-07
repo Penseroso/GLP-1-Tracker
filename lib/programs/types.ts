@@ -1,4 +1,4 @@
-import type { developmentStages, developmentStatuses } from "./constants";
+import type { developmentStatuses } from "./constants";
 
 export type Company = {
   id: string;
@@ -31,13 +31,20 @@ export type AdministrationProfile = {
   dosingInterval: string | null;
 };
 
-export type DevelopmentStage = (typeof developmentStages)[number];
+export type DevelopmentStage = string;
 
 export type DevelopmentStatus = (typeof developmentStatuses)[number];
 
 export type DevelopmentProfile = {
   stage: DevelopmentStage;
   status: DevelopmentStatus;
+};
+
+export type RegulatoryStateReference = {
+  state: string;
+  jurisdiction: string;
+  authority: string;
+  date?: string;
 };
 
 export type PipelineProgramRecord = {
@@ -50,6 +57,7 @@ export type PipelineProgramRecord = {
   administration: AdministrationProfile;
   indications: string[];
   development: DevelopmentProfile;
+  regulatoryStates?: RegulatoryStateReference[];
   metadata: RecordMetadata;
 };
 

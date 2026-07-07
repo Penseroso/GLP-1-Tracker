@@ -8,10 +8,10 @@ indication, route, dosage form, dosing interval, development stage, and
 development status. It is designed as a frontend foundation for future
 source-based research and periodic updates.
 
-The current dataset is empty:
+The current operating dataset is empty:
 
-- `data/companies.json` contains `[]`
-- `data/pipeline-programs.json` contains `[]`
+- `data/generated/companies.json` contains `[]`
+- `data/generated/pipeline-programs.json` contains `[]`
 
 ## Program Row Rule
 
@@ -26,9 +26,21 @@ For company research and automatic record updates, see the [`docs/research-workf
 
 ## Architecture
 
-- `data/companies.json` and `data/pipeline-programs.json` are the source data files.
+- `data/companies/<company-id>/company.json` and
+  `data/companies/<company-id>/pipeline-programs.json` are the human-edited
+  operating source-of-truth files.
+- `data/generated/companies.json` and
+  `data/generated/pipeline-programs.json` are generated aggregate files read by
+  the UI and data loader. Do not edit generated files directly.
+- `data/stress-tests/<fixture-id>/` contains isolated stress-test fixtures that
+  use the same contract and validator but are excluded from production
+  aggregate generation.
+- `data/registries/development-stages.json` and
+  `data/registries/regulatory-states.json` define accepted development-stage
+  and regulatory-state vocabulary.
 - `lib/programs/types.ts` defines the program data contract.
-- `lib/programs/data.ts` loads JSON data and resolves program `companyId` values to companies.
+- `lib/programs/data.ts` loads generated JSON data and resolves program
+  `companyId` values to companies.
 - `lib/programs/selectors.ts` owns derived-data calculations.
 - `lib/programs/filters.ts` owns program filtering.
 - `lib/format.ts` owns shared display formatting.
@@ -36,7 +48,9 @@ For company research and automatic record updates, see the [`docs/research-workf
 - Components form the presentation layer.
 
 ```text
-companies.json + pipeline-programs.json
+data/companies/<company-id>/*
+-> data:generate
+-> data/generated/*.json
 -> data.ts
 -> selectors / filters
 -> components
@@ -56,6 +70,11 @@ npm install
 npm run dev
 npm run build
 npm run lint
+npm run data:validate:registries
+npm run data:validate:companies
+npm run data:generate
+npm run data:validate:generated
+npm run data:validate:stress
 ```
 
 ## Scope

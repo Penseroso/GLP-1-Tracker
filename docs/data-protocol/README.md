@@ -57,6 +57,21 @@ itself is unconfirmed, **exclude it** rather than assigning `Unknown`.
 `Unknown` describes an unresolved property of a confirmed program — never an
 unconfirmed program.
 
+## Data layout
+
+- `data/companies/<company-id>/company.json` and
+  `data/companies/<company-id>/pipeline-programs.json` are the human-edited
+  operating source of truth.
+- `data/generated/companies.json` and
+  `data/generated/pipeline-programs.json` are deterministic aggregate outputs
+  consumed by the UI and loader. Do not edit generated files directly.
+- `data/stress-tests/<fixture-id>/` contains isolated fixtures for contract
+  stress tests and regression validation. Stress-test fixtures are excluded from
+  production aggregate generation.
+- `data/registries/development-stages.json` and
+  `data/registries/regulatory-states.json` define the accepted controlled
+  vocabulary for stage and regulatory-state entry.
+
 ## Operating model
 
 - Existing records are **updated** when mutable facts change.

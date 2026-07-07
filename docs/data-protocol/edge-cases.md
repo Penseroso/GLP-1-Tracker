@@ -31,3 +31,5 @@ is invented here.**
 | Field-level provenance | Use record-level `metadata.sources` collectively covering key claims. | Sources attach to the record, not to fields. | assumption at risk | Yes |
 | Unclear primary development company | Choose a defensible principal entity; log the ambiguity. | Single `companyId` forces a choice. | open until pilot | Yes |
 | Same asset with overlapping indication scopes | Split rows by distinct concurrent programs; avoid duplicate configurations. | Overlap can create ambiguous duplicate rows. | open until pilot | Yes |
+| Regulatory state display | Store registry-backed regulatory states separately from development stage. | Current UI does not display regulatory state. | provisionally usable | Yes |
+| Stress-test fixtures | Keep fixtures outside production aggregate generation. | Fixtures are not operating data and require separate validation. | provisionally usable | No |

@@ -1,5 +1,5 @@
-import companyData from "@/data/companies.json";
-import pipelineProgramData from "@/data/pipeline-programs.json";
+import companyData from "@/data/generated/companies.json";
+import pipelineProgramData from "@/data/generated/pipeline-programs.json";
 import type { Company, PipelineProgram, PipelineProgramRecord } from "./types";
 
 export const companies = companyData as Company[];

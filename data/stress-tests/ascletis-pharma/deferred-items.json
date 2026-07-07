@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ASC30_39 FDC",
+    "reason": "Official current pipeline mention was found, but route, dosage form, and current development stage were not sufficiently confirmed for entry."
+  },
+  {
+    "name": "ASC36 monotherapy",
+    "reason": "Amylin-only monotherapy is outside core GLP-1 dataset scope; retained only as a component of ASC36_35 FDC."
+  },
+  {
+    "name": "ASC39 monotherapy",
+    "reason": "Amylin-only monotherapy is outside core GLP-1 dataset scope; retained only as a component candidate of deferred ASC30_39 FDC."
+  },
+  {
+    "name": "ASC47 monotherapy",
+    "reason": "THR-beta program is GLP-1-unrelated and excluded from current dataset scope."
+  },
+  {
+    "name": "ASC47 plus semaglutide",
+    "reason": "Regimen combination with an external GLP-1 product cannot be represented cleanly as a program asset under the current contract."
+  },
+  {
+    "name": "ASC31 plus ASC47",
+    "reason": "Preclinical combination relationship and asset identity cannot be modeled without inventing component relationships."
+  }
+]
