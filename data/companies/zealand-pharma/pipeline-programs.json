@@ -1,0 +1,187 @@
+[
+  {
+    "id": "zealand-pharma-petrelintide-subcutaneous-injection",
+    "assetId": "petrelintide",
+    "companyId": "zealand-pharma",
+    "assetName": "Petrelintide",
+    "codeName": "ZP8396",
+    "technical": {
+      "mechanism": "Long-acting amylin analog",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Chronic weight management",
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Roche",
+        "role": "co-developer",
+        "territories": [
+          "Europe",
+          "United States"
+        ],
+        "rights": [
+          "co-commercialization",
+          "co-development"
+        ],
+        "effectiveDate": "2025-03",
+        "sourceUrls": [
+          "https://www.zealandpharma.com/pipeline/petrelintide/"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-08",
+      "updatedAt": "2026-07-08",
+      "sources": [
+        {
+          "url": "https://www.zealandpharma.com/pipeline/petrelintide/",
+          "title": "Petrelintide - Pipeline - Zealand Pharma",
+          "sourceType": "company pipeline page",
+          "checkedAt": "2026-07-08"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06662539",
+          "title": "Once-weekly Petrelintide Versus Placebo for Obesity or Overweight With Co-morbidities",
+          "sourceType": "trial registry",
+          "publishedAt": "2024-10-29",
+          "checkedAt": "2026-07-08"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06926842",
+          "title": "Efficacy and Safety of Petrelintide in Participants With Overweight or Obesity and Type 2 Diabetes (ZUPREME 2)",
+          "sourceType": "trial registry",
+          "publishedAt": "2025-04-15",
+          "checkedAt": "2026-07-08"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zealand-pharma-dapiglutide-subcutaneous-injection",
+    "assetId": "dapiglutide",
+    "companyId": "zealand-pharma",
+    "assetName": "Dapiglutide",
+    "codeName": "ZP7570",
+    "technical": {
+      "mechanism": "GLP-1R/GLP-2R dual agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Phase 1b",
+      "status": "On hold"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-08",
+      "updatedAt": "2026-07-08",
+      "sources": [
+        {
+          "url": "https://www.zealandpharma.com/pipeline/dapiglutide-program-paused/",
+          "title": "Dapiglutide (program paused) - Pipeline - Zealand Pharma",
+          "sourceType": "company pipeline page",
+          "checkedAt": "2026-07-08"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06000891",
+          "title": "A Trial Assessing Safety, Tolerability, Pharmacokinetics and Pharmacodynamics of ZP7570",
+          "sourceType": "trial registry",
+          "publishedAt": "2023-08-21",
+          "checkedAt": "2026-07-08"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zealand-pharma-petrelintide-ct-388-fdc-subcutaneous-injection",
+    "assetId": "petrelintide-ct-388-fdc",
+    "companyId": "zealand-pharma",
+    "assetType": "fixed-dose-combination",
+    "assetName": "Petrelintide / CT-388 fixed-dose combination",
+    "codeName": "Petrelintide / CT-388",
+    "components": [
+      {
+        "assetId": "petrelintide",
+        "role": "amylin analog"
+      },
+      {
+        "codeName": "CT-388",
+        "assetName": "Enicepatide",
+        "externalCompanyName": "Roche",
+        "role": "GLP-1/GIP receptor dual agonist"
+      }
+    ],
+    "technical": {
+      "mechanism": "Amylin analog plus GLP-1/GIP receptor dual agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Roche",
+        "role": "co-developer",
+        "territories": [
+          "Europe",
+          "United States"
+        ],
+        "rights": [
+          "co-commercialization",
+          "co-development"
+        ],
+        "effectiveDate": "2025-03",
+        "sourceUrls": [
+          "https://www.zealandpharma.com/pipeline/petrelintide-ct-388/"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-08",
+      "updatedAt": "2026-07-08",
+      "sources": [
+        {
+          "url": "https://www.zealandpharma.com/pipeline/petrelintide-ct-388/",
+          "title": "Petrelintide / CT-388 - Pipeline - Zealand Pharma",
+          "sourceType": "company pipeline page",
+          "checkedAt": "2026-07-08"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07589686",
+          "title": "A Dose-Finding Study of Petrelintide With Enicepatide (RO7795068) in Adults With Obesity or Overweight",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-05-15",
+          "checkedAt": "2026-07-08"
+        }
+      ]
+    }
+  }
+]
