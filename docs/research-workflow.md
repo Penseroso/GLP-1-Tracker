@@ -4,10 +4,12 @@ One workflow for a research agent (Codex, Claude Code, or similar) to research a
 company and update its records in a **single execution**. The normal input is a
 company name; the agent decides everything else automatically.
 
-This workflow is subordinate to [`docs/data-protocol/`](./data-protocol/), which
-is the authoritative research and entry policy. Where this document is silent,
-the data protocol governs; where the data protocol defines scope, evidence,
-identity, row, or entry rules, they apply here unchanged.
+This workflow is subordinate to the data protocol, whose entry point is
+[`docs/data-protocol/README.md`](./data-protocol/README.md). The data protocol
+is the authoritative research and entry policy and reflects the frozen v1
+contract (ADR-0025). Where this document is silent, the data protocol governs;
+where the data protocol defines scope, evidence, identity, row, or entry rules,
+they apply here unchanged.
 
 ## 1. Single company-research entry point
 
@@ -135,10 +137,11 @@ Nothing surfaced may be silently dropped.
   prior-state support.
 - **Avoid duplicate** source entries.
 
-## 5. Deterministic ID rules (provisional)
+## 5. Deterministic ID rules
 
-These are **provisional operating rules**, subject to review after the first
-pilot.
+These ID rules operate under the frozen v1 contract (ADR-0025). Only the exact
+program-ID suffix scheme remains a v2 backlog item (see the data protocol's
+deferred decisions); keep suffixes stable and minimal until it is decided.
 
 Before creating any record, **search existing company, asset, and program
 identities and reuse existing IDs whenever applicable.**
@@ -265,7 +268,11 @@ Whatever the form, the final response must communicate:
 - findings **deferred or excluded**, and why.
 - the **main supporting sources**.
 - registry additions, if any.
-- **validation results**.
+- **generated aggregates regenerated** with `npm run data:generate` when
+  operating data changed; generated files are outputs, never hand-edited.
+- **validation results** — these are local checks; this repository has no
+  GitHub Actions CI.
+- any **blockers or evidence-access failures**.
 
 ## 11. Failure handling
 

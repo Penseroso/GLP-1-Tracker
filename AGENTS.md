@@ -27,6 +27,6 @@ When such a request is received:
   reporting.
 - The detailed rules remain authoritative in
   [`prompts/research-company.md`](prompts/research-company.md) and its
-  referenced documents ([`docs/data-protocol/`](docs/data-protocol/) and
-  [`docs/research-workflow.md`](docs/research-workflow.md)). Follow those; do
+  referenced documents ([`docs/data-protocol/README.md`](docs/data-protocol/README.md)
+  and [`docs/research-workflow.md`](docs/research-workflow.md)). Follow those; do
   not reimplement the workflow from this router.
