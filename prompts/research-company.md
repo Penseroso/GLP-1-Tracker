@@ -14,9 +14,11 @@ other parameter. The company name is the only input.
 You are researching **`<COMPANY_NAME>`** for the GLP-1 Pipeline Board and
 updating its records in the same execution. Follow these steps:
 
-1. **Read the policy.** Read [`docs/data-protocol/`](../docs/data-protocol/) and
+1. **Read the policy.** Start from the protocol entry point
+   [`docs/data-protocol/README.md`](../docs/data-protocol/README.md), then read
    [`docs/research-workflow.md`](../docs/research-workflow.md). They are
-   authoritative for scope, evidence, identity, row, and entry rules.
+   authoritative for scope, evidence, identity, row, and entry rules, and
+   reflect the frozen v1 contract (ADR-0025).
 
 2. **Inspect current data.** Read company source folders under
    `data/companies/`, generated aggregate files under `data/generated/`,
@@ -43,9 +45,16 @@ updating its records in the same execution. Follow these steps:
 
 5. **Apply the Module 5 rules.** Enforce the dataset scope, stage evidence
    thresholds, entity/asset/program identity, row-splitting rules, and
-   field-entry rules from the data protocol. Keep regulatory state separate
-   from development stage. Distinguish single asset programs, combination
-   products, regimens, external background therapies, and company relationships.
+   field-entry rules from the data protocol. Set `development.stage` to the most
+   advanced official current development stage for the program scope;
+   regulatory-development milestones such as `IND submitted` and `IND cleared`
+   are valid stages when they are the most advanced official current stage and
+   are never approximated as clinical phases (ADR-0024). Keep the detailed
+   `regulatoryStates` entries (jurisdiction, authority, date) as a field
+   separate from `development.stage`, and use `stageBasis` and
+   `stageOperationalState` to annotate evidence basis and operational state.
+   Distinguish single asset programs, combination products, regimens, external
+   background therapies, and company relationships.
 
 6. **Promote registry values when justified.** If official evidence requires a
    development-stage, regulatory-state, or company-relationship-role value that
@@ -131,7 +140,10 @@ updating its records in the same execution. Follow these steps:
     template), communicate: whether this was an initial investigation or a
     refresh; the relevant assets found; records created or changed; important
     records reverified without change; findings deferred or excluded and why;
-    the main supporting sources; and the validation results.
+    the main supporting sources; whether generated aggregates were regenerated
+    with `npm run data:generate` when operating data changed; the validation
+    results (local checks — this repository has no GitHub Actions CI); and any
+    blockers or evidence-access failures.
 
 **Failure handling:** Before modifying any data, confirm current external
 sources are actually reachable. If they are not, do not claim research was
