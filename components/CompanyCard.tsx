@@ -7,7 +7,7 @@ type CompanyCardProps = {
 
 export function CompanyCard({ company }: CompanyCardProps) {
   return (
-    <article className="rounded-lg border border-border bg-card p-5 shadow-soft">
+    <article className="rounded-md border border-border bg-card p-5 shadow-soft">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3 className="text-base font-semibold text-card-foreground">

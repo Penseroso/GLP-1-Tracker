@@ -31,7 +31,7 @@ export default function OverviewPage() {
         </div>
         <Link
           href="/assets"
-          className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+          className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           Browse programs
         </Link>
@@ -79,13 +79,13 @@ export default function OverviewPage() {
             ))}
           </div>
         ) : (
-          <div className="rounded-lg border border-border bg-card p-6 text-sm text-muted-foreground shadow-soft">
+          <div className="rounded-md border border-border bg-card p-6 text-sm text-muted-foreground shadow-soft">
             No companies to display yet.
           </div>
         )}
       </section>
 
-      <section className="rounded-lg border border-border bg-card p-5 shadow-soft">
+      <section className="rounded-md border border-border bg-card p-5 shadow-soft">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="text-xl font-semibold tracking-tight text-card-foreground">
