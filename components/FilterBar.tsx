@@ -13,11 +13,13 @@ const selectClassName =
 
 function SelectFilter({
   label,
+  allLabel,
   value,
   options,
   onChange,
 }: {
   label: string;
+  allLabel: string;
   value: string;
   options: string[];
   onChange: (value: string) => void;
@@ -30,7 +32,7 @@ function SelectFilter({
         onChange={(event) => onChange(event.target.value)}
         className={selectClassName}
       >
-        <option value="All">All</option>
+        <option value="All">{allLabel}</option>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
@@ -60,30 +62,35 @@ export function FilterBar({ filters, options, onChange }: FilterBarProps) {
         </label>
         <SelectFilter
           label="Company"
+          allLabel="All companies"
           value={filters.company}
           options={options.companies}
           onChange={(company) => update({ company })}
         />
         <SelectFilter
           label="Indication"
+          allLabel="All indications"
           value={filters.indication}
           options={options.indications}
           onChange={(indication) => update({ indication })}
         />
         <SelectFilter
           label="Route"
+          allLabel="All routes"
           value={filters.route}
           options={options.routes}
           onChange={(route) => update({ route })}
         />
         <SelectFilter
           label="Stage"
+          allLabel="All stages"
           value={filters.stage}
           options={options.stages}
           onChange={(stage) => update({ stage: stage as ProgramFilters["stage"] })}
         />
         <SelectFilter
           label="Status"
+          allLabel="All statuses"
           value={filters.status}
           options={options.statuses}
           onChange={(status) =>
