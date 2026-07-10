@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   getProgramTableColumnLabel,
   type ProgramTableColumnId,
@@ -82,6 +82,20 @@ export function PipelineTable({ programs }: PipelineTableProps) {
   const [selectedProgram, setSelectedProgram] = useState<PipelineProgram | null>(
     null,
   );
+  const triggerRowRef = useRef<HTMLTableRowElement | null>(null);
+
+  const openProgram = (
+    program: PipelineProgram,
+    row: HTMLTableRowElement,
+  ) => {
+    triggerRowRef.current = row;
+    setSelectedProgram(program);
+  };
+
+  const closeDrawer = () => {
+    setSelectedProgram(null);
+    triggerRowRef.current?.focus();
+  };
 
   const options = useMemo(() => getProgramFilterOptions(programs), [programs]);
   const orderedPrograms = useMemo(
@@ -137,11 +151,11 @@ export function PipelineTable({ programs }: PipelineTableProps) {
                   key={program.id}
                   role="button"
                   tabIndex={0}
-                  onClick={() => setSelectedProgram(program)}
+                  onClick={(event) => openProgram(program, event.currentTarget)}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
                       event.preventDefault();
-                      setSelectedProgram(program);
+                      openProgram(program, event.currentTarget);
                     }
                   }}
                   className="cursor-pointer bg-card transition hover:bg-accent/45 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
@@ -194,10 +208,7 @@ export function PipelineTable({ programs }: PipelineTableProps) {
           </table>
         </div>
       </section>
-      <ProgramDetailDrawer
-        program={selectedProgram}
-        onClose={() => setSelectedProgram(null)}
-      />
+      <ProgramDetailDrawer program={selectedProgram} onClose={closeDrawer} />
     </div>
   );
 }

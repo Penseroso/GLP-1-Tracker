@@ -8,6 +8,13 @@
 > been fixed. See the "Remediation status" line on each finding below and the
 > updated Module 4.1 entry in section F. All other findings are unchanged from
 > the original audit.
+>
+> **Update (Module 4.2, 2026-07-10):** UI-V1-012, UI-V1-013, UI-V1-014, and
+> UI-V1-015 (drawer dialog semantics, focus management, Escape-to-close,
+> scroll-lock) have been fixed. See the "Remediation status" line on each
+> finding below and the updated Module 4.2 entry in section F. All other
+> findings, including the deferred drawer *content-depth* limitation, are
+> unchanged from the original audit.
 
 ## A. Audit metadata
 
@@ -189,6 +196,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed
 - **Remediation scope:** Small (attributes), or fold into the deferred V2 drawer redesign.
 - **Blocks V1 closure:** No · **Fix before V2:** **Yes** (basic a11y, independent of content depth).
+- **Remediation status (Module 4.2, 2026-07-10):** **Fixed.** Added `role="dialog"`, `aria-modal="true"`, and `aria-labelledby` (pointing to the asset-name `<h2>` via `useId()`) on the `<aside>` in `components/ProgramDetailDrawer.tsx`. Verified: `getAttribute('role') === 'dialog'`, `aria-modal === 'true'`, and the `aria-labelledby` target's text matches the displayed asset name.
 
 ### UI-V1-013 — Drawer has no focus management
 - **Severity:** **Major** · **Surface:** Drawer integration · **Category:** accessibility
@@ -200,6 +208,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed
 - **Remediation scope:** Small–Medium (focus-on-open, trap, restore-on-close), or fold into the V2 drawer redesign.
 - **Blocks V1 closure:** No · **Fix before V2:** **Yes.**
+- **Remediation status (Module 4.2, 2026-07-10):** **Fixed.** `ProgramDetailDrawer` now focuses the Close button on open (or when the displayed program changes), traps Tab/Shift+Tab within the panel via a `keydown` listener (redirects to the first/last focusable element at the boundary, or whenever focus is found outside the panel), and `PipelineTable` now tracks the exact triggering `<tr>` in a ref and calls `.focus()` on it from a single `closeDrawer` handler used by every close path. Verified: focus lands on the Close button on open; Tab and Shift+Tab both stay inside the `<aside>` across repeated presses; after closing via Escape, the Close button, and the backdrop, focus returns to the exact row that opened the drawer in each case (asserted by DOM node identity, not just tag name).
 
 ### UI-V1-014 — Escape does not close the drawer
 - **Severity:** Minor · **Surface:** Drawer integration · **Category:** accessibility / UX
@@ -211,6 +220,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed
 - **Remediation scope:** Small.
 - **Blocks V1 closure:** No · **Fix before V2:** Recommended (pairs with UI-V1-012/013).
+- **Remediation status (Module 4.2, 2026-07-10):** **Fixed.** The same `keydown` listener added for the focus trap also handles `Escape`, calling the drawer's `onClose` prop. Verified: pressing Escape while the drawer is open closes it (previously it stayed open).
 
 ### UI-V1-015 — Background not scroll-locked while drawer is open
 - **Severity:** Minor · **Surface:** Drawer integration · **Category:** UX
@@ -221,6 +231,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed
 - **Remediation scope:** Small.
 - **Blocks V1 closure:** No · **Fix before V2:** Optional (pairs with drawer a11y work).
+- **Remediation status (Module 4.2, 2026-07-10):** **Fixed.** An effect sets `document.body.style.overflow = "hidden"` while a program is displayed, saving the prior inline value first and restoring exactly that value on close or unmount (not a hardcoded `"visible"`, so any future pre-existing inline override is preserved). Verified: `getComputedStyle(document.body).overflow === "hidden"` while open, `"visible"` after close, and a mouse-wheel event while open produces no `window.scrollY` change.
 
 ---
 
@@ -248,7 +259,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 Grouped into the smallest reasonable follow-up modules:
 
 - **Module 4.1 — Responsive & layout fixes:** UI-V1-004, UI-V1-008, UI-V1-009. (Grid `min-w-0`; register table width vs. page gutter; company truncation.) Small, self-contained, high user-visible value. **Status: done (2026-07-10)** — see per-finding "Remediation status" entries above.
-- **Module 4.2 — Drawer accessibility hardening:** UI-V1-012, UI-V1-013, UI-V1-014, UI-V1-015. Dialog role + `aria-modal` + label, focus trap/restore, Escape, scroll-lock. May be merged into the deferred V2 drawer redesign if that lands first, but the a11y basics should not wait on content depth.
+- **Module 4.2 — Drawer accessibility hardening:** UI-V1-012, UI-V1-013, UI-V1-014, UI-V1-015. Dialog role + `aria-modal` + label, focus trap/restore, Escape, scroll-lock. May be merged into the deferred V2 drawer redesign if that lands first, but the a11y basics should not wait on content depth. **Status: done (2026-07-10)** — see per-finding "Remediation status" entries above.
 - **Module 4.3 — Copy & semantic accuracy:** UI-V1-002, UI-V1-003, UI-V1-005, UI-V1-006, UI-V1-007, UI-V1-010. Nav/label/title consistency, "Latest verified" vs `updatedAt`, unified clinical-phase definition (UI-only; do not reopen the frozen registry), asset-header consistency, milestone badge differentiation.
 - **Module 4.4 — Navigation & filter polish (optional):** UI-V1-001 (active nav + `aria-current`), UI-V1-011 (keyword scope / placeholder honesty).
 
