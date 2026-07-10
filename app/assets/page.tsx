@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import { PipelineTable } from "@/components/PipelineTable";
 import { pipelinePrograms } from "@/lib/programs/data";
+
+export const metadata: Metadata = {
+  title: "Program Register",
+};
 
 export default function AssetsPage() {
   return (

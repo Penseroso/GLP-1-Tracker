@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   getProgramTableColumnLabel,
   type ProgramTableColumnId,
@@ -38,11 +38,11 @@ function getAssetLabel(program: PipelineProgram) {
 }
 
 const truncatedCellClassName: Partial<Record<ProgramTableColumnId, string>> = {
-  company: "max-w-[140px] truncate",
-  asset: "max-w-[200px] truncate",
-  mechanism: "max-w-[200px] truncate",
-  dosageForm: "max-w-[120px] truncate",
-  dosingInterval: "max-w-[150px] truncate",
+  company: "max-w-[175px] truncate",
+  asset: "max-w-[185px] truncate",
+  mechanism: "max-w-[180px] truncate",
+  dosageForm: "max-w-[110px] truncate",
+  dosingInterval: "max-w-[140px] truncate",
   indications: "max-w-[200px] truncate",
   platform: "max-w-[160px] truncate",
 };
@@ -82,6 +82,20 @@ export function PipelineTable({ programs }: PipelineTableProps) {
   const [selectedProgram, setSelectedProgram] = useState<PipelineProgram | null>(
     null,
   );
+  const triggerRowRef = useRef<HTMLTableRowElement | null>(null);
+
+  const openProgram = (
+    program: PipelineProgram,
+    row: HTMLTableRowElement,
+  ) => {
+    triggerRowRef.current = row;
+    setSelectedProgram(program);
+  };
+
+  const closeDrawer = () => {
+    setSelectedProgram(null);
+    triggerRowRef.current?.focus();
+  };
 
   const options = useMemo(() => getProgramFilterOptions(programs), [programs]);
   const orderedPrograms = useMemo(
@@ -125,7 +139,7 @@ export function PipelineTable({ programs }: PipelineTableProps) {
             <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
               <tr>
                 {visibleColumns.map((column) => (
-                  <th key={column.id} className="px-4 py-2.5 font-semibold">
+                  <th key={column.id} className="px-3 py-2.5 font-semibold">
                     {getProgramTableColumnLabel(column)}
                   </th>
                 ))}
@@ -137,11 +151,11 @@ export function PipelineTable({ programs }: PipelineTableProps) {
                   key={program.id}
                   role="button"
                   tabIndex={0}
-                  onClick={() => setSelectedProgram(program)}
+                  onClick={(event) => openProgram(program, event.currentTarget)}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
                       event.preventDefault();
-                      setSelectedProgram(program);
+                      openProgram(program, event.currentTarget);
                     }
                   }}
                   className="cursor-pointer bg-card transition hover:bg-accent/45 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
@@ -153,7 +167,7 @@ export function PipelineTable({ programs }: PipelineTableProps) {
                     return (
                       <td
                         key={column.id}
-                        className="px-4 py-2.5 text-muted-foreground"
+                        className="px-3 py-2.5 text-muted-foreground"
                       >
                         {column.id === "development" ? (
                           <StageBadge stage={value} />
@@ -194,10 +208,7 @@ export function PipelineTable({ programs }: PipelineTableProps) {
           </table>
         </div>
       </section>
-      <ProgramDetailDrawer
-        program={selectedProgram}
-        onClose={() => setSelectedProgram(null)}
-      />
+      <ProgramDetailDrawer program={selectedProgram} onClose={closeDrawer} />
     </div>
   );
 }

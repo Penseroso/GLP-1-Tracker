@@ -27,11 +27,6 @@ export const developmentStageRank = Object.fromEntries(
   stageRegistry.map((stage) => [stage.label, stage.sortRank]),
 ) as Record<string, number>;
 
-export const clinicalDevelopmentStages = developmentStages.filter((stage) => {
-  const rank = developmentStageRank[stage] ?? 0;
-  return rank >= 40;
-});
-
 export const developmentStageFamily = Object.fromEntries(
   stageRegistry.map((stage) => [stage.label, stage.family]),
 ) as Record<string, string>;
@@ -78,3 +73,31 @@ export function getStageBucketId(stage: string): StageBucketId {
   const family = developmentStageFamily[stage];
   return (family && stageBucketByFamily[family]) || "preclinical";
 }
+
+/**
+ * A regulatory-development milestone stage (IND submitted, IND cleared, CTA
+ * submitted, CTA approved) - always distinct from a clinical phase, never
+ * approximated as one.
+ */
+export function isRegulatoryMilestoneStage(stage: string): boolean {
+  return getStageBucketId(stage) === "regulatory-milestone";
+}
+
+const CLINICAL_PHASE_BUCKET_IDS: readonly StageBucketId[] = [
+  "phase-1",
+  "phase-2",
+  "phase-3",
+];
+
+/**
+ * Clinical-phase stages: Phase 1-3 only (including sub-phases such as
+ * "Phase 1b" and the combined "Phase 1/2" stage), matching the same
+ * phase-1/phase-2/phase-3 buckets used by the Company x Development Stage
+ * Matrix. Regulatory-development milestones and Filed/Approved are always
+ * excluded, so "clinical-phase" has one shared definition across the
+ * Overview instead of a separate rank threshold that could drift from the
+ * matrix's bucketing.
+ */
+export const clinicalDevelopmentStages = developmentStages.filter((stage) =>
+  CLINICAL_PHASE_BUCKET_IDS.includes(getStageBucketId(stage)),
+);

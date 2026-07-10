@@ -49,7 +49,7 @@ export function OverviewMetadataStrip({
       />
       <MetadataItem value={clinicalPhaseCount} label="Clinical-phase" />
       {lastUpdated ? (
-        <MetadataItem value={lastUpdated} label="Latest verified" />
+        <MetadataItem value={lastUpdated} label="Latest updated" />
       ) : null}
     </div>
   );

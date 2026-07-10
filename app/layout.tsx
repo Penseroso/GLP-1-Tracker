@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PrimaryNav } from "@/components/PrimaryNav";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Obesity Landscape",
-  description: "Frontend skeleton for obesity/incretin competitive programs.",
+  title: {
+    default: "Obesity Landscape",
+    template: "%s — Obesity Landscape",
+  },
+  description:
+    "A searchable register of obesity/incretin development programs and competitive landscape data.",
 };
 
 export default function RootLayout({
@@ -33,20 +38,7 @@ export default function RootLayout({
                 </span>
               </span>
             </Link>
-            <nav className="flex gap-1 text-sm font-medium text-muted-foreground">
-              <Link
-                href="/"
-                className="rounded-md px-3 py-2 transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              >
-                Overview
-              </Link>
-              <Link
-                href="/assets"
-                className="rounded-md px-3 py-2 transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              >
-                Programs
-              </Link>
-            </nav>
+            <PrimaryNav />
           </header>
           <main className="flex-1">{children}</main>
         </div>

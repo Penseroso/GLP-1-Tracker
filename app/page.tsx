@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { CompanyStageMatrix } from "@/components/CompanyStageMatrix";
 import { MostAdvancedProgramsTable } from "@/components/MostAdvancedProgramsTable";
 import { OverviewMetadataStrip } from "@/components/OverviewMetadataStrip";
@@ -10,6 +11,14 @@ import {
   getMostAdvancedPrograms,
   getRouteDistribution,
 } from "@/lib/programs/selectors";
+
+export const metadata: Metadata = {
+  // The root page.tsx shares its route segment with the root layout.tsx, so
+  // the layout's title.template (which applies across parent -> child
+  // segment boundaries, e.g. to /assets) does not apply here - set the full
+  // title directly so Overview still gets a distinct, product-named title.
+  title: "Overview — Obesity Landscape",
+};
 
 export default function OverviewPage() {
   const clinicalStagePrograms = getClinicalStageProgramCount(pipelinePrograms);
