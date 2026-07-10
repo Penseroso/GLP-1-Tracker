@@ -28,5 +28,13 @@
     "aliases": [
       "Clinical Trial Application approved"
     ]
+  },
+  {
+    "id": "nda-submitted",
+    "label": "NDA submitted",
+    "aliases": [
+      "New Drug Application submitted",
+      "NDA filed"
+    ]
   }
 ]

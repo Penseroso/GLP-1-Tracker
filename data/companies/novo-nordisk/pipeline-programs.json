@@ -28,16 +28,31 @@
       "updatedAt": "2026-07-10",
       "sources": [
         {
-          "url": "https://clinicaltrials.gov/study/NCT03548987",
-          "title": "Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity (STEP 1)",
-          "sourceType": "trial registry",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/215256Orig1s000TOC.cfm",
+          "title": "Drug Approval Package: Wegovy (semaglutide) injection",
+          "sourceType": "regulatory review",
+          "publishedAt": "2021-06-04",
           "checkedAt": "2026-07-10"
         },
         {
-          "url": "https://www.prnewswire.com/news-releases/fda-approves-novo-nordisks-wegovy-pill-the-first-and-only-oral-glp-1-for-weight-loss-in-adults-302648344.html",
-          "title": "FDA approves Novo Nordisk's Wegovy pill, the first and only oral GLP-1 for weight loss in adults",
-          "sourceType": "company press release",
-          "publishedAt": "2025-12-22",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/215256s000lbl.pdf",
+          "title": "Wegovy (semaglutide) injection prescribing information",
+          "sourceType": "drug label",
+          "publishedAt": "2021-06",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2017/209637Orig1s000TOC.cfm",
+          "title": "Drug Approval Package: Ozempic (semaglutide) injection",
+          "sourceType": "regulatory review",
+          "publishedAt": "2017-12-05",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/209637lbl.pdf",
+          "title": "Ozempic (semaglutide) injection prescribing information",
+          "sourceType": "drug label",
+          "publishedAt": "2017-12",
           "checkedAt": "2026-07-10"
         }
       ]
@@ -77,6 +92,20 @@
           "sourceType": "company press release",
           "publishedAt": "2025-12-22",
           "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2019/213051Orig1s000TOC.cfm",
+          "title": "Drug Approval Package: Rybelsus (semaglutide) tablets",
+          "sourceType": "regulatory review",
+          "publishedAt": "2019-09-20",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/213051s000lbl.pdf",
+          "title": "Rybelsus (semaglutide) tablets prescribing information",
+          "sourceType": "drug label",
+          "publishedAt": "2019-09",
+          "checkedAt": "2026-07-10"
         }
       ]
     }
@@ -115,6 +144,14 @@
       "stage": "Filed",
       "status": "Active"
     },
+    "regulatoryStates": [
+      {
+        "state": "NDA submitted",
+        "jurisdiction": "United States",
+        "authority": "FDA",
+        "date": "2025-12-18"
+      }
+    ],
     "metadata": {
       "lastVerifiedAt": "2026-07-10",
       "updatedAt": "2026-07-10",
@@ -131,6 +168,250 @@
           "title": "Novo Nordisk advances cardiometabolic pipeline with new data featuring CagriSema and zenagamtide at the American Diabetes Association's 2026 Scientific Sessions",
           "sourceType": "company press release",
           "publishedAt": "2026-05-27",
+          "checkedAt": "2026-07-10"
+        }
+      ]
+    }
+  },
+  {
+    "id": "novo-nordisk-cagrisema-subcutaneous-injection-type-2-diabetes",
+    "assetId": "cagrisema",
+    "companyId": "novo-nordisk",
+    "assetType": "fixed-dose-combination",
+    "assetName": "CagriSema",
+    "codeName": "CagriSema",
+    "components": [
+      {
+        "assetId": "cagrilintide",
+        "role": "amylin analog"
+      },
+      {
+        "assetId": "semaglutide",
+        "role": "GLP-1 receptor agonist"
+      }
+    ],
+    "technical": {
+      "mechanism": "Long-acting amylin analog plus GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06323174",
+          "title": "A Research Study to See How Much CagriSema Lowers Blood Sugar and Body Weight Compared to Placebo in People With Type 2 Diabetes Treated With Diet and Exercise (REIMAGINE 1)",
+          "sourceType": "trial registry",
+          "publishedAt": "2024-03-12",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06323161",
+          "title": "A Research Study to See How Much CagriSema Lowers Blood Sugar and Body Weight Compared to Placebo in People With Type 2 Diabetes Treated With Once-daily Basal Insulin With or Without Metformin (REIMAGINE 3)",
+          "sourceType": "trial registry",
+          "publishedAt": "2024-03-12",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06534411",
+          "title": "A Research Study to See How Much CagriSema Lowers Blood Sugar and Body Weight Compared to Tirzepatide in People With Type 2 Diabetes Treated With Metformin, SGLT2 Inhibitor or Both (REIMAGINE 5)",
+          "sourceType": "trial registry",
+          "publishedAt": "2024-08-02",
+          "checkedAt": "2026-07-10"
+        }
+      ]
+    }
+  },
+  {
+    "id": "novo-nordisk-ubt251-subcutaneous-injection",
+    "assetId": "ubt251",
+    "companyId": "novo-nordisk",
+    "assetName": "UBT251",
+    "codeName": "UBT251",
+    "technical": {
+      "mechanism": "GLP-1/GIP/glucagon receptor triple agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "United Bio-Technology Co., Ltd.",
+        "role": "originator",
+        "territories": [
+          "Mainland China",
+          "Hong Kong",
+          "Macau",
+          "Taiwan"
+        ],
+        "rights": [
+          "retained rights"
+        ],
+        "effectiveDate": "2025-03-24",
+        "sourceUrls": [
+          "https://www.barrons.com/articles/novo-nordisk-stock-price-weight-loss-china-deal-2c2bfcf6"
+        ]
+      },
+      {
+        "externalCompanyName": "United Bio-Technology Co., Ltd.",
+        "role": "licensor",
+        "territories": [
+          "Worldwide excluding mainland China, Hong Kong, Macau, and Taiwan"
+        ],
+        "rights": [
+          "development",
+          "manufacturing",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-03-24",
+        "sourceUrls": [
+          "https://www.barrons.com/articles/novo-nordisk-stock-price-weight-loss-china-deal-2c2bfcf6"
+        ]
+      },
+      {
+        "externalCompanyName": "United Laboratories International Holdings Limited",
+        "role": "co-developer",
+        "sourceUrls": [
+          "https://www.wsj.com/health/pharma/novo-nordisk-united-laboratories-say-new-obesity-drug-helps-patients-lose-weight-in-trial-99d136d5"
+        ]
+      },
+      {
+        "companyId": "novo-nordisk",
+        "role": "regional rights holder",
+        "territories": [
+          "Worldwide excluding mainland China, Hong Kong, Macau, and Taiwan"
+        ],
+        "rights": [
+          "development",
+          "manufacturing",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-03-24",
+        "sourceUrls": [
+          "https://www.barrons.com/articles/novo-nordisk-stock-price-weight-loss-china-deal-2c2bfcf6"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07395687",
+          "title": "A Research Study on How Well Different Doses of the Medicine UBT251 Help People Living With Overweight or Obesity",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-01-07",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.barrons.com/articles/novo-nordisk-stock-price-weight-loss-china-deal-2c2bfcf6",
+          "title": "Novo Nordisk Is Licensing a Chinese Weight-Loss Drug. Why the Stock Is Down.",
+          "sourceType": "joint-announcement coverage",
+          "publishedAt": "2025-03-24",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.wsj.com/health/pharma/novo-nordisk-united-laboratories-say-new-obesity-drug-helps-patients-lose-weight-in-trial-99d136d5",
+          "title": "Novo Nordisk, United Laboratories Say New Obesity Drug Helps Patients Lose Weight in Trial",
+          "sourceType": "joint-announcement coverage",
+          "publishedAt": "2026-02-24",
+          "checkedAt": "2026-07-10"
+        }
+      ]
+    }
+  },
+  {
+    "id": "novo-nordisk-icosema-subcutaneous-injection",
+    "assetId": "icosema",
+    "companyId": "novo-nordisk",
+    "assetType": "co-formulation",
+    "assetName": "IcoSema",
+    "codeName": "IcoSema",
+    "components": [
+      {
+        "assetName": "Insulin icodec",
+        "role": "once-weekly basal insulin analog"
+      },
+      {
+        "assetId": "semaglutide",
+        "role": "GLP-1 receptor agonist"
+      }
+    ],
+    "technical": {
+      "mechanism": "Insulin icodec plus GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Completed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05352815",
+          "title": "A Research Study to See How Well the New Weekly Medicine IcoSema, Which is a Combination of Insulin Icodec and Semaglutide, Controls Blood Sugar Level in People With Type 2 Diabetes Compared to Weekly Insulin Icodec (COMBINE 1)",
+          "sourceType": "trial registry",
+          "publishedAt": "2022-04-29",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05259033",
+          "title": "A Research Study to See How Well the New Weekly Medicine IcoSema, Which is a Combination of Insulin Icodec and Semaglutide, Controls Blood Sugar Level in People With Type 2 Diabetes Compared to Weekly Semaglutide (COMBINE 2)",
+          "sourceType": "trial registry",
+          "publishedAt": "2022-02-18",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05013229",
+          "title": "A Research Study to See How Well the New Weekly Medicine IcoSema, Which is a Combination of Insulin Icodec and Semaglutide, Controls Blood Sugar Level in People With Type 2 Diabetes Compared to Insulin Glargine Taken Daily With Insulin Aspart (COMBINE 3)",
+          "sourceType": "trial registry",
+          "publishedAt": "2021-08-19",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06269107",
+          "title": "A Research Study to See How Well New Weekly Medicine IcoSema, Which is a Combination of Insulin Icodec and Semaglutide, Controls Blood Sugar Levels in People With Type 2 Diabetes (T2D), Compared to Daily Insulin Glargine (COMBINE 4)",
+          "sourceType": "trial registry",
+          "publishedAt": "2024-02-20",
           "checkedAt": "2026-07-10"
         }
       ]
@@ -176,6 +457,13 @@
           "sourceType": "drug label",
           "publishedAt": "2014-12",
           "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/206321s024lbl.pdf",
+          "title": "Saxenda (liraglutide) injection prescribing information",
+          "sourceType": "drug label",
+          "publishedAt": "2026",
+          "checkedAt": "2026-07-10"
         }
       ]
     }
@@ -203,7 +491,7 @@
       "stage": "Phase 3",
       "status": "Active",
       "stageBasis": "Operational evidence",
-      "stageOperationalState": "Initiated or active"
+      "stageOperationalState": "Active not recruiting"
     },
     "metadata": {
       "lastVerifiedAt": "2026-07-10",
@@ -215,6 +503,13 @@
           "sourceType": "company press release",
           "publishedAt": "2025-09-16",
           "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07220642",
+          "title": "Weight Loss in People Living With Overweight or Obesity Following Treatment With Cagrilintide (RENEW 1)",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-01-06",
+          "checkedAt": "2026-07-10"
         }
       ]
     }
@@ -224,7 +519,7 @@
     "assetId": "amycretin",
     "companyId": "novo-nordisk",
     "assetName": "Zenagamtide",
-    "codeName": "Amycretin",
+    "codeName": null,
     "technical": {
       "mechanism": "Unimolecular GLP-1 and amylin receptor agonist",
       "platform": null
@@ -276,7 +571,7 @@
     "assetId": "amycretin",
     "companyId": "novo-nordisk",
     "assetName": "Zenagamtide",
-    "codeName": "Amycretin",
+    "codeName": null,
     "technical": {
       "mechanism": "Unimolecular GLP-1 and amylin receptor agonist",
       "platform": null
@@ -314,7 +609,7 @@
     "assetId": "amycretin",
     "companyId": "novo-nordisk",
     "assetName": "Zenagamtide",
-    "codeName": "Amycretin",
+    "codeName": null,
     "technical": {
       "mechanism": "Unimolecular GLP-1 and amylin receptor agonist",
       "platform": null
