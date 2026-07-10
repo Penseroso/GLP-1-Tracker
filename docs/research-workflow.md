@@ -49,6 +49,7 @@ company-centred discovery
 -> comparison with existing records
 -> confirmed record creation or update
 -> registry promotion when needed and justified
+-> mandatory coverage audit with an independent second discovery pass
 -> aggregate regeneration and validation
 -> unresolved items deferred and reported
 ```
@@ -126,7 +127,47 @@ exactly one of three states:
 
 Nothing surfaced may be silently dropped.
 
-## 4. Existing-record protection
+## 4. Mandatory coverage audit
+
+After confirmed records have been created or updated — and before aggregate
+regeneration, validation, and reporting — run a **coverage audit**. Its purpose
+is recall: catching in-scope candidates the primary research pass missed. It is
+mandatory in every run, initial investigation and refresh alike.
+
+**Audit checks.** Recheck coverage against each of the following, comparing what
+they disclose with the run's classified candidates:
+
+- the company's **official pipeline page and current investor materials**
+  (pipeline slides, annual and quarterly reports, R&D-day presentations).
+- **approved and regulatory-filed obesity products**, not only
+  development-stage pipeline entries.
+- **sponsor-based, asset-name, and code-name registry searches** (for example,
+  trial registries queried by sponsor and by each known asset name or
+  development code).
+- **licensed, acquired, partnered, renamed, and historical assets** — assets
+  obtained or divested through licensing or acquisition, assets held with
+  partners, assets known under earlier names or codes, and legacy programs that
+  no longer appear in the current pipeline presentation.
+
+Every candidate the audit surfaces must be classified under the rules above:
+**entered/updated**, **deferred** with a specific reason, or **excluded** with a
+scope or evidence reason.
+
+**Independent second discovery pass.** After the audit checks, repeat discovery
+**once, independently**: re-run company-centred discovery from scratch, without
+starting from the first pass's source list or asset inventory.
+
+**Completion gate.** If the second pass surfaces any candidate not already
+classified in this run, the run is **not complete**: research and classify the
+new candidate under the full workflow rules, then repeat the independent
+discovery pass. Do not report completion while the latest pass still surfaces a
+new candidate.
+
+The audit is in-run only. Report its outcome in the final response (see result
+reporting); do not persist a research ledger or per-run report file (see
+non-goals).
+
+## 5. Existing-record protection
 
 - **Reuse** stable company, asset, and program IDs.
 - Do **not** regenerate IDs because names, stage, or status changed.
@@ -137,7 +178,7 @@ Nothing surfaced may be silently dropped.
   prior-state support.
 - **Avoid duplicate** source entries.
 
-## 5. Deterministic ID rules
+## 6. Deterministic ID rules
 
 These ID rules operate under the frozen v1 contract (ADR-0025). Only the exact
 program-ID suffix scheme remains a v2 backlog item (see the data protocol's
@@ -166,7 +207,7 @@ For new records:
 - When a deterministic collision **cannot be resolved from verified identity
   information**, **defer the record** instead of inventing an arbitrary ID.
 
-## 6. Company creation rule
+## 7. Company creation rule
 
 The current `Company` contract requires:
 
@@ -182,7 +223,7 @@ If headquarters country is **unresolved**:
 - do **not** create a partial Company record.
 - **defer** and report the company/program finding instead.
 
-## 7. Metadata updates
+## 8. Metadata updates
 
 When **stored values change**:
 
@@ -199,7 +240,7 @@ When a record is **reverified without a value change**:
 Do **not** mark unrelated programs as reverified when they were not actually
 checked in this run.
 
-## 8. Registry updates
+## 9. Registry updates
 
 Development-stage, regulatory-state, and company-relationship-role values are
 registry-backed. During a company research execution, promote a new registry
@@ -209,7 +250,7 @@ when a source phrase is only an alias, stylistic variant, case variant, or Roman
 numeral spelling of an existing concept. If officiality or semantic distinctness
 is unclear, defer the finding instead of approximating it.
 
-## 9. Combination, regimen, and relationship handling
+## 10. Combination, regimen, and relationship handling
 
 For each candidate, distinguish:
 
@@ -253,7 +294,7 @@ Do not use display name, stage/status, results, dates, or arbitrary numbering.
 If only one of the related records has `configurationKey`, or the discriminator
 is not official, defer the ambiguous record.
 
-## 10. Result reporting
+## 11. Result reporting
 
 There is **no rigid report schema**, no fixed table set, and no mandatory
 section order. Choose a form appropriate to the company's complexity — tables,
@@ -266,6 +307,9 @@ Whatever the form, the final response must communicate:
 - records **created or changed**.
 - important records **reverified without change**.
 - findings **deferred or excluded**, and why.
+- the **coverage-audit outcome** — either that the final independent discovery
+  pass surfaced no unclassified candidate, or which new candidates the audit
+  surfaced and how each was classified.
 - the **main supporting sources**.
 - registry additions, if any.
 - **generated aggregates regenerated** with `npm run data:generate` when
@@ -274,7 +318,7 @@ Whatever the form, the final response must communicate:
   GitHub Actions CI.
 - any **blockers or evidence-access failures**.
 
-## 11. Failure handling
+## 12. Failure handling
 
 Before modifying any data, verify that **current external sources can actually
 be accessed**.
@@ -288,7 +332,7 @@ If current-source research is unavailable:
 A record must never be created or updated from memory or assumption when live
 sources could not be reached.
 
-## 12. Non-goals
+## 13. Non-goals
 
 This workflow does **not** introduce:
 

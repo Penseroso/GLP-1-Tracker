@@ -106,17 +106,36 @@ updating its records in the same execution. Follow these steps:
    dates, results, or arbitrary numbering. If the configuration discriminator is
    needed but unconfirmed, defer the additional regimen.
 
-8. **Defer, do not block.** Report unsupported or structurally unresolved
+8. **Run the mandatory coverage audit.** After record updates — and before
+   regeneration, validation, and reporting — audit coverage for recall. Recheck
+   the company's official pipeline page and current investor materials
+   (pipeline slides, annual and quarterly reports, R&D-day presentations);
+   check approved and regulatory-filed obesity products, not only
+   development-stage pipeline entries; run sponsor-based, asset-name, and
+   code-name registry searches; and check licensed, acquired, partnered,
+   renamed, and historical assets that may not appear in the current pipeline
+   presentation. Classify every candidate the audit surfaces as
+   entered/updated, deferred with a specific reason, or excluded with a scope
+   or evidence reason. Then repeat discovery once, independently — re-run
+   company-centred discovery from scratch without starting from the first
+   pass's source list or asset inventory. If the second pass surfaces any
+   candidate not already classified in this run, the run is not complete:
+   research and classify it under the full rules, then repeat the independent
+   pass. Do not report completion while the latest pass still surfaces a new
+   candidate. The audit is in-run only — report its outcome in the final
+   response; do not persist a research ledger or per-run report file.
+
+9. **Defer, do not block.** Report unsupported or structurally unresolved
    findings (ambiguous ownership, unrepresentable configurations, unconfirmed
    identity) without blocking the company's other valid updates.
 
-9. **Protect existing data.** Reuse stable company, asset, and program IDs;
+10. **Protect existing data.** Reuse stable company, asset, and program IDs;
    never regenerate them because a name, stage, or status changed. Update
    mutable stage/status in place. Do not delete confirmed values merely because
    current sources omit them, and do not overwrite strong evidence with weaker
    secondary reporting. Preserve useful historical sources; avoid duplicates.
 
-10. **Apply the deterministic ID rules when creating new records.** These rules
+11. **Apply the deterministic ID rules when creating new records.** These rules
    operate under the frozen Contract 1.0 (ADR-0025); only the exact
    program-ID suffix scheme remains v2 backlog. Search existing identities
    first and reuse IDs whenever applicable. For new IDs: `companyId` is a
@@ -129,13 +148,13 @@ updating its records in the same execution. Follow these steps:
    before creation; if a collision cannot be resolved from verified identity
    information, defer the record rather than inventing an arbitrary ID.
 
-11. **Apply the Company creation rule.** Create a new `Company` record only
+12. **Apply the Company creation rule.** Create a new `Company` record only
     when both the canonical company name and `headquartersCountry` are
     confirmed from reliable current sources. If `headquartersCountry` is
     unresolved, do not guess and do not create a partial Company record —
     defer and report the finding instead.
 
-12. **Use current dates for verification metadata.** On a value change, update
+13. **Use current dates for verification metadata.** On a value change, update
    `updatedAt` and `lastVerifiedAt` and add/update sources with `checkedAt`. On
    reverification without change, keep `updatedAt`, update `lastVerifiedAt`, and
    refresh source verification metadata. Use `YYYY-MM-DD`. Do not estimate
@@ -143,16 +162,19 @@ updating its records in the same execution. Follow these steps:
    the most precise verified `publishedAt` available, and set `sourceType` to
    describe the artifact actually at the stored URL, not the claim it supports.
 
-13. **Regenerate and validate.** Run aggregate generation and validation
+14. **Regenerate and validate.** Run aggregate generation and validation
     commands, then run `npm run lint`, `npm run build`, and `git diff --check`.
     Confirm any data edits keep the JSON valid and generated aggregate files are
     deterministic.
 
-14. **Report flexibly but completely.** In whatever form suits the company's
+15. **Report flexibly but completely.** In whatever form suits the company's
     complexity (tables, asset-by-asset sections, or concise lists — no fixed
     template), communicate: whether this was an initial investigation or a
     refresh; the relevant assets found; records created or changed; important
     records reverified without change; findings deferred or excluded and why;
+    the coverage-audit outcome (either that the final independent discovery
+    pass surfaced no unclassified candidate, or which new candidates it
+    surfaced and how each was classified);
     the main supporting sources; whether generated aggregates were regenerated
     with `npm run data:generate` when operating data changed; the validation
     results (local checks — this repository has no GitHub Actions CI); and any
