@@ -443,8 +443,8 @@
     "id": "novo-nordisk-amycretin-oral-tablets",
     "assetId": "amycretin",
     "companyId": "novo-nordisk",
-    "assetName": "Amycretin",
-    "codeName": null,
+    "assetName": "Zenagamtide",
+    "codeName": "Amycretin",
     "technical": {
       "mechanism": "Unimolecular GLP-1 and amylin receptor agonist",
       "platform": null
@@ -482,8 +482,8 @@
     "id": "novo-nordisk-amycretin-subcutaneous-injection",
     "assetId": "amycretin",
     "companyId": "novo-nordisk",
-    "assetName": "Amycretin",
-    "codeName": null,
+    "assetName": "Zenagamtide",
+    "codeName": "Amycretin",
     "technical": {
       "mechanism": "Unimolecular GLP-1 and amylin receptor agonist",
       "platform": null
@@ -524,7 +524,45 @@
           "url": "https://www.prnewswire.com/news-releases/novo-nordisks-investigational-zenagamtide-shows-significant-a1c-reductions-with-up-to-14-6-weight-loss-in-adults-with-type-2-diabetespresented-at-ada-2026--302793124.html",
           "title": "Novo Nordisk's investigational zenagamtide shows significant A1C reductions with up to 14.6% weight loss in adults with type 2 diabetes -- presented at ADA 2026",
           "sourceType": "company press release",
-          "publishedAt": "2026-06",
+          "publishedAt": "2026-06-05",
+          "checkedAt": "2026-07-10"
+        }
+      ]
+    }
+  },
+  {
+    "id": "novo-nordisk-amycretin-subcutaneous-injection-type-2-diabetes",
+    "assetId": "amycretin",
+    "companyId": "novo-nordisk",
+    "assetName": "Zenagamtide",
+    "codeName": "Amycretin",
+    "technical": {
+      "mechanism": "Unimolecular GLP-1 and amylin receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 2b",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Completed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/novo-nordisks-investigational-zenagamtide-shows-significant-a1c-reductions-with-up-to-14-6-weight-loss-in-adults-with-type-2-diabetespresented-at-ada-2026--302793124.html",
+          "title": "Novo Nordisk's investigational zenagamtide shows significant A1C reductions with up to 14.6% weight loss in adults with type 2 diabetes -- presented at ADA 2026",
+          "sourceType": "company press release",
+          "publishedAt": "2026-06-05",
           "checkedAt": "2026-07-10"
         }
       ]
@@ -618,7 +656,51 @@
           "url": "https://www.prnewswire.com/news-releases/novo-nordisk-advances-cardiometabolic-pipeline-with-new-data-featuring-cagrisema-and-zenagamtide-at-the-american-diabetes-associations-2026-scientific-sessions-302783110.html",
           "title": "Novo Nordisk advances cardiometabolic pipeline with new data featuring CagriSema and zenagamtide at the American Diabetes Association's 2026 Scientific Sessions",
           "sourceType": "company press release",
-          "publishedAt": "2026-06",
+          "publishedAt": "2026-05-27",
+          "checkedAt": "2026-07-10"
+        }
+      ]
+    }
+  },
+  {
+    "id": "novo-nordisk-liraglutide-subcutaneous-injection",
+    "assetId": "liraglutide",
+    "companyId": "novo-nordisk",
+    "assetName": "Liraglutide",
+    "codeName": null,
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once daily"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Approved",
+      "status": "Active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "sources": [
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2014/206321Orig1s000TOC.cfm",
+          "title": "Drug Approval Package: Saxenda (liraglutide [rDNA origin]) Injection",
+          "sourceType": "regulatory review",
+          "publishedAt": "2014-12-23",
+          "checkedAt": "2026-07-10"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2014/206321Orig1s000lbl.pdf",
+          "title": "Saxenda (liraglutide [rDNA origin]) injection prescribing information",
+          "sourceType": "drug label",
+          "publishedAt": "2014-12",
           "checkedAt": "2026-07-10"
         }
       ]
