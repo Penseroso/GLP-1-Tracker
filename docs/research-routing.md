@@ -63,7 +63,8 @@ Until the Clinical Evidence route is activated:
 
 If a request explicitly contains both company and clinical-evidence intent, the
 Company/Pipeline Research portion may run using the existing company workflow.
-The clinical-evidence portion must be reported as pending implementation.
+The clinical-evidence portion must be reported as reserved and inactive pending
+Module 5 validation.
 
 The intended future combined execution order is:
 

@@ -54,9 +54,11 @@ Follow these steps:
    distinct core endpoint, population, or treatment configuration.
 
 8. **Classify every discovered study.** Each discovered study must end as:
-   entered, excluded because no study-specific result exists, excluded as
-   outside Scope v1.1, or deferred because identity, result, source, or conflict
-   remains unresolved. Nothing discovered may be silently dropped.
+   entered; not entered because it is result-bearing but not selected for the
+   major evidence set; excluded because no study-specific result exists;
+   excluded as outside Scope v1.1; or deferred because identity, result, source,
+   or conflict remains unresolved. Nothing discovered may be silently dropped.
+   Only entered studies are stored in operating data.
 
 9. **Apply source priority.** Use this default result-source priority:
    peer-reviewed publication; registry-posted results including ClinicalTrials.gov;
@@ -99,10 +101,11 @@ Follow these steps:
 
 16. **Report completely.** Communicate whether this was an initial Clinical
     Evidence investigation or update; the assets traversed; studies entered or
-    updated; studies excluded for no result; studies excluded as outside Scope
-    v1.1; deferred studies with reasons; pipeline discrepancies; source-access
-    failures; generated aggregate status; validation results; and the commit
-    SHA when a commit is created.
+    updated; result-bearing studies not entered because they were not selected
+    for the major evidence set; studies excluded for no result; studies excluded
+    as outside Scope v1.1; deferred studies with reasons; pipeline
+    discrepancies; source-access failures; generated aggregate status;
+    validation results; and the commit SHA when a commit is created.
 
 **Failure handling:** Before modifying any Clinical Evidence source data,
 confirm current external sources can actually be accessed. If not, do not claim

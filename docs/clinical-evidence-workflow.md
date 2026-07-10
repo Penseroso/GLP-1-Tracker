@@ -53,12 +53,15 @@ Scope v1.1 assets. For every existing in-scope asset:
 2. Discover relevant human interventional clinical studies broadly.
 3. Classify every discovered study as one of:
    - **entered** - result-bearing, in scope, and represented in source data.
+   - **not entered: result-bearing but not selected for the major evidence set**
+     - result-bearing and in scope, but intentionally not stored because it does
+       not belong to the asset's major current evidence set.
    - **excluded: no result** - no publicly disclosed study-specific result.
    - **excluded: outside Scope v1.1** - not relevant to obesity or weight
      management under the Clinical Evidence contract.
    - **deferred** - identity, result, source, or conflict remains unresolved.
-4. Add or update operating records only for studies with publicly disclosed
-   study-specific results.
+4. Store only entered studies in operating data. Result-bearing studies not
+   selected for the major evidence set must be reported but not entered.
 
 Do not treat one chronologically latest trial as sufficient. Build the asset's
 major current evidence set.
@@ -160,7 +163,8 @@ Each execution must:
    - `npm run data:validate:clinical-evidence:generated`
    - `npm run data:validate:clinical-evidence:synthetic`
    - `npm run data:validate:generated`
-6. report entered, updated, excluded, deferred, and conflicting studies.
+6. report entered, updated, not-entered result-bearing, excluded, deferred, and
+   conflicting studies.
 
 If current external sources cannot be accessed, do not claim Clinical Evidence
 Research was completed and do not modify Clinical Evidence source data.
@@ -173,6 +177,8 @@ The final response must communicate:
   update.
 - the company and assets traversed.
 - studies entered or updated.
+- result-bearing studies not entered because they were not selected for the
+  major evidence set.
 - studies excluded for no result.
 - studies excluded as outside Scope v1.1.
 - studies deferred, with reasons.

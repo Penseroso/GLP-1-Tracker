@@ -36,9 +36,9 @@ When such a request is received:
 
 ## Reserved clinical-evidence router
 
-Requests with explicit clinical-evidence intent, such as `임상`, `clinical`,
-`trial`, `시험`, `endpoint`, `results`, or `결과`, are reserved for a future
-Clinical Evidence Research workflow. Until that workflow is implemented, do not
-route those requests to the Company Research workflow as a substitute, do not
-claim clinical-evidence research was completed, and report the clinical route as
-reserved but not yet implemented.
+Requests with explicit clinical-evidence intent are reserved for a future
+Clinical Evidence Research route. The workflow and prompt are implemented, but
+the route remains inactive pending Module 5 validation. Until the route is
+activated, do not route those requests to the Company Research workflow as a
+substitute, do not claim clinical-evidence research was completed, and report
+the clinical route as reserved and inactive.
