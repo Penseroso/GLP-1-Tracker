@@ -1,0 +1,123 @@
+{
+  "companyId": "fixture-co",
+  "assetId": "fixture-asset",
+  "studies": [
+    {
+      "id": "fixture-study-1",
+      "companyId": "fixture-co",
+      "assetId": "fixture-asset",
+      "programId": "fixture-co-fixture-asset-subcutaneous-injection",
+      "officialTitle": "Synthetic Study of Fixture Asset for Weight Management",
+      "acronym": "FIX-WM",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT12345678"
+        }
+      ],
+      "protocolIdentifiers": [
+        "FIX-WM-001"
+      ],
+      "phase": "Phase 2",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double blind",
+        "comparator": "Placebo",
+        "description": "Synthetic placebo-controlled fixture design"
+      },
+      "population": "Adults with obesity or overweight and explicit weight-management objective",
+      "overallDuration": "24 weeks",
+      "followUpDuration": "4 weeks",
+      "safetySummary": "No synthetic safety signal reported.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-10",
+        "updatedAt": "2026-07-10",
+        "sources": [
+          {
+            "url": "https://example.com/fixture-study-design",
+            "title": "Fixture study design source",
+            "sourceType": "synthetic fixture",
+            "checkedAt": "2026-07-10"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "fixture-arm-active",
+      "studyId": "fixture-study-1",
+      "role": "experimental",
+      "label": "Fixture Asset",
+      "intervention": "Fixture Asset injection",
+      "linkedAsset": {
+        "companyId": "fixture-co",
+        "assetId": "fixture-asset"
+      },
+      "dose": "10 mg",
+      "titration": "Dose escalation",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "24 weeks",
+      "plannedN": 100,
+      "analyzedN": 95
+    },
+    {
+      "id": "fixture-arm-placebo",
+      "studyId": "fixture-study-1",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo injection",
+      "dose": "Matching placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "24 weeks",
+      "plannedN": 100,
+      "analyzedN": 94
+    }
+  ],
+  "endpoints": [
+    {
+      "id": "fixture-endpoint-weight-change",
+      "studyId": "fixture-study-1",
+      "name": "Percent change in body weight",
+      "classification": "primary",
+      "assessmentTimepoint": "Week 24"
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "fixture-outcome-weight-change",
+      "studyId": "fixture-study-1",
+      "endpointId": "fixture-endpoint-weight-change",
+      "armIds": [
+        "fixture-arm-active",
+        "fixture-arm-placebo"
+      ],
+      "analysisPopulation": "Modified intention-to-treat",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-8.0",
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "comparisonType": "placebo-adjusted",
+        "confidenceInterval": "synthetic 95% CI",
+        "pValue": "synthetic p-value"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-10",
+        "updatedAt": "2026-07-10",
+        "sources": [
+          {
+            "url": "https://example.com/fixture-results",
+            "title": "Fixture result source",
+            "sourceType": "synthetic fixture",
+            "checkedAt": "2026-07-10"
+          }
+        ]
+      }
+    }
+  ]
+}

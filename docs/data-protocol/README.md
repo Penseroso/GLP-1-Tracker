@@ -97,7 +97,8 @@ Deferred to v2; none is implemented in v1. Treatment and status live in
 - field-level provenance
 - durable adjacent-inclusion rationale field
 - excluded/deferred candidate ledger
-- separate Clinical Evidence implementation
+- Clinical Evidence research workflow, routing activation, UI, and comparison
+  logic
 - program-ID suffix scheme
 - salts, prodrugs, conjugates, and other open-until-pilot identity cases
 - per-jurisdiction approval modeling
@@ -186,8 +187,9 @@ unconfirmed program.
   source of truth.
 - `data/generated/companies.json` and
   `data/generated/pipeline-programs.json` and `data/generated/regimens.json`
-  are deterministic aggregate outputs consumed by loaders. Do not edit
-  generated files directly.
+  are deterministic aggregate outputs consumed by loaders.
+  `data/generated/clinical-evidence.json` is the generated aggregate for the
+  separate Clinical Evidence domain. Do not edit generated files directly.
 - `data/stress-tests/<case-id>/` contains isolated diagnostic references from
   stress-test pilots. Diagnostic archives are excluded from production
   aggregate generation and are not golden expected output.

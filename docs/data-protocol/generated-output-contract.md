@@ -1,10 +1,11 @@
 # Generated Output Contract
 
-Defines the v1 contract for the derived files under `data/generated/`: what they
-are, how they are produced, what they guarantee to downstream consumers (UI,
-reports, future tools), and what they do not. This is a **description of current
-v1 behavior**, not a new decision; it does not change the frozen v1 contract
-(ADR-0025) or the stage semantics (ADR-0024).
+Defines the contract for derived files under `data/generated/`: what they are,
+how they are produced, what they guarantee to downstream consumers (UI, reports,
+future tools), and what they do not. The Company/Pipeline aggregates describe
+current v1 behavior and do not change the frozen v1 contract (ADR-0025) or the
+stage semantics (ADR-0024). `clinical-evidence.json` belongs to the separate
+Clinical Evidence data layer.
 
 ## 1. Source-of-truth boundary
 
@@ -24,11 +25,15 @@ v1 behavior**, not a new decision; it does not change the frozen v1 contract
 always produce byte-identical output. Ordering is guaranteed by code in
 `scripts/data-registry.mjs`, not merely observed:
 
-- **File set:** exactly three files — `companies.json`,
-  `pipeline-programs.json`, `regimens.json`.
+- **File set:** exactly four files — `companies.json`,
+  `pipeline-programs.json`, `regimens.json`, and
+  `clinical-evidence.json`.
 - **Company order:** by `id` ascending (`localeCompare`).
 - **Program order:** by `companyId`, then program `id` (`localeCompare`).
 - **Regimen order:** by `companyId`, then regimen `id` (`localeCompare`).
+- **Clinical Evidence order:** studies by `companyId`, `assetId`, then `id`;
+  arms and endpoints by `studyId`, then `id`; outcomes by `studyId`,
+  `endpointId`, then `id` (`localeCompare`).
 - Sort keys (`id`, `companyId`) are unique within the dataset, so ordering is
   total and independent of sort stability.
 - Records are serialized with two-space indentation and a trailing newline;
@@ -45,11 +50,13 @@ output.
 | `companies.json` | every `data/companies/*/company.json` | JSON array of `Company` | flat aggregate | UI company lists, report grouping, loader | yes |
 | `pipeline-programs.json` | every `data/companies/*/pipeline-programs.json` | JSON array of `PipelineProgramRecord` | flat aggregate | UI program board/detail, filtering, reports | yes |
 | `regimens.json` | every `data/companies/*/regimens.json` | JSON array of `RegimenRecord` | flat aggregate | future regimen views/tooling (no current UI) | yes |
+| `clinical-evidence.json` | every `data/clinical-evidence/*/*/clinical-evidence.json` | object with `studies`, `arms`, `endpoints`, and `outcomes` arrays | flat aggregate | future Clinical Evidence tooling (no current UI) | yes |
 
 Each file is a flat concatenation of the corresponding operating records across
-all company folders, then sorted per §2. None is a joined view, index, or
+all source folders, then sorted per §2. None is a joined view, index, or
 summary. `regimens.json` is type-safe and generated even though the current UI
-does not display regimens (ADR-0017).
+does not display regimens (ADR-0017). `clinical-evidence.json` is generated for
+the separate Clinical Evidence domain and is not displayed by the current UI.
 
 ## 4. Field-level guarantees
 
@@ -72,6 +79,8 @@ For pipeline programs the generated output preserves, when present in the source
 Regimen records preserve their full operating shape (`id`, `companyId`, `name`,
 `configurationKey`, `components`, `indications`, `development`,
 `regulatoryStates`, `administration`, `relationships`, `metadata`).
+Clinical Evidence records preserve Study, Arm, Endpoint, and Outcome source
+records verbatim in separate arrays.
 
 The generator does **not** join the resolving `Company` object into program or
 regimen records. `PipelineProgram.company` / `Regimen.company` are populated at
@@ -117,6 +126,10 @@ Downstream UI, report, and tool consumers:
   `data:validate:companies` (operating source), `data:validate:registries`
   (vocabularies), `data:validate:stress` (diagnostic archives), and
   `data:validate:synthetic` (fixtures) each cover a different surface.
+- Clinical Evidence has additional validators:
+  `data:validate:clinical-evidence`,
+  `data:validate:clinical-evidence:generated`, and
+  `data:validate:clinical-evidence:synthetic`.
 - After any operating-data change, the workflow requires running
   `npm run data:generate` and then the validators before reporting (see
   [`../research-workflow.md`](../research-workflow.md) and

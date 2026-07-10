@@ -12,12 +12,15 @@ const root = process.cwd();
 const dataDir = path.join(root, "data");
 const companySourceDir = path.join(dataDir, "companies");
 const generatedDir = path.join(dataDir, "generated");
+const clinicalEvidenceSourceDir = path.join(dataDir, "clinical-evidence");
 const stressTestDir = path.join(dataDir, "stress-tests");
 const registryDir = path.join(dataDir, "registries");
 const syntheticFixtureDir = path.join(dataDir, "validation-fixtures", "synthetic");
+const clinicalEvidenceFixtureDir = path.join(dataDir, "validation-fixtures", "clinical-evidence");
 
 const fullDatePattern = /^\d{4}-\d{2}-\d{2}$/;
 const partialDatePattern = /^\d{4}(-\d{2}(-\d{2})?)?$/;
+const nctPattern = /^NCT\d{8}$/;
 const assetTypes = new Set([
   "single-asset",
   "fixed-dose-combination",
@@ -50,9 +53,28 @@ const developmentStageOperationalStates = new Set([
   "Completed",
   "Not separately confirmed",
 ]);
+const clinicalArmRoles = new Set([
+  "experimental",
+  "placebo",
+  "active comparator",
+  "other",
+]);
+const clinicalResultMaturities = new Set([
+  "interim",
+  "topline",
+  "final",
+  "registry result",
+  "conference result",
+  "peer-reviewed publication",
+]);
+const clinicalResultTypes = new Set(["arm-level", "between-arm"]);
 
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, "utf8"));
+}
+
+function cloneJson(value) {
+  return JSON.parse(JSON.stringify(value));
 }
 
 function writeJson(filePath, value) {
@@ -716,9 +738,391 @@ function readCompanyFolder(baseDir, folderName, requireRegimens) {
   };
 }
 
+function loadCompanySources() {
+  const folders = getCompanySourceFolders(companySourceDir);
+  const companies = [];
+  const programs = [];
+  const regimens = [];
+
+  for (const folder of folders) {
+    const {
+      company,
+      programs: companyPrograms,
+      regimens: companyRegimens,
+    } = readCompanyFolder(companySourceDir, folder, true);
+    companies.push(company);
+    programs.push(...companyPrograms);
+    regimens.push(...companyRegimens);
+  }
+
+  return { folders, companies, programs, regimens };
+}
+
+function createClinicalReferenceContext(companies, programs, regimens) {
+  return {
+    companyIds: new Set(companies.map((company) => company.id)),
+    assetKeys: new Set(
+      programs.map((program) => `${program.companyId}|${program.assetId}`),
+    ),
+    programById: new Map(programs.map((program) => [program.id, program])),
+    regimenById: new Map(regimens.map((regimen) => [regimen.id, regimen])),
+  };
+}
+
+function getClinicalEvidenceSourceFiles(baseDir) {
+  if (!existsSync(baseDir)) {
+    return [];
+  }
+
+  const files = [];
+  for (const companyFolder of getCompanySourceFolders(baseDir)) {
+    const companyPath = path.join(baseDir, companyFolder);
+    const assetFolders = getCompanySourceFolders(companyPath);
+
+    for (const assetFolder of assetFolders) {
+      const filePath = path.join(companyPath, assetFolder, "clinical-evidence.json");
+      if (existsSync(filePath)) {
+        files.push({
+          filePath,
+          companyFolder,
+          assetFolder,
+          data: readJson(filePath),
+        });
+      }
+    }
+  }
+
+  return files;
+}
+
+function emptyClinicalEvidenceAggregate() {
+  return {
+    studies: [],
+    arms: [],
+    endpoints: [],
+    outcomes: [],
+  };
+}
+
+function sortClinicalEvidenceAggregate(aggregate) {
+  aggregate.studies.sort(
+    (a, b) =>
+      a.companyId.localeCompare(b.companyId) ||
+      a.assetId.localeCompare(b.assetId) ||
+      a.id.localeCompare(b.id),
+  );
+  aggregate.arms.sort(
+    (a, b) => a.studyId.localeCompare(b.studyId) || a.id.localeCompare(b.id),
+  );
+  aggregate.endpoints.sort(
+    (a, b) => a.studyId.localeCompare(b.studyId) || a.id.localeCompare(b.id),
+  );
+  aggregate.outcomes.sort(
+    (a, b) =>
+      a.studyId.localeCompare(b.studyId) ||
+      a.endpointId.localeCompare(b.endpointId) ||
+      a.id.localeCompare(b.id),
+  );
+}
+
+function readClinicalEvidenceSourceTree(baseDir, context) {
+  const aggregate = emptyClinicalEvidenceAggregate();
+  const files = getClinicalEvidenceSourceFiles(baseDir);
+
+  for (const file of files) {
+    const fileContext = `${context}/${file.companyFolder}/${file.assetFolder}/clinical-evidence.json`;
+    const data = file.data;
+    assert(isObject(data), `${fileContext}: root must be an object`);
+    assert(data.companyId === file.companyFolder, `${fileContext}: companyId must match folder name`);
+    assert(data.assetId === file.assetFolder, `${fileContext}: assetId must match folder name`);
+    assert(Array.isArray(data.studies), `${fileContext}: studies must be an array`);
+    assert(Array.isArray(data.arms), `${fileContext}: arms must be an array`);
+    assert(Array.isArray(data.endpoints), `${fileContext}: endpoints must be an array`);
+    assert(Array.isArray(data.outcomes), `${fileContext}: outcomes must be an array`);
+
+    for (const study of data.studies) {
+      assert(study.companyId === data.companyId, `${fileContext}: study ${study.id} companyId must match file companyId`);
+      assert(study.assetId === data.assetId, `${fileContext}: study ${study.id} assetId must match file assetId`);
+    }
+
+    aggregate.studies.push(...data.studies);
+    aggregate.arms.push(...data.arms);
+    aggregate.endpoints.push(...data.endpoints);
+    aggregate.outcomes.push(...data.outcomes);
+  }
+
+  sortClinicalEvidenceAggregate(aggregate);
+  return aggregate;
+}
+
+function assertOptionalNonEmptyString(value, context) {
+  if (value !== undefined) {
+    assert(isNonEmptyString(value), `${context} must be non-empty when present`);
+  }
+}
+
+function assertOptionalPositiveInteger(value, context) {
+  if (value !== undefined) {
+    assert(Number.isInteger(value) && value >= 0, `${context} must be a non-negative integer`);
+  }
+}
+
+function validateRegistryIdentifier(identifier, context) {
+  assert(isObject(identifier), `${context}: registry identifier must be an object`);
+  assert(isNonEmptyString(identifier.registry), `${context}: registry is required`);
+  assert(isNonEmptyString(identifier.id), `${context}: id is required`);
+
+  if (identifier.id.startsWith("NCT") || normalize(identifier.registry) === "clinicaltrials.gov") {
+    assert(nctPattern.test(identifier.id), `${context}: NCT identifier must match NCT########`);
+  }
+}
+
+function validateClinicalStudy(study, context, references) {
+  assert(isObject(study), `${context}: study must be an object`);
+  assert(isNonEmptyString(study.id), `${context}: id is required`);
+  assert(isNonEmptyString(study.companyId), `${context}: companyId is required`);
+  assert(isNonEmptyString(study.assetId), `${context}: assetId is required`);
+  assert(
+    references.companyIds.has(study.companyId),
+    `${context}: missing companyId reference ${study.companyId}`,
+  );
+  assert(
+    references.assetKeys.has(`${study.companyId}|${study.assetId}`),
+    `${context}: missing asset reference ${study.companyId}/${study.assetId}`,
+  );
+  assertOptionalNonEmptyString(study.programId, `${context}: programId`);
+  assertOptionalNonEmptyString(study.regimenId, `${context}: regimenId`);
+
+  if (study.programId !== undefined) {
+    const program = references.programById.get(study.programId);
+    assert(program, `${context}: missing programId reference ${study.programId}`);
+    assert(program.companyId === study.companyId, `${context}: programId ${study.programId} belongs to another company`);
+    assert(program.assetId === study.assetId, `${context}: programId ${study.programId} belongs to another asset`);
+  }
+
+  if (study.regimenId !== undefined) {
+    const regimen = references.regimenById.get(study.regimenId);
+    assert(regimen, `${context}: missing regimenId reference ${study.regimenId}`);
+    assert(regimen.companyId === study.companyId, `${context}: regimenId ${study.regimenId} belongs to another company`);
+  }
+
+  assert(isNonEmptyString(study.officialTitle), `${context}: officialTitle is required`);
+  assertOptionalNonEmptyString(study.acronym, `${context}: acronym`);
+  assert(Array.isArray(study.registryIdentifiers), `${context}: registryIdentifiers must be an array`);
+  assert(study.registryIdentifiers.length > 0, `${context}: at least one registry identifier is required`);
+  for (const [index, identifier] of study.registryIdentifiers.entries()) {
+    validateRegistryIdentifier(identifier, `${context}: registryIdentifiers[${index}]`);
+  }
+  validateStringArray(study.protocolIdentifiers, `${context}: protocolIdentifiers`, false);
+  for (const protocolIdentifier of study.protocolIdentifiers ?? []) {
+    if (protocolIdentifier.startsWith("NCT")) {
+      assert(nctPattern.test(protocolIdentifier), `${context}: NCT protocol identifier must match NCT########`);
+    }
+  }
+
+  assert(isNonEmptyString(study.phase), `${context}: phase is required`);
+  assert(isNonEmptyString(study.status), `${context}: status is required`);
+  assert(isObject(study.design), `${context}: design is required`);
+  assert(isNonEmptyString(study.design.randomization), `${context}: design.randomization is required`);
+  assert(isNonEmptyString(study.design.masking), `${context}: design.masking is required`);
+  assert(isNonEmptyString(study.design.comparator), `${context}: design.comparator is required`);
+  assertOptionalNonEmptyString(study.design.description, `${context}: design.description`);
+  assert(isNonEmptyString(study.population), `${context}: population is required`);
+  assertOptionalNonEmptyString(study.overallDuration, `${context}: overallDuration`);
+  assertOptionalNonEmptyString(study.followUpDuration, `${context}: followUpDuration`);
+  assertOptionalNonEmptyString(study.safetySummary, `${context}: safetySummary`);
+  validateMetadata(study.metadata, context);
+}
+
+function validateClinicalLinkedAsset(linkedAsset, context, references) {
+  if (linkedAsset === undefined) {
+    return;
+  }
+
+  assert(isObject(linkedAsset), `${context}: linkedAsset must be an object`);
+  assertOptionalNonEmptyString(linkedAsset.assetId, `${context}: linkedAsset.assetId`);
+  assertOptionalNonEmptyString(linkedAsset.assetName, `${context}: linkedAsset.assetName`);
+  assertOptionalNonEmptyString(linkedAsset.codeName, `${context}: linkedAsset.codeName`);
+  assertOptionalNonEmptyString(linkedAsset.companyId, `${context}: linkedAsset.companyId`);
+  assertOptionalNonEmptyString(linkedAsset.externalCompanyName, `${context}: linkedAsset.externalCompanyName`);
+  assertOptionalNonEmptyString(linkedAsset.role, `${context}: linkedAsset.role`);
+
+  if (linkedAsset.assetId !== undefined && linkedAsset.companyId !== undefined) {
+    assert(
+      references.assetKeys.has(`${linkedAsset.companyId}|${linkedAsset.assetId}`),
+      `${context}: linkedAsset ${linkedAsset.companyId}/${linkedAsset.assetId} is missing`,
+    );
+  }
+}
+
+function validateClinicalArm(arm, context, references) {
+  assert(isObject(arm), `${context}: arm must be an object`);
+  assert(isNonEmptyString(arm.id), `${context}: id is required`);
+  assert(isNonEmptyString(arm.studyId), `${context}: studyId is required`);
+  assert(clinicalArmRoles.has(arm.role), `${context}: role "${arm.role}" is not allowed`);
+  assert(isNonEmptyString(arm.label), `${context}: label is required`);
+  assert(isNonEmptyString(arm.intervention), `${context}: intervention is required`);
+  validateClinicalLinkedAsset(arm.linkedAsset, context, references);
+  assert(isNonEmptyString(arm.dose), `${context}: dose is required`);
+  assertOptionalNonEmptyString(arm.titration, `${context}: titration`);
+  assert(isNonEmptyString(arm.route), `${context}: route is required`);
+  assert(isNonEmptyString(arm.dosingFrequency), `${context}: dosingFrequency is required`);
+  assert(isNonEmptyString(arm.treatmentDuration), `${context}: treatmentDuration is required`);
+  assertOptionalPositiveInteger(arm.plannedN, `${context}: plannedN`);
+  assertOptionalPositiveInteger(arm.analyzedN, `${context}: analyzedN`);
+}
+
+function validateClinicalEndpoint(endpoint, context) {
+  assert(isObject(endpoint), `${context}: endpoint must be an object`);
+  assert(isNonEmptyString(endpoint.id), `${context}: id is required`);
+  assert(isNonEmptyString(endpoint.studyId), `${context}: studyId is required`);
+  assert(isNonEmptyString(endpoint.name), `${context}: name is required`);
+  assert(isNonEmptyString(endpoint.classification), `${context}: classification is required`);
+  assert(isNonEmptyString(endpoint.assessmentTimepoint), `${context}: assessmentTimepoint is required`);
+}
+
+function validateClinicalOutcome(outcome, context) {
+  assert(isObject(outcome), `${context}: outcome must be an object`);
+  assert(isNonEmptyString(outcome.id), `${context}: id is required`);
+  assert(isNonEmptyString(outcome.studyId), `${context}: studyId is required`);
+  assert(isNonEmptyString(outcome.endpointId), `${context}: endpointId is required`);
+  validateStringArray(outcome.armIds, `${context}: armIds`, true);
+  assert(isNonEmptyString(outcome.analysisPopulation), `${context}: analysisPopulation is required`);
+  assertOptionalNonEmptyString(outcome.estimand, `${context}: estimand`);
+  assert(isObject(outcome.result), `${context}: result is required`);
+  assert(isNonEmptyString(outcome.result.value), `${context}: source-reported result value is required`);
+  assert(isNonEmptyString(outcome.result.unit), `${context}: source-reported result unit is required`);
+  assert(
+    clinicalResultTypes.has(outcome.result.resultType),
+    `${context}: result.resultType "${outcome.result.resultType}" is not allowed`,
+  );
+  assertOptionalNonEmptyString(outcome.result.comparisonType, `${context}: result.comparisonType`);
+  assertOptionalNonEmptyString(outcome.result.confidenceInterval, `${context}: result.confidenceInterval`);
+  assertOptionalNonEmptyString(outcome.result.pValue, `${context}: result.pValue`);
+  assertOptionalNonEmptyString(outcome.result.responderThreshold, `${context}: result.responderThreshold`);
+  assert(clinicalResultMaturities.has(outcome.maturity), `${context}: maturity "${outcome.maturity}" is not allowed`);
+  validateMetadata(outcome.metadata, context);
+}
+
+function getClinicalOutcomeSemanticKey(outcome) {
+  return [
+    outcome.studyId,
+    outcome.endpointId,
+    sortedStrings(outcome.armIds.map(normalize)).join(","),
+    normalize(outcome.analysisPopulation),
+    normalize(outcome.estimand ?? ""),
+    outcome.result.resultType,
+    normalize(outcome.result.comparisonType ?? ""),
+  ].join("|");
+}
+
+function validateClinicalEvidenceAggregate(aggregate, references, context) {
+  assert(isObject(aggregate), `${context}: aggregate must be an object`);
+  assert(Array.isArray(aggregate.studies), `${context}: studies must be an array`);
+  assert(Array.isArray(aggregate.arms), `${context}: arms must be an array`);
+  assert(Array.isArray(aggregate.endpoints), `${context}: endpoints must be an array`);
+  assert(Array.isArray(aggregate.outcomes), `${context}: outcomes must be an array`);
+
+  const studyIds = new Set();
+  const armIds = new Set();
+  const endpointIds = new Set();
+  const outcomeIds = new Set();
+  const registryIdentities = new Map();
+  const armsByStudy = new Map();
+  const endpointsByStudy = new Map();
+  const outcomesByStudy = new Map();
+  const outcomesByEndpoint = new Map();
+  const semanticOutcomeKeys = new Set();
+
+  for (const study of aggregate.studies) {
+    validateClinicalStudy(study, `${context}: study ${study.id ?? "unknown-study"}`, references);
+    assert(!studyIds.has(study.id), `${context}: duplicate study id ${study.id}`);
+    studyIds.add(study.id);
+
+    for (const identifier of study.registryIdentifiers) {
+      const identity = `${normalize(identifier.registry)}|${normalize(identifier.id)}`;
+      const existingStudyId = registryIdentities.get(identity);
+      assert(
+        existingStudyId === undefined,
+        `${context}: duplicate study registry identity ${identifier.registry}/${identifier.id} in ${existingStudyId} and ${study.id}`,
+      );
+      registryIdentities.set(identity, study.id);
+    }
+  }
+
+  for (const arm of aggregate.arms) {
+    validateClinicalArm(arm, `${context}: arm ${arm.id ?? "unknown-arm"}`, references);
+    assert(!armIds.has(arm.id), `${context}: duplicate arm id ${arm.id}`);
+    assert(studyIds.has(arm.studyId), `${context}: arm ${arm.id} references missing study ${arm.studyId}`);
+    armIds.add(arm.id);
+    const studyArms = armsByStudy.get(arm.studyId) ?? [];
+    studyArms.push(arm);
+    armsByStudy.set(arm.studyId, studyArms);
+  }
+
+  for (const endpoint of aggregate.endpoints) {
+    validateClinicalEndpoint(endpoint, `${context}: endpoint ${endpoint.id ?? "unknown-endpoint"}`);
+    assert(!endpointIds.has(endpoint.id), `${context}: duplicate endpoint id ${endpoint.id}`);
+    assert(studyIds.has(endpoint.studyId), `${context}: endpoint ${endpoint.id} references missing study ${endpoint.studyId}`);
+    endpointIds.add(endpoint.id);
+    const studyEndpoints = endpointsByStudy.get(endpoint.studyId) ?? [];
+    studyEndpoints.push(endpoint);
+    endpointsByStudy.set(endpoint.studyId, studyEndpoints);
+  }
+
+  const endpointById = new Map(aggregate.endpoints.map((endpoint) => [endpoint.id, endpoint]));
+  const armById = new Map(aggregate.arms.map((arm) => [arm.id, arm]));
+
+  for (const outcome of aggregate.outcomes) {
+    validateClinicalOutcome(outcome, `${context}: outcome ${outcome.id ?? "unknown-outcome"}`);
+    assert(!outcomeIds.has(outcome.id), `${context}: duplicate outcome id ${outcome.id}`);
+    assert(studyIds.has(outcome.studyId), `${context}: outcome ${outcome.id} references missing study ${outcome.studyId}`);
+    const endpoint = endpointById.get(outcome.endpointId);
+    assert(endpoint, `${context}: outcome ${outcome.id} references missing endpoint ${outcome.endpointId}`);
+    assert(endpoint.studyId === outcome.studyId, `${context}: outcome ${outcome.id} endpoint belongs to another study`);
+
+    const seenArmIds = new Set();
+    for (const armId of outcome.armIds) {
+      assert(!seenArmIds.has(armId), `${context}: outcome ${outcome.id} repeats arm ${armId}`);
+      seenArmIds.add(armId);
+      const arm = armById.get(armId);
+      assert(arm, `${context}: outcome ${outcome.id} references missing arm ${armId}`);
+      assert(arm.studyId === outcome.studyId, `${context}: outcome ${outcome.id} arm ${armId} belongs to another study`);
+    }
+
+    const semanticKey = getClinicalOutcomeSemanticKey(outcome);
+    assert(!semanticOutcomeKeys.has(semanticKey), `${context}: duplicate semantic outcome ${semanticKey}`);
+    semanticOutcomeKeys.add(semanticKey);
+    outcomeIds.add(outcome.id);
+
+    const studyOutcomes = outcomesByStudy.get(outcome.studyId) ?? [];
+    studyOutcomes.push(outcome);
+    outcomesByStudy.set(outcome.studyId, studyOutcomes);
+    const endpointOutcomes = outcomesByEndpoint.get(outcome.endpointId) ?? [];
+    endpointOutcomes.push(outcome);
+    outcomesByEndpoint.set(outcome.endpointId, endpointOutcomes);
+  }
+
+  for (const studyId of studyIds) {
+    assert((armsByStudy.get(studyId) ?? []).length > 0, `${context}: study ${studyId} has no arms`);
+    assert((endpointsByStudy.get(studyId) ?? []).length > 0, `${context}: study ${studyId} has no endpoints`);
+    assert((outcomesByStudy.get(studyId) ?? []).length > 0, `${context}: study ${studyId} has no outcomes`);
+  }
+
+  for (const endpointId of endpointIds) {
+    assert((outcomesByEndpoint.get(endpointId) ?? []).length > 0, `${context}: endpoint ${endpointId} has no outcome`);
+  }
+}
+
+function buildClinicalEvidenceAggregate(baseDir, references, context) {
+  const aggregate = readClinicalEvidenceSourceTree(baseDir, context);
+  validateClinicalEvidenceAggregate(aggregate, references, context);
+  return aggregate;
+}
+
 function validateCompanySources() {
   const registries = loadRegistries();
-  const folders = getCompanySourceFolders(companySourceDir);
+  const { folders } = loadCompanySources();
 
   for (const folder of folders) {
     const { company, programs, regimens } = readCompanyFolder(companySourceDir, folder, true);
@@ -759,7 +1163,104 @@ function validateStressTests() {
 
 function generateAggregates() {
   const registries = loadRegistries();
-  const folders = getCompanySourceFolders(companySourceDir);
+  const { folders, companies, programs, regimens } = loadCompanySources();
+
+  for (const folder of folders) {
+    const { company, programs: companyPrograms, regimens: companyRegimens } =
+      readCompanyFolder(companySourceDir, folder, true);
+    validateDataset([company], companyPrograms, companyRegimens, `data/companies/${folder}`, registries, {
+      companyLocalReferences: true,
+    });
+  }
+
+  validateDataset(companies, programs, regimens, "generated aggregate", registries, {
+    companyLocalReferences: true,
+  });
+  const clinicalEvidence = buildClinicalEvidenceAggregate(
+    clinicalEvidenceSourceDir,
+    createClinicalReferenceContext(companies, programs, regimens),
+    "data/clinical-evidence",
+  );
+  companies.sort((a, b) => a.id.localeCompare(b.id));
+  programs.sort((a, b) => a.companyId.localeCompare(b.companyId) || a.id.localeCompare(b.id));
+  regimens.sort((a, b) => a.companyId.localeCompare(b.companyId) || a.id.localeCompare(b.id));
+
+  mkdirSync(generatedDir, { recursive: true });
+  writeJson(path.join(generatedDir, "companies.json"), companies);
+  writeJson(path.join(generatedDir, "pipeline-programs.json"), programs);
+  writeJson(path.join(generatedDir, "regimens.json"), regimens);
+  writeJson(path.join(generatedDir, "clinical-evidence.json"), clinicalEvidence);
+  console.log(
+    `Generated ${companies.length} company record(s), ${programs.length} program record(s), ${regimens.length} regimen record(s), and ${clinicalEvidence.studies.length} clinical study record(s).`,
+  );
+}
+
+function validateGenerated() {
+  const registries = loadRegistries();
+  const companies = readJson(path.join(generatedDir, "companies.json"));
+  const programs = readJson(path.join(generatedDir, "pipeline-programs.json"));
+  const regimens = readJson(path.join(generatedDir, "regimens.json"));
+  const clinicalEvidence = readJson(path.join(generatedDir, "clinical-evidence.json"));
+
+  validateDataset(companies, programs, regimens, "data/generated", registries, {
+    companyLocalReferences: true,
+  });
+  validateClinicalEvidenceAggregate(
+    clinicalEvidence,
+    createClinicalReferenceContext(companies, programs, regimens),
+    "data/generated/clinical-evidence.json",
+  );
+  console.log(
+    `Validated generated aggregate with ${companies.length} company record(s), ${programs.length} program record(s), ${regimens.length} regimen record(s), and ${clinicalEvidence.studies.length} clinical study record(s).`,
+  );
+}
+
+function validateClinicalEvidenceSources() {
+  const registries = loadRegistries();
+  const { companies, programs, regimens } = loadCompanySources();
+  validateDataset(companies, programs, regimens, "clinical-evidence references", registries, {
+    companyLocalReferences: true,
+  });
+  const aggregate = buildClinicalEvidenceAggregate(
+    clinicalEvidenceSourceDir,
+    createClinicalReferenceContext(companies, programs, regimens),
+    "data/clinical-evidence",
+  );
+  console.log(
+    `Validated Clinical Evidence source data with ${aggregate.studies.length} study record(s).`,
+  );
+}
+
+function validateClinicalEvidenceGenerated() {
+  const registries = loadRegistries();
+  const { companies, programs, regimens } = loadCompanySources();
+  validateDataset(companies, programs, regimens, "clinical-evidence references", registries, {
+    companyLocalReferences: true,
+  });
+  const references = createClinicalReferenceContext(companies, programs, regimens);
+  const expected = buildClinicalEvidenceAggregate(
+    clinicalEvidenceSourceDir,
+    references,
+    "data/clinical-evidence",
+  );
+  const actual = readJson(path.join(generatedDir, "clinical-evidence.json"));
+  validateClinicalEvidenceAggregate(actual, references, "data/generated/clinical-evidence.json");
+  assert(
+    JSON.stringify(actual) === JSON.stringify(expected),
+    "data/generated/clinical-evidence.json differs from deterministic regeneration",
+  );
+  console.log(
+    `Validated generated Clinical Evidence aggregate with ${actual.studies.length} study record(s).`,
+  );
+}
+
+function readFixtureReferenceDataset(baseDir, context) {
+  const registries = loadRegistries();
+  const localCompaniesDir = path.join(baseDir, "companies");
+  const companiesDir = existsSync(localCompaniesDir)
+    ? localCompaniesDir
+    : path.join(clinicalEvidenceFixtureDir, "references", "companies");
+  const folders = getCompanySourceFolders(companiesDir);
   const companies = [];
   const programs = [];
   const regimens = [];
@@ -769,43 +1270,120 @@ function generateAggregates() {
       company,
       programs: companyPrograms,
       regimens: companyRegimens,
-    } = readCompanyFolder(companySourceDir, folder, true);
-    validateDataset([company], companyPrograms, companyRegimens, `data/companies/${folder}`, registries, {
-      companyLocalReferences: true,
-    });
+    } = readCompanyFolder(companiesDir, folder, true);
     companies.push(company);
     programs.push(...companyPrograms);
     regimens.push(...companyRegimens);
   }
 
-  validateDataset(companies, programs, regimens, "generated aggregate", registries, {
+  validateDataset(companies, programs, regimens, context, registries, {
     companyLocalReferences: true,
   });
-  companies.sort((a, b) => a.id.localeCompare(b.id));
-  programs.sort((a, b) => a.companyId.localeCompare(b.companyId) || a.id.localeCompare(b.id));
-  regimens.sort((a, b) => a.companyId.localeCompare(b.companyId) || a.id.localeCompare(b.id));
 
-  mkdirSync(generatedDir, { recursive: true });
-  writeJson(path.join(generatedDir, "companies.json"), companies);
-  writeJson(path.join(generatedDir, "pipeline-programs.json"), programs);
-  writeJson(path.join(generatedDir, "regimens.json"), regimens);
-  console.log(
-    `Generated ${companies.length} company record(s), ${programs.length} program record(s), and ${regimens.length} regimen record(s).`,
-  );
+  return { companies, programs, regimens };
 }
 
-function validateGenerated() {
-  const registries = loadRegistries();
-  const companies = readJson(path.join(generatedDir, "companies.json"));
-  const programs = readJson(path.join(generatedDir, "pipeline-programs.json"));
-  const regimens = readJson(path.join(generatedDir, "regimens.json"));
-
-  validateDataset(companies, programs, regimens, "data/generated", registries, {
-    companyLocalReferences: true,
-  });
-  console.log(
-    `Validated generated aggregate with ${companies.length} company record(s), ${programs.length} program record(s), and ${regimens.length} regimen record(s).`,
+function validateClinicalEvidenceSyntheticFixtures() {
+  const validDir = path.join(clinicalEvidenceFixtureDir, "valid");
+  const validRefs = readFixtureReferenceDataset(validDir, "data/validation-fixtures/clinical-evidence/valid");
+  const validReferences = createClinicalReferenceContext(
+    validRefs.companies,
+    validRefs.programs,
+    validRefs.regimens,
   );
+  const validAggregate = buildClinicalEvidenceAggregate(
+    path.join(validDir, "clinical-evidence"),
+    validReferences,
+    "data/validation-fixtures/clinical-evidence/valid/clinical-evidence",
+  );
+  assert(validAggregate.studies.length > 0, "clinical evidence valid fixture must contain at least one study");
+
+  const secondStudy = {
+    ...cloneJson(validAggregate.studies[0]),
+    id: "fixture-study-2",
+    registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT12345679" }],
+  };
+  const secondArm = {
+    ...cloneJson(validAggregate.arms[0]),
+    id: "fixture-arm-other-study",
+    studyId: "fixture-study-2",
+  };
+  const secondEndpoint = {
+    ...cloneJson(validAggregate.endpoints[0]),
+    id: "fixture-endpoint-other-study",
+    studyId: "fixture-study-2",
+  };
+
+  const invalidExpectations = [
+    ["bad-nct", /NCT identifier must match/, (fixture) => {
+      fixture.studies[0].registryIdentifiers[0].id = "NCT123";
+    }],
+    ["cross-study-arm", /belongs to another study/, (fixture) => {
+      fixture.studies.push(secondStudy);
+      fixture.arms.push(secondArm);
+      fixture.outcomes[0].armIds.push(secondArm.id);
+    }],
+    ["cross-study-endpoint", /endpoint belongs to another study/, (fixture) => {
+      fixture.studies.push(secondStudy);
+      fixture.endpoints.push(secondEndpoint);
+      fixture.outcomes[0].endpointId = secondEndpoint.id;
+    }],
+    ["duplicate-registry-identity", /duplicate study registry identity/, (fixture) => {
+      fixture.studies.push({
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-duplicate-registry",
+      });
+    }],
+    ["duplicate-semantic-outcome", /duplicate semantic outcome/, (fixture) => {
+      fixture.outcomes.push({
+        ...cloneJson(fixture.outcomes[0]),
+        id: "fixture-outcome-duplicate-semantic",
+      });
+    }],
+    ["endpoint-without-outcome", /has no outcome/, (fixture) => {
+      fixture.endpoints.push({
+        ...cloneJson(fixture.endpoints[0]),
+        id: "fixture-endpoint-without-outcome",
+      });
+    }],
+    ["missing-arm-route", /route is required/, (fixture) => {
+      fixture.arms[0].route = "";
+    }],
+    ["missing-arm-frequency", /dosingFrequency is required/, (fixture) => {
+      fixture.arms[0].dosingFrequency = "";
+    }],
+    ["missing-arm-duration", /treatmentDuration is required/, (fixture) => {
+      fixture.arms[0].treatmentDuration = "";
+    }],
+    ["missing-result", /source-reported result value is required/, (fixture) => {
+      fixture.outcomes[0].result.value = "";
+    }],
+    ["study-without-arm", /has no arms/, (fixture) => {
+      fixture.studies.push(secondStudy);
+    }],
+  ];
+
+  for (const [name, expectedError, mutate] of invalidExpectations) {
+    const fixture = cloneJson(validAggregate);
+    mutate(fixture);
+    let failed = false;
+    try {
+      validateClinicalEvidenceAggregate(
+        fixture,
+        validReferences,
+        `data/validation-fixtures/clinical-evidence/synthetic-invalid/${name}`,
+      );
+    } catch (error) {
+      failed = true;
+      assert(
+        expectedError.test(error instanceof Error ? error.message : String(error)),
+        `${name}: expected ${expectedError}, received ${error instanceof Error ? error.message : error}`,
+      );
+    }
+    assert(failed, `${name}: invalid Clinical Evidence fixture unexpectedly passed`);
+  }
+
+  console.log("Validated Clinical Evidence synthetic fixtures.");
 }
 
 function validateSyntheticFixtures() {
@@ -882,6 +1460,15 @@ try {
       break;
     case "validate:companies":
       validateCompanySources();
+      break;
+    case "validate:clinical-evidence":
+      validateClinicalEvidenceSources();
+      break;
+    case "validate:clinical-evidence:generated":
+      validateClinicalEvidenceGenerated();
+      break;
+    case "validate:clinical-evidence:synthetic":
+      validateClinicalEvidenceSyntheticFixtures();
       break;
     case "validate:stress":
       validateStressTests();

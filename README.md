@@ -24,6 +24,8 @@ The operating dataset is generated from `data/companies/` source folders:
 - `data/generated/companies.json` aggregates company records.
 - `data/generated/pipeline-programs.json` aggregates pipeline program records.
 - `data/generated/regimens.json` aggregates regimen records.
+- `data/generated/clinical-evidence.json` aggregates separate Clinical Evidence
+  records; it is not used by the current UI.
 
 ## Program Row Rule
 
@@ -47,7 +49,9 @@ For the future, separate Clinical Evidence domain boundary, see
 - `data/generated/companies.json` and
   `data/generated/pipeline-programs.json` are generated aggregate files read by
   the UI and data loader. `data/generated/regimens.json` is generated and
-  type-safe for future use but is not displayed by the current UI. Do not edit
+  type-safe for future use but is not displayed by the current UI.
+  `data/generated/clinical-evidence.json` is generated for the separate
+  Clinical Evidence domain and is not displayed by the current UI. Do not edit
   generated files directly.
 - `data/stress-tests/<case-id>/` contains isolated diagnostic references from
   stress-test pilots. These archives are excluded from production aggregate
@@ -99,6 +103,9 @@ npm run data:validate:registries
 npm run data:validate:companies
 npm run data:generate
 npm run data:validate:generated
+npm run data:validate:clinical-evidence
+npm run data:validate:clinical-evidence:generated
+npm run data:validate:clinical-evidence:synthetic
 npm run data:validate:stress
 npm run data:validate:synthetic
 ```

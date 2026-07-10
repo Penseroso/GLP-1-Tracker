@@ -1,9 +1,9 @@
-# Clinical Evidence Contract
+# Clinical Evidence Data Contract
 
-Authoritative semantic contract for the future Clinical Evidence domain. This
-document defines what may be represented when that domain is later implemented.
-It does not create a workflow, data files, schemas, validators, generated
-outputs, UI, or a research prompt.
+Authoritative semantic and file contract for the Clinical Evidence data layer.
+This module implements source files, TypeScript types, validation, synthetic
+checks, and a deterministic generated aggregate. It does not implement research
+execution, routing activation, UI, ranking, or comparison logic.
 
 ## Evidence Scope
 
@@ -21,151 +21,151 @@ Include a study only when both are true:
 A result may be final, interim, topline, conference-presented, registry-posted,
 or peer-reviewed, but its maturity must be distinguishable.
 
-Do not include:
-
-- registered, planned, recruiting, or completed studies with no disclosed
-  results.
-- protocol-only or design-only disclosures.
-- healthy-volunteer PK studies without an explicit obesity or weight-management
-  objective.
-- MASH-only, T2D-only, CKD/CV/lipid/comorbidity-only studies.
-- studies where body weight is incidental and obesity or weight management is
-  not an explicit study population or objective.
-- preclinical, animal, in vitro, or other non-human studies.
+Do not include registered, planned, recruiting, or completed studies with no
+disclosed results; protocol-only or design-only disclosures; healthy-volunteer
+PK studies without an explicit obesity or weight-management objective; MASH-only,
+T2D-only, CKD/CV/lipid/comorbidity-only studies; studies where body weight is
+incidental; or preclinical/non-human studies.
 
 A study enrolling participants with obesity or overweight plus T2D remains
-eligible when weight management is an explicit objective. It is not treated as
-T2D-only in that case.
+eligible when weight management is an explicit objective. MASH and other
+indication expansion remain outside the initial Clinical Evidence scope until a
+later scope decision.
 
-MASH and other indication expansion remain outside the initial Clinical Evidence
-scope until a later scope decision.
+## File Layout
 
-## Entity Boundaries
+Editable source data is company/asset scoped:
 
-These are semantic boundaries only; they are not TypeScript types or JSON
-schemas.
+```text
+data/clinical-evidence/
+└─ <company-id>/
+   └─ <asset-id>/
+      └─ clinical-evidence.json
+```
 
-- **Study** - one identifiable clinical protocol or registry study.
-- **Arm / intervention** - the administered treatment configuration,
-  comparator, dose, route, and schedule.
-- **Endpoint** - the prespecified outcome definition and assessment timepoint.
-- **Outcome** - a reported result for a specific endpoint, arm or comparison,
-  analysis population, and timepoint.
-- **Source** - the artifact supporting the study design or reported outcome.
+Each asset file contains parallel arrays:
 
-An Outcome requires a disclosed result. A protocol-defined endpoint without a
-reported value is not enough to create Clinical Evidence.
+```json
+{
+  "companyId": "<company-id>",
+  "assetId": "<asset-id>",
+  "studies": [],
+  "arms": [],
+  "endpoints": [],
+  "outcomes": []
+}
+```
 
-A Source may support study design, study status, endpoint definition, arm
-configuration, outcome value, result maturity, or correction/update history.
-The future implementation may attach more than one source to the same study or
-outcome because design and result facts often come from different artifacts.
+Generated output is a deterministic read-only aggregate:
 
-## Linkage To Contract 1.0
+```text
+data/generated/clinical-evidence.json
+```
 
-Clinical Evidence is separate from `PipelineProgramRecord` and must not alter
-the frozen Contract 1.0 semantics.
+It has the same top-level array names. Source files are authoritative; generated
+output must not be edited by hand.
 
-Where applicable, Clinical Evidence should reuse existing identity anchors from
-the Company/Pipeline domain:
+## Entity And Field Rules
+
+**Study** is one identifiable clinical protocol or registry study. It requires a
+stable study ID, `companyId`, `assetId`, optional `programId` or `regimenId`,
+official title, registry identifier, phase, status, study design, population,
+optional duration/follow-up/safety summary, and verification metadata. NCT IDs
+must match `NCT########`.
+
+**Arm / intervention** is one treatment or comparator configuration. It
+requires an arm ID, `studyId`, role (`experimental`, `placebo`,
+`active comparator`, or `other`), label, intervention, dose, route, dosing
+frequency, and treatment duration. Planned and analyzed N are optional when
+disclosed. Treatment and comparator arms use the same structure.
+
+**Endpoint** is one prespecified outcome definition and assessment timepoint. It
+requires an endpoint ID, `studyId`, name, classification, and assessment
+timepoint. Only endpoints with at least one actual disclosed result may be
+stored.
+
+**Outcome** is one reported result for a specific endpoint, arm or comparison,
+analysis population, and timepoint. It requires an outcome ID, `studyId`,
+`endpointId`, one or more `armIds`, analysis population, source-reported result
+value and unit, result type (`arm-level` or `between-arm`), maturity, and
+verification metadata.
+
+Safety stays separate from efficacy outcomes. Store only a concise study-level
+safety summary; do not attempt exhaustive adverse-event capture in this module.
+
+## Reference Rules
+
+Clinical Evidence reuses existing identity anchors where applicable:
 
 - `companyId`
 - `assetId`
 - `programId`
-- regimen identity
+- `regimenId`
 
-Clinical Evidence must not duplicate or redefine company, asset, program,
-regimen, stage, or status semantics. Study designs and outcomes must not be
-stored inside existing pipeline records.
+The company and asset referenced by a source file must exist in the existing
+Company/Pipeline source data. A `programId`, when present, must belong to the
+same company and asset. A `regimenId`, when present, must belong to the same
+company.
 
-Link studies as follows:
-
-- link to an **asset** when the study tests one tracked asset but the exact
-  program configuration is not represented or cannot be resolved.
-- link to a **program** when the study aligns with a specific existing
-  `programId`.
-- link to a **regimen** when independently administered products are studied
-  together as a regimen.
-- link to **multiple interventions** when the study includes tracked
-  combinations, active comparators, background therapy, or arms sponsored by
-  different companies.
+Arms and endpoints must belong to their referenced study. Outcomes must
+reference a study, an endpoint from that same study, and one or more arms from
+that same study.
 
 Existing company-local identity rules remain in force. This module does not
-require cross-company entity resolution; external companies and assets may need
-name-based references in a future implementation contract.
+require cross-company entity resolution and does not redefine company, asset,
+program, regimen, stage, or status semantics. Study designs and outcomes must
+not be stored inside `PipelineProgramRecord`.
 
-## Minimum Information Contract
+## Latest-Result Rule
 
-A future Clinical Evidence record must preserve the minimum information needed
-to interpret a result without inventing missing facts:
+Operating data must contain only the latest authoritative result for the same
+semantic outcome. A semantic outcome is the combination of study, endpoint, arm
+set, analysis population, estimand, result type, and comparison type.
 
-- study identity and registry or protocol identifiers.
-- phase and study status.
-- population and key eligibility context.
-- randomization, masking, comparator, and study design.
-- treatment arms, dose, route, frequency, and duration.
-- primary and key secondary endpoints.
-- analysis population and estimand when disclosed.
-- endpoint timepoint and unit.
-- arm-level and comparator results.
-- placebo-adjusted or active-comparator effect when directly reported or
-  deterministically derivable.
-- confidence interval, p-value, and responder threshold when reported.
-- result maturity: interim, topline, final, registry result, conference result,
-  or peer-reviewed publication.
-- essential safety findings without attempting exhaustive adverse-event capture.
-- source and verification metadata.
+Earlier source references may remain in metadata for traceability, but
+superseded values must not remain as parallel outcomes. Derived values are not
+stored in this module; adjusted effects are allowed only when directly
+source-reported.
 
-Preserve reported values as source facts. Any derived value must be explicitly
-distinguishable from a reported value and must not overwrite it. A future
-implementation must state how derived values are calculated and attributed
-before storing them.
+## Source To Aggregate Flow
 
-## Comparison Safeguards
+```text
+data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json
+-> npm run data:generate
+-> data/generated/clinical-evidence.json
+```
 
-Cross-study comparison must retain or expose:
+Generation validates all Clinical Evidence source files, concatenates the four
+entity arrays, sorts them deterministically, and writes the aggregate. Sort order
+is:
 
-- treatment duration.
-- dose and titration.
-- comparator.
-- analysis population.
-- estimand.
-- missing-data handling when disclosed.
-- baseline population context.
-- whether the value is absolute, relative, placebo-adjusted, active-comparator
-  adjusted, or responder-based.
+- studies: `companyId`, then `assetId`, then `id`.
+- arms: `studyId`, then `id`.
+- endpoints: `studyId`, then `id`.
+- outcomes: `studyId`, then `endpointId`, then `id`.
 
-Do not define a ranking algorithm, cross-trial score, or UI comparison metric in
-this module.
+## Commands
 
-## Source And Update Policy
+```bash
+npm run data:generate
+npm run data:validate:clinical-evidence
+npm run data:validate:clinical-evidence:generated
+npm run data:validate:clinical-evidence:synthetic
+```
 
-Reuse the existing field-specific source policy in
-[`../data-protocol/source-and-entry-policy.md`](../data-protocol/source-and-entry-policy.md)
-where applicable, including the Clinical results source class.
-
-Acceptable result sources include:
-
-- peer-reviewed publications.
-- conference presentations, abstracts, or posters.
-- registry-posted results.
-- official company topline releases.
-
-Company topline results record what the sponsor reported and are not independent
-validation.
-
-Later authoritative results may supplement or supersede earlier result maturity
-without erasing useful historical sources. Corrected or updated results must
-remain traceable. Study existence without publicly disclosed study-specific
-results is insufficient for entry into Clinical Evidence operating data.
+`data:validate:clinical-evidence` validates editable source files.
+`data:validate:clinical-evidence:generated` validates the generated aggregate
+and rejects output that differs from deterministic regeneration.
+`data:validate:clinical-evidence:synthetic` validates focused synthetic valid
+and invalid checks. The synthetic fixtures are not real clinical evidence.
 
 ## Non-Goals
 
-This contract does not introduce:
+This data layer does not introduce:
 
+- real clinical evidence records.
 - a Clinical Evidence Research workflow.
 - a reusable research prompt.
-- TypeScript types or JSON schemas.
-- validators, registries, generated outputs, or data files.
-- ranking or UI comparison behavior.
-- actual clinical evidence collection.
+- routing activation.
+- UI, ranking, scoring, or comparison behavior.
+- changes to Contract 1.0 or Scope v1.1.
