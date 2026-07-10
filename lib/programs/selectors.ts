@@ -161,6 +161,34 @@ export function getMostAdvancedPrograms(
     .slice(0, limit);
 }
 
+/**
+ * Program Register default ordering: most advanced development-stage
+ * registry rank first, then company name, then asset name. Reuses the
+ * same registry rank semantics as getMostAdvancedPrograms - no new
+ * maturity calculation.
+ */
+export function sortProgramsForRegister(
+  programs: PipelineProgram[],
+): PipelineProgram[] {
+  return programs.slice().sort((a, b) => {
+    const rankDiff =
+      (developmentStageRank[b.development.stage] ?? 0) -
+      (developmentStageRank[a.development.stage] ?? 0);
+    if (rankDiff !== 0) {
+      return rankDiff;
+    }
+
+    const companyDiff = (a.company?.name ?? "").localeCompare(
+      b.company?.name ?? "",
+    );
+    if (companyDiff !== 0) {
+      return companyDiff;
+    }
+
+    return a.assetName.localeCompare(b.assetName);
+  });
+}
+
 export function getCompanySummaries(
   companyRecords: Company[],
   programs: PipelineProgram[],

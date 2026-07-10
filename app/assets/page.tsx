@@ -9,12 +9,12 @@ export default function AssetsPage() {
           Program intelligence
         </p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Obesity Landscape Programs
+          Program Register
         </h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
-          Search and filter local obesity/incretin competitive programs by
-          company, indication, route, development stage, and development
-          status.
+          A searchable register of obesity/incretin development programs.
+          Filter by company, indication, route, development stage, and
+          development status.
         </p>
       </section>
       <PipelineTable programs={pipelinePrograms} />
