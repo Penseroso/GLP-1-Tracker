@@ -297,3 +297,69 @@ Re-run after writing this report (report is the only working-tree change):
 
 No implementation, data, registry, validator, generator, contract, or workflow
 file was changed by this audit.
+
+---
+
+## G. Module 4.5 — V1 UI Closure
+
+- **Closure date:** 2026-07-10
+- **Final branch:** `claude/responsive-layout-remediation`
+- **Final HEAD:** `24bea7c25bce3e8d7504d5a372e2d08f41d84811` (Module 4.4; unchanged by this closure pass — no implementation change was needed)
+- **Final verdict: `V1 UI closed`**
+
+### Finding disposition summary
+
+All 15 findings (UI-V1-001 through UI-V1-015) carry a "Remediation status: **Fixed**" entry, dated and attributed to the module that fixed them (4.1: 004/008/009; 4.2: 012/013/014/015; 4.3: 002/003/005/006/007/010; 4.4: 001/011). Re-verification below confirms none remain reproducible. No finding was rewritten, renumbered, or reinterpreted to reach this disposition — the original observed/expected/repro text for every finding is unchanged from the baseline audit (`claude/v1-ui-audit`); only "Remediation status" lines were appended.
+
+### Re-verification performed for closure (2026-07-10)
+
+All re-run live against a freshly built dev server (cache cleared) at 390/768/1280/1600px:
+
+- **Overview responsive:** no page-level horizontal overflow at any of the four widths (390px: `scrollWidth === clientWidth`); 2-column `RouteMixPanel`/`MostAdvancedProgramsTable` grid confirmed active at 768px and wider.
+- **Program Register responsive:** no page-level overflow at any width; table fits its wrapper exactly at 1280/1600px (`scrollWidth === clientWidth`, zero clipping) — all 7 default columns and every Development Stage badge fully visible; at 390/768px the table correctly scrolls internally within its own wrapper instead of overflowing the page.
+- **Default columns/order/sort:** Company, Asset, Mechanism, Dosage Form, Route, Dosing Interval, Development Stage, in that order; sort confirmed Phase 3 → Phase 2 (company/asset tiebreak) → Phase 1b → IND cleared (rank 32) → IND submitted (rank 31) → Preclinical.
+- **Filters/result count/reset:** Stage=`IND submitted` → 2/15, badges stay labeled "IND submitted" (never relabeled clinical); Reset filters restores 15/15.
+- **Keyword search scope:** internal company slug `zealand-pharma` → 0 results (previously 5); visible company name, mechanism, and other UI-represented terms still match.
+- **Column customization:** showing an optional column persists after a hard refresh; Reset to default restores the exact default set; deliberately corrupt `localStorage` JSON falls back safely to defaults — all via the `obesity-landscape.program-register.columns.v1` key.
+- **Drawer:** opens via click, Enter, and Space; `role="dialog"`, `aria-modal="true"`, `aria-labelledby` all present; focus lands on the Close button on open; Tab remains trapped inside the panel; Escape closes it; body `overflow` is `hidden` while open and restored to `visible` after close; focus returns to the exact triggering row (DOM-node-identity check) after close.
+- **Navigation:** `aria-current="page"` present only on the active route's link (Overview on `/`, Program Register on `/assets`), with matching active styling.
+- **Metadata/copy:** `document.title` is `"Overview — Obesity Landscape"` on `/` and `"Program Register — Obesity Landscape"` on `/assets`; meta description no longer contains "skeleton"; Overview metadata strip reads "LATEST UPDATED" (not "verified").
+- **Clinical-phase semantics:** metadata strip shows `6` clinical-phase programs (Phase 2×4 + Phase 1b + Phase 3), unified with the matrix's Phase 1/2/3 buckets; a hypothetical Filed/Approved record is excluded by definition (`clinicalDevelopmentStages` no longer uses a `sortRank >= 40` threshold that swept them in); IND/CTA milestones are never counted as clinical phases and now render with a visually distinct dashed/muted badge in the Register.
+- **No V2 feature introduced:** `git diff ab592af..HEAD --stat` (the full Module 4 remediation range) touches exactly 13 implementation files plus this report — no company-comparison, clinical-results, regimen-relationship, CSV-export, saved-view, or authentication code exists anywhere in the diff; no new route was added; `package.json`/`package-lock.json` are byte-identical to `ab592af` (no new dependency).
+
+### Final validation results
+
+| Command | Result |
+| --- | --- |
+| `npm run lint` | Pass (exit 0) |
+| `npm run build` | Pass — 3 static routes (`/`, `/_not-found`, `/assets`) |
+| `git diff --check` | Clean (exit 0) |
+| `npm run data:validate:registries` | Pass — "Validated registries." |
+| `npm run data:validate:companies` | Pass — "Validated 2 company source folder(s)." |
+| `npm run data:validate:generated` | Pass — "Validated generated aggregate with 2 company record(s), 15 program record(s), and 3 regimen record(s)." |
+| `npm run data:validate:stress` | Pass — "Validated 1 stress-test diagnostic archive(s)." |
+| `npm run data:validate:synthetic` | Pass — "Validated synthetic fixtures." |
+
+All checks passed; no implementation change was required or made during this
+closure pass.
+
+### Remaining intentional V1 limitations
+
+Unchanged from section E — these are deliberate V1 scope boundaries, not
+defects: shallow Program Detail Drawer *content depth* (record fields only,
+no clinical-trial detail); sparse optional fields (`platform`,
+`dosingInterval`, etc.) rendered as "N/A" rather than inferred; single-locale
+English UI (the underlying i18n label structure in
+`config/program-table.ts` still supports Korean labels, just not switched on
+by default).
+
+### Deferred V2 scope
+
+Unchanged from section E — confirmed still correctly absent from the UI, and
+the UI does not imply any of these exist: full Program Detail Drawer
+redesign/deeper content; clinical-trial efficacy/safety result views;
+dedicated program or company profile pages; company comparison dashboard;
+regimen relationship visualization; timeline/change history; saved named
+views; CSV export; server-side preference storage.
+
+**V1 UI phase closed.**
