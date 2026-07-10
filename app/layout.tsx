@@ -3,8 +3,12 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Obesity Landscape",
-  description: "Frontend skeleton for obesity/incretin competitive programs.",
+  title: {
+    default: "Obesity Landscape",
+    template: "%s — Obesity Landscape",
+  },
+  description:
+    "A searchable register of obesity/incretin development programs and competitive landscape data.",
 };
 
 export default function RootLayout({
@@ -44,7 +48,7 @@ export default function RootLayout({
                 href="/assets"
                 className="rounded-md px-3 py-2 transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
-                Programs
+                Program Register
               </Link>
             </nav>
           </header>

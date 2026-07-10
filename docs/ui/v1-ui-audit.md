@@ -15,6 +15,14 @@
 > finding below and the updated Module 4.2 entry in section F. All other
 > findings, including the deferred drawer *content-depth* limitation, are
 > unchanged from the original audit.
+>
+> **Update (Module 4.3, 2026-07-10):** UI-V1-002, UI-V1-003, UI-V1-005,
+> UI-V1-006, UI-V1-007, and UI-V1-010 (nav/title/description consistency,
+> Overview date label, unified clinical-phase definition, Overview asset
+> header, milestone-vs-clinical badge styling) have been fixed. See the
+> "Remediation status" line on each finding below and the updated Module 4.3
+> entry in section F. All other findings are unchanged from the original
+> audit.
 
 ## A. Audit metadata
 
@@ -90,6 +98,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed
 - **Remediation scope:** Small for label; route rename is larger (redirects) — treat route as optional.
 - **Blocks V1 closure:** No · **Fix before V2:** Recommended (label only).
+- **Remediation status (Module 4.3, 2026-07-10):** **Fixed (label only, as scoped).** Changed the nav link text in `app/layout.tsx` from "Programs" to "Program Register", matching the page H1. The `/assets` route itself is unchanged (route rename was explicitly out of scope). Verified: nav label and H1 both read "Program Register".
 
 ### UI-V1-003 — Static document title and stale meta description
 - **Severity:** Minor · **Surface:** Global shell · **Category:** semantic accuracy
@@ -101,6 +110,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed
 - **Remediation scope:** Small (per-route `metadata` / `generateMetadata`).
 - **Blocks V1 closure:** No · **Fix before V2:** Recommended.
+- **Remediation status (Module 4.3, 2026-07-10):** **Fixed.** Root layout metadata now uses a title template (`{ default: "Obesity Landscape", template: "%s — Obesity Landscape" }`) and a product-facing description ("A searchable register of obesity/incretin development programs and competitive landscape data.", no "skeleton"). `app/assets/page.tsx` adds `metadata.title = "Program Register"`, which correctly resolves through the template to "Program Register — Obesity Landscape" since `/assets` is a true child segment. `app/page.tsx` (the root Overview page) sits in the *same* route segment as the root layout, so Next.js's title template does not apply there (a real, verified Next.js metadata-resolution quirk — templates only apply across parent→child segment boundaries, not within the same segment); Overview's `metadata.title` is set to the full string `"Overview — Obesity Landscape"` directly to get the same distinct-title behavior. Verified: `document.title` is `"Overview — Obesity Landscape"` on `/` and `"Program Register — Obesity Landscape"` on `/assets`; `<meta name="description">` no longer contains "skeleton".
 
 ### UI-V1-004 — Overview page overflows horizontally on mobile
 - **Severity:** **Major** · **Surface:** Overview / Responsive · **Category:** responsiveness
@@ -124,6 +134,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed (latent; no current visual impact)
 - **Remediation scope:** Small (one selector field or one label word).
 - **Blocks V1 closure:** No · **Fix before V2:** Recommended.
+- **Remediation status (Module 4.3, 2026-07-10):** **Fixed (relabel, not reread).** Changed the `OverviewMetadataStrip` label from "Latest verified" to "Latest updated" so it matches the actual field the selector reads (`metadata.updatedAt` via `getLatestUpdateDate`), rather than switching the data source to `lastVerifiedAt` (lower risk; no selector-return-value change). Verified: the metadata strip now reads "... LATEST UPDATED" with the same date value as before.
 
 ### UI-V1-006 — "Clinical-phase" count vs matrix Filed/Approved bucketing
 - **Severity:** Minor · **Surface:** Overview · **Category:** semantic accuracy / consistency
@@ -135,6 +146,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Probable (latent; depends on future data)
 - **Remediation scope:** Small–Medium (unify the definition).
 - **Blocks V1 closure:** No · **Fix before V2:** Recommended (do not reopen frozen registry data — this is a UI selector decision).
+- **Remediation status (Module 4.3, 2026-07-10):** **Fixed.** Redefined `clinicalDevelopmentStages` in `lib/programs/constants.ts` to derive from the same `phase-1`/`phase-2`/`phase-3` stage buckets used by the Company × Development Stage Matrix (via the existing `getStageBucketId`/`stageBuckets` machinery), instead of an independent `sortRank >= 40` threshold. Clinical-phase now means Phase 1–3 only (including sub-phases like "Phase 1b" and the combined "Phase 1/2" stage) and explicitly excludes Filed and Approved, eliminating the drift risk the finding described — both Overview surfaces now share one definition. The frozen `data/registries/development-stages.json` registry itself was not touched; only the UI-layer selector logic changed. Also added `isRegulatoryMilestoneStage()` (reused for UI-V1-010). Verified: current count is unchanged at 6 (Phase 2×4 + Phase 1b + Phase 3, still correctly excluding the 3 IND milestones); `npm run data:validate:registries` and the other 4 data validators still pass.
 
 ### UI-V1-007 — Overview mini-table header "Asset / Code" vs Register "Asset"
 - **Severity:** Polish · **Surface:** Overview vs Register · **Category:** visual consistency
@@ -144,6 +156,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Confirmed
 - **Remediation scope:** Trivial.
 - **Blocks V1 closure:** No · **Fix before V2:** Optional.
+- **Remediation status (Module 4.3, 2026-07-10):** **Fixed.** Changed the Overview mini-table header in `components/MostAdvancedProgramsTable.tsx` from "Asset / Code" to "Asset", matching the Register. Verified: header now reads "ASSET" on both surfaces.
 
 ### UI-V1-008 — Register table clipped by the page gutter at ≥1280px
 - **Severity:** Minor · **Surface:** Program Register / Responsive · **Category:** responsiveness
@@ -176,6 +189,7 @@ Severity legend: **Blocker** (release-stopping) · **Major** (fix before V2) ·
 - **Confidence:** Probable (semantically distinct by label; visually uniform)
 - **Remediation scope:** Small (variant by stage family, reusing registry `family`).
 - **Blocks V1 closure:** No · **Fix before V2:** Recommended.
+- **Remediation status (Module 4.3, 2026-07-10):** **Fixed.** `StageBadge` now renders a visually distinct variant for regulatory-development milestones — dashed border, muted background/text (`bg-muted`/`text-muted-foreground`) — versus the existing solid `bg-accent` treatment for clinical phases (and Preclinical/Filed/Approved). The distinction is derived from `isRegulatoryMilestoneStage()`, which reuses the existing registry-backed `family` classification (the same one driving the matrix's bucket columns), not a hardcoded stage-name list. Border style + tone differ (not hue alone), so the distinction doesn't rely on color perception. Verified in the Register: "IND submitted"/"IND cleared" render dashed/muted; "Phase 1b"/"Phase 2"/"Phase 3"/"Preclinical" render the original solid style (screenshot-confirmed). The Overview mini-table's separate inline badge markup was intentionally left as-is — out of scope (would be an Overview redesign) and not in this finding's file list.
 
 ### UI-V1-011 — Keyword search matches internal identifiers
 - **Severity:** Polish · **Surface:** Filters · **Category:** functionality / maintainability
@@ -260,7 +274,7 @@ Grouped into the smallest reasonable follow-up modules:
 
 - **Module 4.1 — Responsive & layout fixes:** UI-V1-004, UI-V1-008, UI-V1-009. (Grid `min-w-0`; register table width vs. page gutter; company truncation.) Small, self-contained, high user-visible value. **Status: done (2026-07-10)** — see per-finding "Remediation status" entries above.
 - **Module 4.2 — Drawer accessibility hardening:** UI-V1-012, UI-V1-013, UI-V1-014, UI-V1-015. Dialog role + `aria-modal` + label, focus trap/restore, Escape, scroll-lock. May be merged into the deferred V2 drawer redesign if that lands first, but the a11y basics should not wait on content depth. **Status: done (2026-07-10)** — see per-finding "Remediation status" entries above.
-- **Module 4.3 — Copy & semantic accuracy:** UI-V1-002, UI-V1-003, UI-V1-005, UI-V1-006, UI-V1-007, UI-V1-010. Nav/label/title consistency, "Latest verified" vs `updatedAt`, unified clinical-phase definition (UI-only; do not reopen the frozen registry), asset-header consistency, milestone badge differentiation.
+- **Module 4.3 — Copy & semantic accuracy:** UI-V1-002, UI-V1-003, UI-V1-005, UI-V1-006, UI-V1-007, UI-V1-010. Nav/label/title consistency, "Latest verified" vs `updatedAt`, unified clinical-phase definition (UI-only; do not reopen the frozen registry), asset-header consistency, milestone badge differentiation. **Status: done (2026-07-10)** — see per-finding "Remediation status" entries above.
 - **Module 4.4 — Navigation & filter polish (optional):** UI-V1-001 (active nav + `aria-current`), UI-V1-011 (keyword scope / placeholder honesty).
 
 ## Validation results (post-report)

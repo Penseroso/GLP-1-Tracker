@@ -29,7 +29,7 @@ export function MostAdvancedProgramsTable({
           <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
             <tr>
               <th className="px-4 py-2 font-semibold">Company</th>
-              <th className="px-4 py-2 font-semibold">Asset / Code</th>
+              <th className="px-4 py-2 font-semibold">Asset</th>
               <th className="px-4 py-2 font-semibold">Stage</th>
               <th className="px-4 py-2 font-semibold">Route</th>
               <th className="px-4 py-2 font-semibold">Status</th>
