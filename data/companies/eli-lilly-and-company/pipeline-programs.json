@@ -1,0 +1,447 @@
+[
+  {
+    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+    "assetId": "ly3298176",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Tirzepatide",
+    "codeName": "LY3298176",
+    "aliases": [
+      { "type": "brand-name", "value": "Mounjaro" },
+      { "type": "brand-name", "value": "Zepbound" }
+    ],
+    "technical": {
+      "mechanism": "GIP and GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": { "stage": "Approved", "status": "Active" },
+    "regulatoryStates": [
+      {
+        "state": "NDA approved",
+        "jurisdiction": "United States",
+        "authority": "FDA",
+        "date": "2023-11-08"
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-new-medication-chronic-weight-management",
+          "title": "FDA Approves New Medication for Chronic Weight Management",
+          "sourceType": "regulator press announcement",
+          "publishedAt": "2023-11-08",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/217806s042lbl.pdf",
+          "title": "Zepbound (tirzepatide) injection prescribing information",
+          "sourceType": "drug label",
+          "publishedAt": "2026",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets",
+    "assetId": "ly3502970",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Orforglipron",
+    "codeName": "LY3502970",
+    "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
+    "technical": {
+      "mechanism": "Non-peptide GLP-1 receptor agonist",
+      "platform": "Small molecule"
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": "Once daily"
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": { "stage": "Approved", "status": "Active" },
+    "regulatoryStates": [
+      {
+        "state": "NDA approved",
+        "jurisdiction": "United States",
+        "authority": "FDA",
+        "date": "2026-04-01"
+      }
+    ],
+    "relationships": [
+      {
+        "externalCompanyName": "Chugai Pharmaceutical Co., Ltd.",
+        "role": "originator",
+        "rights": ["worldwide development and commercialization rights licensed to Eli Lilly and Company"],
+        "sourceUrls": ["https://www.chugai-pharm.co.jp/english/ir/product/pipeline.html"]
+      },
+      {
+        "externalCompanyName": "Chugai Pharmaceutical Co., Ltd.",
+        "role": "licensor",
+        "territories": ["Worldwide"],
+        "rights": ["development", "commercialization"],
+        "sourceUrls": ["https://www.chugai-pharm.co.jp/english/ir/product/pipeline.html"]
+      },
+      {
+        "companyId": "eli-lilly-and-company",
+        "role": "licensee",
+        "territories": ["Worldwide"],
+        "rights": ["development", "commercialization"],
+        "sourceUrls": ["https://www.chugai-pharm.co.jp/english/ir/product/pipeline.html"]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-new-molecular-entity-under-national-priority-voucher-program",
+          "title": "FDA Approves First New Molecular Entity Under National Priority Voucher Program",
+          "sourceType": "regulator press announcement",
+          "publishedAt": "2026-04-01",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/220934Orig1s000lbl.pdf",
+          "title": "Foundayo (orforglipron) tablets prescribing information",
+          "sourceType": "drug label",
+          "publishedAt": "2026-04",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://www.chugai-pharm.co.jp/english/ir/product/pipeline.html",
+          "title": "Chugai Development Pipeline",
+          "sourceType": "partner pipeline page",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
+    "assetId": "ly3437943",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Retatrutide",
+    "codeName": "LY3437943",
+    "technical": {
+      "mechanism": "GIP, GLP-1, and glucagon receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-powerful-weight-loss",
+          "title": "Lilly's triple agonist, retatrutide, delivered powerful weight loss in pivotal Phase 3 obesity trial",
+          "sourceType": "company press release",
+          "publishedAt": "2026-05-21",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07232719",
+          "title": "A Study of Retatrutide (LY3437943) in Participants With Obesity or Overweight (TRIUMPH-8)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3841136-subcutaneous-injection",
+    "assetId": "ly3841136",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Eloralintide",
+    "codeName": "LY3841136",
+    "technical": {
+      "mechanism": "Selective, long-acting amylin receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07321886",
+          "title": "A Study of Eloralintide (LY3841136) in Participants With Obesity, or Overweight Without Type 2 Diabetes (ENLIGHTEN-1)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://investor.lilly.com/static-files/587c9bd3-6551-45c3-989d-ab60c49036bb",
+          "title": "Q1 2026 Lilly Earnings Call",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-04-30",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3532226-subcutaneous-injection",
+    "assetId": "ly3532226",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Macupatide",
+    "codeName": "LY3532226",
+    "technical": {
+      "mechanism": "Long-acting GIP receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07215559",
+          "title": "A Study of Macupatide (LY3532226) and Eloralintide (LY3841136), Alone or in Combination, in Adults With Obesity or Overweight and With Type 2 Diabetes",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://investor.lilly.com/static-files/587c9bd3-6551-45c3-989d-ab60c49036bb",
+          "title": "Q1 2026 Lilly Earnings Call",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-04-30",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3549492-oral-solution",
+    "assetId": "ly3549492",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Naperiglipron",
+    "codeName": "LY3549492",
+    "technical": {
+      "mechanism": "Non-peptide GLP-1 receptor agonist",
+      "platform": "Small molecule"
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Oral solution",
+      "dosingInterval": "Once daily"
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Completed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06683508",
+          "title": "A Study to Investigate Weight Management With LY3549492 Compared With Placebo in Adult Participants With Obesity or Overweight",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06194500",
+          "title": "A Study of Carbon-14-Labeled [14C]-LY3549492 in Healthy Participants",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://investor.lilly.com/static-files/587c9bd3-6551-45c3-989d-ab60c49036bb",
+          "title": "Q1 2026 Lilly Earnings Call",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-04-30",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": {
+      "mechanism": "GIP and GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": {
+      "stage": "Phase 1b",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07476118",
+          "title": "A Study of Brenipatide (LY3537031) in Healthy Participants With Overweight or Obesity",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://precision.fda.gov/ginas/app/ui/substances/C3939LZT6J",
+          "title": "Brenipatide substance record",
+          "sourceType": "regulatory substance database",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3305677-subcutaneous-injection",
+    "assetId": "ly3305677",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Mazdutide",
+    "codeName": "LY3305677",
+    "technical": {
+      "mechanism": "GLP-1 and glucagon receptor agonist",
+      "platform": "Oxyntomodulin analog"
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Unknown",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Innovent Biologics, Inc.",
+        "role": "licensee",
+        "territories": ["China"],
+        "rights": ["development", "commercialization"],
+        "sourceUrls": ["https://en.innoventbio.com/InvestorsAndMedia/PressReleaseDetail?key=585"]
+      },
+      {
+        "externalCompanyName": "Innovent Biologics, Inc.",
+        "role": "regional rights holder",
+        "territories": ["China"],
+        "rights": ["development", "commercialization"],
+        "sourceUrls": ["https://en.innoventbio.com/InvestorsAndMedia/PressReleaseDetail?key=585"]
+      },
+      {
+        "companyId": "eli-lilly-and-company",
+        "role": "licensor",
+        "territories": ["China"],
+        "rights": ["development", "commercialization"],
+        "sourceUrls": ["https://en.innoventbio.com/InvestorsAndMedia/PressReleaseDetail?key=585"]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06124807",
+          "title": "A Study of LY3305677 Compared With Placebo in Adult Participants With Obesity or Overweight",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://en.innoventbio.com/InvestorsAndMedia/PressReleaseDetail?key=585",
+          "title": "Innovent's Mazdutide 9 mg Demonstrates Robust Weight Loss in Phase 3 GLORY-2 Study",
+          "sourceType": "partner press release",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3541105-subcutaneous-injection",
+    "assetId": "ly3541105",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "LY3541105",
+    "codeName": null,
+    "technical": {
+      "mechanism": "Dual amylin and calcitonin receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": ["Obesity", "Overweight"],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Unknown",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05380323",
+          "title": "A Study of LY3541105 in Healthy and Overweight Participants",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://lilly.gcs-web.com/static-files/a3f7198b-e8be-4994-ae59-77272b5c8702",
+          "title": "Lilly Select NME and NILEX Pipeline",
+          "sourceType": "investor presentation",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  }
+]
