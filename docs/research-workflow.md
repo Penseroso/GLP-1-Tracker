@@ -44,8 +44,9 @@ The overall path is the same regardless of the internal decision:
 company-centred discovery
 -> in-scope asset inventory
 -> asset / code-name reverse search
--> single asset, combination product, regimen, add-on/background-therapy, and
-platform/master-protocol classification
+-> intervention-model (single asset, combination product, regimen, or
+add-on/background-therapy) and protocol-structure (standalone or
+platform/master-protocol) classification
 -> registry, partner, rights, and official-source verification
 -> comparison with existing records
 -> confirmed record creation or update
@@ -278,19 +279,31 @@ is unclear, defer the finding instead of approximating it.
 
 ## 10. Combination, regimen, and relationship handling
 
-For each candidate, distinguish:
+For each candidate, distinguish on two independent axes.
+
+Intervention model:
 
 - single asset (monotherapy) program.
 - fixed-dose combination or co-formulation program.
-- regimen of independently administered products.
+- regimen of independently administered products — only when the sponsor
+  treats the co-administration as a distinct development configuration (for
+  example an "alone or in combination" trial design); a named background
+  product studied only as protocol-required standard-of-care is not a
+  regimen.
 - add-on/background-therapy program — a concomitant or background therapy
   required by the protocol that is not a confirmed regimen component; not
   monotherapy evidence for the focal asset.
-- platform or master protocol — evidences only its explicitly nested
-  indications, not the general population by inference.
-- program/regimen-level co-development, licensing, regional rights, trial
-  sponsor, commercialization, manufacturing, or other confirmed company
-  relationship.
+
+Protocol structure:
+
+- standalone trial.
+- platform or master protocol — may test any intervention model above in its
+  nested sub-studies; evidences only its explicitly nested indications, not
+  the general population by inference.
+
+Also distinguish program/regimen-level co-development, licensing, regional
+rights, trial sponsor, commercialization, manufacturing, or other confirmed
+company relationship.
 
 Do not infer component identity, FDC versus regimen status, principal-company
 adjacent roles, rights, territory, or external asset developer. Store confirmed

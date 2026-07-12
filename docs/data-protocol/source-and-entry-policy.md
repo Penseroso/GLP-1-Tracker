@@ -127,11 +127,17 @@ alone.
 
 Classifying a study as a confirmed **regimen** component (rather than an
 unconfirmed add-on/background-therapy program) requires the source to name the
-**specific** background or concomitant product; an unspecified therapy class
-(for example "a weekly incretin") does not confirm a regimen component.
-Attributing an indication from a **platform or master protocol** requires the
-source to explicitly nest that indication — a named sub-population, sub-study,
-or dedicated outcome measure — not only the trial's general population.
+**specific** background or concomitant product **and** show the sponsor treats
+the co-administration as a distinct development configuration or
+investigational combination strategy (for example, an "alone or in
+combination" trial design). An unspecified therapy class (for example "a
+weekly incretin") does not confirm a regimen component, and neither does a
+named product studied only as protocol-required standard-of-care background
+therapy (for example background basal insulin or metformin) — that remains
+background therapy regardless of naming. Attributing an indication from a
+**platform or master protocol** requires the source to explicitly nest that
+indication — a named sub-population, sub-study, or dedicated outcome measure —
+not only the trial's general population.
 
 ### Clinical results
 
@@ -435,9 +441,10 @@ Before entering or updating a record:
 - [ ] Confirm **stage** and **status**.
 - [ ] Confirm regulatory-development stage and regulatory-state details when
       present.
-- [ ] Classify each surfaced study as **monotherapy**, **combination product**,
-  **regimen**, **add-on/background-therapy program**, or **platform/master
-  protocol** before modeling it as a row (see `entities-and-rows.md`).
+- [ ] Classify each surfaced study on both axes — **intervention model**
+  (monotherapy, combination product, regimen, or add-on/background-therapy
+  program) and **protocol structure** (standalone or platform/master
+  protocol) — before modeling it as a row (see `entities-and-rows.md`).
 - [ ] Confirm each `indications` value is a disease or clinically defined
   treatment indication, not background therapy, prior-treatment conditions, age
   cohorts, trial objectives, outcome labels, or other population descriptors.

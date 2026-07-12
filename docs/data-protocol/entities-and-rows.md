@@ -102,28 +102,49 @@ status are mutable state and are never part of program identity or stable IDs**.
 
 ### Study classification
 
-Before creating or updating any row, classify the surfaced study or program as
-exactly one of:
+Before creating or updating any row, classify the surfaced study or program on
+**two independent axes**:
 
-- **monotherapy** — the focal asset alone, per protocol.
-- **combination product** — a fixed-dose combination or co-formulation (see
-  above).
-- **regimen** — independently administered products used together (see
-  above).
-- **add-on/background-therapy program** — the focal asset is studied on top of
-  a required concomitant or background therapy that is **not** a confirmed
-  regimen component.
-- **platform/master protocol** — one sponsor protocol that formally nests
-  multiple distinct indications or sub-studies under one trial registration.
+- **Intervention model** — exactly one of:
+  - **monotherapy** — the focal asset alone, per protocol.
+  - **combination product** — a fixed-dose combination or co-formulation (see
+    above).
+  - **regimen** — independently administered products used together (see
+    above).
+  - **add-on/background-therapy program** — the focal asset is studied on top
+    of a required concomitant or background therapy that is **not** a
+    confirmed regimen component.
+- **Protocol structure** — exactly one of:
+  - **standalone** — a single trial registration with one indication scope.
+  - **platform/master protocol** — one sponsor protocol that formally nests
+    multiple distinct indications or sub-studies under one trial
+    registration.
+
+These axes are **independent**: a platform/master protocol may test a
+monotherapy, a combination product, a regimen, or an add-on/background-therapy
+program in any of its nested sub-studies. Classify each nested sub-study's
+intervention model on its own; the protocol-structure classification does not
+determine it.
 
 A study whose protocol requires a concomitant or background therapy — whether
 or not that therapy is a confirmed regimen component — is **not** monotherapy
 evidence for the focal asset. Do not attribute its indications to the focal
-asset's monotherapy row. If the background component is officially confirmed
-and stable, model it under the regimen rules above; if it is unconfirmed,
-generic, or another sponsor's unspecified product, classify the study as an
-add-on/background-therapy program and **defer** it (see `edge-cases.md`)
-rather than folding it into an existing row or inventing a regimen component.
+asset's monotherapy row.
+
+**A named background product is not automatically a regimen.** Regimen
+classification requires official evidence that the sponsor treats the
+co-administration as a **distinct development configuration or investigational
+combination strategy** — for example, an "alone or in combination" trial
+design that names both products as the deliberate intervention being
+evaluated — not merely that the protocol names a specific background product.
+**Protocol-required standard-of-care background therapy remains background
+therapy** (for example, background basal insulin or metformin in a diabetes
+trial) even when the product is named, unless the sponsor separately develops
+that named product as a combination strategy with the focal asset. If the
+co-administration is not confirmed as a distinct development configuration,
+classify the study as an add-on/background-therapy program and **defer** it
+(see `edge-cases.md`) rather than folding it into an existing row or inventing
+a regimen record.
 
 A platform or master protocol evidences only the indications its source
 **explicitly nests** — a named sub-population, sub-study, or dedicated outcome

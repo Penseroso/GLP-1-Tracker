@@ -75,11 +75,17 @@ updating its records in the same execution. Follow these steps:
    `regulatoryStates` entries (jurisdiction, authority, date) as a field
    separate from `development.stage`, and use `stageBasis` and
    `stageOperationalState` to annotate evidence basis and operational state.
-   Classify each candidate as a monotherapy program, combination product,
-   regimen, add-on/background-therapy program, or platform/master protocol
-   before modeling it, and distinguish company relationships separately. A
-   study requiring background or concomitant therapy is not monotherapy
-   evidence for the focal asset; `indications` holds disease/treatment
+   Classify each candidate on two independent axes before modeling it:
+   intervention model (monotherapy program, combination product, regimen, or
+   add-on/background-therapy program) and protocol structure (standalone or
+   platform/master protocol — a platform/master protocol may test any
+   intervention model in its nested sub-studies). Distinguish company
+   relationships separately. A study requiring background or concomitant
+   therapy is not monotherapy evidence for the focal asset. A named
+   background product is not automatically a regimen: regimen classification
+   requires official evidence the sponsor treats the co-administration as a
+   distinct development configuration, not merely protocol-required
+   standard-of-care background therapy. `indications` holds disease/treatment
    indications only, never background therapy, prior-treatment conditions, age
    cohorts, trial objectives, outcome labels, or population descriptors.
 

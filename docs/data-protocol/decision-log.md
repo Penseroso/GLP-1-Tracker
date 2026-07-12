@@ -28,7 +28,8 @@ entry.
 - **Research routing boundary:** ADR-0027.
 - **Clinical Evidence semantic contract:** ADR-0029 (refines ADR-0028).
 - **Study classification, indication scope, and row-merge sufficiency:**
-  ADR-0032 (refines ADR-0030's row-splitting rule).
+  ADR-0032 (refines ADR-0030's row-splitting rule), corrected by ADR-0033
+  (independent classification axes, tightened regimen test).
 
 ---
 
@@ -705,3 +706,42 @@ when decided, recorded as a new appended ADR.
   remain open only where they are not covered by rules 1–6). Existing operating
   data is not retroactively modified by this ADR; any row that no longer
   satisfies rules 4–5 is a data-correction follow-up, not a contract change.
+
+## ADR-0033 — Correct ADR-0032: independent classification axes, tightened regimen test
+
+- **Date:** 2026-07-12
+- **Status:** Accepted (current)
+- **Refines:** ADR-0032. Does not rewrite it (see the append-only rule at the
+  top of this log); this entry corrects a modeling regression found while
+  applying ADR-0032 to real data. Does not change the Contract 1.1 shape, add
+  fields, or change validators.
+- **Decision:**
+  1. Study classification (ADR-0032 rule 1) is **two independent axes**, not
+     one flat enum: **intervention model** (monotherapy, combination product,
+     regimen, or add-on/background-therapy program) and **protocol structure**
+     (standalone or platform/master protocol). A platform/master protocol may
+     test any intervention model in any of its nested sub-studies; classify
+     each nested sub-study's intervention model on its own.
+  2. **A named background product is not automatically a regimen.** Regimen
+     classification requires official evidence the sponsor treats the
+     co-administration as a distinct development configuration or
+     investigational combination strategy (for example, an "alone or in
+     combination" trial design) — not merely that the protocol names a
+     specific background product. Protocol-required standard-of-care
+     background therapy (for example background basal insulin or metformin)
+     remains background therapy even when named.
+- **Rationale:** ADR-0032's flat 5-way enum could not express that a platform
+  or master protocol (a protocol-structure property) commonly tests a
+  monotherapy or a regimen (an intervention-model property) within its nested
+  sub-studies — conflating the two axes into one enum was itself a modeling
+  error, not merely an omission. Separately, ADR-0032's regimen sentence ("if
+  the background component is officially confirmed and stable, model it under
+  the regimen rules") read as though naming a background product were
+  sufficient to make it a regimen, which would misclassify the many trials
+  where a focal asset is studied on protocol-required standard-of-care
+  background therapy (for example background basal insulin/metformin in a
+  diabetes trial) as a regimen rather than background therapy.
+- **Consequences:** No new fields, registries, validators, or `assetType`
+  values. Existing operating data is not retroactively modified by this ADR;
+  applying the corrected rules to the Eli Lilly dataset is a data-correction
+  follow-up, tracked separately.

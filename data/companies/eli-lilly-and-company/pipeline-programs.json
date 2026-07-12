@@ -83,24 +83,32 @@
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
     "indications": ["Obesity", "Overweight"],
     "development": {
-      "stage": "Phase 2",
+      "stage": "Phase 3",
       "status": "Active",
       "stageBasis": "Operational evidence",
-      "stageOperationalState": "Initiated or active"
+      "stageOperationalState": "Active not recruiting"
     },
     "metadata": {
       "lastVerifiedAt": "2026-07-12",
       "updatedAt": "2026-07-12",
-      "sources": [{
-        "url": "https://clinicaltrials.gov/study/NCT06143956",
-        "title": "A Master Protocol Study (LY900038) of Multiple Intervention-Specific-Appendices in Adult Participants With Obesity or Overweight",
-        "sourceType": "trial registry",
-        "checkedAt": "2026-07-12"
-      }]
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06143956",
+          "title": "A Master Protocol Study (LY900038) of Multiple Intervention-Specific-Appendices in Adult Participants With Obesity or Overweight",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05556512",
+          "title": "A Study of Tirzepatide on the Reduction of Morbidity and Mortality in Adults With Obesity (SURMOUNT-MMO)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        }
+      ]
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-higher-dose-ckd",
+    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-higher-dose-t2d",
     "assetId": "ly3298176",
     "companyId": "eli-lilly-and-company",
     "assetName": "Tirzepatide",
@@ -111,7 +119,7 @@
     ],
     "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
-    "indications": ["Obesity", "Overweight", "Type 2 diabetes", "Chronic kidney disease"],
+    "indications": ["Obesity", "Type 2 diabetes"],
     "development": {
       "stage": "Phase 2",
       "status": "Active",
@@ -127,18 +135,12 @@
           "title": "A Study of Investigational Tirzepatide Doses in Participants With Type 2 Diabetes and Obesity",
           "sourceType": "trial registry",
           "checkedAt": "2026-07-12"
-        },
-        {
-          "url": "https://clinicaltrials.gov/study/NCT05536804",
-          "title": "A Study of Tirzepatide in Participants With Overweight or Obesity and Chronic Kidney Disease With or Without Type 2 Diabetes",
-          "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
         }
       ]
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-masld-adolescent-weight-management",
+    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-higher-dose-ckd",
     "assetId": "ly3298176",
     "companyId": "eli-lilly-and-company",
     "assetName": "Tirzepatide",
@@ -149,7 +151,39 @@
     ],
     "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
-    "indications": ["MASLD", "Obesity", "Overweight"],
+    "indications": ["Overweight", "Obesity", "Type 2 diabetes", "Chronic kidney disease"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05536804",
+          "title": "A Study of Tirzepatide in Participants With Overweight or Obesity and Chronic Kidney Disease With or Without Type 2 Diabetes (TREASURE-CKD)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-masld",
+    "assetId": "ly3298176",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Tirzepatide",
+    "codeName": "LY3298176",
+    "aliases": [
+      { "type": "brand-name", "value": "Mounjaro" },
+      { "type": "brand-name", "value": "Zepbound" }
+    ],
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
+    "indications": ["MASLD"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -165,18 +199,12 @@
           "title": "A Master Protocol of Multiple Agents in Adults With Metabolic Dysfunction-Associated Steatotic Liver Disease (SYNERGY-Outcomes)",
           "sourceType": "trial registry",
           "checkedAt": "2026-07-12"
-        },
-        {
-          "url": "https://clinicaltrials.gov/study/NCT06439277",
-          "title": "A Study of Tirzepatide in Adolescents With Obesity and Weight-Related Comorbidities",
-          "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
         }
       ]
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-type-1-diabetes-obesity-outcomes",
+    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-adolescent-obesity",
     "assetId": "ly3298176",
     "companyId": "eli-lilly-and-company",
     "assetName": "Tirzepatide",
@@ -187,7 +215,39 @@
     ],
     "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
-    "indications": ["Type 1 diabetes", "Obesity", "Overweight", "Morbidity and mortality in obesity"],
+    "indications": ["Obesity"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06439277",
+          "title": "A Study of Tirzepatide in Adolescents With Obesity and Weight-Related Comorbidities (SURMOUNT-ADOLESCENTS-2)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3298176-subcutaneous-injection-type-1-diabetes",
+    "assetId": "ly3298176",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Tirzepatide",
+    "codeName": "LY3298176",
+    "aliases": [
+      { "type": "brand-name", "value": "Mounjaro" },
+      { "type": "brand-name", "value": "Zepbound" }
+    ],
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
+    "indications": ["Type 1 diabetes", "Obesity", "Overweight"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -200,13 +260,7 @@
       "sources": [
         {
           "url": "https://clinicaltrials.gov/study/NCT06914895",
-          "title": "A Study of Tirzepatide Compared With Placebo in Adults With Type 1 Diabetes and Obesity or Overweight",
-          "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
-        },
-        {
-          "url": "https://clinicaltrials.gov/study/NCT05556512",
-          "title": "A Study of Tirzepatide on the Reduction of Morbidity and Mortality in Adults With Obesity",
+          "title": "A Study of Tirzepatide Compared With Placebo in Adults With Type 1 Diabetes and Obesity or Overweight (SURPASS-T1D-1)",
           "sourceType": "trial registry",
           "checkedAt": "2026-07-12"
         }
@@ -225,7 +279,7 @@
     ],
     "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
-    "indications": ["Type 2 diabetes", "Cardiovascular outcomes"],
+    "indications": ["Type 2 diabetes"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -328,7 +382,7 @@
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3502970-oral-tablets-cardiometabolic-comorbidities",
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets-attain-outcomes",
     "assetId": "ly3502970",
     "companyId": "eli-lilly-and-company",
     "assetName": "Orforglipron",
@@ -336,7 +390,7 @@
     "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
     "technical": { "mechanism": "Non-peptide GLP-1 receptor agonist", "platform": "Small molecule" },
     "administration": { "route": "Oral", "dosageForm": "Tablets", "dosingInterval": "Once daily" },
-    "indications": ["Obesity", "Overweight", "Cardiovascular disease", "Chronic kidney disease", "Osteoarthritis", "Stress urinary incontinence", "Peripheral artery disease"],
+    "indications": ["Cardiovascular disease", "Chronic kidney disease"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -347,15 +401,12 @@
       "lastVerifiedAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "sources": [
-        { "url": "https://clinicaltrials.gov/study/NCT07241390", "title": "A Study of Orforglipron on Cardiovascular Outcomes in Adults With Atherosclerotic Cardiovascular Disease and/or Chronic Kidney Disease", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07153471", "title": "A Study of Orforglipron in Participants With Obesity or Overweight and Osteoarthritis of the Knee", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07202884", "title": "A Study of Orforglipron in Female Participants With Stress Urinary Incontinence Who Have Obesity or Overweight", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07223593", "title": "Efficacy and Safety of Orforglipron in Participants With Peripheral Artery Disease", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+        { "url": "https://clinicaltrials.gov/study/NCT07241390", "title": "A Study of Orforglipron on Cardiovascular Outcomes in Adults With Atherosclerotic Cardiovascular Disease and/or Chronic Kidney Disease (ATTAIN-Outcomes)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
       ]
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3502970-oral-tablets-hypertension-osa-diabetes",
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets-attain-oa",
     "assetId": "ly3502970",
     "companyId": "eli-lilly-and-company",
     "assetName": "Orforglipron",
@@ -363,7 +414,79 @@
     "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
     "technical": { "mechanism": "Non-peptide GLP-1 receptor agonist", "platform": "Small molecule" },
     "administration": { "route": "Oral", "dosageForm": "Tablets", "dosingInterval": "Once daily" },
-    "indications": ["Obesity", "Overweight", "Type 2 diabetes", "Hypertension", "Obstructive sleep apnea"],
+    "indications": ["Obesity", "Overweight", "Osteoarthritis of the knee"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07153471", "title": "A Study of Orforglipron in Participants With Obesity or Overweight and Osteoarthritis of the Knee (ATTAIN-OA PAIN)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets-restrain-sui",
+    "assetId": "ly3502970",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Orforglipron",
+    "codeName": "LY3502970",
+    "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
+    "technical": { "mechanism": "Non-peptide GLP-1 receptor agonist", "platform": "Small molecule" },
+    "administration": { "route": "Oral", "dosageForm": "Tablets", "dosingInterval": "Once daily" },
+    "indications": ["Obesity", "Overweight", "Stress urinary incontinence"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07202884", "title": "A Study of Orforglipron in Female Participants With Stress Urinary Incontinence Who Have Obesity or Overweight (RESTRAIN-SUI)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets-attain-pad",
+    "assetId": "ly3502970",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Orforglipron",
+    "codeName": "LY3502970",
+    "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
+    "technical": { "mechanism": "Non-peptide GLP-1 receptor agonist", "platform": "Small molecule" },
+    "administration": { "route": "Oral", "dosageForm": "Tablets", "dosingInterval": "Once daily" },
+    "indications": ["Peripheral artery disease"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07223593", "title": "Efficacy and Safety of Orforglipron in Participants With Peripheral Artery Disease (ATTAIN-PAD)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets-obesity-t2d",
+    "assetId": "ly3502970",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Orforglipron",
+    "codeName": "LY3502970",
+    "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
+    "technical": { "mechanism": "Non-peptide GLP-1 receptor agonist", "platform": "Small molecule" },
+    "administration": { "route": "Oral", "dosageForm": "Tablets", "dosingInterval": "Once daily" },
+    "indications": ["Obesity", "Overweight", "Type 2 diabetes"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -374,9 +497,55 @@
       "lastVerifiedAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "sources": [
-        { "url": "https://clinicaltrials.gov/study/NCT06972472", "title": "A Study of Orforglipron in Participants With Obesity or Overweight and Type 2 Diabetes", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT06948435", "title": "A Master Protocol Study of Orforglipron in Participants With Hypertension and Obesity or Overweight", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT06649045", "title": "A Master Protocol for Orforglipron in Participants With Obstructive Sleep Apnea and Obesity or Overweight", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+        { "url": "https://clinicaltrials.gov/study/NCT06972472", "title": "A Study of Orforglipron in Participants With Obesity or Overweight and Type 2 Diabetes", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets-attain-hypertension",
+    "assetId": "ly3502970",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Orforglipron",
+    "codeName": "LY3502970",
+    "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
+    "technical": { "mechanism": "Non-peptide GLP-1 receptor agonist", "platform": "Small molecule" },
+    "administration": { "route": "Oral", "dosageForm": "Tablets", "dosingInterval": "Once daily" },
+    "indications": ["Obesity", "Overweight", "Hypertension"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT06948435", "title": "A Master Protocol Study of Orforglipron in Participants With Hypertension and Obesity or Overweight (ATTAIN-Hypertension)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3502970-oral-tablets-attain-osa",
+    "assetId": "ly3502970",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Orforglipron",
+    "codeName": "LY3502970",
+    "aliases": [{ "type": "brand-name", "value": "Foundayo" }],
+    "technical": { "mechanism": "Non-peptide GLP-1 receptor agonist", "platform": "Small molecule" },
+    "administration": { "route": "Oral", "dosageForm": "Tablets", "dosingInterval": "Once daily" },
+    "indications": ["Obesity", "Overweight", "Obstructive sleep apnea"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT06649045", "title": "A Master Protocol for Orforglipron in Participants With Obstructive Sleep Apnea and Obesity or Overweight (ATTAIN-OSA)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
       ]
     }
   },
@@ -420,7 +589,7 @@
       "dosageForm": "Injection",
       "dosingInterval": "Once weekly"
     },
-    "indications": ["Obesity", "Overweight", "Type 2 diabetes", "Cardiovascular disease", "Chronic kidney disease"],
+    "indications": ["Obesity", "Overweight"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -443,13 +612,57 @@
           "title": "A Study of Retatrutide (LY3437943) in Participants With Obesity or Overweight (TRIUMPH-8)",
           "sourceType": "trial registry",
           "checkedAt": "2026-07-12"
-        },
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection-triumph-outcomes",
+    "assetId": "ly3437943",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Retatrutide",
+    "codeName": "LY3437943",
+    "technical": { "mechanism": "GIP, GLP-1, and glucagon receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
+    "indications": ["Cardiovascular disease", "Chronic kidney disease"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
         {
           "url": "https://clinicaltrials.gov/study/NCT06383390",
           "title": "The Effect of Retatrutide Once Weekly on Cardiovascular Outcomes and Kidney Outcomes in Adults Living With Obesity (TRIUMPH-Outcomes)",
           "sourceType": "trial registry",
           "checkedAt": "2026-07-12"
-        },
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection-transcend-t2d",
+    "assetId": "ly3437943",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Retatrutide",
+    "codeName": "LY3437943",
+    "technical": { "mechanism": "GIP, GLP-1, and glucagon receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
+    "indications": ["Type 2 diabetes"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
         {
           "url": "https://clinicaltrials.gov/study/NCT06260722",
           "title": "Effect of Retatrutide Compared With Semaglutide in Adult Participants With Type 2 Diabetes and Inadequate Glycemic Control With Metformin With or Without SGLT2 Inhibitor (TRANSCEND-T2D-2)",
@@ -466,14 +679,14 @@
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection-masld-low-back-pain",
+    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection-masld",
     "assetId": "ly3437943",
     "companyId": "eli-lilly-and-company",
     "assetName": "Retatrutide",
     "codeName": "LY3437943",
     "technical": { "mechanism": "GIP, GLP-1, and glucagon receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
-    "indications": ["MASLD", "Chronic low back pain", "Obesity", "Overweight"],
+    "indications": ["MASLD"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -484,20 +697,42 @@
       "lastVerifiedAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "sources": [
-        { "url": "https://clinicaltrials.gov/study/NCT07165028", "title": "A Master Protocol of Multiple Agents in Adults With Metabolic Dysfunction-Associated Steatotic Liver Disease", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07035093", "title": "A Study of Retatrutide in Participants Who Have Obesity or Overweight and Chronic Low Back Pain", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+        { "url": "https://clinicaltrials.gov/study/NCT07165028", "title": "A Master Protocol of Multiple Agents in Adults With Metabolic Dysfunction-Associated Steatotic Liver Disease (SYNERGY-Outcomes)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
       ]
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection-oa-osa",
+    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection-low-back-pain",
     "assetId": "ly3437943",
     "companyId": "eli-lilly-and-company",
     "assetName": "Retatrutide",
     "codeName": "LY3437943",
     "technical": { "mechanism": "GIP, GLP-1, and glucagon receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
-    "indications": ["Obesity", "Overweight", "Osteoarthritis of the knee", "Obstructive sleep apnea"],
+    "indications": ["Obesity", "Overweight", "Chronic low back pain"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07035093", "title": "A Study of Retatrutide in Participants Who Have Obesity or Overweight and Chronic Low Back Pain (TRIUMPH-7)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3437943-subcutaneous-injection-oa",
+    "assetId": "ly3437943",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Retatrutide",
+    "codeName": "LY3437943",
+    "technical": { "mechanism": "GIP, GLP-1, and glucagon receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": "Once weekly" },
+    "indications": ["Obesity", "Overweight", "Osteoarthritis of the knee"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -508,8 +743,7 @@
       "lastVerifiedAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "sources": [
-        { "url": "https://clinicaltrials.gov/study/NCT05929066", "title": "A Study of Retatrutide in Participants Who Have Obesity or Overweight (TRIUMPH-1)", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT05931367", "title": "A Study of Retatrutide in Participants Who Have Obesity or Overweight and Osteoarthritis of the Knee", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+        { "url": "https://clinicaltrials.gov/study/NCT05931367", "title": "A Study of Retatrutide in Participants Who Have Obesity or Overweight and Osteoarthritis of the Knee (TRIUMPH-4)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
       ]
     }
   },
@@ -528,7 +762,7 @@
       "dosageForm": "Injection",
       "dosingInterval": "Once weekly"
     },
-    "indications": ["Obesity", "Overweight", "Type 2 diabetes", "Osteoarthritis of the knee", "Obstructive sleep apnea"],
+    "indications": ["Obesity", "Overweight", "Type 2 diabetes"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -547,19 +781,7 @@
         },
         {
           "url": "https://clinicaltrials.gov/study/NCT07282600",
-          "title": "A Study of Eloralintide in Participants With Obesity or Overweight and Type 2 Diabetes",
-          "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
-        },
-        {
-          "url": "https://clinicaltrials.gov/study/NCT07353931",
-          "title": "Efficacy and Safety of Eloralintide in Participants With Osteoarthritis Knee Pain and Obesity or Overweight",
-          "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
-        },
-        {
-          "url": "https://clinicaltrials.gov/study/NCT07369011",
-          "title": "A Study of Eloralintide in Participants With Obstructive Sleep Apnea and Obesity or Overweight",
+          "title": "A Study of Eloralintide in Participants With Obesity or Overweight and Type 2 Diabetes (ENLIGHTEN-2)",
           "sourceType": "trial registry",
           "checkedAt": "2026-07-12"
         },
@@ -574,6 +796,76 @@
           "title": "Q1 2026 Lilly Earnings Call",
           "sourceType": "investor presentation",
           "publishedAt": "2026-04-30",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3841136-subcutaneous-injection-osteoarthritis",
+    "assetId": "ly3841136",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Eloralintide",
+    "codeName": "LY3841136",
+    "technical": {
+      "mechanism": "Selective, long-acting amylin receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": ["Obesity", "Overweight", "Osteoarthritis of the knee"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07353931",
+          "title": "Efficacy and Safety of Eloralintide in Participants With Osteoarthritis Knee Pain and Obesity or Overweight (ENLIGHTEN-4)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-12"
+        }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3841136-subcutaneous-injection-obstructive-sleep-apnea",
+    "assetId": "ly3841136",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Eloralintide",
+    "codeName": "LY3841136",
+    "technical": {
+      "mechanism": "Selective, long-acting amylin receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": ["Obesity", "Overweight", "Obstructive sleep apnea"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07369011",
+          "title": "A Study of Eloralintide in Participants With Obstructive Sleep Apnea and Obesity or Overweight (ENLIGHTEN-3)",
+          "sourceType": "trial registry",
           "checkedAt": "2026-07-12"
         }
       ]
@@ -711,14 +1003,14 @@
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-neuropsychiatric-respiratory-gi",
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-bipolar-disorder",
     "assetId": "ly3537031",
     "companyId": "eli-lilly-and-company",
     "assetName": "Brenipatide",
     "codeName": "LY3537031",
     "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
-    "indications": ["Bipolar disorder", "Schizophrenia", "Opioid use disorder", "Tobacco use disorder", "Asthma", "Irritable bowel syndrome with diarrhea", "Irritable bowel syndrome with constipation"],
+    "indications": ["Bipolar disorder"],
     "development": {
       "stage": "Phase 2",
       "status": "Active",
@@ -729,25 +1021,157 @@
       "lastVerifiedAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "sources": [
-        { "url": "https://clinicaltrials.gov/study/NCT07286175", "title": "A Study of Brenipatide in Adult Participants With Bipolar Disorder", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07410507", "title": "A Study of Brenipatide in Adult Participants With Schizophrenia", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07420283", "title": "A Study of Brenipatide in Participants With Opioid Use Disorder", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07223840", "title": "A Study of Brenipatide in Adults Who Quit Smoking Cigarettes and Want to Avoid Relapse", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07219173", "title": "A Study of Brenipatide in Adult Participants With Uncontrolled Moderate to Severe Asthma", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07545759", "title": "A Study of Brenipatide in Participants With Irritable Bowel Syndrome-Diarrhea", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07545772", "title": "A Study of Brenipatide in Participants With Irritable Bowel Syndrome-Constipation", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+        { "url": "https://clinicaltrials.gov/study/NCT07286175", "title": "A Study of Brenipatide in Adult Participants With Bipolar Disorder (RENEW-Bipolar-1)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
       ]
     }
   },
   {
-    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-aud-mdd",
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-schizophrenia",
     "assetId": "ly3537031",
     "companyId": "eli-lilly-and-company",
     "assetName": "Brenipatide",
     "codeName": "LY3537031",
     "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
     "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
-    "indications": ["Alcohol use disorder", "Major depressive disorder"],
+    "indications": ["Schizophrenia"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07410507", "title": "A Study of Brenipatide in Adult Participants With Schizophrenia (RENEW-Scz-1)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-opioid-use-disorder",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
+    "indications": ["Opioid use disorder"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07420283", "title": "A Study of Brenipatide in Participants With Opioid Use Disorder (RENEW-Op-1)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-tobacco-use-disorder",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
+    "indications": ["Tobacco use disorder"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07223840", "title": "A Study of Brenipatide in Adults Who Quit Smoking Cigarettes and Want to Avoid Relapse (RENEW-Smk-1)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-asthma",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
+    "indications": ["Asthma"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07219173", "title": "A Study of Brenipatide in Adult Participants With Uncontrolled Moderate to Severe Asthma", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-ibs-d",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
+    "indications": ["Irritable bowel syndrome with diarrhea"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07545759", "title": "A Study of Brenipatide in Participants With Irritable Bowel Syndrome-Diarrhea (RENEW-IBS-D)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-ibs-c",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
+    "indications": ["Irritable bowel syndrome with constipation"],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07545772", "title": "A Study of Brenipatide in Participants With Irritable Bowel Syndrome-Constipation (RENEW-IBS-C)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-alcohol-use-disorder",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
+    "indications": ["Alcohol use disorder"],
     "development": {
       "stage": "Phase 3",
       "status": "Active",
@@ -758,9 +1182,31 @@
       "lastVerifiedAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "sources": [
-        { "url": "https://clinicaltrials.gov/study/NCT07219953", "title": "A Study of Brenipatide in Participants With Alcohol Use Disorder", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07219966", "title": "A Study of Brenipatide in Participants With Moderate-to-Severe Alcohol Use Disorder", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
-        { "url": "https://clinicaltrials.gov/study/NCT07412756", "title": "A Study of Brenipatide in Adult Participants With Major Depressive Disorder", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+        { "url": "https://clinicaltrials.gov/study/NCT07219953", "title": "A Study of Brenipatide in Participants With Alcohol Use Disorder (RENEW-ALC-2)", "sourceType": "trial registry", "checkedAt": "2026-07-12" },
+        { "url": "https://clinicaltrials.gov/study/NCT07219966", "title": "A Study of Brenipatide in Participants With Moderate-to-Severe Alcohol Use Disorder (RENEW-ALC-1)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
+      ]
+    }
+  },
+  {
+    "id": "eli-lilly-and-company-ly3537031-subcutaneous-injection-major-depressive-disorder",
+    "assetId": "ly3537031",
+    "companyId": "eli-lilly-and-company",
+    "assetName": "Brenipatide",
+    "codeName": "LY3537031",
+    "technical": { "mechanism": "GIP and GLP-1 receptor agonist", "platform": null },
+    "administration": { "route": "Subcutaneous", "dosageForm": "Injection", "dosingInterval": null },
+    "indications": ["Major depressive disorder"],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-12",
+      "updatedAt": "2026-07-12",
+      "sources": [
+        { "url": "https://clinicaltrials.gov/study/NCT07412756", "title": "A Study of Brenipatide in Adult Participants With Major Depressive Disorder (RENEW-MDD-1)", "sourceType": "trial registry", "checkedAt": "2026-07-12" }
       ]
     }
   },
