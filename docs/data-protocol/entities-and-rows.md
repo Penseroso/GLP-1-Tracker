@@ -72,8 +72,14 @@ status are mutable state and are never part of program identity or stable IDs**.
   combination components.
 - When the same principal company, component set, and indication scope have
   multiple officially distinct regimen configurations, use `configurationKey` as
-  the stable discriminator. Display name is not stable identity. Stage, status,
-  dates, results, and arbitrary suffixes must not be used as `configurationKey`.
+  the stable discriminator only when those configurations remain meaningfully
+  distinct independently of trial-arm dosing. Display name, stage, status,
+  dates, results, dose, dose ratio, titration schedule, cohort, clinical trial
+  arm, and arbitrary suffixes must not be used as `configurationKey`.
+- Dose or trial-arm differences do not create regimen identities. For example,
+  dose arms of `bimagrumab + semaglutide` are one component-level regimen under
+  Contract 1.1; dose-level arms belong to the future Clinical Evidence Arm
+  layer, not the current regimen registry.
 - If a second regimen needs a `configurationKey` but the official configuration
   discriminator cannot be confirmed, defer it instead of inventing one.
 
@@ -147,7 +153,7 @@ Create **separate program rows** when concurrently active records differ by:
 - responsible company
 - route
 - dosage form
-- indication scope **with a different stage or status**
+- indication scope **with a different stage, status, or operational state**
 - indication or program scope with a different current `development.stage`,
   status, or `stageOperationalState` for the same asset, route, and dosage form
 - another development configuration that cannot be represented in one row
@@ -169,9 +175,11 @@ are the same:
 - dosage form
 - stage
 - status
+- operational state (`development.stageOperationalState`)
 
-If indications have **different stages or statuses**, split them into separate
-rows.
+If indications have a different stage, development status, or operational
+state, split them into separate rows. Merge indications only when company,
+asset, route, dosage form, stage, status, and operational state are identical.
 
 ## Stable IDs
 
@@ -193,4 +201,4 @@ document is the authoritative source. Specifically, it:
 - **Refines** "separate records for different routes/dosage forms" by tying row
   splitting to concurrently active development configurations.
 - **Adds** the indication-scope condition (same company/asset/route/dosage
-  form/stage/status) for when indications may share a row.
+  form/stage/status/operational state) for when indications may share a row.

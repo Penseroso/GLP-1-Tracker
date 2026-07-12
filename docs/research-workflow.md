@@ -60,12 +60,21 @@ record, extract every distinct development entity and configuration it discloses
 regimens, and company relationships), not only the record that led you to it. A
 single release often announces multiple programs.
 
+Apply scope at the **asset level**. Once an asset qualifies for the core
+landscape by mechanism or confirmed obesity/weight-management program intent,
+investigate all of its current official programs that Contract 1.1 can
+represent; do not limit discovery to obesity-indication rows. Continue to
+exclude unrelated non-core assets and programs under the existing scope rules.
+Split program rows when stage, development status, or operational state differs.
+Merge indications only when company, asset, route, dosage form, stage, status,
+and operational state are identical.
+
 ### Initial investigation
 
 - Inspect the company's **current pipeline broadly**.
 - Identify **all** candidates relevant to the Module 5 scope (see the data
   protocol's dataset scope).
-- Distinguish **included**, **excluded**, and **unresolved** candidates.
+- Classify candidates as **entered**, **merged**, **deferred**, or **excluded**.
 - Verify **each included asset independently**.
 - Do **not** research only the first obvious asset.
 
@@ -117,9 +126,11 @@ company's other, fully confirmed assets.
 
 **Classify every surfaced entity.** Each named program, formulation, combination
 product, regimen, or relationship surfaced during research must end the run in
-exactly one of three states:
+exactly one of four states:
 
-- **entered/updated** — confirmed and representable, so a record was written.
+- **entered** — confirmed and representable, so a record was created or updated.
+- **merged** — confirmed but consolidated into an existing record under the row
+  or regimen-granularity rules, with the destination record identified.
 - **deferred** — with a specific reason (for example, unconfirmed route,
   unconfirmed configuration discriminator, or ambiguous identity).
 - **excluded** — with a scope or evidence reason (for example, out of dataset
@@ -134,8 +145,9 @@ regeneration, validation, and reporting — run a **coverage audit**. Its purpos
 is recall: catching in-scope candidates the primary research pass missed. It is
 mandatory in every run, initial investigation and refresh alike.
 
-**Audit checks.** Recheck coverage against each of the following, comparing what
-they disclose with the run's classified candidates:
+**Audit checks.** Reconcile every relevant entry in the sponsor's current
+official pipeline and trial sources against operating data, then recheck each of
+the following against the run's classified candidates:
 
 - the company's **official pipeline page and current investor materials**
   (pipeline slides, annual and quarterly reports, R&D-day presentations).
@@ -150,8 +162,9 @@ they disclose with the run's classified candidates:
   no longer appear in the current pipeline presentation.
 
 Every candidate the audit surfaces must be classified under the rules above:
-**entered/updated**, **deferred** with a specific reason, or **excluded** with a
-scope or evidence reason.
+**entered**, **merged**, **deferred**, or **excluded**, with a reason. Nothing
+found in the sponsor's current official pipeline or trial sources may be
+silently omitted.
 
 **Independent second discovery pass.** After the audit checks, repeat discovery
 **once, independently**: re-run company-centred discovery from scratch, without
@@ -294,9 +307,13 @@ is a distinct entity, not the sum of its components.
 
 When two regimens share the same principal company, component set, and
 indication scope, create separate records only if an official stable
-configuration discriminator is confirmed. Store that discriminator in
+product or regimen configuration is confirmed and remains meaningfully distinct
+independently of trial-arm dosing. Store that discriminator in
 `configurationKey` and use it as the basis for any stable regimen ID suffix.
-Do not use display name, stage/status, results, dates, or arbitrary numbering.
+Dose, dose ratio, titration schedule, cohort, and clinical trial arm differences
+do not create regimen identities; they belong to the future Clinical Evidence
+Arm layer. Do not use display name, stage/status, results, dates, dosing, or
+arbitrary numbering.
 If only one of the related records has `configurationKey`, or the discriminator
 is not official, defer the ambiguous record.
 
@@ -312,7 +329,7 @@ Whatever the form, the final response must communicate:
 - the **relevant assets** found.
 - records **created or changed**.
 - important records **reverified without change**.
-- findings **deferred or excluded**, and why.
+- findings **merged, deferred, or excluded**, and why.
 - the **coverage-audit outcome** — either that the final independent discovery
   pass surfaced no unclassified candidate, or which new candidates the audit
   surfaced and how each was classified.
