@@ -82,9 +82,18 @@ testable invariants — not merely the prose contract.
 5. **Latest-Result Rule.** Operating data may hold only one outcome per semantic key
    (~L1180–1182). Superseded values live only in `metadata`; there is no structured
    `supersedes` field. Derived values are not stored; adjusted/comparative values only
-   when directly source-reported.
+   when directly source-reported. **This protection is partial, not complete:** the
+   semantic key (invariant 4) is built from `armIds`/`endpointId` as opaque surrogate
+   identifiers. Nothing validates that those identifiers are themselves semantically
+   unique — two Arm records (or two Endpoint records) with identical real-world meaning
+   but different surrogate ids produce two different semantic keys for what should be one
+   outcome, and both pass validation as "distinct" (see FM-10).
 6. **Result-type cardinality.** `arm-level` requires exactly one `armId`; `between-arm`
-   requires ≥2 (~L1079–1084).
+   requires ≥2 (~L1079–1084). **The validator enforces only this arm-count cardinality —
+   it does not check comparison direction.** A `between-arm` outcome's optional
+   `comparisonType` may be absent or silent about which arm is the reference; nothing in
+   the schema or validator requires it to state the effect measure and the reference
+   direction (e.g., "least-squares mean difference, treatment minus placebo").
 7. **Source attribution is record-level only.** Sources attach to Study and Outcome
    records; Arm and Endpoint carry none; no field-level provenance exists
    (`edge-cases.md` rows 31/57 log this as "assumption at risk / defer to v2").
@@ -122,13 +131,28 @@ has a single required `studyId`, and outcome→endpoint/arm are same-study check
 Within-study pooling of arms is supported (`between-arm`, ≥2 `armIds`); cross-study
 pooling is not.
 
-**FM-3 — Extension / rollover / substudy / master-protocol linkage (genuine loss).**
+**FM-3 — Extension / rollover / substudy / master-protocol linkage (genuine loss; partly a
+schema limitation, not only a linkage gap).**
 A core trial plus its open-label extension, or a platform/master protocol with nested
 cohorts, become **separate Study records with no parent linkage**. `registryIdentifiers`
 is an array (multiple registries on one study) but expresses no parent/child structure.
 The grouping relationship is unrepresentable. Mitigated in practice by workflow selection
 rules that exclude most extensions unless they add a distinct endpoint/population/config,
 and by treating platform structure as a research-time classification (ADR-0033).
+
+That "separate Study records" mitigation depends on an unstated precondition: it only
+works when each substudy has its **own distinct registry identity**. Invariant 1 requires
+a normalized `registry|id` to be globally unique across all studies. When a sponsor's
+master protocol assigns **one NCT to multiple sponsor-defined substudies**, or one NCT
+covers **multiple focal assets** tested under the same master protocol, no
+one-substudy-per-Study-record scheme is available: giving each substudy its own Study row
+under the shared NCT collides on invariant 1, and folding them into a single Study row
+cannot hold more than one `assetId` (the field is singular) or distinguish the
+substudy-specific design/population/arms. Unlike the general FM-3 linkage-loss case (where
+distinct-NCT substudies are representable as separate, merely unlinked, rows), this
+shared-NCT case cannot be represented **at all** under the current model — it is a **schema
+limitation**, not a documentation or linkage gap, and is deferred to Preflight B or the
+pilot rather than fixed by convention.
 
 **FM-4 — Arm vs cohort boundary (ambiguity).**
 A platform trial whose "cohorts" are effectively distinct sub-studies testing different
@@ -169,6 +193,23 @@ A zero/near-null effect is storable as a string `value` ("0.0", "not significant
 reported" is excluded by scope. Because `value` is a free string, numeric zero and
 narrative text are not type-distinguished and effect sizes are not machine-comparable.
 
+**FM-10 — Duplicate Arm/Endpoint semantics defeat outcome duplicate detection (validator
+gap; documentation ambiguity).**
+The outcome semantic key (invariant 4) trusts `armIds`/`endpointId` as already-unique. If a
+researcher creates a second Arm record that duplicates an existing arm's real-world meaning
+(same role/label/intervention/dose/route/frequency) under a new surrogate `id` — or
+similarly a second, semantically identical Endpoint record — an outcome built against the
+new arm/endpoint id will not collide with the existing outcome's semantic key, even though
+both describe the same clinical fact. The Latest-Result Rule (invariant 5) and the
+"duplicate semantic outcome" validator error never fire in this case, because uniqueness is
+checked only at the outcome layer, not the Arm/Endpoint layer. There is no contract
+language telling a researcher to reuse an existing Arm/Endpoint id rather than authoring a
+new one, and no validator checks Arm-content or Endpoint-content uniqueness. This is
+**partial protection**, combining a documentation ambiguity (no stated dedupe-before-create
+rule) and a validator gap (no semantic-duplicate check on Arm/Endpoint) — not the complete
+duplicate prevention that describing invariant 4/5 as "outcome identity & duplicate
+prevention" implies.
+
 ---
 
 ## 4. Current representability assessment
@@ -182,7 +223,8 @@ ambiguity · **WF** workflow gap · **VG** validator gap · **SL** schema limita
 | --- | --- | --- | --- |
 | Study — core / standalone | Core study, registry ids, design, population | Yes | RA |
 | Study — extension / rollover | Stored as separate studies; **linkage lost** (FM-3) | Partial | SL → DEF |
-| Study — substudy / master protocol | Separate studies; platform grouping is research-time only (FM-3) | Partial | DA + DEF |
+| Study — substudy / master protocol | Separate studies **only when each substudy has a distinct registry identity**; platform grouping itself is research-time only (FM-3) | Partial | DA + DEF |
+| Study — sponsor substudies / multiple focal assets sharing one NCT | Singular `assetId` + globally-unique registry identity cannot represent them as separate Study records (FM-3) | No | SL → DEF |
 | Study — split/merge & identity | Dual identity (id + registry) prevents duplicate studies; NCT enforced | Yes | RA |
 | Arm — intervention / dose arms | `dose`/`titration`/`route`/`frequency` distinguish dose arms | Yes | RA |
 | Arm — comparators / background | Comparator via role + `design.comparator`; background free-text only (FM-7) | Yes (convention) | RA + DA |
@@ -196,7 +238,7 @@ ambiguity · **WF** workflow gap · **VG** validator gap · **SL** schema limita
 | Outcome — by population vs analysis set | Both in one `analysisPopulation` string (FM-6) | Yes (convention) | DA |
 | Outcome — by timepoint | Via distinct endpoints; excluded from outcome key (FM-1) | Yes | DA |
 | Outcome — by analysis context (sensitivity/interim) | Sensitivity foldable into estimand/population; interim vs final via maturity (kept-latest) | Yes (convention) | RA + DA |
-| Outcome identity & duplicate prevention | Semantic-key uniqueness (Latest-Result Rule) | Yes | RA |
+| Outcome identity & duplicate prevention | Semantic-key uniqueness (Latest-Result Rule) prevents duplicates **only when the Arm/Endpoint ids feeding the key are themselves unique**; semantically duplicate Arm/Endpoint records under different ids bypass it (FM-10) | Partial | DA + VG |
 | Source-to-claim attribution | Record-level on Study + Outcome; none on Arm/Endpoint; no field-level | Partial | SL (already logged) → DEF |
 | Sources: registry/topline/conference/publication/regulatory | Priority is workflow prose; `sourceType` free text; no "regulatory" maturity (FM-5) | Partial | DA (+ SL candidate) |
 | Source update & conflict handling | Latest supersedes; unresolved conflict → **defer + report**, not co-stored | Yes (by design) | RA |
@@ -226,7 +268,11 @@ them into `docs/data-protocol/edge-cases.md` is a suggested follow-up, not done 
    is a treatment configuration *within one study*; that a distinct sub-study/cohort should
    be its own Study; and that extensions, rollovers, and platform/master-protocol
    groupings are represented as separate Study records with **no stored linkage** (an
-   accepted current limitation).
+   accepted current limitation) — **provided each substudy has its own distinct registry
+   identity**. Also document that sponsor substudies or multiple focal assets sharing one
+   registry identifier are *not* representable this way at all; that case is a schema
+   limitation deferred to Preflight B or the pilot (see §6), not something a researcher can
+   work around by convention.
 3. **`maturity` convention (addresses FM-5).** Document how to choose a single `maturity`
    value when finality and source-venue diverge, and how a regulatory-sourced result maps
    (the enum has no "regulatory" value). Flag the finality-vs-venue conflation as a
@@ -240,6 +286,13 @@ them into `docs/data-protocol/edge-cases.md` is a suggested follow-up, not done 
 6. **Optional low-severity validator wording (VG).** Consider making the "duplicate
    semantic outcome" error hint that the intended fix may be to split the endpoint by
    timepoint. Cosmetic; not blocking.
+7. **Between-arm comparison-direction convention (addresses the comparison-direction gap
+   in invariant 6).** Document that every `between-arm` outcome should populate
+   `comparisonType` with both the effect measure and the reference direction (e.g.,
+   "least-squares mean difference, treatment minus placebo" rather than just
+   "difference"), since the validator enforces only arm-count cardinality for `between-arm`
+   results, not which arm is the comparator/reference. Documentation-only; no schema or
+   validator change is proposed here.
 
 ---
 
@@ -252,6 +305,13 @@ Recorded here as backlog; none blocks Module 5.
   a real contract change (an evidentiary unit above a single study).
 - **Extension / rollover / substudy / master-protocol linkage (FM-3, SL).** Whether a
   parent/child study linkage field is warranted once real platform trials are entered.
+- **Sponsor substudies / multiple focal assets sharing one registry identifier (FM-3, SL).**
+  When a master protocol's substudies, or multiple focal assets under it, do not each carry
+  a distinct NCT (or other registry id), the current singular `assetId` plus
+  globally-unique registry-identity invariant cannot represent them as separate Study
+  records without a registry-identity collision. This is a schema limitation, not a
+  documentation fix; revisit at Preflight B or the pilot once a real shared-NCT case is
+  encountered.
 - **Field-level source provenance (invariant 7, SL).** Already logged in `edge-cases.md`
   rows 31/57 as "assumption at risk / defer to v2"; carry forward.
 - **Structured endpoint hierarchy / measurement-method field (DA→DEF).** Whether free-string
@@ -262,6 +322,12 @@ Recorded here as backlog; none blocks Module 5.
   module currently stores only disclosed results).
 - **Numeric typing of result values (FM-9).** Free-string `value` blocks machine comparison
   of effect sizes; revisit if the pilot needs computed comparisons.
+- **Duplicate Arm/Endpoint semantic validation (FM-10, DA + VG).** No validator checks that
+  two Arm records, or two Endpoint records, are not semantic duplicates under different
+  surrogate ids; such duplicates silently bypass outcome duplicate detection. Recommend a
+  Preflight B synthetic fixture that authors two semantically identical Arms (or Endpoints)
+  with different ids feeding separate outcomes, to confirm this blind spot concretely and
+  evaluate whether a semantic-dedupe check on Arm/Endpoint is warranted before the pilot.
 
 ---
 
@@ -279,7 +345,12 @@ one real trap (the timepoint/semantic-key interaction in FM-1) plus several
 phrasing-convention risks.
 
 The genuinely unrepresentable cases (cross-study pooled analyses; extension/platform/
-substudy linkage; field-level provenance; splitting the maturity axis) lose meaning only in
-low-frequency, out-of-scope, or already-logged situations, and are deferred to Preflight B
-or the real pilot in line with the project's established `edge-cases.md` discipline. **No
-schema, validator, or contract change is required to begin Module 5.**
+substudy linkage — including sponsor substudies or multiple focal assets sharing one
+registry identifier; field-level provenance; splitting the maturity axis) lose meaning only
+in low-frequency, out-of-scope, or already-logged situations, and are deferred to
+Preflight B or the real pilot in line with the project's established `edge-cases.md`
+discipline. Separately, outcome duplicate detection is a partial protection rather than a
+completed guarantee (FM-10): it does not validate that the Arm/Endpoint ids underlying the
+semantic key are themselves free of semantic duplicates — a gap recommended for a
+Preflight B synthetic fixture rather than a Module 5 blocker. **No schema, validator, or
+contract change is required to begin Module 5.**
