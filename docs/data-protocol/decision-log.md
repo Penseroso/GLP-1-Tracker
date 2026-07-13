@@ -884,3 +884,37 @@ when decided, recorded as a new appended ADR.
   and `docs/data-protocol/README.md` are updated to describe the active route
   and the Company/Pipeline-first execution order. A future real Clinical
   Evidence pilot execution is not performed by this ADR.
+- **Correction (2026-07-13, pre-merge refinement — append-only; this ADR had
+  not yet merged to `main` when the correction was made):**
+  1. **Decision point 2 (trigger condition) is corrected.** The flat term list
+     (`임상`, `clinical`, `trial`, `시험`, `endpoint`, `results`, `결과`) is
+     replaced by a two-tier rule: **strong triggers** (`임상`, `임상시험`,
+     `clinical`, `clinical trial`, `trial`, `endpoint`, `NCT`) trigger on their
+     own; **contextual (broad) triggers** (`시험`, `results`, `결과`) trigger
+     only when the same request also contains a strong trigger or one of
+     `study`, `efficacy`, `safety`. The flat list let a company's quarterly
+     earnings-results review (`결과` with no clinical context) or a
+     manufacturing test-production report (`시험`/`결과` with no clinical
+     context) misroute to Clinical Evidence Research; the two-tier rule fixes
+     this while still catching `Novo Nordisk clinical trial results` (via the
+     `clinical`/`trial` strong triggers). The exact rule, with worked
+     triggering and non-triggering examples, is authoritative in
+     `docs/research-routing.md`. Asset-only examples (e.g. `semaglutide 임상
+     조사`, naming no company) are removed from the routing docs; all examples
+     are company-qualified, since the company name remains the only required
+     input and mentioning an asset alongside it does not introduce
+     asset-to-company resolution.
+  2. **Decision point 5 (failure handling) is corrected.** "The combined run
+     stops before any operating-data changes... neither portion may be claimed
+     complete" overstated the guarantee: it is only true when Company/Pipeline
+     Research itself cannot access sources (no changes of either kind have yet
+     been made). When Company/Pipeline Research **completes** with valid
+     changes and Clinical Evidence source access **then** fails, those
+     completed Company/Pipeline changes are **retained** — a later Clinical
+     Evidence failure does not roll back completed Company/Pipeline changes —
+     no Clinical Evidence data is changed, and the run is reported as
+     **partially completed** (Company/Pipeline done, Clinical Evidence not
+     completed), not as a uniform failure of "either portion."
+  3. No other part of this ADR's original Decision, Rationale, or Consequences
+     is changed. This correction, decision points 1/3/4 of the original entry,
+     and the readiness gate remain in force.

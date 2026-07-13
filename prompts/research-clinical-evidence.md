@@ -134,8 +134,15 @@ Follow these steps:
     for the major evidence set; studies excluded for no result; studies excluded
     as outside Scope v1.1; deferred studies with reasons; pipeline
     discrepancies; source-access failures; generated aggregate status;
-    validation results; and the commit SHA when a commit is created.
+    validation results; whether the run is fully completed or partially
+    completed (Company/Pipeline portion done, Clinical Evidence portion
+    blocked); and the commit SHA when a commit is created.
 
 **Failure handling:** Before modifying any Clinical Evidence source data,
 confirm current external sources can actually be accessed. If not, do not claim
-Clinical Evidence Research was completed and do not modify source data.
+Clinical Evidence Research was completed and do not modify Clinical Evidence
+source data. This is sequential, not a single all-or-nothing gate: if
+Company/Pipeline Research (step 4) already completed with valid changes
+earlier in this execution, retain those changes — a Clinical Evidence
+source-access failure never rolls back completed Company/Pipeline changes —
+and report the run as partially completed.

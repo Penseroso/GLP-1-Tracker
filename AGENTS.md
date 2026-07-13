@@ -44,15 +44,23 @@ execute the complete workflow in
 This route is active; the readiness gate (Preflight A and Preflight B) is
 satisfied and recorded in ADR-0035.
 
-The route triggers only on **explicit clinical-evidence intent** — terms such
-as `임상`, `clinical`, `trial`, `시험`, `endpoint`, `results`, or `결과`
-accompanying a company name — per the exact rules in
-[`docs/research-routing.md`](docs/research-routing.md) (ADR-0027). This applies
-to variations such as:
+The route triggers only on **explicit clinical-evidence intent** accompanying
+a company name: a strong trigger (`임상`, `임상시험`, `clinical`,
+`clinical trial`, `trial`, `endpoint`, `NCT`) alone, or a broad term (`시험`,
+`results`, `결과`) only when it co-occurs with clinical context (a strong
+trigger, or `study`, `efficacy`, `safety`). A broad term with no clinical
+context — an earnings-results review, a manufacturing test-production report —
+does not trigger this route. The exact two-tier rule and worked non-triggering
+examples are authoritative in
+[`docs/research-routing.md`](docs/research-routing.md) (ADR-0027, ADR-0035).
+This applies to variations such as:
 
 - `<COMPANY_NAME> clinical trial research.`
 - `<COMPANY_NAME> 임상 조사.`
 - `<COMPANY_NAME> 임상 업데이트.`
+- `<COMPANY_NAME> semaglutide 임상 조사.` — naming an asset alongside the
+  company does not change the required input or introduce asset-to-company
+  resolution.
 - equivalent natural-language requests in other languages.
 
 Ambiguous company-research requests with no explicit clinical-evidence intent
@@ -77,9 +85,14 @@ When an explicit clinical-evidence request is received:
 - The agent decides automatically whether the Clinical Evidence portion is an
   initial investigation or an update, based on existing Clinical Evidence
   source data - not on the request wording.
-- If external sources for either portion cannot be accessed, the run stops
-  before any operating-data changes and reports the access failure; do not
-  claim research was completed.
+- Failure handling is sequential, not a single all-or-nothing gate: if
+  Company/Pipeline Research itself cannot access required sources, the run
+  stops before any operating-data change (neither Company/Pipeline nor
+  Clinical Evidence data is modified). If Company/Pipeline Research completes
+  with valid changes but Clinical Evidence source access then fails, those
+  completed Company/Pipeline changes are **retained** — not rolled back — no
+  Clinical Evidence data is changed, and the run is reported as **partially
+  completed**.
 - Executing the workflow includes external research, operating-record creation
   or update, aggregate regeneration, the required validation, and final
   reporting, per

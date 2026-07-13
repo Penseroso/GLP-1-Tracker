@@ -40,20 +40,51 @@ semantic contract at
 (ADR-0034) readiness gates, both of which concluded no schema, validator, or
 contract change was required to begin.
 
-Explicit clinical-evidence intent includes terms such as:
+Explicit clinical-evidence intent is determined by two tiers of terms, not a
+flat list (ADR-0035 correction):
+
+**Strong triggers** — any one of these, present anywhere in the request, is
+explicit clinical-evidence intent on its own:
 
 - `임상`
+- `임상시험`
 - `clinical`
+- `clinical trial`
 - `trial`
-- `시험`
 - `endpoint`
+- `NCT` (an NCT registry identifier such as `NCT12345678`, or the bare token)
+
+**Contextual (broad) triggers** — these terms are ambiguous by themselves and
+trigger clinical-evidence intent only when the same request also contains a
+strong trigger, or one of `study`, `efficacy`, or `safety`:
+
+- `시험`
 - `results`
 - `결과`
 
-Examples:
+A broad term with no clinical context does **not** trigger Clinical Evidence
+Research. This keeps non-clinical business language on the Company/Pipeline
+route: `실적`/`결과` (earnings/results) and `시험` (test, e.g. a manufacturing
+or production test) are common outside clinical contexts and must not
+misroute a request by themselves.
 
-- `semaglutide 임상 조사`
+Examples that trigger Clinical Evidence Research (Company/Pipeline Research
+runs first in each case, per the combined order below):
+
+- `Novo Nordisk 임상 조사`
+- `Novo Nordisk semaglutide 임상 조사` — naming an asset alongside the company
+  does not change the required input or introduce asset-to-company
+  resolution; the company name (`Novo Nordisk`) is still what is supplied.
 - `Novo Nordisk 주요 임상시험 조사`
+- `Novo Nordisk clinical trial results`
+
+Examples that do **not** trigger Clinical Evidence Research (route to
+Company/Pipeline Research only, per the ambiguous-input default below):
+
+- `Novo Nordisk 분기 실적 결과 검토` (quarterly earnings results review —
+  `결과` with no clinical context)
+- `Novo Nordisk 시험 생산 결과 조사` (manufacturing test-production results
+  research — `시험`/`결과` with no clinical context)
 
 Routing rules for the active route:
 
@@ -91,9 +122,22 @@ material conflict discovered during clinical research is reported and
 recommended for a separate Company/Pipeline refresh, not written directly to
 Company/Pipeline records (`docs/clinical-evidence-workflow.md` §1, §6).
 
-If external sources for either step cannot be accessed, the run stops before
-any operating-data changes — Company/Pipeline or Clinical Evidence — and
-reports the access failure; do not claim either portion was completed.
+Failure handling is sequential, matching the execution order above — not a
+single all-or-nothing gate (ADR-0035 correction):
+
+- If Company/Pipeline Research cannot access required sources, the run stops
+  before any operating-data change — neither Company/Pipeline nor Clinical
+  Evidence data is modified — and reports the access failure.
+- If Company/Pipeline Research completes and makes valid Company/Pipeline
+  changes, but Clinical Evidence source access then fails, the already-
+  completed Company/Pipeline changes are **retained**, no Clinical Evidence
+  data is changed, and the run is reported as **partially completed**: the
+  Company/Pipeline portion done, the Clinical Evidence portion not completed.
+  A later Clinical Evidence access failure never rolls back completed
+  Company/Pipeline changes.
+
+In both cases, do not claim the Clinical Evidence portion was completed unless
+it actually ran to completion.
 
 ## Ambiguous input default
 

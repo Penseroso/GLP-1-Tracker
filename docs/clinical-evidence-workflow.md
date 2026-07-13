@@ -16,11 +16,18 @@ The workflow is subordinate to:
 ## 1. Input And Execution Boundary
 
 The only required input is a company name, represented as `<COMPANY_NAME>`.
-Examples of future explicit intent include:
+Examples of explicit intent include:
 
 - `<COMPANY_NAME> clinical evidence research`
 - `<COMPANY_NAME> 임상 조사`
 - `<COMPANY_NAME> 임상 업데이트`
+- `<COMPANY_NAME> semaglutide 임상 조사` — naming an asset alongside the
+  company does not change the required input or introduce asset-to-company
+  resolution; the company name is still what is supplied.
+
+The exact routing rule — the strong-trigger / contextual-broad-trigger split —
+is authoritative in [`docs/research-routing.md`](./research-routing.md); this
+document does not restate it.
 
 Do not ask for or require a mode, asset list, date, write flag, or approval
 parameter. The request wording does not decide whether the run is an initial
@@ -201,7 +208,12 @@ Each execution must:
    conflicting studies.
 
 If current external sources cannot be accessed, do not claim Clinical Evidence
-Research was completed and do not modify Clinical Evidence source data.
+Research was completed and do not modify Clinical Evidence source data. If
+Company/Pipeline Research (§1) already completed with valid changes earlier in
+this execution, retain those changes — a Clinical Evidence source-access
+failure never rolls back completed Company/Pipeline changes — and report the
+run as partially completed: the Company/Pipeline portion done, the Clinical
+Evidence portion not completed.
 
 ## 8. Final Reporting
 
@@ -219,6 +231,8 @@ The final response must communicate:
 - pipeline discrepancies or conflicts requiring Company/Pipeline refresh.
 - generated aggregate and validation results.
 - blockers or evidence-access failures.
+- whether the run is fully completed or partially completed (Company/Pipeline
+  portion done, Clinical Evidence portion blocked by a source-access failure).
 
 There is no rigid table format. Choose a concise form appropriate to the
 company and asset complexity.
