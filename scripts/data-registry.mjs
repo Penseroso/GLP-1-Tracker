@@ -95,6 +95,10 @@ const clinicalResultMaturities = new Set([
   "peer-reviewed publication",
 ]);
 const clinicalResultTypes = new Set(["arm-level", "between-arm"]);
+// This deliberately checks structure, not terminology. Any source-reported analysis-set
+// vocabulary remains valid, but a value ending in "estimand" or "estimand population" is
+// unambiguously an estimand label in the wrong field.
+const clinicalAnalysisPopulationEstimandLabelPattern = /\bestimand(?: population)?$/;
 
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, "utf8"));
@@ -1068,6 +1072,10 @@ function validateClinicalOutcome(outcome, context) {
   assert(isNonEmptyString(outcome.endpointId), `${context}: endpointId is required`);
   validateStringArray(outcome.armIds, `${context}: armIds`, true);
   assert(isNonEmptyString(outcome.analysisPopulation), `${context}: analysisPopulation is required`);
+  assert(
+    !clinicalAnalysisPopulationEstimandLabelPattern.test(normalize(outcome.analysisPopulation)),
+    `${context}: analysisPopulation must identify the actual analysis set, not an estimand label`,
+  );
   assertOptionalNonEmptyString(outcome.estimand, `${context}: estimand`);
   assert(isObject(outcome.result), `${context}: result is required`);
   assert(isNonEmptyString(outcome.result.value), `${context}: source-reported result value is required`);
@@ -1488,6 +1496,13 @@ function validateClinicalEvidenceSyntheticFixtures() {
         id: "fixture-outcome-duplicate-semantic",
       });
     }],
+    ["duplicate-semantic-outcome-reordered-arms", /duplicate semantic outcome/, (fixture) => {
+      fixture.outcomes.push({
+        ...cloneJson(fixture.outcomes[0]),
+        id: "fixture-outcome-duplicate-semantic-reordered-arms",
+        armIds: [...fixture.outcomes[0].armIds].reverse(),
+      });
+    }],
     ["endpoint-without-outcome", /has no outcome/, (fixture) => {
       fixture.endpoints.push({
         ...cloneJson(fixture.endpoints[0]),
@@ -1507,6 +1522,9 @@ function validateClinicalEvidenceSyntheticFixtures() {
     }],
     ["missing-result", /source-reported result value is required/, (fixture) => {
       fixture.outcomes[0].result.value = "";
+    }],
+    ["analysis-population-is-estimand-label", /actual analysis set, not an estimand label/, (fixture) => {
+      fixture.outcomes[0].analysisPopulation = "Treatment-regimen estimand population";
     }],
     ["study-without-source", /metadata\.sources must contain at least one source/, (fixture) => {
       fixture.studies[0].metadata.sources = [];

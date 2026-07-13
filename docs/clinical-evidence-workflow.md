@@ -134,14 +134,22 @@ Default result-source priority:
 Apply authority and recency together. An explicit correction or updated
 authoritative result supersedes the prior value.
 
+Outcome maturity follows the strongest source that directly supports the exact
+recorded result, not the strongest source available for the Study generally.
+Company-only results remain `topline`; a peer-reviewed Study publication upgrades
+only the Outcomes whose exact values it supports. A maturity change does not
+authorize filling statistical details that the supporting source does not report.
+
 For the same semantic outcome:
 
 - keep only the latest authoritative value in operating data.
 - update the existing Study, Endpoint, and Outcome rather than creating a
   duplicate version.
 - preserve useful historical source references for traceability.
-- do not calculate derived efficacy values.
-- store adjusted or comparative values only when directly reported.
+- do not calculate derived efficacy values or fill unpublished statistical
+  details.
+- store adjusted or comparative values only when directly reported for the exact
+  Arm set, analysis population, estimand, and timepoint.
 
 When sources conflict and the hierarchy does not resolve the discrepancy, defer
 the affected Outcome and report the conflict.
@@ -168,11 +176,32 @@ Populate the implemented `Study`, `Arm`, `Endpoint`, and `Outcome` structures in
 - Model the same measure at different timepoints as **distinct Endpoint records**,
   one per timepoint — not one Endpoint with multiple Outcomes (`assessmentTimepoint`
   is excluded from the outcome semantic key).
-- Author `analysisPopulation` in a consistent order — analysis set first, then
-  subgroup in parentheses (e.g. "Modified intention-to-treat (overall)").
-- For a `between-arm` outcome, populate `comparisonType` with both the effect
-  measure and the reference direction (e.g. "Least-squares mean difference,
-  treatment minus placebo").
+- Set `analysisPopulation` to the actual analysis set used for the result. ITT,
+  modified ITT, FAS, EAS, per-protocol, and safety populations are examples, not a
+  whitelist; preserve other source-reported analysis-set terminology. Author the
+  analysis set first and any subgroup second in parentheses. Never use an estimand
+  label such as "Treatment-regimen estimand population" or "Efficacy estimand
+  population" as the analysis population.
+- Store the separately source-reported estimand or intercurrent-event strategy in
+  `estimand`, including treatment-policy, treatment-regimen, modified
+  treatment-regimen, efficacy, hypothetical, or other directly reported wording.
+  This is not a closed vocabulary. Do not infer an estimand absent from the source.
+- When a source directly reports multiple estimands for the same Study, Endpoint,
+  protocol-defined Arm set, and timepoint, create a separate Outcome for each.
+  Source-supported differences in `estimand` or `analysisPopulation` are not
+  duplicates.
+- For a `between-arm` Outcome, reference every compared protocol-defined Arm, use
+  `resultType: between-arm`, and populate `comparisonType` with both the effect
+  measure and reference direction (e.g. "Least-squares mean difference, treatment
+  minus placebo"). Preserve a result sign consistent with that direction. Include
+  confidence intervals or p-values only when directly reported for that exact
+  comparison. Arm-array order does not carry direction and does not make a distinct
+  Outcome.
+- Capture only directly source-reported arm-level or between-arm values. Do not
+  calculate treatment differences from arm-level values, infer confidence intervals
+  or p-values, transcribe values visually from charts, distribute pooled results
+  across Arms, or attach subgroup results to broader Arms that do not faithfully
+  represent the subgroup.
 - Store only endpoints with disclosed results.
 - Keep efficacy outcomes source-reported.
 - Store only a concise study-level safety summary covering major adverse-event
@@ -181,6 +210,25 @@ Populate the implemented `Study`, `Arm`, `Endpoint`, and `Outcome` structures in
 - Do not reproduce exhaustive adverse-event tables.
 - Do not enter a Study unless it has at least one Arm, Endpoint, and Outcome.
 - Do not enter an Endpoint unless at least one Outcome is available.
+
+### 5.1 Unrepresentable results and deferred structure
+
+If pooled analysis groups, starting-dose subgroups, substudy/cohort structure, or
+ambiguous multi-asset anchoring cannot be represented without changing the meaning,
+omit the result. Do not create artificial Arms, calculate or redistribute values,
+or force a subgroup or focal-asset mapping. Record the limitation in the execution
+report and classify it as a deferred schema decision rather than an operating-data
+defect.
+
+The unresolved candidates are documented separately in
+`docs/data-protocol/edge-cases.md` and ADR-0036:
+
+- substudy and cohort representation.
+- protocol-defined Arm versus pooled or derived analysis group.
+- multi-focal or external-asset study anchoring.
+
+These candidates require a future contract decision; this workflow does not
+prescribe or implement a schema shape.
 
 ## 6. Record Creation And Replacement
 
@@ -200,6 +248,12 @@ same measure at the same timepoint, reuse its id rather than minting a second
 surrogate id. Semantically duplicate Arm/Endpoint records under different ids
 silently defeat outcome duplicate detection; the validator blocks only the obvious
 identical case, so reuse is the primary control.
+
+Outcome semantic identity comprises `studyId`, `endpointId`, the order-insensitive
+protocol-defined Arm set, `analysisPopulation`, `estimand`, `resultType`, and
+comparison direction when applicable via `comparisonType`. Do not use Arm array
+ordering as direction. Replace a result in place only when this full semantic
+identity is unchanged and the newer source supersedes the recorded value.
 
 When a value changes:
 
@@ -250,6 +304,8 @@ The final response must communicate:
 - studies excluded for no result.
 - studies excluded as outside Scope v1.1.
 - studies deferred, with reasons.
+- omitted results and deferred schema limitations, distinguished from operating-data
+  defects.
 - pipeline discrepancies or conflicts requiring Company/Pipeline refresh.
 - generated aggregate and validation results.
 - blockers or evidence-access failures.

@@ -128,31 +128,97 @@ analysis population, source-reported result value and unit, result type
 timepoint is **not** carried on the Outcome — it lives on the referenced Endpoint.
 
 `maturity` is a required enum with exactly these values: `interim`, `topline`,
-`final`, `registry result`, `conference result`, `peer-reviewed publication`. This
-one field conflates an evidence-finality axis (`interim`/`topline`/`final`) with a
-source-venue axis (`registry result`/`conference result`/`peer-reviewed
-publication`) and has **no regulatory value**. When finality and venue diverge,
-choose the value that carries the most decision-relevant fact for the reader and
-record the other in `metadata.sources` / `sourceType`; a result available only from
-a regulatory document (label/approval) maps to the closest venue value with the
-source recorded in metadata. Splitting this enum into finality × venue and adding a
-regulatory value is deferred (see edge-cases and ADR-0034).
+`final`, `registry result`, `conference result`, `peer-reviewed publication`. It
+must reflect the strongest source that directly supports the **exact recorded
+result**, not the strongest source available for the Study generally. Company-only
+results remain `topline`. A study-level peer-reviewed publication upgrades an
+Outcome to `peer-reviewed publication` only when that publication directly supports
+the recorded value; it does not upgrade other Outcomes by association. Changing
+maturity never authorizes filling unpublished confidence intervals, p-values, or
+other statistical details.
 
-`analysisPopulation` is a single free-text field that encodes **both** the analysis
-set (ITT / mITT / PP) **and** the population subgroup (overall vs, e.g., a
-baseline-T2D subgroup). Author it in a consistent order — analysis set first, then
-subgroup in parentheses, e.g. `"Modified intention-to-treat (overall)"`,
-`"Per-protocol (overall)"`, `"Modified intention-to-treat (baseline type 2 diabetes
-subgroup)"`. Consistent phrasing keeps genuinely distinct outcomes distinct in the
-semantic key and prevents both spurious splits and accidental collisions.
+This one field conflates an evidence-finality axis
+(`interim`/`topline`/`final`) with a source-venue axis (`registry
+result`/`conference result`/`peer-reviewed publication`) and has **no regulatory
+value**. When finality and venue diverge, choose the value that carries the most
+decision-relevant fact for the reader and record the other in `metadata.sources` /
+`sourceType`; a result available only from a regulatory document (label/approval)
+maps to the closest venue value with the source recorded in metadata. Splitting
+this enum into finality × venue and adding a regulatory value is deferred (see
+edge-cases and ADR-0034).
 
-For a `between-arm` outcome, `comparisonType` **must** be populated and should state
-**both the effect measure and the reference direction**, e.g. `"Least-squares mean
-difference, treatment minus placebo"` rather than a bare `"difference"`. The
-validator enforces that a `between-arm` outcome has a non-empty `comparisonType` and
-that arm-count cardinality holds (`arm-level` = one arm, `between-arm` ≥ two); it
-cannot judge the direction wording, so authoring it correctly is a required
-convention.
+`analysisPopulation` describes the **actual analysis set used for that result**.
+Examples include ITT, modified ITT, FAS, EAS, per-protocol, and safety populations,
+but these are not a closed vocabulary: preserve another source-reported analysis-set
+term when directly supported. The field may also carry a population subgroup;
+author it in a consistent order — analysis set first, then subgroup in parentheses,
+e.g. `"Modified intention-to-treat (overall)"`, `"Per-protocol (overall)"`,
+`"Modified intention-to-treat (baseline type 2 diabetes subgroup)"`. Estimand
+labels are not analysis sets. Values such as `"Treatment-regimen estimand
+population"` and `"Efficacy estimand population"` must not be used as
+`analysisPopulation`.
+
+`estimand` separately preserves the source-reported estimand or intercurrent-event
+strategy, including treatment-policy, treatment-regimen, modified
+treatment-regimen, efficacy, hypothetical, or other directly reported terminology.
+These examples are not a closed vocabulary. Do not infer an estimand that the
+source does not identify. When multiple estimands are directly reported for the
+same Study, Endpoint, protocol-defined Arm set, and assessment timepoint, store each
+as a separate Outcome. Outcomes separated by a source-supported `estimand` or
+`analysisPopulation` are semantically distinct, not duplicates.
+
+For a `between-arm` Outcome:
+
+- `armIds` must reference every protocol-defined Arm in the reported comparison.
+- `result.resultType` must be `between-arm`.
+- `comparisonType` must state the effect measure and reference direction, e.g.
+  `"Least-squares mean difference, treatment minus placebo"` rather than a bare
+  `"difference"`.
+- the result sign must agree with that stated direction.
+- confidence intervals and p-values are included only when directly reported for
+  that exact comparison.
+
+For duplicate detection, `armIds` is a set: array order does not distinguish two
+Outcomes. Comparison direction is preserved by `comparisonType` and must never be
+inferred from Arm ordering alone. The validator enforces Arm cardinality,
+non-repetition, non-empty `comparisonType`, and order-insensitive semantic identity;
+directional wording and sign consistency remain source-backed authoring obligations
+because they cannot be checked conservatively from free text.
+
+### Source-reported result boundary
+
+Capture only values directly reported by a source at the arm level or between arms.
+Do not:
+
+- calculate a treatment difference from arm-level values.
+- infer an unpublished confidence interval or p-value.
+- transcribe a value visually from a chart.
+- distribute a pooled result across individual Arms.
+- map a subgroup result to broader Arms that do not faithfully represent that
+  subgroup.
+
+Adjusted effects are allowed only when the source directly reports them. When a
+result depends on pooled analysis groups, starting-dose subgroups, substudy or
+cohort structure, or ambiguous multi-asset anchoring that the current entities
+cannot preserve, omit the result instead of creating artificial Arms, calculating
+or redistributing values, or forcing a misleading anchor. Record the limitation in
+the research report and treat it as a deferred schema decision, not an
+operating-data defect. The unresolved structural candidates are recorded in
+`docs/data-protocol/edge-cases.md` and ADR-0036.
+
+### Normative Lilly examples
+
+Commit `14c773a` is the normative operating-data reference for these rules; do not
+rewrite those records merely to restate the contract:
+
+- SURMOUNT-1 through SURMOUNT-4 use actual modified-ITT analysis populations and
+  separate treatment-regimen and efficacy Outcomes.
+- SURMOUNT-5 separates FAS from EAS, separates the estimands, and stores two
+  directional between-arm estimates.
+- TRIUMPH-4 stores only directly reported topline estimands, without inferred
+  confidence intervals or p-values.
+- the retatrutide Phase 2 hybrid-estimand result is intentionally omitted because
+  its starting-dose groups do not map faithfully to the pooled 4 mg and 8 mg Arms.
 
 Safety stays separate from efficacy outcomes. Store only a concise study-level
 safety summary; do not attempt exhaustive adverse-event capture in this module.
@@ -183,8 +249,11 @@ not be stored inside `PipelineProgramRecord`.
 ## Latest-Result Rule
 
 Operating data must contain only the latest authoritative result for the same
-semantic outcome. A semantic outcome is the combination of study, endpoint, arm
-set, analysis population, estimand, result type, and comparison type.
+semantic outcome. A semantic outcome is the combination of `studyId`,
+`endpointId`, the protocol-defined Arm set, `analysisPopulation`, `estimand`,
+`resultType`, and comparison direction when applicable (carried by
+`comparisonType`). The Arm set is order-insensitive. A source-supported difference
+in analysis population or estimand makes an Outcome semantically distinct.
 
 Earlier source references may remain in metadata for traceability, but
 superseded values must not remain as parallel outcomes. Derived values are not
