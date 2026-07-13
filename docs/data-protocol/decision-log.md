@@ -34,6 +34,8 @@ entry.
   (refines ADR-0029; documentation clarifications, minimal Arm/Endpoint
   semantic-duplicate and between-arm `comparisonType` validator checks, and
   recorded deferrals).
+- **Clinical Evidence routing activation:** ADR-0035 (refines ADR-0027;
+  activates the route defined in `docs/research-routing.md`).
 
 ---
 
@@ -816,4 +818,103 @@ when decided, recorded as a new appended ADR.
   (`data/clinical-evidence/**` stays empty; the generated aggregate stays empty and
   byte-identical), and no routing/UI change — the clinical route remains reserved and
   inactive (ADR-0027). The new validator checks and probes are exercised by
-  `npm run data:validate:clinical-evidence:synthetic`.
+  `npm run data:validate:clinical-evidence:synthetic`. **Superseded note:** the
+  "route remains reserved and inactive" consequence above is updated by ADR-0035,
+  which activates the route; this entry is not rewritten per the append-only rule.
+
+## ADR-0035 — Clinical Evidence routing activation
+
+- **Date:** 2026-07-13
+- **Status:** Accepted (current)
+- **Refines:** ADR-0027 (research routing boundary and reserved clinical
+  intent). Does not rewrite it (append-only rule); the routing rules it
+  established (exact trigger terms, ambiguous-input default) are unchanged and
+  remain authoritative. Also updates the "route remains reserved and inactive"
+  consequence recorded in ADR-0034 to reflect activation.
+- **Readiness gate:** Contingent on Preflight A
+  (`docs/clinical-evidence/architecture-preflight-a.md`, "ready with documented
+  limitations," no schema/validator/contract change required to begin Module 5)
+  and Preflight B (ADR-0034, closing the FM-1 documentation trap and the FM-10 /
+  invariant-6 validator gaps). Both are merged to `main`. No further validation
+  step gates activation.
+- **Decision:**
+  1. The Clinical Evidence Research route, implemented by
+     `prompts/research-clinical-evidence.md` and governed by
+     `docs/clinical-evidence-workflow.md`, is **active**. `AGENTS.md` gains a
+     "Clinical Evidence research router" section, structurally parallel to the
+     existing Company research router section, that actually routes explicit
+     clinical-evidence intent to that prompt instead of reporting it as
+     reserved.
+  2. The trigger condition is unchanged from ADR-0027: explicit
+     clinical-evidence intent (`임상`, `clinical`, `trial`, `시험`, `endpoint`,
+     `results`, `결과`) accompanying a company name. Ambiguous company requests
+     with no explicit clinical intent continue to default to Company/Pipeline
+     Research; a generic company request never automatically expands into
+     Clinical Evidence Research.
+  3. **Company/Pipeline Research runs first, in the same execution**, whenever
+     Clinical Evidence Research is triggered: an initial investigation if the
+     company is absent from `data/companies/`, or a refresh if present. This
+     operationalizes "absent or stale" without introducing a new staleness
+     field or threshold: the protocol has no freshness metadata to check
+     cheaply, and Company/Pipeline Research already performs a full
+     discovery-and-verify pass on every invocation (`prompts/research-company.md`
+     step 4), so unconditionally running it first is the only mechanism
+     available in the current contract to guarantee the Company/Pipeline data
+     Clinical Evidence Research depends on is current. Clinical Evidence
+     Research continues to decide initial-vs-update for its own portion from
+     existing Clinical Evidence source data, independently of the
+     Company/Pipeline step.
+  4. Clinical Evidence Research continues to never silently edit
+     Company/Pipeline data (`docs/clinical-evidence-workflow.md` §1, §6); this
+     was already true pre-activation and is unchanged.
+  5. If external sources for either the Company/Pipeline or the Clinical
+     Evidence portion cannot be accessed, the combined run stops before any
+     operating-data changes and reports the access failure; neither portion may
+     be claimed complete.
+- **Rationale:** Preflight A and Preflight B closed the documentation and
+  validator gaps that would otherwise make routing activation premature.
+  Chaining Company/Pipeline Research first — rather than inventing a staleness
+  timestamp/threshold field — keeps this a routing-policy decision with no
+  schema change, consistent with the "no invented solutions for structural
+  limitations" discipline applied throughout Preflight A/B.
+- **Consequences:** No type/schema/validator change; no operating-data change
+  (`data/clinical-evidence/**` stays empty and this ADR adds no records); no UI
+  or comparison-logic change. `docs/research-routing.md`, `AGENTS.md`,
+  `docs/clinical-evidence-workflow.md`, `prompts/research-clinical-evidence.md`,
+  and `docs/data-protocol/README.md` are updated to describe the active route
+  and the Company/Pipeline-first execution order. A future real Clinical
+  Evidence pilot execution is not performed by this ADR.
+- **Correction (2026-07-13, pre-merge refinement — append-only; this ADR had
+  not yet merged to `main` when the correction was made):**
+  1. **Decision point 2 (trigger condition) is corrected.** The flat term list
+     (`임상`, `clinical`, `trial`, `시험`, `endpoint`, `results`, `결과`) is
+     replaced by a two-tier rule: **strong triggers** (`임상`, `임상시험`,
+     `clinical`, `clinical trial`, `trial`, `endpoint`, `NCT`) trigger on their
+     own; **contextual (broad) triggers** (`시험`, `results`, `결과`) trigger
+     only when the same request also contains a strong trigger or one of
+     `study`, `efficacy`, `safety`. The flat list let a company's quarterly
+     earnings-results review (`결과` with no clinical context) or a
+     manufacturing test-production report (`시험`/`결과` with no clinical
+     context) misroute to Clinical Evidence Research; the two-tier rule fixes
+     this while still catching `Novo Nordisk clinical trial results` (via the
+     `clinical`/`trial` strong triggers). The exact rule, with worked
+     triggering and non-triggering examples, is authoritative in
+     `docs/research-routing.md`. Asset-only examples (e.g. `semaglutide 임상
+     조사`, naming no company) are removed from the routing docs; all examples
+     are company-qualified, since the company name remains the only required
+     input and mentioning an asset alongside it does not introduce
+     asset-to-company resolution.
+  2. **Decision point 5 (failure handling) is corrected.** "The combined run
+     stops before any operating-data changes... neither portion may be claimed
+     complete" overstated the guarantee: it is only true when Company/Pipeline
+     Research itself cannot access sources (no changes of either kind have yet
+     been made). When Company/Pipeline Research **completes** with valid
+     changes and Clinical Evidence source access **then** fails, those
+     completed Company/Pipeline changes are **retained** — a later Clinical
+     Evidence failure does not roll back completed Company/Pipeline changes —
+     no Clinical Evidence data is changed, and the run is reported as
+     **partially completed** (Company/Pipeline done, Clinical Evidence not
+     completed), not as a uniform failure of "either portion."
+  3. No other part of this ADR's original Decision, Rationale, or Consequences
+     is changed. This correction, decision points 1/3/4 of the original entry,
+     and the readiness gate remain in force.
