@@ -36,6 +36,9 @@ entry.
   recorded deferrals).
 - **Clinical Evidence routing activation:** ADR-0035 (refines ADR-0027;
   activates the route defined in `docs/research-routing.md`).
+- **Clinical Evidence estimand and source-reported-result handling:** ADR-0036
+  (refines ADR-0029 / ADR-0034; formalizes the Lilly `14c773a` rules and records
+  structural deferrals).
 
 ---
 
@@ -918,3 +921,97 @@ when decided, recorded as a new appended ADR.
   3. No other part of this ADR's original Decision, Rationale, or Consequences
      is changed. This correction, decision points 1/3/4 of the original entry,
      and the readiness gate remain in force.
+
+## ADR-0036 — Clinical Evidence estimand and source-reported-result handling
+
+- **Date:** 2026-07-13
+- **Status:** Accepted (current)
+- **Refines:** ADR-0029 (Clinical Evidence semantic contract) and ADR-0034
+  (Preflight B clarifications and minimal validator remediation). This decision
+  adds no field, enum, entity, schema, type, generator, fixture, or UI change.
+- **Normative implementation:** Eli Lilly Clinical Evidence commit `14c773a`:
+  SURMOUNT-1 through SURMOUNT-4 use actual modified-ITT analysis populations and
+  separate treatment-regimen and efficacy Outcomes; SURMOUNT-5 separates FAS/EAS,
+  separate estimands, and two directional between-arm estimates; TRIUMPH-4 stores
+  only directly reported topline estimands without inferred confidence intervals
+  or p-values; and the retatrutide Phase 2 hybrid-estimand result remains omitted
+  because starting-dose groups do not map faithfully to the pooled 4 mg and 8 mg
+  Arms. These records are the reference, not operating data to rewrite in this ADR.
+- **Decision:**
+  1. `analysisPopulation` records the actual analysis set used for the exact result.
+     ITT, modified ITT, FAS, EAS, per-protocol, and safety populations are examples,
+     not a whitelist; other directly source-reported analysis-set terminology is
+     preserved. Estimand labels, including "Treatment-regimen estimand population"
+     and "Efficacy estimand population," never belong in this field.
+  2. `estimand` separately records only the source-reported estimand or
+     intercurrent-event strategy. Treatment-policy, treatment-regimen, modified
+     treatment-regimen, efficacy, and hypothetical are examples, not a whitelist;
+     an absent estimand is not inferred.
+  3. Directly reported multiple estimands for the same Study, Endpoint,
+     protocol-defined Arm set, and assessment timepoint are separate Outcomes.
+     Source-supported differences in `analysisPopulation` or `estimand` are not
+     semantic duplicates.
+  4. Only directly source-reported arm-level or between-arm values are entered. No
+     treatment difference is calculated from arm values; unpublished confidence
+     intervals or p-values are not inferred; chart values are not visually
+     transcribed; pooled results are not distributed across individual Arms; and
+     subgroup results are not mapped to broader Arms that fail to represent them.
+  5. A between-arm Outcome references every compared protocol-defined Arm, uses
+     `resultType: between-arm`, carries a directional `comparisonType`, and preserves
+     a result sign consistent with that direction. Confidence intervals and p-values
+     are stored only when directly reported. `armIds` is an order-insensitive set for
+     duplicate detection; direction lives in `comparisonType` and is never inferred
+     from array order.
+  6. Outcome semantic identity comprises `studyId`, `endpointId`, the
+     protocol-defined Arm set, `analysisPopulation`, `estimand`, `resultType`, and
+     comparison direction when applicable. The existing normalized semantic key
+     already implements this identity, including sorted `armIds`.
+  7. `maturity` reflects the strongest source that directly supports the exact
+     recorded result. Company-only results remain `topline`; a study-level
+     peer-reviewed publication upgrades only Outcomes whose exact values it
+     supports. Maturity changes do not authorize filling unpublished statistics.
+  8. A result that cannot be represented faithfully because of pooled analysis
+     groups, starting-dose subgroups, substudy/cohort structure, or ambiguous
+     multi-asset anchoring is omitted rather than distorted. Researchers do not
+     create artificial Arms, calculate or redistribute values, or force subgroup or
+     asset mappings. The omission is reported as a deferred schema limitation, not
+     an operating-data defect.
+- **Validator clarification:** `scripts/data-registry.mjs` adds one unambiguous
+  structural rejection: a normalized `analysisPopulation` ending in `estimand` or
+  `estimand population` is an estimand label in the wrong field. The check does not
+  enumerate valid analysis sets or estimands. Synthetic in-memory regression adds
+  the invalid estimand-population label and confirms that reversing `armIds` does
+  not evade duplicate detection. No validator attempts to infer comparison
+  direction, sign semantics, source derivation, or maturity provenance from free
+  text; those remain source-backed research obligations.
+- **Deferred structural candidates (recorded separately, not implemented):**
+  1. **Substudy and cohort representation.** Failure: results may belong to nested
+     substudies/cohorts without distinct registry identities. The current Study has
+     no hierarchy/cohort relation and Arm means treatment configuration, so using an
+     Arm or invented registry id would change meaning. Temporary rule: omit unless a
+     distinct Study with its own registry identity is faithful. Future decision:
+     whether and how study hierarchy or cohort identity belongs in the contract.
+  2. **Protocol-defined Arm versus pooled or derived analysis group.** Failure:
+     pooled arms and starting-dose/derived groups may not equal any protocol-defined
+     Arm set. Outcome has only `armIds`, so group membership and qualifiers are lost.
+     Temporary rule: omit; do not create artificial Arms or redistribute values.
+     Future decision: whether analysis groups require distinct identity and what
+     their relationship to Arms should mean.
+  3. **Multi-focal or external-asset study anchoring.** Failure: one evidentiary unit
+     may have multiple focal assets or no unambiguous singular company/asset anchor.
+     Source files and Study require one `companyId`/`assetId`, while Arm
+     `linkedAsset` does not express Study-level multi-focal identity. Temporary rule:
+     omit the affected result rather than force or duplicate the anchor. Future
+     decision: anchoring cardinality and ownership semantics for such studies.
+- **Rationale:** The Lilly remediation demonstrated that the existing fields and
+  semantic key can preserve analysis-set and estimand distinctions when used
+  precisely, but the governing documents did not state the applied rules. Making
+  those rules normative prevents future researchers from encoding estimands as
+  populations, deriving unpublished statistics, or distorting unrepresentable
+  analysis groups. The single validator guard catches only a mechanically certain
+  field-category error and preserves open source terminology.
+- **Consequences:** Existing Lilly and Novo source records were checked for conflict;
+  none uses an estimand-population label or collides under the order-insensitive
+  semantic key. No source record is edited. Deterministic regeneration must remain
+  byte-identical. The unresolved candidates remain schema-review work, not Clinical
+  Evidence completeness defects.

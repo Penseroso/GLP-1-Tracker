@@ -87,13 +87,21 @@ Follow these steps:
    peer-reviewed publication; registry-posted results including ClinicalTrials.gov;
    conference presentation, poster, or abstract; official company topline
    release. Apply authority and recency together. A company topline release
-   records what the sponsor reported and is not independent validation.
+   records what the sponsor reported and is not independent validation. Assign
+   Outcome maturity from the strongest source that directly supports that exact
+   value: company-only results remain `topline`, and a peer-reviewed Study
+   publication does not upgrade unsupported Outcomes or authorize filling
+   unpublished statistical details.
 
 10. **Extract source-reported evidence only.** Populate Study, Arm, Endpoint,
     and Outcome records. Store experimental, placebo, and active-comparator
     groups as parallel Arms. Store only endpoints with disclosed results. Keep
-    efficacy outcomes source-reported. Do not calculate derived efficacy values;
-    store adjusted or comparative values only when directly reported.
+    efficacy outcomes source-reported. Capture only directly reported arm-level or
+    between-arm values. Do not calculate treatment differences from arm-level
+    values, infer unpublished confidence intervals or p-values, transcribe chart
+    values visually, distribute pooled results across individual Arms, or map a
+    subgroup result to broader Arms that do not faithfully represent it. Store
+    adjusted or comparative values only when directly reported.
 
 11. **Author entities per the contract conventions.** An Arm is a treatment
     configuration within one study, not a cohort or sub-study — model a distinct
@@ -103,11 +111,26 @@ Follow these steps:
     registry ids). Capture required background or concomitant
     therapy in free text on `arm.intervention`/`arm.label` and `study.population`,
     not as a structured field (ADR-0033). Model the same measure at different
-    timepoints as **distinct Endpoint records**, one per timepoint. Author
-    `analysisPopulation` in a consistent order (analysis set first, then subgroup
-    in parentheses). For a `between-arm` outcome, populate `comparisonType` with
-    both the effect measure and the reference direction (e.g. "Least-squares mean
-    difference, treatment minus placebo").
+    timepoints as **distinct Endpoint records**, one per timepoint. Set
+    `analysisPopulation` to the actual source-reported analysis set, with analysis
+    set first and any subgroup second in parentheses. ITT, modified ITT, FAS, EAS,
+    per-protocol, and safety populations are examples, not a whitelist. Never use
+    an estimand label as `analysisPopulation`. Store the separately source-reported
+    estimand or intercurrent-event strategy in `estimand`; do not infer one. When
+    multiple estimands are directly reported for the same Study, Endpoint,
+    protocol-defined Arm set, and timepoint, capture each as a separate Outcome.
+    For a `between-arm` Outcome, reference every compared protocol-defined Arm, use
+    `resultType: between-arm`, and populate `comparisonType` with the effect measure
+    and reference direction (e.g. "Least-squares mean difference, treatment minus
+    placebo"). Keep the result sign consistent with that direction and include
+    confidence intervals or p-values only when directly reported. Arm array order
+    does not encode direction or create a distinct semantic Outcome.
+
+    When pooled analysis groups, starting-dose subgroups, substudy/cohort structure,
+    or ambiguous multi-asset anchoring cannot be represented faithfully, omit the
+    result. Do not create artificial Arms, calculate or redistribute values, or
+    force a misleading anchor. Report the limitation as a deferred schema decision,
+    not an operating-data defect (ADR-0036).
 
 12. **Reuse Arm and Endpoint ids; do not duplicate them.** Before creating an Arm
     or Endpoint, reuse the id of an existing record that already describes the same
@@ -122,7 +145,11 @@ Follow these steps:
 14. **Replace semantic outcomes in place.** For the same semantic outcome, keep
     only the latest authoritative value in operating data. Update existing
     Study, Endpoint, and Outcome records rather than creating duplicate
-    versions. Preserve useful historical source references for traceability.
+    versions. Semantic identity includes Study, Endpoint, the order-insensitive
+    protocol-defined Arm set, analysis population, estimand, result type, and
+    comparison direction through `comparisonType`. Outcomes that differ by a
+    source-supported analysis population or estimand are not duplicates. Preserve
+    useful historical source references for traceability.
 
 15. **Defer unresolved conflicts.** When sources conflict and priority plus
     recency do not resolve the discrepancy, defer the affected Outcome and
@@ -147,7 +174,8 @@ Follow these steps:
     for the major evidence set; studies excluded for no result; studies excluded
     as outside Scope v1.1; deferred studies with reasons; pipeline
     discrepancies; source-access failures; generated aggregate status;
-    validation results; whether the run is fully completed or partially
+    omitted results and deferred schema limitations; validation results; whether
+    the run is fully completed or partially
     completed (Company/Pipeline portion done, Clinical Evidence portion
     blocked); and the commit SHA when a commit is created.
 
