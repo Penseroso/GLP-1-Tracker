@@ -2,16 +2,17 @@
 
 Authoritative routing boundary for research requests. This document decides
 which research workflow a natural-language request may enter. It does not define
-the Company/Pipeline Research protocol. A reusable Clinical Evidence workflow
-document and prompt exist, but the route remains inactive until a later module
-activates it.
+the Company/Pipeline Research protocol or the Clinical Evidence Research
+protocol. Two research workflows are currently executable: Company/Pipeline
+Research (the default) and Clinical Evidence Research (explicit-intent only,
+activated by ADR-0035 after the Preflight A and Preflight B readiness gates).
 
-## Current executable route
+## Current executable routes
 
-The only currently executable research workflow is **Company/Pipeline
-Research**, implemented by [`../prompts/research-company.md`](../prompts/research-company.md)
-and governed by [`research-workflow.md`](./research-workflow.md) and the data
-protocol.
+**Company/Pipeline Research**, implemented by
+[`../prompts/research-company.md`](../prompts/research-company.md) and governed
+by [`research-workflow.md`](./research-workflow.md) and the data protocol, is
+the default route for any generic company request.
 
 Generic company requests route to Company/Pipeline Research, including:
 
@@ -25,14 +26,19 @@ The existing Company/Pipeline Research behavior is unchanged. A generic company
 request must not automatically expand into detailed clinical-trial design,
 endpoint, result, efficacy, or safety extraction.
 
-## Reserved clinical-evidence route
+## Clinical Evidence route
 
-Requests with explicit clinical-evidence intent are reserved for a future
-**Clinical Evidence Research** route. The workflow document and reusable prompt
-exist at [`clinical-evidence-workflow.md`](./clinical-evidence-workflow.md) and
-[`../prompts/research-clinical-evidence.md`](../prompts/research-clinical-evidence.md),
-but this route remains inactive pending Module 5 validation. The semantic
-contract is [`clinical-evidence/README.md`](./clinical-evidence/README.md).
+Requests with explicit clinical-evidence intent route to **Clinical Evidence
+Research**, implemented by
+[`../prompts/research-clinical-evidence.md`](../prompts/research-clinical-evidence.md)
+and governed by
+[`clinical-evidence-workflow.md`](./clinical-evidence-workflow.md) and the
+semantic contract at
+[`clinical-evidence/README.md`](./clinical-evidence/README.md). This route is
+**active**. Activation is recorded in ADR-0035, contingent on the Preflight A
+(`docs/clinical-evidence/architecture-preflight-a.md`) and Preflight B
+(ADR-0034) readiness gates, both of which concluded no schema, validator, or
+contract change was required to begin.
 
 Explicit clinical-evidence intent includes terms such as:
 
@@ -49,30 +55,45 @@ Examples:
 - `semaglutide 임상 조사`
 - `Novo Nordisk 주요 임상시험 조사`
 
-Until the Clinical Evidence route is activated:
+Routing rules for the active route:
 
 - do not route explicit clinical-evidence requests to
   [`../prompts/research-company.md`](../prompts/research-company.md) as a
-  substitute.
-- do not claim clinical-evidence research was completed.
-- identify the route as reserved and inactive pending Module 5 validation.
+  substitute for Clinical Evidence Research; the Company/Pipeline Research
+  portion of the combined order below still uses that workflow.
+- do not claim Clinical Evidence Research was completed unless the full
+  [`../prompts/research-clinical-evidence.md`](../prompts/research-clinical-evidence.md)
+  workflow — including validation and reporting — actually ran to completion.
 - do not create study, arm, endpoint, outcome, efficacy, or safety schemas as
-  part of routing.
+  part of routing; routing decides which workflow runs, it does not modify the
+  Clinical Evidence contract.
 
 ## Combined company and clinical intent
 
-If a request explicitly contains both company and clinical-evidence intent, the
-Company/Pipeline Research portion may run using the existing company workflow.
-The clinical-evidence portion must be reported as reserved and inactive pending
-Module 5 validation.
+An explicit clinical-evidence request always also names a company (the
+Clinical Evidence workflow's only required input), so this order is the normal
+case for that route, not an edge case:
 
-The intended future combined execution order is:
+1. **Company/Pipeline Research runs first**, in the same execution, via
+   [`../prompts/research-company.md`](../prompts/research-company.md) —
+   an initial investigation when the company is absent from
+   `data/companies/`, or a refresh when present. Company/Pipeline Research has
+   no separate staleness flag: it performs a full discovery-and-verify pass on
+   every invocation, so running it first is how both the absent case and any
+   staleness in existing data are covered before Clinical Evidence Research
+   depends on that data as its authoritative asset list.
+2. **Clinical Evidence Research runs second**, via
+   [`../prompts/research-clinical-evidence.md`](../prompts/research-clinical-evidence.md),
+   using the now-current Company/Pipeline data.
 
-1. Company/Pipeline Research.
-2. Clinical Evidence Research.
+Clinical Evidence Research must never silently edit Company/Pipeline data. A
+material conflict discovered during clinical research is reported and
+recommended for a separate Company/Pipeline refresh, not written directly to
+Company/Pipeline records (`docs/clinical-evidence-workflow.md` §1, §6).
 
-This is a routing contract only. It does not activate the Clinical Evidence
-Research route.
+If external sources for either step cannot be accessed, the run stops before
+any operating-data changes — Company/Pipeline or Clinical Evidence — and
+reports the access failure; do not claim either portion was completed.
 
 ## Ambiguous input default
 

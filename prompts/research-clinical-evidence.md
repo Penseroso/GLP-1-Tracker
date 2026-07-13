@@ -21,20 +21,30 @@ Follow these steps:
    [`docs/clinical-evidence-workflow.md`](../docs/clinical-evidence-workflow.md),
    and [`docs/data-protocol/README.md`](../docs/data-protocol/README.md).
 
-2. **Confirm route status.** This prompt documents the Clinical Evidence
-   workflow, but the route is not active until a later routing module enables
-   it. Do not modify `AGENTS.md` and do not treat generic company research as a
-   Clinical Evidence request.
+2. **Confirm route status.** This route is active, triggered only by explicit
+   clinical-evidence intent per `docs/research-routing.md` (ADR-0027,
+   ADR-0035). Do not modify `AGENTS.md` as part of an ordinary execution of this
+   prompt, and do not treat generic company research with no explicit clinical
+   intent as a Clinical Evidence request.
 
 3. **Inspect current data.** Read `data/companies/` source folders,
    `data/clinical-evidence/` source folders, `data/generated/clinical-evidence.json`,
    and the existing Company/Pipeline generated aggregates. Locate the company by
    existing Company/Pipeline source data.
 
-4. **Enforce the precondition.** If `<COMPANY_NAME>` is absent from
-   `data/companies/`, stop. Report that Company/Pipeline Research must run
-   first. Do not create Company/Pipeline records and do not create Clinical
-   Evidence records for an absent company.
+4. **Run Company/Pipeline Research first, in the same execution.** Execute
+   [`prompts/research-company.md`](./research-company.md) to completion for
+   `<COMPANY_NAME>` before any Clinical Evidence discovery: an initial
+   investigation if the company is absent from `data/companies/`, or a refresh
+   if present. This protocol has no separate staleness flag — Company/Pipeline
+   Research performs a full discovery-and-verify pass on every invocation, so
+   running it first covers both the absent case and any staleness in existing
+   data. Clinical Evidence Research may use only the resulting Company/Pipeline
+   source data as the authoritative list of current Scope v1.1 assets. If
+   Company/Pipeline Research cannot complete (for example, a source-access
+   failure), stop before any Clinical Evidence source-data changes and report
+   the blocker; do not create Clinical Evidence records for an absent or
+   unverified company.
 
 5. **Choose the approach automatically.** If the company has no Clinical
    Evidence source records, treat this as an initial Clinical Evidence

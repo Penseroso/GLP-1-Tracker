@@ -1,8 +1,9 @@
 # Clinical Evidence Research Workflow
 
 Reusable workflow for researching and updating the separate Clinical Evidence
-data layer. This workflow is documented for future execution, but the
-clinical-evidence route remains inactive until routing is explicitly activated.
+data layer. The clinical-evidence route is **active** (ADR-0035), triggered only
+by explicit clinical-evidence intent per
+[`docs/research-routing.md`](./research-routing.md).
 
 The workflow is subordinate to:
 
@@ -34,10 +35,16 @@ Before external research, inspect:
 - `data/clinical-evidence/<company-id>/`
 - `data/generated/clinical-evidence.json`
 
-If the company is absent from `data/companies/`, stop. Report that
-Company/Pipeline Research must run first. Clinical Evidence Research may use
-only existing Company/Pipeline source data as the authoritative list of current
-Scope v1.1 assets.
+**Company/Pipeline Research runs first, in the same execution**, per
+[`docs/research-routing.md`](./research-routing.md) — an initial investigation
+if the company is absent from `data/companies/`, or a refresh if present.
+Company/Pipeline Research has no separate staleness flag; it performs a full
+discovery-and-verify pass on every invocation, so running it first covers both
+the absent case and any staleness in existing data. Clinical Evidence Research
+may use only the resulting Company/Pipeline source data as the authoritative
+list of current Scope v1.1 assets. If Company/Pipeline Research cannot complete
+(for example, a source-access failure), stop before any Clinical Evidence
+source-data changes and report the blocker.
 
 Clinical Evidence Research must not silently modify Company/Pipeline records. If
 clinical research reveals a material conflict with an existing asset, program,
@@ -220,8 +227,11 @@ company and asset complexity.
 
 This workflow does not introduce:
 
-- route activation in `AGENTS.md`.
-- Company/Pipeline record edits.
+- routing logic beyond what `AGENTS.md` and
+  [`docs/research-routing.md`](./research-routing.md) already define; this
+  document governs Clinical Evidence extraction and entry, not routing rules.
+- Company/Pipeline record edits — the Company/Pipeline Research step that runs
+  first follows its own workflow and edit rules, not this one.
 - schema, type, validator, source-layout, or aggregate-shape changes.
 - UI or comparison logic.
 - real clinical evidence collection by documentation alone.

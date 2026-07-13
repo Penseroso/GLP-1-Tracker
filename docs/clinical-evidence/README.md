@@ -8,7 +8,8 @@ execution, routing activation, UI, ranking, or comparison logic.
 For the reusable research workflow and prompt, see
 [`../clinical-evidence-workflow.md`](../clinical-evidence-workflow.md) and
 [`../../prompts/research-clinical-evidence.md`](../../prompts/research-clinical-evidence.md).
-The workflow remains inactive until routing is explicitly activated.
+Routing is active (ADR-0035); see
+[`../research-routing.md`](../research-routing.md) for the trigger rules.
 
 ## Evidence Scope
 
