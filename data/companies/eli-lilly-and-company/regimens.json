@@ -15,13 +15,13 @@
       "stageOperationalState": "Completed"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [{
         "url": "https://clinicaltrials.gov/study/NCT05616013",
         "title": "Safety and Efficacy of Bimagrumab and Semaglutide in Adults Who Are Overweight or Obese",
         "sourceType": "trial registry",
-        "checkedAt": "2026-07-12"
+        "checkedAt": "2026-07-13"
       }]
     }
   },
@@ -41,13 +41,13 @@
       "stageOperationalState": "Active not recruiting"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [{
         "url": "https://clinicaltrials.gov/study/NCT06643728",
         "title": "A Study to Investigate Weight Management With Bimagrumab (LY3985863) and Tirzepatide (LY3298176), Alone or in Combination, in Adults With Obesity or Overweight",
         "sourceType": "trial registry",
-        "checkedAt": "2026-07-12"
+        "checkedAt": "2026-07-13"
       }]
     }
   },
@@ -67,20 +67,20 @@
       "stageOperationalState": "Initiated or active"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [
         {
           "url": "https://clinicaltrials.gov/study/NCT07215559",
           "title": "A Study of Macupatide (LY3532226) and Eloralintide (LY3841136), Alone or in Combination, in Adults With Obesity or Overweight and With Type 2 Diabetes",
           "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
+          "checkedAt": "2026-07-13"
         },
         {
           "url": "https://clinicaltrials.gov/study/NCT07589608",
           "title": "A Study to Investigate Weight Management With Macupatide and Eloralintide, Alone or in Combination, in Adult Participants With Obesity or Overweight",
           "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
+          "checkedAt": "2026-07-13"
         }
       ]
     }
@@ -101,14 +101,14 @@
       "stageOperationalState": "Active not recruiting"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [
         {
           "url": "https://clinicaltrials.gov/study/NCT06603571",
           "title": "A Study to Investigate Weight Management With LY3841136 and Tirzepatide (LY3298176), Alone or in Combination, in Adult Participants With Obesity or Overweight With Type 2 Diabetes",
           "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
+          "checkedAt": "2026-07-13"
         }
       ]
     }
@@ -129,21 +129,21 @@
       "stageOperationalState": "Completed"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [
         {
           "url": "https://clinicaltrials.gov/study/NCT06373146",
           "title": "A Study of Tirzepatide (LY3298176) Plus Mibavademab Compared With Tirzepatide Alone in Adult Participants With Obesity",
           "sourceType": "trial registry",
-          "checkedAt": "2026-07-12"
+          "checkedAt": "2026-07-13"
         },
         {
           "url": "https://newsroom.regeneron.com/static-files/dfd33cbe-4887-4752-917a-6256f3ef165d",
           "title": "Regeneron Pharmaceuticals Form 10-Q",
           "sourceType": "partner regulatory filing",
           "publishedAt": "2025-08-01",
-          "checkedAt": "2026-07-12"
+          "checkedAt": "2026-07-13"
         }
       ]
     }
@@ -164,13 +164,13 @@
       "stageOperationalState": "Completed"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [{
         "url": "https://clinicaltrials.gov/study/NCT06588283",
         "title": "Ixekizumab Concomitantly Administered With Tirzepatide in Adults With Moderate-to-Severe Plaque Psoriasis and Obesity or Overweight (TOGETHER-PsO)",
         "sourceType": "trial registry",
-        "checkedAt": "2026-07-12"
+        "checkedAt": "2026-07-13"
       }]
     }
   },
@@ -190,13 +190,13 @@
       "stageOperationalState": "Completed"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [{
         "url": "https://clinicaltrials.gov/study/NCT06588296",
         "title": "Ixekizumab Concomitantly Administered With Tirzepatide in Adults With Psoriatic Arthritis and Obesity or Overweight (TOGETHER-PsA)",
         "sourceType": "trial registry",
-        "checkedAt": "2026-07-12"
+        "checkedAt": "2026-07-13"
       }]
     }
   },
@@ -216,13 +216,13 @@
       "stageOperationalState": "Initiated or active"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [{
         "url": "https://clinicaltrials.gov/study/NCT06937086",
         "title": "Mirikizumab Administered at the Same Time as Tirzepatide in Adult Participants With Moderately to Severely Active Ulcerative Colitis and Obesity or Overweight (COMMIT-UC)",
         "sourceType": "trial registry",
-        "checkedAt": "2026-07-12"
+        "checkedAt": "2026-07-13"
       }]
     }
   },
@@ -242,13 +242,13 @@
       "stageOperationalState": "Initiated or active"
     },
     "metadata": {
-      "lastVerifiedAt": "2026-07-12",
+      "lastVerifiedAt": "2026-07-13",
       "updatedAt": "2026-07-12",
       "sources": [{
         "url": "https://clinicaltrials.gov/study/NCT06937099",
         "title": "Mirikizumab and Tirzepatide Administered in Adult Participants With Moderately to Severely Active Crohn's Disease and Obesity or Overweight (COMMIT-CD)",
         "sourceType": "trial registry",
-        "checkedAt": "2026-07-12"
+        "checkedAt": "2026-07-13"
       }]
     }
   }

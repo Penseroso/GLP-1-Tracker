@@ -1,6 +1,663 @@
 {
   "studies": [
     {
+      "id": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "officialTitle": "A Study of Tirzepatide in Participants With Heart Failure With Preserved Ejection Fraction and Obesity",
+      "acronym": "SUMMIT",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT04847557"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Event-driven parallel-group trial with a maximum tolerated tirzepatide dose."
+      },
+      "population": "Adults with heart failure with preserved ejection fraction and obesity.",
+      "overallDuration": "At least 52 weeks; median follow-up 104 weeks",
+      "safetySummary": "Adverse events leading to treatment discontinuation occurred more frequently with tirzepatide and were mainly gastrointestinal.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04847557",
+            "title": "SUMMIT study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "title": "Tirzepatide for Heart Failure with Preserved Ejection Fraction and Obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2024-11-16",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+      "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight",
+      "acronym": "SURMOUNT-1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT04184622"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group fixed target-dose trial with lifestyle intervention."
+      },
+      "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "overallDuration": "72 weeks",
+      "safetySummary": "Gastrointestinal adverse events were the most common and were mainly mild to moderate; treatment discontinuation increased with dose.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04184622",
+            "title": "SURMOUNT-1 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "title": "Tirzepatide Once Weekly for the Treatment of Obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2022-06-04",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+      "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight and Type 2 Diabetes",
+      "acronym": "SURMOUNT-2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT04657003"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group target-dose trial with lifestyle intervention."
+      },
+      "population": "Adults with obesity or overweight and type 2 diabetes; weight management was an explicit objective.",
+      "overallDuration": "72 weeks",
+      "safetySummary": "Gastrointestinal adverse events were most common, were generally mild to moderate, and occurred primarily during dose escalation.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04657003",
+            "title": "SURMOUNT-2 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "title": "Tirzepatide once weekly for the treatment of obesity in people with type 2 diabetes",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2023-06-26",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+      "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight Following Intensive Lifestyle Intervention",
+      "acronym": "SURMOUNT-3",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT04657016"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "A 12-week intensive-lifestyle lead-in preceded the 72-week randomized period."
+      },
+      "population": "Adults with obesity or overweight who achieved at least 5% weight loss during an intensive lifestyle lead-in, without diabetes.",
+      "overallDuration": "84 weeks",
+      "safetySummary": "Gastrointestinal adverse events were the most common and were primarily mild to moderate.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04657016",
+            "title": "SURMOUNT-3 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37840095/",
+            "title": "Tirzepatide after intensive lifestyle intervention in adults with overweight or obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2023-10-15",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+      "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight for the Maintenance of Weight Loss",
+      "acronym": "SURMOUNT-4",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT04660643"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized withdrawal",
+        "masking": "Double-blind after open-label lead-in",
+        "comparator": "Placebo withdrawal",
+        "description": "After a 36-week open-label tirzepatide lead-in, participants were randomized to continue maximum tolerated dose or switch to placebo for 52 weeks."
+      },
+      "population": "Adults with obesity or overweight and a weight-related complication, without diabetes, who completed the tirzepatide lead-in.",
+      "overallDuration": "88 weeks",
+      "safetySummary": "Gastrointestinal adverse events were most common and were largely mild to moderate.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04660643",
+            "title": "SURMOUNT-4 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "title": "Continued Treatment With Tirzepatide for Maintenance of Weight Reduction in Adults With Obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2023-12-11",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+      "officialTitle": "A Study of Tirzepatide Compared With Semaglutide in Participants With Obesity or Overweight",
+      "acronym": "SURMOUNT-5",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05822830"
+        }
+      ],
+      "phase": "Phase 3b",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Open-label",
+        "comparator": "Semaglutide",
+        "description": "Active-comparator parallel-group trial using maximum tolerated doses."
+      },
+      "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "overallDuration": "72 weeks",
+      "safetySummary": "Gastrointestinal adverse events were most common in both groups and were mainly mild to moderate during dose escalation.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05822830",
+            "title": "SURMOUNT-5 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "title": "Tirzepatide as Compared with Semaglutide for the Treatment of Obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-05-11",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+      "officialTitle": "A Study of Tirzepatide in Chinese Participants With Obesity or Overweight",
+      "acronym": "SURMOUNT-CN",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05024032"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group target-dose trial conducted in China."
+      },
+      "population": "Chinese adults with obesity or overweight, without diabetes.",
+      "overallDuration": "52 weeks",
+      "safetySummary": "The most frequent adverse events were gastrointestinal and were mostly mild to moderate.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05024032",
+            "title": "SURMOUNT-CN study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "title": "Tirzepatide for weight reduction in Chinese adults with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2024-05-31",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
+      "officialTitle": "A Study of Tirzepatide for Maintenance of Body Weight Reduction in Participants With Obesity or Overweight",
+      "acronym": "SURMOUNT-MAINTAIN",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06047548"
+        }
+      ],
+      "phase": "Phase 3b",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized withdrawal",
+        "masking": "Double-blind after open-label lead-in",
+        "comparator": "Placebo withdrawal",
+        "description": "After a 60-week maximum-tolerated-dose lead-in, participants were randomized to continue that dose, reduce to 5 mg, or switch to placebo for 52 weeks."
+      },
+      "population": "Adults with obesity or overweight who completed 60 weeks of tirzepatide treatment.",
+      "overallDuration": "112 weeks",
+      "safetySummary": "The safety profile was consistent with prior tirzepatide studies; gastrointestinal events were the most common adverse events.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06047548",
+            "title": "SURMOUNT-MAINTAIN study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-foundayo-and-lower-dose-zepbound-helped-people-maintain",
+            "title": "Lilly SURMOUNT-MAINTAIN topline results",
+            "sourceType": "company topline",
+            "publishedAt": "2026-05-12",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3305677",
+      "programId": "eli-lilly-and-company-ly3305677-subcutaneous-injection",
+      "officialTitle": "A Study of Mazdutide in Chinese Adults With Obesity or Overweight",
+      "acronym": "GLORY-1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05607680"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group dose-ranging trial conducted in China."
+      },
+      "population": "Chinese adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "overallDuration": "48 weeks",
+      "safetySummary": "Gastrointestinal adverse events were the most common and were generally mild to moderate; the safety profile was consistent with the known pharmacology.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05607680",
+            "title": "GLORY-1 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://doi.org/10.1056/NEJMoa2411528",
+            "title": "Once-Weekly Mazdutide in Chinese Adults with Obesity or Overweight",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-22",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-mazdutide-glory-2-nct06164873",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3305677",
+      "programId": "eli-lilly-and-company-ly3305677-subcutaneous-injection",
+      "officialTitle": "A Study of Mazdutide in Chinese Adults With Obesity",
+      "acronym": "GLORY-2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06164873"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group trial of high-dose mazdutide conducted in China."
+      },
+      "population": "Chinese adults with obesity, with or without type 2 diabetes.",
+      "overallDuration": "60 weeks",
+      "safetySummary": "Vomiting, nausea, and diarrhea were the most common adverse events; adverse-event discontinuation was uncommon but higher with mazdutide than placebo.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06164873",
+            "title": "GLORY-2 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42251595/",
+            "title": "Treatment With 9-mg Mazdutide for Weight Reduction in Chinese Adults With Obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2026-05-21",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3437943",
+      "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
+      "officialTitle": "A Study of Retatrutide (LY3437943) in Participants Who Have Obesity or Are Overweight",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT04881760"
+        }
+      ],
+      "phase": "Phase 2",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group dose-ranging trial with multiple starting-dose titration schedules."
+      },
+      "population": "Adults with obesity, or overweight with at least one weight-related condition, without diabetes.",
+      "overallDuration": "48 weeks",
+      "safetySummary": "The most common adverse events were gastrointestinal, were dose related and mostly mild to moderate; heart-rate increases peaked at 24 weeks and then declined.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "title": "Triple-Hormone-Receptor Agonist Retatrutide for Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2023-06-26",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3437943",
+      "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-oa",
+      "officialTitle": "A Study of Retatrutide (LY3437943) in Participants With Obesity or Overweight and Knee Osteoarthritis",
+      "acronym": "TRIUMPH-4",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05931367"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group trial evaluating weight and knee-osteoarthritis outcomes."
+      },
+      "population": "Adults with obesity or overweight and knee osteoarthritis, without type 2 diabetes.",
+      "overallDuration": "68 weeks",
+      "safetySummary": "The most common adverse events were gastrointestinal and were generally mild to moderate; discontinuation because of adverse events increased with dose.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05931367",
+            "title": "TRIUMPH-4 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "title": "Lilly TRIUMPH-4 topline results",
+            "sourceType": "company topline",
+            "publishedAt": "2025-12-11",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets",
+      "officialTitle": "A Study of Orforglipron (LY3502970) in Participants With Obesity or Overweight With Weight-Related Comorbidities",
+      "acronym": "ATTAIN-1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05869903"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group oral-dose trial with lifestyle intervention."
+      },
+      "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "overallDuration": "72 weeks",
+      "safetySummary": "Gastrointestinal adverse events were the most common, were mainly mild to moderate, and treatment discontinuation increased with dose.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05869903",
+            "title": "ATTAIN-1 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "title": "Orforglipron for the Treatment of Obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-09-16",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets",
+      "officialTitle": "A Study of Orforglipron in Participants With Obesity or Overweight and Type 2 Diabetes",
+      "acronym": "ATTAIN-2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05872620"
+        }
+      ],
+      "phase": "Phase 3",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group oral-dose trial with lifestyle intervention."
+      },
+      "population": "Adults with obesity or overweight and type 2 diabetes; weight management was an explicit objective.",
+      "overallDuration": "72 weeks",
+      "safetySummary": "The safety profile was consistent with the GLP-1 receptor agonist class, with gastrointestinal adverse events most frequent.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05872620",
+            "title": "ATTAIN-2 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "title": "Orforglipron in Adults with Obesity and Type 2 Diabetes",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-21",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3841136",
+      "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection",
+      "officialTitle": "A Study of Eloralintide (LY3841136) in Participants With Obesity or Overweight",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06230523"
+        }
+      ],
+      "phase": "Phase 2",
+      "status": "Completed",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group dose-ranging trial including fixed-dose and dose-escalation regimens."
+      },
+      "population": "Adults with obesity, or overweight with at least one weight-related condition, without diabetes.",
+      "overallDuration": "48 weeks",
+      "safetySummary": "Nausea and fatigue were the most common adverse events; the study reported no new safety signal that changed the overall benefit-risk interpretation.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06230523",
+            "title": "Eloralintide Phase 2 study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "title": "Eloralintide, a Selective Amylin Receptor Agonist, for Obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-07",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
       "id": "novo-nordisk-amycretin-oral-phase1-nct05369390",
       "companyId": "novo-nordisk",
       "assetId": "amycretin",
@@ -808,6 +1465,651 @@
   ],
   "arms": [
     {
+      "id": "elora-p2-1mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "role": "experimental",
+      "label": "Eloralintide 1 mg",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "assetId": "ly3841136"
+      },
+      "dose": "1 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "elora-p2-3mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "role": "experimental",
+      "label": "Eloralintide 3 mg",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "assetId": "ly3841136"
+      },
+      "dose": "3 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "elora-p2-3to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "role": "experimental",
+      "label": "Eloralintide 3 mg to 9 mg",
+      "intervention": "Eloralintide dose escalation",
+      "linkedAsset": {
+        "assetId": "ly3841136"
+      },
+      "dose": "3 mg escalating to 9 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "elora-p2-6mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "role": "experimental",
+      "label": "Eloralintide 6 mg",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "assetId": "ly3841136"
+      },
+      "dose": "6 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "elora-p2-6to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "role": "experimental",
+      "label": "Eloralintide 6 mg to 9 mg",
+      "intervention": "Eloralintide dose escalation",
+      "linkedAsset": {
+        "assetId": "ly3841136"
+      },
+      "dose": "6 mg escalating to 9 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "elora-p2-9mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "role": "experimental",
+      "label": "Eloralintide 9 mg",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "assetId": "ly3841136"
+      },
+      "dose": "9 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "elora-p2-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "glory1-maz4",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "role": "experimental",
+      "label": "Mazdutide 4 mg",
+      "intervention": "Mazdutide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3305677"
+      },
+      "dose": "4 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "glory1-maz6",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "role": "experimental",
+      "label": "Mazdutide 6 mg",
+      "intervention": "Mazdutide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3305677"
+      },
+      "dose": "6 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "glory1-placebo",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "glory2-maz9",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-2-nct06164873",
+      "role": "experimental",
+      "label": "Mazdutide 9 mg",
+      "intervention": "Mazdutide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3305677"
+      },
+      "dose": "9 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "60 weeks"
+    },
+    {
+      "id": "glory2-placebo",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-2-nct06164873",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "60 weeks"
+    },
+    {
+      "id": "attain1-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "role": "experimental",
+      "label": "Orforglipron 12 mg",
+      "intervention": "Orforglipron plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3502970"
+      },
+      "dose": "12 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain1-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "role": "experimental",
+      "label": "Orforglipron 36 mg",
+      "intervention": "Orforglipron plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3502970"
+      },
+      "dose": "36 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain1-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "role": "experimental",
+      "label": "Orforglipron 6 mg",
+      "intervention": "Orforglipron plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3502970"
+      },
+      "dose": "6 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain1-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain2-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "role": "experimental",
+      "label": "Orforglipron 12 mg",
+      "intervention": "Orforglipron plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3502970"
+      },
+      "dose": "12 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain2-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "role": "experimental",
+      "label": "Orforglipron 36 mg",
+      "intervention": "Orforglipron plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3502970"
+      },
+      "dose": "36 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain2-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "role": "experimental",
+      "label": "Orforglipron 6 mg",
+      "intervention": "Orforglipron plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3502970"
+      },
+      "dose": "6 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain2-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "reta-p2-12mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "role": "experimental",
+      "label": "Retatrutide 12 mg",
+      "intervention": "Retatrutide with dose escalation",
+      "linkedAsset": {
+        "assetId": "ly3437943"
+      },
+      "dose": "12 mg target dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "reta-p2-1mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "role": "experimental",
+      "label": "Retatrutide 1 mg",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "assetId": "ly3437943"
+      },
+      "dose": "1 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "reta-p2-4mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "role": "experimental",
+      "label": "Retatrutide 4 mg",
+      "intervention": "Retatrutide with assigned starting-dose titration",
+      "linkedAsset": {
+        "assetId": "ly3437943"
+      },
+      "dose": "4 mg target dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "reta-p2-8mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "role": "experimental",
+      "label": "Retatrutide 8 mg",
+      "intervention": "Retatrutide with assigned starting-dose titration",
+      "linkedAsset": {
+        "assetId": "ly3437943"
+      },
+      "dose": "8 mg target dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "reta-p2-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "triumph4-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus standard care",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "68 weeks"
+    },
+    {
+      "id": "triumph4-reta12",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "role": "experimental",
+      "label": "Retatrutide 12 mg",
+      "intervention": "Retatrutide plus standard care",
+      "linkedAsset": {
+        "assetId": "ly3437943"
+      },
+      "dose": "12 mg target dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "68 weeks"
+    },
+    {
+      "id": "triumph4-reta9",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "role": "experimental",
+      "label": "Retatrutide 9 mg",
+      "intervention": "Retatrutide plus standard care",
+      "linkedAsset": {
+        "assetId": "ly3437943"
+      },
+      "dose": "9 mg target dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "68 weeks"
+    },
+    {
+      "id": "summit-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus usual care",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "At least 52 weeks"
+    },
+    {
+      "id": "summit-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "role": "experimental",
+      "label": "Tirzepatide maximum tolerated dose",
+      "intervention": "Tirzepatide plus usual care",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "Up to 15 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "At least 52 weeks"
+    },
+    {
+      "id": "sm1-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm1-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "role": "experimental",
+      "label": "Tirzepatide 10 mg",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "10 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm1-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "role": "experimental",
+      "label": "Tirzepatide 15 mg",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "15 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm1-tirz5",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "role": "experimental",
+      "label": "Tirzepatide 5 mg",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "5 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm2-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm2-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "role": "experimental",
+      "label": "Tirzepatide 10 mg",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "10 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm2-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "role": "experimental",
+      "label": "Tirzepatide 15 mg",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "15 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm3-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo after intensive lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72-week randomized period"
+    },
+    {
+      "id": "sm3-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "role": "experimental",
+      "label": "Tirzepatide maximum tolerated dose",
+      "intervention": "Tirzepatide after intensive lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "10 mg or 15 mg maximum tolerated dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72-week randomized period"
+    },
+    {
+      "id": "sm4-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "role": "placebo",
+      "label": "Withdraw to placebo",
+      "intervention": "Switch from tirzepatide to matched placebo",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52-week randomized withdrawal period"
+    },
+    {
+      "id": "sm4-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "role": "experimental",
+      "label": "Continue tirzepatide",
+      "intervention": "Continue tirzepatide maximum tolerated dose",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "10 mg or 15 mg maximum tolerated dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52-week randomized maintenance period"
+    },
+    {
+      "id": "sm5-sema",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "role": "active comparator",
+      "label": "Semaglutide maximum tolerated dose",
+      "intervention": "Semaglutide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetName": "Semaglutide",
+        "externalCompanyName": "Novo Nordisk A/S"
+      },
+      "dose": "1.7 mg or 2.4 mg maximum tolerated dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "sm5-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "role": "experimental",
+      "label": "Tirzepatide maximum tolerated dose",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "10 mg or 15 mg maximum tolerated dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "smcn-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matched placebo plus lifestyle intervention",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "smcn-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "role": "experimental",
+      "label": "Tirzepatide 10 mg",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "10 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "smcn-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "role": "experimental",
+      "label": "Tirzepatide 15 mg",
+      "intervention": "Tirzepatide plus lifestyle intervention",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "15 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "smmaintain-5mg",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "role": "experimental",
+      "label": "Reduce to tirzepatide 5 mg",
+      "intervention": "Tirzepatide reduced maintenance dose",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "5 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52-week randomized maintenance period"
+    },
+    {
+      "id": "smmaintain-mtd",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "role": "experimental",
+      "label": "Continue maximum tolerated dose",
+      "intervention": "Continue tirzepatide maximum tolerated dose",
+      "linkedAsset": {
+        "assetId": "ly3298176"
+      },
+      "dose": "10 mg or 15 mg maximum tolerated dose",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52-week randomized maintenance period"
+    },
+    {
+      "id": "smmaintain-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "role": "placebo",
+      "label": "Withdraw to placebo",
+      "intervention": "Switch from tirzepatide to matched placebo",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "52-week randomized withdrawal period"
+    },
+    {
       "id": "amyoral-100",
       "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
       "role": "experimental",
@@ -1423,6 +2725,118 @@
   ],
   "endpoints": [
     {
+      "id": "elora-p2-weight-week48",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "glory1-weight-week48",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "glory2-weight-week60",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-2-nct06164873",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 60"
+    },
+    {
+      "id": "attain1-weight-week72",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "attain2-weight-week72",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "reta-p2-weight-week48",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "triumph4-weight-week68",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "triumph4-womac-week68",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "name": "Change from baseline in WOMAC pain score",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "summit-hf-events",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "name": "Worsening heart-failure event",
+      "classification": "Key efficacy",
+      "assessmentTimepoint": "Median follow-up 104 weeks"
+    },
+    {
+      "id": "sm1-weight-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm2-weight-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm3-weight-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Percentage change in body weight from randomization after intensive lifestyle intervention",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 72 of randomized treatment"
+    },
+    {
+      "id": "sm4-weight-week88",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "name": "Percentage change in body weight during the randomized withdrawal period",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 36 to Week 88"
+    },
+    {
+      "id": "sm5-weight-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "smcn-weight-week52",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "name": "Percentage change from baseline in body weight",
+      "classification": "Primary efficacy",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "smmaintain-weight-week112",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "name": "Percentage change from original baseline in body weight",
+      "classification": "Key efficacy",
+      "assessmentTimepoint": "Week 112"
+    },
+    {
       "id": "amyoral-weight-week12",
       "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
       "name": "Percentage change from baseline in body weight",
@@ -1550,6 +2964,1410 @@
     }
   ],
   "outcomes": [
+    {
+      "id": "elora-p2-weight-1mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-weight-week48",
+      "armIds": [
+        "elora-p2-1mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-9",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-weight-3mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-weight-week48",
+      "armIds": [
+        "elora-p2-3mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-12",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-weight-3to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-weight-week48",
+      "armIds": [
+        "elora-p2-3to9"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-16",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-weight-6mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-weight-week48",
+      "armIds": [
+        "elora-p2-6mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-18",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-weight-6to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-weight-week48",
+      "armIds": [
+        "elora-p2-6to9"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-20",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-weight-9mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-weight-week48",
+      "armIds": [
+        "elora-p2-9mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-20",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-weight-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-weight-week48",
+      "armIds": [
+        "elora-p2-placebo"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-0.4",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "glory1-weight-maz4",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "endpointId": "glory1-weight-week48",
+      "armIds": [
+        "glory1-maz4"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-policy estimand",
+      "result": {
+        "value": "-11.00",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1056/NEJMoa2411528",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "glory1-weight-maz6",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "endpointId": "glory1-weight-week48",
+      "armIds": [
+        "glory1-maz6"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-policy estimand",
+      "result": {
+        "value": "-14.01",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1056/NEJMoa2411528",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "glory1-weight-placebo",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-1-nct05607680",
+      "endpointId": "glory1-weight-week48",
+      "armIds": [
+        "glory1-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-policy estimand",
+      "result": {
+        "value": "0.30",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1056/NEJMoa2411528",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "glory2-weight-maz9",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-2-nct06164873",
+      "endpointId": "glory2-weight-week60",
+      "armIds": [
+        "glory2-maz9"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-policy estimand",
+      "result": {
+        "value": "-16.65",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42251595/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "glory2-weight-placebo",
+      "studyId": "eli-lilly-and-company-mazdutide-glory-2-nct06164873",
+      "endpointId": "glory2-weight-week60",
+      "armIds": [
+        "glory2-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-policy estimand",
+      "result": {
+        "value": "-1.50",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42251595/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-weight-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-weight-week72",
+      "armIds": [
+        "attain1-orfor12"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-8.4",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-weight-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-weight-week72",
+      "armIds": [
+        "attain1-orfor36"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-11.2",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-weight-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-weight-week72",
+      "armIds": [
+        "attain1-orfor6"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-7.5",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-weight-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-weight-week72",
+      "armIds": [
+        "attain1-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-2.1",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-weight-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-weight-week72",
+      "armIds": [
+        "attain2-orfor12"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-7.0",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-weight-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-weight-week72",
+      "armIds": [
+        "attain2-orfor36"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-9.6",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-weight-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-weight-week72",
+      "armIds": [
+        "attain2-orfor6"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-5.1",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-weight-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-weight-week72",
+      "armIds": [
+        "attain2-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-2.5",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight-12mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week48",
+      "armIds": [
+        "reta-p2-12mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-24.2",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight-1mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week48",
+      "armIds": [
+        "reta-p2-1mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-8.7",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight-4mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week48",
+      "armIds": [
+        "reta-p2-4mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-17.1",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight-8mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week48",
+      "armIds": [
+        "reta-p2-8mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-22.8",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week48",
+      "armIds": [
+        "reta-p2-placebo"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-2.1",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-weight-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-weight-week68",
+      "armIds": [
+        "triumph4-placebo"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-2.1",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-weight-reta12",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-weight-week68",
+      "armIds": [
+        "triumph4-reta12"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-28.7",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-weight-reta9",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-weight-week68",
+      "armIds": [
+        "triumph4-reta9"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-26.4",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-womac-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-womac-week68",
+      "armIds": [
+        "triumph4-placebo"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-2.4",
+        "unit": "points",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-womac-reta12",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-womac-week68",
+      "armIds": [
+        "triumph4-reta12"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-4.4",
+        "unit": "points",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-womac-reta9",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-womac-week68",
+      "armIds": [
+        "triumph4-reta9"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-4.5",
+        "unit": "points",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-hf-hazard-ratio",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-hf-events",
+      "armIds": [
+        "summit-tirz",
+        "summit-placebo"
+      ],
+      "analysisPopulation": "Intention-to-treat population (overall)",
+      "result": {
+        "value": "0.54",
+        "unit": "hazard ratio",
+        "resultType": "between-arm",
+        "comparisonType": "Hazard ratio, tirzepatide versus placebo",
+        "confidenceInterval": "95% CI 0.34 to 0.85"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-hf-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-hf-events",
+      "armIds": [
+        "summit-placebo"
+      ],
+      "analysisPopulation": "Intention-to-treat population (overall)",
+      "result": {
+        "value": "14.2",
+        "unit": "percent of participants",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-hf-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-hf-events",
+      "armIds": [
+        "summit-tirz"
+      ],
+      "analysisPopulation": "Intention-to-treat population (overall)",
+      "result": {
+        "value": "8.0",
+        "unit": "percent of participants",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-weight-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-weight-week72",
+      "armIds": [
+        "sm1-placebo"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-3.1",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-weight-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-weight-week72",
+      "armIds": [
+        "sm1-tirz10"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-19.5",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-weight-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-weight-week72",
+      "armIds": [
+        "sm1-tirz15"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-20.9",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-weight-tirz5",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-weight-week72",
+      "armIds": [
+        "sm1-tirz5"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-15.0",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-weight-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-weight-week72",
+      "armIds": [
+        "sm2-placebo"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-3.2",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-weight-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-weight-week72",
+      "armIds": [
+        "sm2-tirz10"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-12.8",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-weight-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-weight-week72",
+      "armIds": [
+        "sm2-tirz15"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-14.7",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm3-weight-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-weight-week72",
+      "armIds": [
+        "sm3-placebo"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "2.5",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37840095/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm3-weight-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-weight-week72",
+      "armIds": [
+        "sm3-tirz"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-18.4",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37840095/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-weight-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-weight-week88",
+      "armIds": [
+        "sm4-placebo"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "14.0",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-weight-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-weight-week88",
+      "armIds": [
+        "sm4-tirz"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-5.5",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm5-weight-sema",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-weight-week72",
+      "armIds": [
+        "sm5-sema"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-13.7",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm5-weight-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-weight-week72",
+      "armIds": [
+        "sm5-tirz"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-20.2",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-weight-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-weight-week52",
+      "armIds": [
+        "smcn-placebo"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-2.3",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-weight-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-weight-week52",
+      "armIds": [
+        "smcn-tirz10"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-13.6",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-weight-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-weight-week52",
+      "armIds": [
+        "smcn-tirz15"
+      ],
+      "analysisPopulation": "Treatment-regimen estimand population (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "result": {
+        "value": "-17.5",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-weight-5mg",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-weight-week112",
+      "armIds": [
+        "smmaintain-5mg"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-17.0",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-foundayo-and-lower-dose-zepbound-helped-people-maintain",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-weight-mtd",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-weight-week112",
+      "armIds": [
+        "smmaintain-mtd"
+      ],
+      "analysisPopulation": "Efficacy estimand population (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-22.4",
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-13",
+        "updatedAt": "2026-07-13",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-foundayo-and-lower-dose-zepbound-helped-people-maintain",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
     {
       "id": "amyoral-weight-100",
       "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
