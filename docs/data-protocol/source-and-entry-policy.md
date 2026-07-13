@@ -88,6 +88,13 @@ regulatory details — state, jurisdiction, authority, and date — in
 CagriSema `Filed` row keeps its `NDA submitted` United States / FDA entry with
 date in `regulatoryStates`.
 
+Coverage is complete only when every program whose `development.stage` is
+`Filed` or `Approved` reconciles every officially disclosed filing or approval
+jurisdiction, authority, and official date into `regulatoryStates`. An aggregate
+`Filed` or `Approved` `development.stage` alone is incomplete whenever
+jurisdiction-level official evidence is available. Keep `development.stage` as
+the aggregate most-advanced stage; do not collapse jurisdiction details into it.
+
 ### Mechanism, formulation, and platform
 
 Prefer:

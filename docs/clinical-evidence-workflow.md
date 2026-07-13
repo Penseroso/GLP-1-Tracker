@@ -53,6 +53,27 @@ list of current Scope v1.1 assets. If Company/Pipeline Research cannot complete
 (for example, a source-access failure), stop before any Clinical Evidence
 source-data changes and report the blocker.
 
+Immediately after Company/Pipeline Research completes, build a concise
+in-session handoff manifest from the updated operating records. Each entry
+contains only:
+
+- `assetId`.
+- `programId`.
+- canonical asset name (`assetName`).
+- route (`route`).
+- indication scope (`indications`).
+- development stage (`development.stage`), status (`development.status`), and
+  operational state (`development.stageOperationalState`).
+- unresolved conflicts (`unresolvedConflicts`) surfaced by the Company/Pipeline
+  run.
+
+Keep this manifest in memory for the current execution only. Do not persist a
+new file, ledger, cache, schema, or generated artifact. Clinical traversal uses
+the updated Company/Pipeline operating records as the authoritative source and
+this manifest as its traversal index; do not repeatedly reload or restate the
+full Company/Pipeline source corpus unless a clinical conflict requires deeper
+inspection.
+
 Clinical Evidence Research must not silently modify Company/Pipeline records. If
 clinical research reveals a material conflict with an existing asset, program,
 regimen, stage, or status, report the discrepancy and recommend a separate
@@ -60,8 +81,9 @@ Company/Pipeline refresh.
 
 ## 2. Asset Traversal
 
-Use existing Company/Pipeline source records to identify the company's current
-Scope v1.1 assets. For every existing in-scope asset:
+Use the updated Company/Pipeline operating records and the in-session handoff
+manifest to identify and traverse the company's current Scope v1.1 assets. For
+every existing in-scope asset:
 
 1. Read any existing Clinical Evidence source file for the asset.
 2. Discover relevant human interventional clinical studies broadly.

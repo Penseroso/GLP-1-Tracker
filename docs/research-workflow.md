@@ -169,6 +169,15 @@ the following against the run's classified candidates:
   partners, assets known under earlier names or codes, and legacy programs that
   no longer appear in the current pipeline presentation.
 
+**Regulatory completeness gate.** For every program whose `development.stage`
+is `Filed` or `Approved`, reconcile every officially disclosed filing or
+approval jurisdiction, authority, and official date into `regulatoryStates`.
+An aggregate `Filed` or `Approved` `development.stage` alone is incomplete
+whenever jurisdiction-level official evidence is available. Keep
+`development.stage` and `regulatoryStates` separate: the former remains the
+aggregate most-advanced stage, while the latter preserves the jurisdiction-level
+official evidence.
+
 Every candidate the audit surfaces must be classified under the rules above:
 **entered**, **merged**, **deferred**, or **excluded**, with a reason. Nothing
 found in the sponsor's current official pipeline or trial sources may be

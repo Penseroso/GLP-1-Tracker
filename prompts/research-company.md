@@ -73,7 +73,13 @@ updating its records in the same execution. Follow these steps:
    are valid stages when they are the most advanced official current stage and
    are never approximated as clinical phases (ADR-0024). Keep the detailed
    `regulatoryStates` entries (jurisdiction, authority, date) as a field
-   separate from `development.stage`, and use `stageBasis` and
+   separate from `development.stage`. For every program whose
+   `development.stage` is `Filed` or `Approved`, reconcile every officially
+   disclosed filing or approval jurisdiction, authority, and official date into
+   `regulatoryStates`. An aggregate `Filed` or `Approved` `development.stage`
+   alone is incomplete whenever jurisdiction-level official evidence is
+   available. Keep `development.stage` as the aggregate most-advanced stage;
+   do not collapse jurisdiction details into it. Use `stageBasis` and
    `stageOperationalState` to annotate evidence basis and operational state.
    Classify each candidate on two independent axes before modeling it:
    intervention model (monotherapy program, combination product, regimen, or

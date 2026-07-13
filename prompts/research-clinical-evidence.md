@@ -46,15 +46,28 @@ Follow these steps:
    the blocker; do not create Clinical Evidence records for an absent or
    unverified company.
 
+   Immediately after Company/Pipeline Research completes, build a concise
+   in-session handoff manifest from the updated operating records. Each entry
+   contains only: `assetId`; `programId`; canonical asset name (`assetName`);
+   route (`route`); indication scope (`indications`); development stage
+   (`development.stage`), status (`development.status`), and operational state
+   (`development.stageOperationalState`); and unresolved conflicts
+   (`unresolvedConflicts`) surfaced by the Company/Pipeline run. Keep the
+   manifest in memory for this execution only. Do not persist a file, ledger,
+   cache, schema, or generated artifact.
+
 5. **Choose the approach automatically.** If the company has no Clinical
    Evidence source records, treat this as an initial Clinical Evidence
    investigation. If Clinical Evidence records already exist for the company,
    treat this as an update. Do not expose this as a user-facing mode.
 
-6. **Traverse all in-scope assets.** Use existing Company/Pipeline source data
-   as the authoritative list of the company's current Scope v1.1 assets. For
-   every in-scope asset, discover relevant human interventional studies
-   broadly. Do not stop after one asset or one latest trial.
+6. **Traverse all in-scope assets.** Use the updated Company/Pipeline operating
+   records as the authoritative source and the in-session handoff manifest as
+   the traversal index for the company's current Scope v1.1 assets. Do not
+   repeatedly reload or restate the full Company/Pipeline source corpus; inspect
+   it more deeply only when a clinical conflict requires it. For every in-scope
+   asset, discover relevant human interventional studies broadly. Do not stop
+   after one asset or one latest trial.
 
 7. **Build the major evidence set.** Include distinct result-bearing pivotal or
    confirmatory studies; when no later-stage result exists, include the latest
