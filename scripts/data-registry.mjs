@@ -80,8 +80,17 @@ const stageOperationalStatesByStatus = {
   Discontinued: new Set(["Paused", "Completed", "Not separately confirmed"]),
   Unknown: new Set(["Not separately confirmed"]),
 };
-// Clinical Evidence canonical schema version (ADR-0037). v1 records do not validate here.
+// Clinical Evidence canonical schema version (ADR-0037/0038). v1 records do not
+// validate here. Namespaced as clinicalEvidenceSchemaVersion (not a bare
+// "schemaVersion") because this project also has a separate, differently-numbered
+// Company/Pipeline "Contract 1.1" versioning scheme (ADR-0030); a generic field name
+// here could be misread as versioning the whole registry contract.
 const clinicalEvidenceSchemaVersion = "2.0";
+// The derived reciprocal asset index (R2b) is explicitly NOT part of the canonical
+// v2.0 contract — it is a projection, regenerated deterministically, that may change
+// shape independently of the canonical schema. It therefore carries its own,
+// separately-numbered version field rather than reusing clinicalEvidenceSchemaVersion.
+const clinicalAssetStudyIndexProjectionVersion = "1.0";
 const clinicalArmRoles = new Set([
   "experimental",
   "placebo",
@@ -994,7 +1003,7 @@ function getClinicalEvidenceSourceFiles(baseDir) {
 
 function emptyClinicalEvidenceAggregate() {
   return {
-    schemaVersion: clinicalEvidenceSchemaVersion,
+    clinicalEvidenceSchemaVersion,
     studies: [],
     arms: [],
     analysisGroups: [],
@@ -1036,8 +1045,8 @@ function readClinicalEvidenceSourceTree(baseDir, context) {
     const data = file.data;
     assert(isObject(data), `${fileContext}: root must be an object`);
     assert(
-      data.schemaVersion === clinicalEvidenceSchemaVersion,
-      `${fileContext}: schemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the v2.0 Clinical Evidence schema`,
+      data.clinicalEvidenceSchemaVersion === clinicalEvidenceSchemaVersion,
+      `${fileContext}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the v2.0 Clinical Evidence schema`,
     );
     assert(data.companyId === file.companyFolder, `${fileContext}: companyId must match folder name`);
     assert(data.assetId === file.assetFolder, `${fileContext}: assetId must match folder name`);
@@ -1107,7 +1116,9 @@ function buildClinicalAssetStudyIndex(aggregate) {
   }
 
   return {
-    schemaVersion: clinicalEvidenceSchemaVersion,
+    // Independent of clinicalEvidenceSchemaVersion by design: this is a derived
+    // projection's own format version, not the canonical contract version (R2b).
+    projectionSchemaVersion: clinicalAssetStudyIndexProjectionVersion,
     assets: [...entries.values()]
       .map((entry) => ({
         companyId: entry.companyId,
@@ -1328,7 +1339,11 @@ function validateClinicalOutcomeResult(result, context, isAnalysisGroupAnchored)
     !clinicalEffectMeasureUnitPattern.test(normalize(result.unit)),
     `${context}: result.unit "${result.unit}" is an effect measure, not a unit; record it in result.effectMeasure`,
   );
-  if (result.numericValue !== undefined && result.numericValue !== null) {
+  assert(
+    result.numericValue !== undefined,
+    `${context}: result.numericValue is required; use null explicitly when the source value is narrative`,
+  );
+  if (result.numericValue !== null) {
     assert(
       typeof result.numericValue === "number" && Number.isFinite(result.numericValue),
       `${context}: result.numericValue must be a finite number or null when the source value is narrative`,
@@ -1487,8 +1502,8 @@ function getClinicalEndpointSemanticKey(endpoint) {
 function validateClinicalEvidenceAggregate(aggregate, references, context) {
   assert(isObject(aggregate), `${context}: aggregate must be an object`);
   assert(
-    aggregate.schemaVersion === clinicalEvidenceSchemaVersion,
-    `${context}: schemaVersion must be "${clinicalEvidenceSchemaVersion}"`,
+    aggregate.clinicalEvidenceSchemaVersion === clinicalEvidenceSchemaVersion,
+    `${context}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"`,
   );
   assert(Array.isArray(aggregate.studies), `${context}: studies must be an array`);
   assert(Array.isArray(aggregate.arms), `${context}: arms must be an array`);
@@ -1927,6 +1942,16 @@ function validateClinicalEvidenceSyntheticFixtures() {
       subgroup.analysisPopulation = "Modified intention-to-treat (baseline type 2 diabetes subgroup)";
       fixture.outcomes.push(subgroup);
     }],
+    // A narrative source value (no machine-readable number) is valid only with an
+    // explicit numericValue: null — never an omitted field.
+    ["narrative-result-explicit-null-numeric-value", (fixture) => {
+      const narrative = cloneJson(fixture.outcomes[0]);
+      narrative.id = "fixture-outcome-narrative-result";
+      narrative.analysisPopulation = "Modified intention-to-treat (narrative probe)";
+      narrative.result.value = "Not estimable";
+      narrative.result.numericValue = null;
+      fixture.outcomes.push(narrative);
+    }],
   ];
 
   for (const [name, mutate] of validExpectations) {
@@ -2052,8 +2077,8 @@ function validateClinicalEvidenceSyntheticFixtures() {
     ["study-without-arm", /has no arms/, (fixture) => {
       fixture.studies.push(secondStudy);
     }],
-    ["stale-schema-version", /schemaVersion must be "2\.0"/, (fixture) => {
-      fixture.schemaVersion = "1.0";
+    ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "2\.0"/, (fixture) => {
+      fixture.clinicalEvidenceSchemaVersion = "1.0";
     }],
     // Estimand and analysis-population canonicalization (G12/G26): a casing/hyphen variant of
     // the same term is the same semantic outcome, not a second one.
@@ -2091,6 +2116,9 @@ function validateClinicalEvidenceSyntheticFixtures() {
       };
     }],
     // Structured result semantics (G19).
+    ["missing-numeric-value", /result\.numericValue is required/, (fixture) => {
+      delete fixture.outcomes[0].result.numericValue;
+    }],
     ["effect-measure-as-unit", /is an effect measure, not a unit/, (fixture) => {
       fixture.outcomes[0].result.unit = "hazard ratio";
     }],

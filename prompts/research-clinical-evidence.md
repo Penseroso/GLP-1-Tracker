@@ -104,7 +104,7 @@ Follow these steps:
     adjusted or comparative values only when directly reported.
 
 11. **Author entities per the contract conventions (schema v2.0).** Every source file
-    declares `"schemaVersion": "2.0"`. An Arm is a protocol-defined treatment
+    declares `"clinicalEvidenceSchemaVersion": "2.0"`. An Arm is a protocol-defined treatment
     configuration within one study — not a cohort, sub-study, or pooled group. Model a
     distinct sub-study/cohort as its own Study **when it has its own distinct registry
     identity**; a master protocol sharing one registry identifier across sub-studies
@@ -143,9 +143,10 @@ Follow these steps:
       `co-primary`. Use `other` when no source confirms it. Add `domain` to separate a
       weight endpoint from a comorbidity endpoint, or omit it rather than guess.
     - **Structured results.** Keep the source display text in `value`, the machine-readable
-      number in `numericValue` (`null` when narrative), the actual unit in `unit`, and —
-      only for a between-arm estimate — the `effectMeasure`. A hazard ratio or treatment
-      difference is an effect measure, not a unit.
+      number in `numericValue` — **required on every Outcome**, set it explicitly to `null`
+      rather than omitting it when the source value is narrative — the actual unit in
+      `unit`, and only for a between-arm estimate the `effectMeasure`. A hazard ratio or
+      treatment difference is an effect measure, not a unit.
 
     When a result still cannot be represented faithfully, apply the **case-scoped
     deferred-schema fallback** in `docs/clinical-evidence-workflow.md` §5.1: isolate the

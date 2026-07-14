@@ -1,7 +1,12 @@
 # Clinical Evidence Data Contract
 
-**Schema version: 2.0** (ADR-0037). v2.0 is a distinct version, not a superset of
-v1: every source file declares `"schemaVersion": "2.0"` and a v1 file is rejected.
+**Schema version: 2.0** (ADR-0037, field name finalized by ADR-0038). v2.0 is a
+distinct version, not a superset of v1: every source file declares
+`"clinicalEvidenceSchemaVersion": "2.0"` and a v1 file is rejected. The field is
+namespaced to this domain — not a bare `schemaVersion` — because Company/Pipeline
+data is separately versioned as "Contract 1.1" (ADR-0030); a generic name here could
+be misread as versioning that whole registry contract instead of just Clinical
+Evidence.
 
 Authoritative semantic and file contract for the Clinical Evidence data layer.
 This module implements source files, TypeScript types, validation, synthetic
@@ -56,7 +61,7 @@ Each asset file declares its schema version and contains five parallel arrays:
 
 ```json
 {
-  "schemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "2.0",
   "companyId": "<company-id>",
   "assetId": "<asset-id>",
   "studies": [],
@@ -75,8 +80,11 @@ data/generated/clinical-evidence.json               canonical aggregate
 data/generated/clinical-evidence-asset-studies.json derived projection (not canonical)
 ```
 
-The aggregate has the same top-level array names and the same `schemaVersion`.
-Source files are authoritative; generated output must not be edited by hand.
+The aggregate has the same top-level array names and the same
+`clinicalEvidenceSchemaVersion`. The derived projection carries its own, separately
+numbered `projectionSchemaVersion` instead — it is not part of the canonical contract
+and may change shape independently (see Derived Projection below). Source files are
+authoritative; generated output must not be edited by hand.
 
 ## Entity And Field Rules
 
@@ -191,8 +199,9 @@ The **result** separates four distinct semantics that v1 collapsed into two free
 strings:
 
 - `value` — the source-reported **display text**, preserved verbatim.
-- `numericValue` — the machine-readable number, or `null` when the source value is
-  narrative. Never a re-derived or recalculated figure.
+- `numericValue` — **required**: the machine-readable number, or explicit `null`
+  when the source value is narrative (never omitted). Never a re-derived or
+  recalculated figure.
 - `unit` — the **actual unit of measurement** (`percent`, `percentage points`, `kg`,
   `points`, `ratio`, …). It is **never an effect measure**: the validator rejects
   `"hazard ratio"`, `"odds ratio"`, `"mean difference"` and similar in this field.
@@ -414,6 +423,10 @@ It is a **derived projection, not canonical data**:
   part in validation identity, referential integrity, or the semantic key.
 - regenerated deterministically; the validator rejects a file that differs from
   recomputation.
+- versioned separately: it declares its own `projectionSchemaVersion`, not the
+  canonical `clinicalEvidenceSchemaVersion`. The two numbers are intentionally
+  independent — this file's shape may change without implying a change to the
+  canonical v2.0 contract, and vice versa (ADR-0038).
 
 It is therefore **outside** the frozen v2.0 canonical contract, and a consumer must
 not treat it as a source of record.

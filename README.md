@@ -9,24 +9,42 @@ obesity/incretin competitive programs, not GLP-1 RA-only counts. See
 [`docs/data-protocol/README.md`](docs/data-protocol/README.md) for the full
 dataset scope.
 
-**Contract 1.1** (the data model, validators, identity rules including immutable
-`assetId`, canonical `assetName`, and typed asset `aliases`, registry-backed
-fields, and generated-output behavior — ADR-0030) and **Scope v1.1** (the
-current obesity/incretin operating inclusion scope) are independent —
-see [Versioning](docs/data-protocol/README.md#versioning) for the full note.
+Three version numbers apply to this project and change independently:
+
+- **Scope v1.1** — the current obesity/incretin operating inclusion scope
+  (ADR-0026): which programs are in or out of the dataset.
+- **Company/Pipeline Contract v1.1** — the Company/Pipeline data model,
+  validators, identity rules (immutable `assetId`, canonical `assetName`, typed
+  `aliases`), registry-backed fields, and generated-output behavior (ADR-0030).
+- **Clinical Evidence Contract v2.0** — the separate Clinical Evidence data
+  model: Study/Arm/AnalysisGroup/Endpoint/Outcome, its own validators, and its
+  own generated aggregate (ADR-0037, hardened by ADR-0038).
+
+A change to one does not imply a change to another. See
+[Versioning](docs/data-protocol/README.md#versioning) for the Scope/Company-Pipeline
+note and [`docs/clinical-evidence/README.md`](docs/clinical-evidence/README.md) for
+the Clinical Evidence contract.
 
 The project uses a minimal TPP-oriented dataset covering mechanism, platform,
 indication, route, dosage form, dosing interval, development stage, and
 development status. It is designed as a frontend foundation for future
 source-based research and periodic updates.
 
-The operating dataset is generated from `data/companies/` source folders:
+Two data flows are generated, each from its own source tree:
 
-- `data/generated/companies.json` aggregates company records.
-- `data/generated/pipeline-programs.json` aggregates pipeline program records.
-- `data/generated/regimens.json` aggregates regimen records.
-- `data/generated/clinical-evidence.json` aggregates separate Clinical Evidence
-  records; it is not used by the current UI.
+- **Company/Pipeline**, from `data/companies/` source folders:
+  - `data/generated/companies.json` aggregates company records.
+  - `data/generated/pipeline-programs.json` aggregates pipeline program records.
+  - `data/generated/regimens.json` aggregates regimen records.
+- **Clinical Evidence**, from `data/clinical-evidence/` source folders (see
+  [`docs/clinical-evidence/README.md`](docs/clinical-evidence/README.md)):
+  - `data/generated/clinical-evidence.json` is the canonical aggregate
+    (Study/Arm/AnalysisGroup/Endpoint/Outcome).
+  - `data/generated/clinical-evidence-asset-studies.json` is a **derived, non-canonical
+    reverse projection** — reciprocal asset → studies discovery computed from the
+    canonical aggregate's internal links, regenerated deterministically, never
+    hand-authored, and versioned independently of the canonical contract (see
+    [Derived Projection](docs/clinical-evidence/README.md#derived-projection-reciprocal-asset--studies)).
 
 ## Program Row Rule
 
@@ -40,8 +58,10 @@ The operating dataset is generated from `data/companies/` source folders:
 See [`docs/data-protocol/`](docs/data-protocol/) for the full research and data-entry protocol, including entity/row rules, field-specific source policy, edge cases, and decisions.
 
 For company research and automatic record updates, see the [`docs/research-workflow.md`](docs/research-workflow.md) workflow and the reusable [`prompts/research-company.md`](prompts/research-company.md) prompt.
-For the separate Clinical Evidence data contract and inactive reusable workflow,
-see [`docs/clinical-evidence/README.md`](docs/clinical-evidence/README.md),
+For the separate Clinical Evidence data contract and its **active** reusable
+research workflow (ADR-0035; routing rules in
+[`docs/research-routing.md`](docs/research-routing.md)), see
+[`docs/clinical-evidence/README.md`](docs/clinical-evidence/README.md),
 [`docs/clinical-evidence-workflow.md`](docs/clinical-evidence-workflow.md), and
 [`prompts/research-clinical-evidence.md`](prompts/research-clinical-evidence.md).
 
@@ -55,9 +75,11 @@ see [`docs/clinical-evidence/README.md`](docs/clinical-evidence/README.md),
   `data/generated/pipeline-programs.json` are generated aggregate files read by
   the UI and data loader. `data/generated/regimens.json` is generated and
   type-safe for future use but is not displayed by the current UI.
-  `data/generated/clinical-evidence.json` is generated for the separate
-  Clinical Evidence domain and is not displayed by the current UI. Do not edit
-  generated files directly.
+- `data/generated/clinical-evidence.json` (canonical) and
+  `data/generated/clinical-evidence-asset-studies.json` (derived reverse
+  projection) belong to the separate Clinical Evidence domain. `lib/clinical-evidence/`
+  loads and types both, but neither is currently read by any page or component —
+  Clinical Evidence has no UI yet. Do not edit generated files directly.
 - `data/stress-tests/<case-id>/` contains isolated diagnostic references from
   stress-test pilots. These archives are excluded from production aggregate
   generation and are not golden expected output.
@@ -79,15 +101,25 @@ see [`docs/clinical-evidence/README.md`](docs/clinical-evidence/README.md),
 - `lib/programs/filters.ts` owns program filtering.
 - `lib/format.ts` owns shared display formatting.
 - `config/program-table.ts` owns table display configuration.
+- `lib/clinical-evidence/types.ts` and `lib/clinical-evidence/data.ts` define and
+  load the Clinical Evidence contract; not yet consumed by any component.
 - Components form the presentation layer.
 
 ```text
+Company/Pipeline:
 data/companies/<company-id>/*
 -> data:generate
--> data/generated/*.json
--> data.ts
+-> data/generated/{companies,pipeline-programs,regimens}.json
+-> lib/programs/data.ts
 -> selectors / filters
 -> components
+
+Clinical Evidence (no UI yet):
+data/clinical-evidence/<company-id>/<asset-id>/*
+-> data:generate
+-> data/generated/clinical-evidence.json (canonical)
+   + data/generated/clinical-evidence-asset-studies.json (derived reverse projection)
+-> lib/clinical-evidence/data.ts
 ```
 
 ## Stack

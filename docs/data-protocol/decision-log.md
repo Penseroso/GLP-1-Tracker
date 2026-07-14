@@ -43,7 +43,9 @@ entry.
   established by ADR-0029/0034/0036 — `AnalysisGroup`, endpoint `role`/`domain`,
   structured Outcome result, internal linked-asset resolution, estimand/population
   canonicalization, derived reciprocal asset index, and the case-scoped
-  deferred-schema fallback).
+  deferred-schema fallback), hardened by ADR-0038 (required `result.numericValue`;
+  `clinicalEvidenceSchemaVersion` / `projectionSchemaVersion` field namespacing;
+  repository hygiene).
 
 ---
 
@@ -1101,3 +1103,66 @@ when decided, recorded as a new appended ADR.
   112, retatrutide Phase 2 Week 48 are registry **secondary** outcome measures). Existing
   arm-anchored outcome keys stay value-stable, so the migration introduces no silent key
   collisions. The entity model is **frozen at v2.0** once this migration lands.
+
+## ADR-0038 — Clinical Evidence v2.0 freeze hardening
+
+- **Date:** 2026-07-14
+- **Status:** Accepted
+- **Refines:** ADR-0037. Does not reopen or expand the v2.0 canonical contract —
+  this is a freeze-completeness and repository-hygiene pass, not a new schema
+  decision.
+- **Decision:**
+  1. **`result.numericValue` is now required** (`number | null`), not optional. A
+     missing field is rejected; a narrative source value must set it to explicit
+     `null` rather than omitting it. No source or generated record needed migration
+     — all 140 outcomes across the 11 source files and the fixture already carried a
+     non-null numeric value, so this is a pure tightening with zero data impact.
+  2. **Field namespace fix:** the canonical aggregate's version field is renamed
+     `schemaVersion` → **`clinicalEvidenceSchemaVersion`**. A bare `schemaVersion` at
+     the top of a Clinical Evidence file risked being misread as versioning the whole
+     registry contract, when Company/Pipeline data is separately and
+     differently-numbered as "Contract 1.1" (ADR-0030). The two versioning schemes
+     were never actually linked, but the generic field name invited that confusion.
+  3. **Canonical/projection version decoupling:** the derived reciprocal asset index
+     (`data/generated/clinical-evidence-asset-studies.json`, R2b) now declares its own
+     `projectionSchemaVersion` ("1.0") instead of reusing `clinicalEvidenceSchemaVersion`.
+     The projection is explicitly not part of the canonical v2.0 contract and may
+     change shape on its own; sharing a version field with the canonical aggregate
+     would have falsely implied the two are versioned together.
+  4. **Repository hygiene:** removed migration-only entries from
+     `.claude/settings.local.json` (one-off `curl` probes against a single NCT id, the
+     ad hoc scratch-script path, and an overly broad `node -e` wildcard), keeping only
+     the standing `npm run *` and the `clinicaltrials.gov` WebFetch domain — the latter
+     retained because it is the registry source named in the Clinical Evidence source
+     priority (`docs/clinical-evidence-workflow.md` §4), not a migration artifact.
+     Deleted `.claude/audittheclinicalevidenceadaptivestardust.md`: its REVISION 1
+     (R1–R8) decisions are now fully captured in this decision log (ADR-0037) and in
+     `docs/clinical-evidence/README.md`, `docs/clinical-evidence-workflow.md` §5.1, and
+     `docs/data-protocol/edge-cases.md`; the document's pilot counts (~19 studies /
+     ~180 outcomes) were stale against the final 33 studies / 140 outcomes and its
+     "recommended, not yet decided" framing no longer matched the shipped v2.0 state.
+     Keeping it would have left a superseded document contradicting the authoritative
+     docs it was superseded by.
+- **Considered and explicitly not done:** un-tracking `.claude/settings.local.json`
+  from git. Its name suggests personal-local scope, but it has been the sole,
+  continuously-committed permission baseline for this repository since its first data
+  commit, with no companion `settings.json`. Un-tracking it now would remove the only
+  working shared config without an agreed replacement (e.g. renaming to `settings.json`
+  and gitignoring future `settings.local.json` overrides). That is a harness-convention
+  change beyond this freeze-hardening pass's scope; it is left as a follow-up decision
+  for the user rather than performed unilaterally.
+- **Rationale:** All four changes hunt for freeze-completeness gaps and hygiene debt
+  left over from the ADR-0037 migration, not new schema surface. The `numericValue`
+  tightening closes an optionality gap the original migration should have closed
+  (every record already satisfied the stricter rule). The namespace changes are
+  additive-in-spirit renames that make an implicit distinction — canonical domain
+  version vs. whole-registry version vs. non-canonical projection version — explicit
+  and mechanically enforced, at minimal blast radius (a field rename, not a shape or
+  manifest redesign).
+- **Consequences:** `lib/clinical-evidence/types.ts`, `scripts/data-registry.mjs`, all
+  11 Clinical Evidence source files, the synthetic valid fixture, and the generated
+  aggregate/projection all use the renamed fields. Two new synthetic probes were added
+  (missing `numericValue` rejected; explicit narrative `numericValue: null` accepted)
+  alongside the existing "stale-schema-version" probe, updated to the new field name.
+  `data:generate`, all Clinical Evidence and full-registry validators, lint, `tsc
+  --noEmit`, and `next build` all pass with zero data-migration side effects.

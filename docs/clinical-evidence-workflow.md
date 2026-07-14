@@ -158,7 +158,7 @@ the affected Outcome and report the conflict.
 
 Populate the implemented `Study`, `Arm`, `AnalysisGroup`, `Endpoint`, and `Outcome`
 structures in `data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json`.
-Every source file declares `"schemaVersion": "2.0"`.
+Every source file declares `"clinicalEvidenceSchemaVersion": "2.0"`.
 
 - Store experimental, placebo, and active-comparator groups as parallel Arms.
 - Store treatment and comparator arms using the same structure.
@@ -186,9 +186,10 @@ Every source file declares `"schemaVersion": "2.0"`.
   no source confirms the role. Add the optional `domain` to separate a weight endpoint
   from a comorbidity endpoint, or omit it rather than guess.
 - Record the result as four separate facts: the source's **display text** (`value`),
-  the machine-readable `numericValue` (or `null` when narrative), the **actual unit**
-  (`unit`), and — for a between-arm estimate only — the `effectMeasure`. A hazard
-  ratio, odds ratio, or treatment difference is an **effect measure, not a unit**.
+  the machine-readable `numericValue` — **required**, use explicit `null` rather than
+  omitting it when the source value is narrative — the **actual unit** (`unit`), and
+  — for a between-arm estimate only — the `effectMeasure`. A hazard ratio, odds
+  ratio, or treatment difference is an **effect measure, not a unit**.
 - Capture required background or concomitant therapy in free text on
   `arm.intervention` / `arm.label` and `study.population`; it is not a structured
   field. A protocol-required standard-of-care background is not promoted to a

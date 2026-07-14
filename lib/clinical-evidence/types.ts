@@ -1,10 +1,17 @@
 import type { ComponentReference, RecordMetadata } from "@/lib/programs/types";
 
-/** Canonical Clinical Evidence schema version. v1 records do not validate under v2.0. */
+/**
+ * Canonical Clinical Evidence schema version. v1 records do not validate under v2.0.
+ *
+ * Namespaced as `clinicalEvidenceSchemaVersion` (not a bare `schemaVersion`) because
+ * this project separately versions the Company/Pipeline data shape as "Contract 1.1"
+ * (ADR-0030) — a generic field name here could be misread as versioning that whole
+ * registry contract rather than just this domain (ADR-0038).
+ */
 export const CLINICAL_EVIDENCE_SCHEMA_VERSION = "2.0";
 
 export type ClinicalEvidenceAggregate = {
-  schemaVersion: string;
+  clinicalEvidenceSchemaVersion: string;
   studies: ClinicalStudyRecord[];
   arms: ClinicalArmRecord[];
   analysisGroups: ClinicalAnalysisGroupRecord[];
@@ -139,8 +146,11 @@ export type ClinicalResultMaturity =
 export type ClinicalReportedResult = {
   /** Source-reported display text, preserved verbatim. */
   value: string;
-  /** Machine-readable value; null when the source reports a narrative value. */
-  numericValue?: number | null;
+  /**
+   * Machine-readable value. Required: explicitly `null` when the source reports a
+   * narrative value that has no machine-readable number, never omitted.
+   */
+  numericValue: number | null;
   /** Actual unit of measurement. Never an effect measure. */
   unit: string;
   /** Effect measure of a between-arm estimate, e.g. "Hazard ratio". */
@@ -185,6 +195,12 @@ export type ClinicalAssetStudyIndexEntry = {
 };
 
 export type ClinicalAssetStudyIndex = {
-  schemaVersion: string;
+  /**
+   * This projection's own format version — independent of
+   * ClinicalEvidenceAggregate.clinicalEvidenceSchemaVersion by design, since the
+   * projection is not part of the canonical v2.0 contract and may change shape on its
+   * own (ADR-0038).
+   */
+  projectionSchemaVersion: string;
   assets: ClinicalAssetStudyIndexEntry[];
 };
