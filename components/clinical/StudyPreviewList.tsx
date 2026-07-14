@@ -47,12 +47,6 @@ export function StudyPreviewList({ preview }: { preview: ProgramStudyPreview }) 
           <PreviewRow key={study.id} study={study} />
         ))}
       </div>
-      <Link
-        href={preview.href}
-        className="mt-3 inline-flex items-center gap-1 rounded-md border border-border bg-accent px-3 py-2 text-sm font-semibold text-accent-foreground transition hover:bg-accent/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-      >
-        View Asset Clinical Detail →
-      </Link>
     </section>
   );
 }

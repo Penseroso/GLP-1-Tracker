@@ -15,7 +15,10 @@ import {
   getProgramFilterOptions,
   sortProgramsForRegister,
 } from "@/lib/programs/selectors";
-import type { ProgramStudyPreview } from "@/lib/clinical-evidence/selectors";
+import type {
+  AssetClinicalRollup,
+  ProgramStudyPreview,
+} from "@/lib/clinical-evidence/selectors";
 import type { PipelineProgram, ProgramFilters } from "@/lib/programs/types";
 import { formatInlineValues, formatNullableValue } from "@/lib/format";
 import { ColumnSettings } from "./ColumnSettings";
@@ -32,6 +35,8 @@ type PipelineTableProps = {
   programs: PipelineProgram[];
   /** Explicit programId-scoped Clinical previews, prepared server-side. */
   clinicalPreviewByProgramId?: Record<string, ProgramStudyPreview>;
+  /** Focal/linked asset context, prepared separately from program matches. */
+  clinicalContextByProgramId?: Record<string, AssetClinicalRollup>;
 };
 
 type SortDirection = "ascending" | "descending";
@@ -201,6 +206,7 @@ function ColumnResizeHandle({
 export function PipelineTable({
   programs,
   clinicalPreviewByProgramId,
+  clinicalContextByProgramId,
 }: PipelineTableProps) {
   const [filters, setFilters] = useState<ProgramFilters>(emptyProgramFilters);
   const [sort, setSort] = useState<ProgramSort | null>(null);
@@ -212,6 +218,10 @@ export function PipelineTable({
   const clinicalPreview =
     selectedProgram && clinicalPreviewByProgramId
       ? clinicalPreviewByProgramId[selectedProgram.id] ?? null
+      : null;
+  const clinicalContext =
+    selectedProgram && clinicalContextByProgramId
+      ? clinicalContextByProgramId[selectedProgram.id] ?? null
       : null;
 
   const openProgram = (
@@ -499,6 +509,7 @@ export function PipelineTable({
       <ProgramDetailDrawer
         program={selectedProgram}
         clinicalPreview={clinicalPreview}
+        clinicalContext={clinicalContext}
         onClose={closeDrawer}
       />
     </div>

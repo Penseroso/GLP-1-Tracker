@@ -1,10 +1,14 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import Link from "next/link";
+import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { SourceList } from "@/components/SourceList";
 import { StudyPreviewList } from "@/components/clinical/StudyPreviewList";
-import type { ProgramStudyPreview } from "@/lib/clinical-evidence/selectors";
+import type {
+  AssetClinicalRollup,
+  ProgramStudyPreview,
+} from "@/lib/clinical-evidence/selectors";
 import { formatInlineValues, formatNullableValue } from "@/lib/format";
 import type { PipelineProgram } from "@/lib/programs/types";
 
@@ -15,8 +19,12 @@ type ProgramDetailDrawerProps = {
    * this program. Precomputed server-side without inference.
    */
   clinicalPreview?: ProgramStudyPreview | null;
+  /** Asset-wide focal/linked context. This is intentionally not program-scoped. */
+  clinicalContext?: AssetClinicalRollup | null;
   onClose: () => void;
 };
+
+const DRAWER_TRANSITION_MS = 200;
 
 function DetailRow({ label, value }: { label: string; value?: string | null }) {
   return (
@@ -32,44 +40,150 @@ function DetailRow({ label, value }: { label: string; value?: string | null }) {
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
+function AssetClinicalContext({
+  clinicalPreview,
+  clinicalContext,
+}: {
+  clinicalPreview?: ProgramStudyPreview | null;
+  clinicalContext?: AssetClinicalRollup | null;
+}) {
+  const hasAssetStudies = clinicalContext?.hasStudies ?? false;
+
+  return (
+    <section aria-label="Asset-level clinical context" className="mb-5 border-b border-border pb-5">
+      <h3 className="text-sm font-semibold text-foreground">
+        Broader clinical context for this asset
+      </h3>
+      {hasAssetStudies && clinicalContext ? (
+        <>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {clinicalContext.focalStudyCount} focal{" "}
+            {clinicalContext.focalStudyCount === 1 ? "study" : "studies"}
+            {clinicalContext.linkedStudyCount > 0
+              ? ` and ${clinicalContext.linkedStudyCount} linked ${
+                  clinicalContext.linkedStudyCount === 1 ? "study" : "studies"
+                }`
+              : ""}
+            .
+          </p>
+          {!clinicalPreview ? (
+            <p className="mt-2 text-sm text-muted-foreground">
+              No Study is explicitly mapped to this Program.
+            </p>
+          ) : null}
+          <Link
+            href={clinicalContext.href}
+            className="mt-3 inline-flex items-center gap-1 rounded-md border border-border bg-accent px-3 py-2 text-sm font-semibold text-accent-foreground transition hover:bg-accent/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            View Asset Clinical Studies →
+          </Link>
+        </>
+      ) : (
+        <p className="mt-2 text-sm text-muted-foreground">
+          {clinicalPreview
+            ? "No additional focal or linked clinical context is recorded for this asset."
+            : "No clinical studies are recorded for this Program or asset yet."}
+        </p>
+      )}
+    </section>
+  );
+}
+
 export function ProgramDetailDrawer({
   program,
   clinicalPreview,
+  clinicalContext,
   onClose,
 }: ProgramDetailDrawerProps) {
   const panelRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const headingId = useId();
+  const [renderedProgram, setRenderedProgram] = useState<PipelineProgram | null>(
+    program,
+  );
+  const [renderedClinicalPreview, setRenderedClinicalPreview] =
+    useState<ProgramStudyPreview | null>(clinicalPreview ?? null);
+  const [renderedClinicalContext, setRenderedClinicalContext] =
+    useState<AssetClinicalRollup | null>(clinicalContext ?? null);
+  const [isOpen, setIsOpen] = useState(false);
+  const renderedProgramRef = useRef<PipelineProgram | null>(program);
+
+  // Retain the last selected program through the exit transition. A new
+  // selection interrupts a close cleanly and opens the replacement drawer.
+  useEffect(() => {
+    if (program) {
+      let openFrame: number | undefined;
+      const mountFrame = window.requestAnimationFrame(() => {
+        renderedProgramRef.current = program;
+        setRenderedProgram(program);
+        setRenderedClinicalPreview(clinicalPreview ?? null);
+        setRenderedClinicalContext(clinicalContext ?? null);
+        openFrame = window.requestAnimationFrame(() => setIsOpen(true));
+      });
+      return () => {
+        window.cancelAnimationFrame(mountFrame);
+        if (openFrame !== undefined) window.cancelAnimationFrame(openFrame);
+      };
+    }
+
+    if (!renderedProgramRef.current) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
+      .matches;
+    const closeFrame = window.requestAnimationFrame(() => setIsOpen(false));
+    const timeout = window.setTimeout(
+      () => {
+        renderedProgramRef.current = null;
+        setRenderedProgram(null);
+        setRenderedClinicalPreview(null);
+        setRenderedClinicalContext(null);
+      },
+      reducedMotion ? 0 : DRAWER_TRANSITION_MS + 16,
+    );
+    return () => {
+      window.cancelAnimationFrame(closeFrame);
+      window.clearTimeout(timeout);
+    };
+  }, [program, clinicalPreview, clinicalContext]);
 
   // Lock background scroll while the drawer is open; always restore the
   // exact previous inline value, whether the drawer closes or the whole
   // component unmounts.
   useEffect(() => {
-    if (!program) {
+    if (!renderedProgram) {
       return;
     }
 
     const previousOverflow = document.body.style.overflow;
+    const previousPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      const paddingRight = Number.parseFloat(
+        window.getComputedStyle(document.body).paddingRight,
+      );
+      document.body.style.paddingRight = `${paddingRight + scrollbarWidth}px`;
+    }
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPaddingRight;
     };
-  }, [program]);
+  }, [renderedProgram]);
 
   // Move focus into the dialog when it opens (or when the displayed program
   // changes while it's already open).
   useEffect(() => {
-    if (!program) {
+    if (!isOpen || !renderedProgram) {
       return;
     }
 
     closeButtonRef.current?.focus();
-  }, [program]);
+  }, [isOpen, renderedProgram]);
 
   // Escape closes the dialog; Tab/Shift+Tab is trapped inside the panel.
   useEffect(() => {
-    if (!program) {
+    if (!isOpen || !renderedProgram) {
       return;
     }
 
@@ -111,17 +225,24 @@ export function ProgramDetailDrawer({
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [program, onClose]);
+  }, [isOpen, renderedProgram, onClose]);
 
-  if (!program || typeof document === "undefined") {
+  if (!renderedProgram || typeof document === "undefined") {
     return null;
   }
 
   return createPortal(
-    <div className="fixed inset-0 z-50 m-0 h-dvh w-screen p-0">
+    <div
+      aria-hidden={!isOpen}
+      className={`fixed inset-0 z-50 m-0 h-dvh overflow-hidden p-0 ${
+        isOpen ? "" : "pointer-events-none"
+      }`}
+    >
       <button
         aria-label="Close program detail"
-        className="absolute inset-0 cursor-default bg-foreground/30"
+        className={`absolute inset-0 cursor-default bg-foreground/30 transition-opacity duration-200 ease-out motion-reduce:transition-none ${
+          isOpen ? "opacity-100" : "opacity-0"
+        }`}
         onClick={onClose}
       />
       <aside
@@ -129,22 +250,24 @@ export function ProgramDetailDrawer({
         role="dialog"
         aria-modal="true"
         aria-labelledby={headingId}
-        className="absolute inset-y-0 right-0 m-0 flex h-dvh w-full max-w-2xl flex-col border-l border-border bg-card p-0 shadow-soft"
+        className={`absolute inset-y-0 right-0 m-0 flex h-dvh w-full max-w-2xl transform flex-col border-l border-border bg-card p-0 shadow-soft transition-transform duration-200 ease-out motion-reduce:transition-none ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="border-b border-border px-6 py-5">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-medium text-primary">
-                {formatNullableValue(program.company?.name)}
+                {formatNullableValue(renderedProgram.company?.name)}
               </p>
               <h2
                 id={headingId}
                 className="mt-1 text-2xl font-semibold tracking-tight text-card-foreground"
               >
-                {program.assetName}
+                {renderedProgram.assetName}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Code {formatNullableValue(program.codeName)}
+                Code {formatNullableValue(renderedProgram.codeName)}
               </p>
             </div>
             <button
@@ -158,46 +281,50 @@ export function ProgramDetailDrawer({
           </div>
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5">
-          {clinicalPreview ? (
-            <StudyPreviewList preview={clinicalPreview} />
+          {renderedClinicalPreview ? (
+            <StudyPreviewList preview={renderedClinicalPreview} />
           ) : null}
+          <AssetClinicalContext
+            clinicalPreview={renderedClinicalPreview}
+            clinicalContext={renderedClinicalContext}
+          />
           <dl>
-            <DetailRow label="Company" value={program.company?.name} />
+            <DetailRow label="Company" value={renderedProgram.company?.name} />
             <DetailRow
               label="Company country"
-              value={program.company?.headquartersCountry}
+              value={renderedProgram.company?.headquartersCountry}
             />
-            <DetailRow label="Mechanism" value={program.technical.mechanism} />
-            <DetailRow label="Platform" value={program.technical.platform} />
+            <DetailRow label="Mechanism" value={renderedProgram.technical.mechanism} />
+            <DetailRow label="Platform" value={renderedProgram.technical.platform} />
             <DetailRow
               label="Route"
-              value={program.administration.route}
+              value={renderedProgram.administration.route}
             />
             <DetailRow
               label="Dosage form"
-              value={program.administration.dosageForm}
+              value={renderedProgram.administration.dosageForm}
             />
             <DetailRow
               label="Interval"
-              value={program.administration.dosingInterval}
+              value={renderedProgram.administration.dosingInterval}
             />
             <DetailRow
               label="Indications"
-              value={formatInlineValues(program.indications)}
+              value={formatInlineValues(renderedProgram.indications)}
             />
-            <DetailRow label="Stage" value={program.development.stage} />
-            <DetailRow label="Status" value={program.development.status} />
+            <DetailRow label="Stage" value={renderedProgram.development.stage} />
+            <DetailRow label="Status" value={renderedProgram.development.status} />
             <DetailRow
               label="Last verified"
-              value={program.metadata.lastVerifiedAt}
+              value={renderedProgram.metadata.lastVerifiedAt}
             />
-            <DetailRow label="Updated" value={program.metadata.updatedAt} />
+            <DetailRow label="Updated" value={renderedProgram.metadata.updatedAt} />
             <div className="grid gap-1 border-b border-border py-3 sm:grid-cols-[10rem_1fr] sm:gap-4">
               <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 Sources
               </dt>
               <dd className="space-y-2 text-sm">
-                <SourceList sources={program.metadata.sources} emptyLabel="N/A" />
+                <SourceList sources={renderedProgram.metadata.sources} emptyLabel="N/A" />
               </dd>
             </div>
           </dl>

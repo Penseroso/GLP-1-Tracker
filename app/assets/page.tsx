@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { PipelineTable } from "@/components/PipelineTable";
 import {
+  getAssetClinicalRollup,
   getProgramStudyPreview,
+  type AssetClinicalRollup,
   type ProgramStudyPreview,
 } from "@/lib/clinical-evidence/selectors";
 import { pipelinePrograms } from "@/lib/programs/data";
@@ -17,6 +19,16 @@ const clinicalPreviewByProgramId: Record<string, ProgramStudyPreview> =
     pipelinePrograms.flatMap((program) => {
       const preview = getProgramStudyPreview(program.id);
       return preview ? [[program.id, preview]] : [];
+    }),
+  );
+
+// Asset-level context deliberately uses the existing focal/linked read model.
+// It is kept separate from the exact programId preview above.
+const clinicalContextByProgramId: Record<string, AssetClinicalRollup> =
+  Object.fromEntries(
+    pipelinePrograms.flatMap((program) => {
+      const rollup = getAssetClinicalRollup(program.companyId, program.assetId);
+      return rollup ? [[program.id, rollup]] : [];
     }),
   );
 
@@ -39,6 +51,7 @@ export default function AssetsPage() {
       <PipelineTable
         programs={pipelinePrograms}
         clinicalPreviewByProgramId={clinicalPreviewByProgramId}
+        clinicalContextByProgramId={clinicalContextByProgramId}
       />
     </div>
   );
