@@ -33,5 +33,40 @@
         }
       ]
     }
+  },
+  {
+    "id": "fixture-co-fixture-asset-2-subcutaneous-injection",
+    "assetId": "fixture-asset-2",
+    "companyId": "fixture-co",
+    "assetName": "Fixture Asset 2",
+    "codeName": "FIX-002",
+    "technical": {
+      "mechanism": "Synthetic incretin analog",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "sources": [
+        {
+          "url": "https://example.com/fixture-program-2",
+          "title": "Fixture program 2 source",
+          "sourceType": "synthetic fixture",
+          "checkedAt": "2026-07-10"
+        }
+      ]
+    }
   }
 ]

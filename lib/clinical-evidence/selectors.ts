@@ -57,7 +57,8 @@ export type StudySummaryView = {
   registryStatus: ClinicalRegistryStatus;
   /** Derived solely from whether at least one Outcome is recorded. */
   hasReportedOutcomes: boolean;
-  primaryRegistryId?: string;
+  /** The UI/tracking authority registry id — always study.registryStatus.registryId. */
+  referenceRegistryId?: string;
 };
 
 export type ArmView = ClinicalArmRecord & {
@@ -169,7 +170,7 @@ function toStudySummary(study: ClinicalStudyRecord): StudySummaryView {
     registryStatus: study.registryStatus,
     hasReportedOutcomes:
       (clinicalOutcomesByStudyId.get(study.id) ?? []).length > 0,
-    primaryRegistryId: study.registryIdentifiers[0]?.id,
+    referenceRegistryId: study.registryStatus.registryId,
   };
 }
 

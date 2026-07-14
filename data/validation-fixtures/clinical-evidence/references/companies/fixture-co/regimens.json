@@ -25,5 +25,36 @@
         }
       ]
     }
+  },
+  {
+    "id": "fixture-co-external-only-combination",
+    "companyId": "fixture-co",
+    "name": "External Partner X plus External Partner Y",
+    "components": [
+      {
+        "assetName": "Partner X",
+        "externalCompanyName": "Example Partner",
+        "role": "combination partner"
+      },
+      {
+        "assetName": "Partner Y",
+        "externalCompanyName": "Example Partner Two",
+        "role": "combination partner"
+      }
+    ],
+    "indications": ["Obesity"],
+    "development": { "stage": "Phase 2", "status": "Active" },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-14",
+      "updatedAt": "2026-07-14",
+      "sources": [
+        {
+          "url": "https://example.com/fixture-regimen-external-only",
+          "title": "Fixture external-only regimen source",
+          "sourceType": "synthetic fixture",
+          "checkedAt": "2026-07-14"
+        }
+      ]
+    }
   }
 ]

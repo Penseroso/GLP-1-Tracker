@@ -10,9 +10,9 @@ function PreviewRow({ study }: { study: StudySummaryView }) {
       href={`/studies/${study.id}`}
       className="flex flex-col gap-1 rounded-md border border-border bg-card p-3 transition hover:bg-accent/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
-      {study.primaryRegistryId ? (
+      {study.referenceRegistryId ? (
         <span className="text-xs font-medium text-muted-foreground">
-          {study.primaryRegistryId}
+          {study.referenceRegistryId}
         </span>
       ) : null}
       <span className="text-sm font-semibold text-card-foreground">

@@ -23,9 +23,9 @@ export function StudySummaryCard({ study }: { study: StudySummaryView }) {
           ? "Recorded outcomes available"
           : "No recorded outcomes"}
       </span>
-      {study.primaryRegistryId ? (
+      {study.referenceRegistryId ? (
         <span className="text-xs font-medium text-muted-foreground">
-          {study.primaryRegistryId}
+          {study.referenceRegistryId}
         </span>
       ) : null}
       {study.acronym ? (

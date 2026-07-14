@@ -1198,6 +1198,13 @@ function validateClinicalRegistryStatus(registryStatus, registryIdentifiers, con
 
 function validateClinicalStudy(study, context, references) {
   assert(isObject(study), `${context}: study must be an object`);
+  // These fields are legacy or derived-only and must never be authored in source data:
+  // "status" was renamed to registryStatus (ADR-0037/38); resultAvailability and
+  // hasReportedOutcomes are computed solely from Outcome existence (ADR-0039) and have
+  // no canonical stored form.
+  assert(study.status === undefined, `${context}: status is not a valid field; use registryStatus`);
+  assert(study.resultAvailability === undefined, `${context}: resultAvailability is not a valid field; it is derived from Outcome existence`);
+  assert(study.hasReportedOutcomes === undefined, `${context}: hasReportedOutcomes is not a valid field; it is derived from Outcome existence`);
   assert(isNonEmptyString(study.id), `${context}: id is required`);
   assert(isNonEmptyString(study.companyId), `${context}: companyId is required`);
   assert(isNonEmptyString(study.assetId), `${context}: assetId is required`);
@@ -1227,6 +1234,17 @@ function validateClinicalStudy(study, context, references) {
     const regimen = references.regimenById.get(study.regimenId);
     assert(regimen, `${context}: missing regimenId reference ${study.regimenId}`);
     assert(regimen.companyId === study.companyId, `${context}: regimenId ${study.regimenId} belongs to another company`);
+    const internalComponentAssetIds = (regimen.components ?? [])
+      .filter((component) => isNonEmptyString(component.assetId))
+      .map((component) => component.assetId);
+    assert(
+      internalComponentAssetIds.length > 0,
+      `${context}: regimenId ${study.regimenId} has no internal component asset to anchor Clinical Evidence storage`,
+    );
+    assert(
+      internalComponentAssetIds.includes(study.assetId),
+      `${context}: assetId ${study.assetId} is not an internal component of regimenId ${study.regimenId}`,
+    );
   }
 
   assert(isNonEmptyString(study.officialTitle), `${context}: officialTitle is required`);
@@ -2072,6 +2090,29 @@ function validateClinicalEvidenceSyntheticFixtures() {
         intervention: "Fixture Asset plus Partner X",
       });
     }],
+    // The reference registry (registryStatus) is not required to be the first entry in
+    // registryIdentifiers; selectors must key off registryStatus.registryId, never position.
+    ["reference-registry-not-first-identifier", (fixture) => {
+      fixture.studies.push({
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-reference-registry-second",
+        registryIdentifiers: [
+          { registry: "Chinese Clinical Trial Registry", id: "ChiCTR3000000001" },
+          { registry: "ClinicalTrials.gov", id: "NCT30000005" },
+        ],
+        registryStatus: {
+          registry: "ClinicalTrials.gov",
+          registryId: "NCT30000005",
+          overallStatus: "recruiting",
+          sourceStatus: "Recruiting",
+        },
+      });
+      fixture.arms.push({
+        ...cloneJson(fixture.arms[0]),
+        id: "fixture-arm-reference-registry-second",
+        studyId: "fixture-study-reference-registry-second",
+      });
+    }],
   ];
 
   for (const [name, mutate] of validExpectations) {
@@ -2211,6 +2252,62 @@ function validateClinicalEvidenceSyntheticFixtures() {
     }],
     ["study-with-both-focal-mappings", /exactly one of programId or regimenId is required/, (fixture) => {
       fixture.studies[0].regimenId = "fixture-co-fixture-asset-partner-combination";
+    }],
+    ["regimen-linked-study-unrelated-asset", /is not an internal component of regimenId/, (fixture) => {
+      const study = {
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-regimen-unrelated-asset",
+        assetId: "fixture-asset-2",
+        registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT30000003" }],
+        registryStatus: {
+          registry: "ClinicalTrials.gov",
+          registryId: "NCT30000003",
+          overallStatus: "recruiting",
+          sourceStatus: "Recruiting",
+        },
+        regimenId: "fixture-co-fixture-asset-partner-combination",
+      };
+      delete study.programId;
+      fixture.studies.push(study);
+      fixture.arms.push({
+        id: "fixture-arm-regimen-unrelated-asset",
+        studyId: study.id,
+        role: "experimental",
+        label: "Fixture Asset 2",
+        intervention: "Fixture Asset 2",
+      });
+    }],
+    ["regimen-linked-study-no-internal-anchor", /has no internal component asset to anchor Clinical Evidence storage/, (fixture) => {
+      const study = {
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-regimen-no-internal-anchor",
+        registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT30000004" }],
+        registryStatus: {
+          registry: "ClinicalTrials.gov",
+          registryId: "NCT30000004",
+          overallStatus: "recruiting",
+          sourceStatus: "Recruiting",
+        },
+        regimenId: "fixture-co-external-only-combination",
+      };
+      delete study.programId;
+      fixture.studies.push(study);
+      fixture.arms.push({
+        id: "fixture-arm-regimen-no-internal-anchor",
+        studyId: study.id,
+        role: "experimental",
+        label: "Fixture Asset",
+        intervention: "Fixture Asset",
+      });
+    }],
+    ["study-with-legacy-status-field", /status is not a valid field/, (fixture) => {
+      fixture.studies[0].status = "Recruiting";
+    }],
+    ["study-with-result-availability-field", /resultAvailability is not a valid field/, (fixture) => {
+      fixture.studies[0].resultAvailability = "reported";
+    }],
+    ["study-with-has-reported-outcomes-field", /hasReportedOutcomes is not a valid field/, (fixture) => {
+      fixture.studies[0].hasReportedOutcomes = true;
     }],
     ["registry-status-unknown-enum", /registryStatus\.overallStatus .* is not allowed/, (fixture) => {
       fixture.studies[0].registryStatus.overallStatus = "planning";
