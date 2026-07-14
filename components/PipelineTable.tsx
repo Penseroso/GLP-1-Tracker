@@ -391,8 +391,6 @@ export function PipelineTable({
                             ? activeSort.direction === "ascending"
                               ? "▲"
                               : "▼"
-                            : !sort && column.id === "development"
-                              ? "★"
                             : "↕"}
                         </span>
                       </button>
