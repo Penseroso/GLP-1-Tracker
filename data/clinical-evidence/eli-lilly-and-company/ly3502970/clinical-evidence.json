@@ -145,6 +145,231 @@
           }
         ]
       }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-attain-oa-pain-nct07153471",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-oa",
+      "officialTitle": "A Phase 3 Study to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants Who Have Obesity or Overweight and Osteoarthritis of the Knee: A Multicenter, Randomized, Double-Blind, Parallel-Arm, Placebo-Controlled Trial",
+      "acronym": "ATTAIN-OA PAIN",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07153471"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2025-522631-34-00",
+        "J2A-MC-GZPT",
+        "J2A-MC-GZT1",
+        "J2A-MC-GZT2"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07153471",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Single-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants who have obesity or overweight and osteoarthritis of the knee.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07153471",
+            "title": "ATTAIN-OA PAIN study record (NCT07153471)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-restrain-sui-nct07202884",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets-restrain-sui",
+      "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of Orforglipron Tablet Once Daily Compared With Placebo in Female Participants With Stress Urinary Incontinence Who Have Obesity or Overweight",
+      "acronym": "RESTRAIN-SUI",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07202884"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2025-522514-23-00",
+        "J2A-MC-GZPS",
+        "J2A-MC-GZS1",
+        "J2A-MC-GZS2"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07202884",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-06-23"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Female participants with stress urinary incontinence who have obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07202884",
+            "title": "RESTRAIN-SUI study record (NCT07202884)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-nct06972472",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets-obesity-t2d",
+      "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of Orforglipron Tablet Once Daily Compared With Placebo in Participants With Obesity or Overweight With and Without Type 2 Diabetes",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06972472"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2025-521098-14-00",
+        "J2A-MC-GZP2",
+        "J2A-MC-GZPO"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06972472",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-04-20"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity or overweight and type 2 diabetes.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06972472",
+            "title": "study record (NCT06972472)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-attain-hypertension-nct06948435",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-hypertension",
+      "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants With Hypertension and Obesity or Overweight: Randomized, Double-Blind, Placebo-Controlled Trials (ATTAIN-HYPERTENSION)",
+      "acronym": "ATTAIN-Hypertension",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06948435"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J2A-MC-GZL1",
+        "J2A-MC-GZPL"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06948435",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-05-29"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with hypertension and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06948435",
+            "title": "ATTAIN-Hypertension study record (NCT06948435)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-attain-osa-nct06649045",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-osa",
+      "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants Who Have Obstructive Sleep Apnea and Obesity or Overweight: A Randomized, Double-Blind, Placebo-Controlled Trial",
+      "acronym": "ATTAIN-OSA",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06649045"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J5P-MC-GZRA",
+        "J5P-MC-GZ01",
+        "J5P-MC-GZ02"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06649045",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2025-09-29"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obstructive sleep apnea and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06649045",
+            "title": "ATTAIN-OSA study record (NCT06649045)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -276,6 +501,199 @@
     {
       "id": "attain-pad-placebo",
       "studyId": "eli-lilly-and-company-orforglipron-attain-pad-nct07223593",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-oa-pain-orforglipron-gzt1",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-oa-pain-nct07153471",
+      "role": "experimental",
+      "label": "Orforglipron (GZT1)",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-oa-pain-placebo-gzt1",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-oa-pain-nct07153471",
+      "role": "placebo",
+      "label": "Placebo (GZT1)",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-oa-pain-orforglipron-gzt2",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-oa-pain-nct07153471",
+      "role": "experimental",
+      "label": "Orforglipron (GZT2)",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-oa-pain-placebo-gzt2",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-oa-pain-nct07153471",
+      "role": "placebo",
+      "label": "Placebo (GZT2)",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "restrain-sui-orforglipron-gzs1",
+      "studyId": "eli-lilly-and-company-orforglipron-restrain-sui-nct07202884",
+      "role": "experimental",
+      "label": "Orforglipron (GZS1)",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "restrain-sui-placebo-gzs1",
+      "studyId": "eli-lilly-and-company-orforglipron-restrain-sui-nct07202884",
+      "role": "placebo",
+      "label": "Placebo (GZS1)",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "restrain-sui-orforglipron-gzs2",
+      "studyId": "eli-lilly-and-company-orforglipron-restrain-sui-nct07202884",
+      "role": "experimental",
+      "label": "Orforglipron (GZS2)",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "restrain-sui-placebo-gzs2",
+      "studyId": "eli-lilly-and-company-orforglipron-restrain-sui-nct07202884",
+      "role": "placebo",
+      "label": "Placebo (GZS2)",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06972472-orforglipron-dose-1",
+      "studyId": "eli-lilly-and-company-orforglipron-nct06972472",
+      "role": "experimental",
+      "label": "Orforglipron Dose 1",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06972472-orforglipron-dose-2",
+      "studyId": "eli-lilly-and-company-orforglipron-nct06972472",
+      "role": "experimental",
+      "label": "Orforglipron Dose 2",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06972472-orforglipron-dose-3",
+      "studyId": "eli-lilly-and-company-orforglipron-nct06972472",
+      "role": "experimental",
+      "label": "Orforglipron Dose 3",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06972472-orforglipron-dose-4",
+      "studyId": "eli-lilly-and-company-orforglipron-nct06972472",
+      "role": "experimental",
+      "label": "Orforglipron Dose 4",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06972472-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-nct06972472",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-hypertension-orforglipron",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-hypertension-nct06948435",
+      "role": "experimental",
+      "label": "Orforglipron",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-hypertension-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-hypertension-nct06948435",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-osa-orforglipron",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-osa-nct06649045",
+      "role": "experimental",
+      "label": "Orforglipron",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-osa-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-osa-nct06649045",
       "role": "placebo",
       "label": "Placebo",
       "intervention": "Placebo",

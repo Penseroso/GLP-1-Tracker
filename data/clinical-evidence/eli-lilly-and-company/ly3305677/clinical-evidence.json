@@ -100,6 +100,49 @@
         "overallStatus": "completed",
         "sourceStatus": "Completed"
       }
+    },
+    {
+      "id": "eli-lilly-and-company-mazdutide-nct06124807",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3305677",
+      "programId": "eli-lilly-and-company-ly3305677-subcutaneous-injection",
+      "officialTitle": "A Phase 2, Parallel-Group, Double-Blind, 4-Arm Study to Investigate Weight Management With LY3305677 Compared With Placebo and in Adult Participants With Obesity or Overweight",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06124807"
+        }
+      ],
+      "protocolIdentifiers": [
+        "W8M-MC-OXA1",
+        "CWMM Master Protocol"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06124807",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-04-21"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Adult participants with obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06124807",
+            "title": "study record (NCT06124807)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -169,6 +212,54 @@
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "60 weeks"
+    },
+    {
+      "id": "nct06124807-3-6-milligrams-mg-mazdutide",
+      "studyId": "eli-lilly-and-company-mazdutide-nct06124807",
+      "role": "experimental",
+      "label": "3/6 Milligrams (mg) Mazdutide",
+      "intervention": "Mazdutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3305677"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06124807-10-mg-mazdutide",
+      "studyId": "eli-lilly-and-company-mazdutide-nct06124807",
+      "role": "experimental",
+      "label": "10 mg Mazdutide",
+      "intervention": "Mazdutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3305677"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06124807-16-mg-mazdutide",
+      "studyId": "eli-lilly-and-company-mazdutide-nct06124807",
+      "role": "experimental",
+      "label": "16 mg Mazdutide",
+      "intervention": "Mazdutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3305677"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06124807-placebo",
+      "studyId": "eli-lilly-and-company-mazdutide-nct06124807",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
     }
   ],
   "analysisGroups": [],

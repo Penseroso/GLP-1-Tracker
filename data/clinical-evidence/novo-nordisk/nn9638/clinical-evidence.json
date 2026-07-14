@@ -1,0 +1,74 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "novo-nordisk",
+  "assetId": "nn9638",
+  "studies": [
+    {
+      "id": "novo-nordisk-amylin-355-nct06577766",
+      "companyId": "novo-nordisk",
+      "assetId": "nn9638",
+      "programId": "novo-nordisk-amylin-355-subcutaneous-injection",
+      "officialTitle": "A Randomised, Placebo Controlled, Double Blinded Study Assessing the Safety, Tolerability and Pharmacokinetics of Single and Multiple Subcutaneous Doses of NNC0638-0355 in Participants With Overweight or Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06577766"
+        }
+      ],
+      "protocolIdentifiers": [
+        "U1111-1296-8015"
+      ],
+      "phase": "Phase 1",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06577766",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-03-17"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "People with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06577766",
+            "title": "study record (NCT06577766)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct06577766-nnc0638-0355",
+      "studyId": "novo-nordisk-amylin-355-nct06577766",
+      "role": "experimental",
+      "label": "NNC0638-0355",
+      "intervention": "NNC0638-0355",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9638"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct06577766-placebo",
+      "studyId": "novo-nordisk-amylin-355-nct06577766",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo (NNC0638-0355)",
+      "route": "Subcutaneous"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

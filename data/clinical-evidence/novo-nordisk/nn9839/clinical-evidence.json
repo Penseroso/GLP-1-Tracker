@@ -1,0 +1,112 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "novo-nordisk",
+  "assetId": "nn9839",
+  "studies": [
+    {
+      "id": "novo-nordisk-amylin-1213-nct06719011",
+      "companyId": "novo-nordisk",
+      "assetId": "nn9839",
+      "programId": "novo-nordisk-amylin-1213-subcutaneous-injection",
+      "officialTitle": "A Randomized, Placebo Controlled and Double-blinded Study Assessing the Safety, Tolerability, Pharmacokinetics, and Efficacy of Subcutaneous Administrations of NNC0174 1213 in Male Participants With Overweight or Obesity.",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06719011"
+        }
+      ],
+      "protocolIdentifiers": [
+        "U1111-1308-5620"
+      ],
+      "phase": "Phase 1",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06719011",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2025-05-25"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "People with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06719011",
+            "title": "study record (NCT06719011)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct06719011-part-a-nnc0174-1213-sd1-sd5",
+      "studyId": "novo-nordisk-amylin-1213-nct06719011",
+      "role": "experimental",
+      "label": "Part A: NNC0174-1213 (SD1-SD5)",
+      "intervention": "Part A: NNC0174-1213 (SD1-SD5)",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9839"
+      }
+    },
+    {
+      "id": "nct06719011-part-a-cagrilintide-sda-and-sdb",
+      "studyId": "novo-nordisk-amylin-1213-nct06719011",
+      "role": "experimental",
+      "label": "Part A: Cagrilintide (SDA and SDB)",
+      "intervention": "Part A: Cagrilintide (SDA and SDB)",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "cagrilintide"
+      }
+    },
+    {
+      "id": "nct06719011-part-a-placebo",
+      "studyId": "novo-nordisk-amylin-1213-nct06719011",
+      "role": "placebo",
+      "label": "Part A: Placebo",
+      "intervention": "Part A: Placebo"
+    },
+    {
+      "id": "nct06719011-part-b-nnc0174-1213-md1-md5",
+      "studyId": "novo-nordisk-amylin-1213-nct06719011",
+      "role": "experimental",
+      "label": "Part B: NNC0174-1213 (MD1-MD5)",
+      "intervention": "Part B: NNC0174-1213 (MD1-MD5)",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9839"
+      }
+    },
+    {
+      "id": "nct06719011-part-b-cagrilintide-mda",
+      "studyId": "novo-nordisk-amylin-1213-nct06719011",
+      "role": "experimental",
+      "label": "Part B: Cagrilintide (MDA)",
+      "intervention": "Part B: Cagrilintide (MDA)",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "cagrilintide"
+      }
+    },
+    {
+      "id": "nct06719011-part-b-placebo",
+      "studyId": "novo-nordisk-amylin-1213-nct06719011",
+      "role": "placebo",
+      "label": "Part B: Placebo",
+      "intervention": "Part B: Placebo"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

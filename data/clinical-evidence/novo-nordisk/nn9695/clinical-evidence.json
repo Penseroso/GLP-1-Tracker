@@ -1,0 +1,134 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "novo-nordisk",
+  "assetId": "nn9695",
+  "studies": [
+    {
+      "id": "novo-nordisk-glp-1-analogue-nct07566390",
+      "companyId": "novo-nordisk",
+      "assetId": "nn9695",
+      "programId": "novo-nordisk-glp-1-analogue-subcutaneous-injection",
+      "officialTitle": "A First in Human Dose Study Investigating the Safety, Tolerability and Pharmacokinetics of Single Ascending Doses of NNC0113-5840 in Participants With Overweight or Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07566390"
+        }
+      ],
+      "protocolIdentifiers": [
+        "U1111-1328-9401"
+      ],
+      "phase": "Phase 1",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07566390",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-06-04"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Adults with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07566390",
+            "title": "study record (NCT07566390)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct07566390-cohort-1-nnc0113-5840",
+      "studyId": "novo-nordisk-glp-1-analogue-nct07566390",
+      "role": "experimental",
+      "label": "Cohort 1 NNC0113-5840",
+      "intervention": "NNC0113-5840",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9695"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct07566390-cohort-2-nnc0113-5840",
+      "studyId": "novo-nordisk-glp-1-analogue-nct07566390",
+      "role": "experimental",
+      "label": "Cohort 2 NNC0113-5840",
+      "intervention": "NNC0113-5840",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9695"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct07566390-cohort-3-nnc0113-5840",
+      "studyId": "novo-nordisk-glp-1-analogue-nct07566390",
+      "role": "experimental",
+      "label": "Cohort 3 NNC0113-5840",
+      "intervention": "NNC0113-5840",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9695"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct07566390-cohort-4-nnc0113-5840",
+      "studyId": "novo-nordisk-glp-1-analogue-nct07566390",
+      "role": "experimental",
+      "label": "Cohort 4 NNC0113-5840",
+      "intervention": "NNC0113-5840",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9695"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct07566390-cohort-5-nnc0113-5840",
+      "studyId": "novo-nordisk-glp-1-analogue-nct07566390",
+      "role": "experimental",
+      "label": "Cohort 5 NNC0113-5840",
+      "intervention": "NNC0113-5840",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9695"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct07566390-cohort-6-nnc0113-5840",
+      "studyId": "novo-nordisk-glp-1-analogue-nct07566390",
+      "role": "experimental",
+      "label": "Cohort 6 NNC0113-5840",
+      "intervention": "NNC0113-5840",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9695"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct07566390-placebo-matching-nnc0113-5840",
+      "studyId": "novo-nordisk-glp-1-analogue-nct07566390",
+      "role": "placebo",
+      "label": "Placebo matching NNC0113-5840",
+      "intervention": "Placebo",
+      "route": "Subcutaneous"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

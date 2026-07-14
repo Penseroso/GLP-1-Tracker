@@ -1,0 +1,221 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "eli-lilly-and-company",
+  "assetId": "ly3532226",
+  "studies": [
+    {
+      "id": "eli-lilly-and-company-macupatide-nct07215559",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3532226",
+      "regimenId": "eli-lilly-and-company-macupatide-eloralintide-obesity",
+      "officialTitle": "A Phase 2, Parallel-Group, Double-Blind, Placebo-Controlled Study to Investigate Weight Reduction With Macupatide and Eloralintide, Alone or in Combination, in Adult Participants With Obesity or Overweight and With Type 2 Diabetes",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07215559"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J2V-MC-GZLF"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07215559",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity or overweight, with or without type 2 diabetes.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07215559",
+            "title": "study record (NCT07215559)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-macupatide-nct07589608",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3532226",
+      "regimenId": "eli-lilly-and-company-macupatide-eloralintide-obesity",
+      "officialTitle": "A Phase 2b, Parallel-Group, Double-Blind, Placebo-Controlled Study to Investigate Weight Management With Macupatide and Eloralintide, Alone or in Combination, in Adult Participants With Obesity or Overweight and Without Type 2 Diabetes",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07589608"
+        }
+      ],
+      "protocolIdentifiers": [
+        "W8M-MC-MC01",
+        "W8M-MC-CWMM"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07589608",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-06-24"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07589608",
+            "title": "study record (NCT07589608)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct07215559-macupatide-macupatide-eloralintide-placebo",
+      "studyId": "eli-lilly-and-company-macupatide-nct07215559",
+      "role": "experimental",
+      "label": "Macupatide (Macupatide + Eloralintide Placebo)",
+      "intervention": "Macupatide plus Eloralintide Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3532226"
+      }
+    },
+    {
+      "id": "nct07215559-eloralintide-elorlintide-macupatide-placebo",
+      "studyId": "eli-lilly-and-company-macupatide-nct07215559",
+      "role": "experimental",
+      "label": "Eloralintide (Elorlintide + Macupatide Placebo)",
+      "intervention": "Eloralintide plus Macupatide Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct07215559-macupatide-eloralintide",
+      "studyId": "eli-lilly-and-company-macupatide-nct07215559",
+      "role": "experimental",
+      "label": "Macupatide + Eloralintide",
+      "intervention": "Macupatide plus Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3532226"
+      }
+    },
+    {
+      "id": "nct07215559-placebo-macupatide-placebo-elorlintide-placebo",
+      "studyId": "eli-lilly-and-company-macupatide-nct07215559",
+      "role": "placebo",
+      "label": "Placebo (Macupatide Placebo + Elorlintide Placebo)",
+      "intervention": "Macupatide Placebo plus Eloralintide Placebo"
+    },
+    {
+      "id": "nct07589608-macupatide-dose-1",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "experimental",
+      "label": "Macupatide Dose 1",
+      "intervention": "Macupatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3532226"
+      }
+    },
+    {
+      "id": "nct07589608-eloralintide-dose-1",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "experimental",
+      "label": "Eloralintide Dose 1",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct07589608-macupatide-dose-1-eloralintide-dose-1",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "experimental",
+      "label": "Macupatide Dose 1 + Eloralintide Dose 1",
+      "intervention": "Macupatide plus Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3532226"
+      }
+    },
+    {
+      "id": "nct07589608-eloralintide-dose-2",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "experimental",
+      "label": "Eloralintide Dose 2",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct07589608-macupatide-dose-1-eloralintide-dose-2",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "experimental",
+      "label": "Macupatide Dose 1 + Eloralintide Dose 2",
+      "intervention": "Macupatide plus Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3532226"
+      }
+    },
+    {
+      "id": "nct07589608-eloralintide-dose-3",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "experimental",
+      "label": "Eloralintide Dose 3",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct07589608-macupatide-dose-2-eloralintide-dose-3",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "experimental",
+      "label": "Macupatide Dose 2 + Eloralintide Dose 3",
+      "intervention": "Macupatide plus Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3532226"
+      }
+    },
+    {
+      "id": "nct07589608-placebo",
+      "studyId": "eli-lilly-and-company-macupatide-nct07589608",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

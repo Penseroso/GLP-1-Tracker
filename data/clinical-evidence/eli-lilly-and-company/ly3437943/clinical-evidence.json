@@ -99,6 +99,183 @@
         "overallStatus": "completed",
         "sourceStatus": "Completed"
       }
+    },
+    {
+      "id": "eli-lilly-and-company-retatrutide-triumph-8-nct07232719",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3437943",
+      "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
+      "officialTitle": "A Phase 3b Study to Investigate the Efficacy and Safety of Retatrutide Once Weekly in Participants Without Type 2 Diabetes Who Have Obesity or Overweight: A Randomized, Double-Blind, Placebo-Controlled Trial",
+      "acronym": "TRIUMPH-8",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07232719"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J1I-MC-GZQJ"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07232719",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-04-17"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity or overweight, without type 2 diabetes.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07232719",
+            "title": "TRIUMPH-8 study record (NCT07232719)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-retatrutide-triumph-1-nct05929066",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3437943",
+      "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-triumph-1-basket",
+      "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of LY3437943 Once Weekly in Participants Without Type 2 Diabetes Who Have Obesity or Overweight: A Randomized, Double-Blind, Placebo-Controlled Trial (TRIUMPH-1)",
+      "acronym": "TRIUMPH-1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05929066"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J1I-MC-GZBJ",
+        "J1I-MC-GOA1",
+        "J1I-MC-GSA1",
+        "2023-503657-35-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05929066",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-06-03"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity or overweight, without type 2 diabetes, including participants with knee osteoarthritis or obstructive sleep apnea.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05929066",
+            "title": "TRIUMPH-1 study record (NCT05929066)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-retatrutide-triumph-outcomes-nct06383390",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3437943",
+      "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-triumph-outcomes",
+      "officialTitle": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled, Event-Driven Study to Investigate the Effect of Retatrutide on the Incidence of Major Adverse Cardiovascular Events and Major Adverse Kidney Events in Participants With Body Mass Index ≥27 kg/m2 and Atherosclerotic Cardiovascular Disease and/or Chronic Kidney Disease",
+      "acronym": "TRIUMPH-Outcomes",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06383390"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J1I-MC-GZBO",
+        "2023-508630-34-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06383390",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-06-17"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with body mass index at or above 27 kg/m2 and atherosclerotic cardiovascular disease and/or chronic kidney disease.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06383390",
+            "title": "TRIUMPH-Outcomes study record (NCT06383390)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-retatrutide-triumph-7-nct07035093",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3437943",
+      "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-low-back-pain",
+      "officialTitle": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled Study to Investigate the Efficacy and Safety of Retatrutide Once Weekly in Participants Who Have Obesity or Overweight and Chronic Low Back Pain",
+      "acronym": "TRIUMPH-7",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07035093"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J1I-MC-GZQD",
+        "2024-517431-43-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07035093",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-05-20"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants who have obesity or overweight and chronic low back pain.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07035093",
+            "title": "TRIUMPH-7 study record (NCT07035093)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -248,6 +425,146 @@
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "68 weeks"
+    },
+    {
+      "id": "triumph-8-retatrutide-dose-1",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-8-nct07232719",
+      "role": "experimental",
+      "label": "Retatrutide Dose 1",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-8-retatrutide-dose-2",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-8-nct07232719",
+      "role": "experimental",
+      "label": "Retatrutide Dose 2",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-8-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-8-nct07232719",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-1-retatrutide-dose-1",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-1-nct05929066",
+      "role": "experimental",
+      "label": "Retatrutide Dose 1",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-1-retatrutide-dose-2",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-1-nct05929066",
+      "role": "experimental",
+      "label": "Retatrutide Dose 2",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-1-retatrutide-dose-3",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-1-nct05929066",
+      "role": "experimental",
+      "label": "Retatrutide Dose 3",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-1-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-1-nct05929066",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-1-retatrutide-extension-period",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-1-nct05929066",
+      "role": "experimental",
+      "label": "Retatrutide Extension Period",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-outcomes-retatrutide",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-outcomes-nct06383390",
+      "role": "experimental",
+      "label": "Retatrutide",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-outcomes-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-outcomes-nct06383390",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-7-retatrutide",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-7-nct07035093",
+      "role": "experimental",
+      "label": "Retatrutide",
+      "intervention": "Retatrutide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3437943"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "triumph-7-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-7-nct07035093",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
     }
   ],
   "analysisGroups": [

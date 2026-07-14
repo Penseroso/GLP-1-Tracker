@@ -1,0 +1,76 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "zealand-pharma",
+  "assetId": "dapiglutide",
+  "studies": [
+    {
+      "id": "zealand-pharma-dapiglutide-nct06000891",
+      "companyId": "zealand-pharma",
+      "assetId": "dapiglutide",
+      "programId": "zealand-pharma-dapiglutide-subcutaneous-injection",
+      "officialTitle": "A Randomised, Multiple Ascending Dose Trial Assessing Safety, Tolerability, Pharmacokinetics and Pharmacodynamics of ZP7570 Administered in Subjects With Overweight or Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06000891"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2022-500614-26"
+      ],
+      "phase": "Phase 1",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06000891",
+        "overallStatus": "terminated",
+        "sourceStatus": "Terminated",
+        "statusUpdatedAt": "2025-04-25"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo and active comparator"
+      },
+      "population": "Subjects with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06000891",
+            "title": "study record (NCT06000891)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct06000891-zp7570",
+      "studyId": "zealand-pharma-dapiglutide-nct06000891",
+      "role": "active comparator",
+      "label": "ZP7570",
+      "intervention": "ZP7570",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "dapiglutide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06000891-placebo",
+      "studyId": "zealand-pharma-dapiglutide-nct06000891",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

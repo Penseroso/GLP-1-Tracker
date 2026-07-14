@@ -98,6 +98,50 @@
         "overallStatus": "completed",
         "sourceStatus": "Completed"
       }
+    },
+    {
+      "id": "novo-nordisk-zenagamtide-amaze-12-nct07503210",
+      "companyId": "novo-nordisk",
+      "assetId": "amycretin",
+      "programId": "novo-nordisk-amycretin-subcutaneous-injection",
+      "officialTitle": "Efficacy and Safety of NNC0487-0111 s.c. Once Weekly in Participants With Obesity Who Have Reached Target Dose During run-in Period (AMAZE 12)",
+      "acronym": "AMAZE 12",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07503210"
+        }
+      ],
+      "protocolIdentifiers": [
+        "U1111-1327-1477",
+        "2025-523804-62"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07503210",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-09"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Quadruple-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity who reached target dose during run-in.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07503210",
+            "title": "AMAZE 12 study record (NCT07503210)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -154,6 +198,28 @@
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "36 weeks"
+    },
+    {
+      "id": "amaze-12-nnc0487-0111",
+      "studyId": "novo-nordisk-zenagamtide-amaze-12-nct07503210",
+      "role": "experimental",
+      "label": "NNC0487-0111",
+      "intervention": "NNC0487-0111",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "amycretin"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "amaze-12-placebo",
+      "studyId": "novo-nordisk-zenagamtide-amaze-12-nct07503210",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo (matched to NNC0487-0111)",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
     }
   ],
   "analysisGroups": [],

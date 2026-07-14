@@ -1,0 +1,76 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "novo-nordisk",
+  "assetId": "nn9662",
+  "studies": [
+    {
+      "id": "novo-nordisk-triple-nct07184632",
+      "companyId": "novo-nordisk",
+      "assetId": "nn9662",
+      "programId": "novo-nordisk-triple-subcutaneous-injection",
+      "officialTitle": "A Study Investigating Safety, Tolerability and Efficacy of Once-weekly NNC0662-0419 in Participants Living With Overweight or Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07184632"
+        }
+      ],
+      "protocolIdentifiers": [
+        "U1111-1317-2736"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07184632",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-05-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Quadruple-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants living with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07184632",
+            "title": "study record (NCT07184632)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct07184632-nnc0662-0419",
+      "studyId": "novo-nordisk-triple-nct07184632",
+      "role": "experimental",
+      "label": "NNC0662-0419",
+      "intervention": "NNC0662-0419",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "nn9662"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07184632-placebo",
+      "studyId": "novo-nordisk-triple-nct07184632",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

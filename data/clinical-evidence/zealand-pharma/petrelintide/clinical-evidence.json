@@ -46,6 +46,46 @@
           }
         ]
       }
+    },
+    {
+      "id": "zealand-pharma-petrelintide-zupreme-2-nct06926842",
+      "companyId": "zealand-pharma",
+      "assetId": "petrelintide",
+      "programId": "zealand-pharma-petrelintide-subcutaneous-injection",
+      "officialTitle": "A Randomized, Double-Blind, Phase 2 Trial of Once-Weekly Petrelintide Compared With Placebo in Participants With Overweight or Obesity and Type 2 Diabetes",
+      "acronym": "ZUPREME 2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06926842"
+        }
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06926842",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-01-15"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with overweight or obesity and type 2 diabetes.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06926842",
+            "title": "ZUPREME 2 study record (NCT06926842)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -120,6 +160,72 @@
       "role": "placebo",
       "label": "Placebo",
       "intervention": "Matching placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-2-treatment-a-petrelintide-dose-1",
+      "studyId": "zealand-pharma-petrelintide-zupreme-2-nct06926842",
+      "role": "experimental",
+      "label": "Treatment A: Petrelintide Dose 1",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-2-treatment-b-petrelintide-placebo-dose-1",
+      "studyId": "zealand-pharma-petrelintide-zupreme-2-nct06926842",
+      "role": "placebo",
+      "label": "Treatment B: Petrelintide Placebo Dose 1",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-2-treatment-c-petrelintide-dose-2",
+      "studyId": "zealand-pharma-petrelintide-zupreme-2-nct06926842",
+      "role": "experimental",
+      "label": "Treatment C: Petrelintide Dose 2",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-2-treatment-d-petrelintide-placebo-dose-2",
+      "studyId": "zealand-pharma-petrelintide-zupreme-2-nct06926842",
+      "role": "placebo",
+      "label": "Treatment D: Petrelintide Placebo Dose 2",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-2-treatment-e-petrelintide-dose-3",
+      "studyId": "zealand-pharma-petrelintide-zupreme-2-nct06926842",
+      "role": "experimental",
+      "label": "Treatment E: Petrelintide Dose 3",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-2-treatment-f-petrelintide-placebo-dose-3",
+      "studyId": "zealand-pharma-petrelintide-zupreme-2-nct06926842",
+      "role": "placebo",
+      "label": "Treatment F: Petrelintide Placebo Dose 3",
+      "intervention": "Placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly"
     }

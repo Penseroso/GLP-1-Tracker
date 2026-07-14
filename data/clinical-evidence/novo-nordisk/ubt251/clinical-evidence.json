@@ -54,6 +54,48 @@
         "overallStatus": "completed",
         "sourceStatus": "Completed"
       }
+    },
+    {
+      "id": "novo-nordisk-ubt251-nct07395687",
+      "companyId": "novo-nordisk",
+      "assetId": "ubt251",
+      "programId": "novo-nordisk-ubt251-subcutaneous-injection",
+      "officialTitle": "A Study Investigating Safety, Tolerability and Efficacy of UBT251 in Participants Living With Overweight or Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07395687"
+        }
+      ],
+      "protocolIdentifiers": [
+        "U1111-1324-3831"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07395687",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-04-21"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants living with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07395687",
+            "title": "study record (NCT07395687)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -112,6 +154,141 @@
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "24 weeks"
+    },
+    {
+      "id": "nct07395687-part-a-ubt251",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part A - UBT251",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-a-placebo",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "placebo",
+      "label": "Part A - placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-b-arm-a-ubt251",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part B - Arm A (UBT251)",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-b-arm-b-ubt251",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part B - Arm B (UBT251)",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-b-arm-c-ubt251",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part B - Arm C (UBT251)",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-b-arm-d-ubt251",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part B - Arm D (UBT251)",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-b-arm-e-ubt251",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part B - Arm E (UBT251)",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-b-placebo",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "placebo",
+      "label": "Part B - placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-c-ubt251-dose-1",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part C - UBT251 dose 1",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-c-ubt251-dose-2",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part C - UBT251 dose 2",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct07395687-part-c-ubt251-dose-3",
+      "studyId": "novo-nordisk-ubt251-nct07395687",
+      "role": "experimental",
+      "label": "Part C - UBT251 dose 3",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
     }
   ],
   "analysisGroups": [],

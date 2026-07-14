@@ -1,0 +1,74 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "eli-lilly-and-company",
+  "assetId": "ly3537031",
+  "studies": [
+    {
+      "id": "eli-lilly-and-company-brenipatide-nct07476118",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3537031",
+      "programId": "eli-lilly-and-company-ly3537031-subcutaneous-injection",
+      "officialTitle": "A Phase 1b, Randomized, Investigator- and Participant-Blinded, Placebo-Controlled Multiple-Dose Study to Evaluate the Pharmacodynamics, Safety, Tolerability, and Pharmacokinetics of Brenipatide in Healthy Participants With Overweight or Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07476118"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J2S-MC-GZMU"
+      ],
+      "phase": "Phase 1",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07476118",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-04-20"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Healthy participants with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07476118",
+            "title": "study record (NCT07476118)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct07476118-brenipatide",
+      "studyId": "eli-lilly-and-company-brenipatide-nct07476118",
+      "role": "experimental",
+      "label": "Brenipatide",
+      "intervention": "Brenipatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3537031"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct07476118-placebo",
+      "studyId": "eli-lilly-and-company-brenipatide-nct07476118",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

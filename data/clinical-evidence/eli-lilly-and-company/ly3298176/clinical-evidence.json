@@ -394,6 +394,483 @@
         "overallStatus": "completed",
         "sourceStatus": "Completed"
       }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-mmo-nct05556512",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-surmount-mmo",
+      "officialTitle": "A Phase 3, Randomized, Double-blind, Placebo-Controlled Study to Investigate the Effect of Tirzepatide on the Reduction of Morbidity and Mortality in Adults With Obesity",
+      "acronym": "SURMOUNT-MMO",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05556512"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I8F-MC-GPIJ",
+        "2022-501744-15-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05556512",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-01-12"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Adults with obesity, without type 2 diabetes, at increased cardiovascular risk.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05556512",
+            "title": "SURMOUNT-MMO study record (NCT05556512)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-nct06037252",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-higher-dose-t2d",
+      "officialTitle": "A Phase 2, Randomized, Double-blind, Placebo-Controlled Study to Assess the Efficacy and Safety of Investigational Tirzepatide Doses in Participants With Type 2 Diabetes and Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06037252"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I8F-MC-GPIT",
+        "2023-504561-24-00"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06037252",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-03-23"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo and active comparator"
+      },
+      "population": "Participants with type 2 diabetes and obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06037252",
+            "title": "study record (NCT06037252)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-treasure-ckd-nct05536804",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-higher-dose-ckd",
+      "officialTitle": "Tirzepatide Study of Renal Function in People With Overweight or Obesity and Chronic Kidney Disease With or Without Type 2 Diabetes: Focus on Kidney Hypoxia in Relation to Fatty Kidney Disease Using Multiparametric Magnetic Resonance Imaging",
+      "acronym": "TREASURE-CKD",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05536804"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I8F-MC-GPIG",
+        "2021-005273-47",
+        "2023-506082-60-00"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05536804",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-05-08"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with overweight or obesity and chronic kidney disease, with or without type 2 diabetes.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05536804",
+            "title": "TREASURE-CKD study record (NCT05536804)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surmount-adolescents-2-nct06439277",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-adolescent-obesity",
+      "officialTitle": "Efficacy and Safety of Tirzepatide Once Weekly Versus Placebo for the Treatment of Obesity and Weight-Related Comorbidities in Adolescents: A Randomized, Double-Blind, Placebo- Controlled Trial (SURMOUNT-ADOLESCENTS-2)",
+      "acronym": "SURMOUNT-ADOLESCENTS-2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06439277"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I8F-MC-GPIX"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06439277",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Adolescents with obesity and weight-related comorbidities.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06439277",
+            "title": "SURMOUNT-ADOLESCENTS-2 study record (NCT06439277)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-surpass-t1d-1-nct06914895",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-type-1-diabetes",
+      "officialTitle": "A Phase 3, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study Evaluating the Efficacy and Safety of Tirzepatide Once Weekly Compared to Placebo in Adult Participants With Type 1 Diabetes and Obesity or Overweight",
+      "acronym": "SURPASS-T1D-1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06914895"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I8F-MC-GPJA",
+        "2024-519684-17-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06914895",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-05-12"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Adults with type 1 diabetes and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06914895",
+            "title": "SURPASS-T1D-1 study record (NCT06914895)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "regimenId": "eli-lilly-and-company-bimagrumab-tirzepatide-obesity",
+      "officialTitle": "A Phase 2, Double-Blind, Randomized, Placebo-Controlled Study of Bimagrumab and Tirzepatide, Alone or in Combination, to Investigate the Efficacy and Safety in Adult Participants With Obesity or Overweight Without Type 2 Diabetes",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06643728"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J4Z-MC-GIDF"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06643728",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-05-26"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06643728",
+            "title": "study record (NCT06643728)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "regimenId": "eli-lilly-and-company-mibavademab-tirzepatide-obesity",
+      "officialTitle": "A Phase 2, Randomized, Double-Blind, Placebo-Controlled, Proof-of-Concept Study of Once-Weekly Tirzepatide Plus Mibavademab Compared With Tirzepatide Alone in Adult Participants With Obesity",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06373146"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I8F-MC-GPIV"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06373146",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-05-06"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06373146",
+            "title": "study record (NCT06373146)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-together-pso-nct06588283",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "regimenId": "eli-lilly-and-company-ixekizumab-tirzepatide-plaque-psoriasis-obesity",
+      "officialTitle": "Efficacy and Safety of Ixekizumab or Ixekizumab Concomitantly Administered With Tirzepatide in Adult Participants With Moderate-to-Severe Plaque Psoriasis and Obesity or Overweight: A Phase 3b, Randomized, Multicenter, Open-Label Study (TOGETHER-PsO)",
+      "acronym": "TOGETHER-PsO",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06588283"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I1F-MC-RHDC"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06588283",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-06-17"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Open-label",
+        "comparator": "Ixekizumab monotherapy"
+      },
+      "population": "Adults with moderate-to-severe plaque psoriasis and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06588283",
+            "title": "TOGETHER-PsO study record (NCT06588283)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-together-psa-nct06588296",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "regimenId": "eli-lilly-and-company-ixekizumab-tirzepatide-psoriatic-arthritis-obesity",
+      "officialTitle": "Efficacy and Safety of Ixekizumab or Ixekizumab Concomitantly Administered With Tirzepatide in Adult Participants With Active Psoriatic Arthritis and Obesity or Overweight: A Phase 3b, Randomized, Multicenter, Open-Label Study (TOGETHER-PsA)",
+      "acronym": "TOGETHER-PsA",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06588296"
+        }
+      ],
+      "protocolIdentifiers": [
+        "I1F-MC-RHDB"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06588296",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-05-13"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Open-label",
+        "comparator": "Ixekizumab monotherapy"
+      },
+      "population": "Adults with active psoriatic arthritis and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06588296",
+            "title": "TOGETHER-PsA study record (NCT06588296)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-commit-uc-nct06937086",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "regimenId": "eli-lilly-and-company-mirikizumab-tirzepatide-ulcerative-colitis-obesity",
+      "officialTitle": "A Phase 3b, Randomized, Multicenter, Controlled Study of Mirikizumab and Placebo or Mirikizumab Concomitantly Administered With Tirzepatide in Adult Participants With Moderately to Severely Active Ulcerative Colitis and Obesity or Overweight",
+      "acronym": "COMMIT-UC",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06937086"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2024-520209-38-00",
+        "I6T-MC-AMCD"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06937086",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Mirikizumab plus placebo"
+      },
+      "population": "Participants with ulcerative colitis and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06937086",
+            "title": "COMMIT-UC study record (NCT06937086)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-tirzepatide-commit-cd-nct06937099",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3298176",
+      "regimenId": "eli-lilly-and-company-mirikizumab-tirzepatide-crohns-disease-obesity",
+      "officialTitle": "A Phase 3b, Randomized, Multicenter, Controlled Study of Mirikizumab and Placebo or Mirikizumab Concomitantly Administered With Tirzepatide in Adult Participants With Moderately to Severely Active Crohn's Disease and Obesity or Overweight",
+      "acronym": "COMMIT-CD",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06937099"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2024-520210-21-00",
+        "I6T-MC-AMCE"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06937099",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Mirikizumab plus placebo"
+      },
+      "population": "Participants with Crohn's disease and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06937099",
+            "title": "COMMIT-CD study record (NCT06937099)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -683,6 +1160,457 @@
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "surmount-mmo-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-mmo-nct05556512",
+      "role": "experimental",
+      "label": "Tirzepatide",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surmount-mmo-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-mmo-nct05556512",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06037252-tirzepatide-high-dose-1",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06037252",
+      "role": "experimental",
+      "label": "Tirzepatide High Dose 1",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06037252-tirzepatide-high-dose-2",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06037252",
+      "role": "experimental",
+      "label": "Tirzepatide High Dose 2",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06037252-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06037252",
+      "role": "active comparator",
+      "label": "Tirzepatide",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06037252-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06037252",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "treasure-ckd-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-treasure-ckd-nct05536804",
+      "role": "experimental",
+      "label": "Tirzepatide",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "treasure-ckd-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-treasure-ckd-nct05536804",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surmount-adolescents-2-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-adolescents-2-nct06439277",
+      "role": "experimental",
+      "label": "Tirzepatide",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surmount-adolescents-2-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-adolescents-2-nct06439277",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surpass-t1d-1-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-tirzepatide-surpass-t1d-1-nct06914895",
+      "role": "experimental",
+      "label": "Tirzepatide Dose 1",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surpass-t1d-1-tirzepatide-dose-2",
+      "studyId": "eli-lilly-and-company-tirzepatide-surpass-t1d-1-nct06914895",
+      "role": "experimental",
+      "label": "Tirzepatide Dose 2",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surpass-t1d-1-tirzepatide-dose-3",
+      "studyId": "eli-lilly-and-company-tirzepatide-surpass-t1d-1-nct06914895",
+      "role": "experimental",
+      "label": "Tirzepatide Dose 3",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surpass-t1d-1-tirzepatide-dose-4",
+      "studyId": "eli-lilly-and-company-tirzepatide-surpass-t1d-1-nct06914895",
+      "role": "experimental",
+      "label": "Tirzepatide Dose 4",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "surpass-t1d-1-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surpass-t1d-1-nct06914895",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06643728-part-a-bimagrumab-dose-2-tirzepatide-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part A: Bimagrumab Dose 2 + Tirzepatide Placebo",
+      "intervention": "Bimagrumab plus Tirzepatide Placebo"
+    },
+    {
+      "id": "nct06643728-part-a-bimagrumab-placebo-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "active comparator",
+      "label": "Part A: Bimagrumab Placebo + Tirzepatide Dose 1",
+      "intervention": "Tirzepatide plus Bimagrumab Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-a-bimagrumab-placebo-tirzepatide-dose-2",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "active comparator",
+      "label": "Part A: Bimagrumab Placebo + Tirzepatide Dose 2",
+      "intervention": "Tirzepatide plus Bimagrumab Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-a-bimagrumab-dose-1-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part A: Bimagrumab Dose 1 + Tirzepatide Dose 1",
+      "intervention": "Bimagrumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-a-bimagrumab-dose-1-tirzepatide-dose-2",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part A: Bimagrumab Dose 1 + Tirzepatide Dose 2",
+      "intervention": "Bimagrumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-a-bimagrumab-dose-2-tirzepatide-dose-2",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part A: Bimagrumab Dose 2 + Tirzepatide Dose 2",
+      "intervention": "Bimagrumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-a-bimagrumab-placebo-tirzepatide-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "placebo",
+      "label": "Part A: Bimagrumab Placebo + Tirzepatide Placebo",
+      "intervention": "Bimagrumab Placebo plus Tirzepatide Placebo"
+    },
+    {
+      "id": "nct06643728-part-b-bimagrumab-dose-2-no-titration-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part B: Bimagrumab Dose 2 (no titration) + Tirzepatide Dose 1",
+      "intervention": "Bimagrumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-b-bimagrumab-dose-2-fast-titration-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part B: Bimagrumab Dose 2 (fast titration) + Tirzepatide Dose 1",
+      "intervention": "Bimagrumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-b-bimagrumab-dose-2-slow-titration-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part B: Bimagrumab Dose 2 (slow titration) + Tirzepatide Dose 1",
+      "intervention": "Bimagrumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06643728-part-b-bimagrumab-dose-1-tirzepatide-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "experimental",
+      "label": "Part B: Bimagrumab Dose 1 + Tirzepatide Placebo",
+      "intervention": "Bimagrumab plus Tirzepatide Placebo"
+    },
+    {
+      "id": "nct06643728-part-b-bimagrumab-placebo-tirzepatide-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06643728",
+      "role": "placebo",
+      "label": "Part B: Bimagrumab Placebo + Tirzepatide Placebo",
+      "intervention": "Bimagrumab Placebo plus Tirzepatide Placebo"
+    },
+    {
+      "id": "nct06373146-tirzepatide-tzp-mibavademab-miba-group-a",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "Tirzepatide (TZP) + Mibavademab (MIBA) [Group A]",
+      "intervention": "Tirzepatide plus Mibavademab",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06373146-tzp-mibavademab-placebo-miba-pbo-group-b",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "TZP + Mibavademab-placebo (MIBA-PBO) [Group B]",
+      "intervention": "Tirzepatide plus Mibavademab-Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06373146-tzp-miba-then-tirzepatide-placebo-tzp-pbo-miba-group-c",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "TZP + MIBA then Tirzepatide-placebo (TZP-PBO) + MIBA [Group C]",
+      "intervention": "Tirzepatide plus Mibavademab plus Tirzepatide-Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06373146-tzp-miba-group-d",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "TZP + MIBA [Group D]",
+      "intervention": "Tirzepatide plus Mibavademab",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06373146-tzp-miba-pbo-group-e",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "TZP + MIBA-PBO [Group E]",
+      "intervention": "Tirzepatide plus Mibavademab-Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06373146-tzp-miba-pbo-then-tzp-pbo-miba-group-f",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "TZP + MIBA-PBO then TZP-PBO + MIBA [Group F]",
+      "intervention": "Tirzepatide plus Mibavademab plus Tirzepatide-Placebo plus Mibavademab-Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06373146-tzp-miba-pbo-then-tzp-miba-group-g",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "TZP + MIBA-PBO then TZP + MIBA [Group G]",
+      "intervention": "Tirzepatide plus Mibavademab plus Mibavademab-Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06373146-tzp-miba-pbo-then-tzp-pbo-miba-pbo-group-h",
+      "studyId": "eli-lilly-and-company-tirzepatide-nct06373146",
+      "role": "experimental",
+      "label": "TZP + MIBA-PBO then TZP-PBO + MIBA-PBO [Group H]",
+      "intervention": "Tirzepatide plus Tirzepatide-Placebo plus Mibavademab-Placebo",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "together-pso-ixekizumab",
+      "studyId": "eli-lilly-and-company-tirzepatide-together-pso-nct06588283",
+      "role": "experimental",
+      "label": "Ixekizumab",
+      "intervention": "Ixekizumab"
+    },
+    {
+      "id": "together-pso-ixekizumab-and-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-together-pso-nct06588283",
+      "role": "experimental",
+      "label": "Ixekizumab and Tirzepatide",
+      "intervention": "Ixekizumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "together-psa-ixekizumab",
+      "studyId": "eli-lilly-and-company-tirzepatide-together-psa-nct06588296",
+      "role": "experimental",
+      "label": "Ixekizumab",
+      "intervention": "Ixekizumab"
+    },
+    {
+      "id": "together-psa-ixekizumab-and-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-together-psa-nct06588296",
+      "role": "experimental",
+      "label": "Ixekizumab and Tirzepatide",
+      "intervention": "Ixekizumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "commit-uc-mirikizumab-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-commit-uc-nct06937086",
+      "role": "experimental",
+      "label": "Mirikizumab + Tirzepatide",
+      "intervention": "Mirikizumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "commit-uc-mirikizumab-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-commit-uc-nct06937086",
+      "role": "experimental",
+      "label": "Mirikizumab + Placebo",
+      "intervention": "Mirikizumab plus Placebo"
+    },
+    {
+      "id": "commit-cd-mirikizumab-tirzepatide",
+      "studyId": "eli-lilly-and-company-tirzepatide-commit-cd-nct06937099",
+      "role": "experimental",
+      "label": "Mirikizumab + Tirzepatide",
+      "intervention": "Mirikizumab plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "commit-cd-mirikizumab-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-commit-cd-nct06937099",
+      "role": "experimental",
+      "label": "Mirikizumab + Placebo",
+      "intervention": "Mirikizumab plus Placebo"
     }
   ],
   "analysisGroups": [],

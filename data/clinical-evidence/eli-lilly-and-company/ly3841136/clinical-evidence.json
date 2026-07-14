@@ -50,6 +50,271 @@
         "overallStatus": "completed",
         "sourceStatus": "Completed"
       }
+    },
+    {
+      "id": "eli-lilly-and-company-eloralintide-enlighten-1-nct07321886",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3841136",
+      "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection",
+      "officialTitle": "A Phase 3 Randomized, Double-Blind, Placebo-Controlled Study to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Obesity or Overweight, Without Type 2 Diabetes",
+      "acronym": "ENLIGHTEN-1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07321886"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J3R-MC-YDAG",
+        "2025-523657-34-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07321886",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity, or overweight without type 2 diabetes.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07321886",
+            "title": "ENLIGHTEN-1 study record (NCT07321886)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-eloralintide-enlighten-2-nct07282600",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3841136",
+      "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection",
+      "officialTitle": "A Phase 3 Randomized, Double-Blind, Placebo-Controlled Study to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Obesity or Overweight, and Type 2 Diabetes",
+      "acronym": "ENLIGHTEN-2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07282600"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J3R-MC-YDAF",
+        "2025-523658-15-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07282600",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obesity or overweight and type 2 diabetes.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07282600",
+            "title": "ENLIGHTEN-2 study record (NCT07282600)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-eloralintide-nct06345066",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3841136",
+      "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection",
+      "officialTitle": "A Multiple Dose Combination Study to Evaluate the Safety and Tolerability of Tirzepatide and LY3841136 in Overweight and Obese Participants",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06345066"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J3R-MC-YDAC"
+      ],
+      "phase": "Phase 1",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06345066",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2025-10-15"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Overweight and obese participants.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06345066",
+            "title": "study record (NCT06345066)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-eloralintide-enlighten-4-nct07353931",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3841136",
+      "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection-osteoarthritis",
+      "officialTitle": "A Master Protocol for Phase 3 Randomized, Double-Blind, Placebo-Controlled Studies to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Osteoarthritis Knee Pain, and Obesity or Overweight (ENLIGHTEN-4)",
+      "acronym": "ENLIGHTEN-4",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07353931"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2025-523768-19-00",
+        "J3R-MC-YDAN",
+        "J3R-MC-YOA1",
+        "J3R-MC-YOA2"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07353931",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with osteoarthritis knee pain and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07353931",
+            "title": "ENLIGHTEN-4 study record (NCT07353931)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-eloralintide-enlighten-3-nct07369011",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3841136",
+      "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection-obstructive-sleep-apnea",
+      "officialTitle": "A Master Protocol for Phase 3 Randomized, Double-Blind, Placebo-Controlled Studies to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Moderate to Severe Obstructive Sleep Apnea, and Obesity or Overweight",
+      "acronym": "ENLIGHTEN-3",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07369011"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J3R-MC-YDAO",
+        "J3R-MC-YSA1",
+        "J3R-MC-YSA2",
+        "2025-523769-11-00"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07369011",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with obstructive sleep apnea and obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07369011",
+            "title": "ENLIGHTEN-3 study record (NCT07369011)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-eloralintide-nct06603571",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3841136",
+      "regimenId": "eli-lilly-and-company-eloralintide-tirzepatide-obesity",
+      "officialTitle": "A Phase 2, Parallel-Group, Double-Blind, Placebo-Controlled Study to Investigate Weight Management With LY3841136 and Tirzepatide, Alone or in Combination, in Adult Participants With Obesity or Overweight With Type 2 Diabetes",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06603571"
+        }
+      ],
+      "protocolIdentifiers": [
+        "W8M-MC-LAA2",
+        "W8M-MC-CWMM Master Protocol"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06603571",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2025-09-26"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo and active comparator"
+      },
+      "population": "Participants with obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06603571",
+            "title": "study record (NCT06603571)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -153,6 +418,340 @@
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "enlighten-1-eloralintide-dose-1",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-1-nct07321886",
+      "role": "experimental",
+      "label": "Eloralintide Dose 1",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-1-eloralintide-dose-2",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-1-nct07321886",
+      "role": "experimental",
+      "label": "Eloralintide Dose 2",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-1-eloralintide-dose-3",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-1-nct07321886",
+      "role": "experimental",
+      "label": "Eloralintide Dose 3",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-1-eloralintide-dose-4",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-1-nct07321886",
+      "role": "experimental",
+      "label": "Eloralintide Dose 4",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-1-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-1-nct07321886",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-2-eloralintide-dose-1",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-2-nct07282600",
+      "role": "experimental",
+      "label": "Eloralintide Dose 1",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-2-eloralintide-dose-2",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-2-nct07282600",
+      "role": "experimental",
+      "label": "Eloralintide Dose 2",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-2-eloralintide-dose-3",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-2-nct07282600",
+      "role": "experimental",
+      "label": "Eloralintide Dose 3",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-2-eloralintide-dose-4",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-2-nct07282600",
+      "role": "experimental",
+      "label": "Eloralintide Dose 4",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-2-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-2-nct07282600",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06345066-ly3841136-tirzepatide",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06345066",
+      "role": "experimental",
+      "label": "LY3841136 + Tirzepatide",
+      "intervention": "Tirzepatide plus LY3841136",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06345066-placebo-tirzepatide",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06345066",
+      "role": "placebo",
+      "label": "Placebo + Tirzepatide",
+      "intervention": "Tirzepatide plus Placebo"
+    },
+    {
+      "id": "enlighten-4-eloralintide-yoa1",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-4-nct07353931",
+      "role": "experimental",
+      "label": "Eloralintide (YOA1)",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-4-placebo-yoa1",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-4-nct07353931",
+      "role": "placebo",
+      "label": "Placebo (YOA1)",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-4-eloralintide-yoa2",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-4-nct07353931",
+      "role": "experimental",
+      "label": "Eloralintide (YOA2)",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-4-placebo-yoa2",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-4-nct07353931",
+      "role": "placebo",
+      "label": "Placebo (YOA2)",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-3-eloralintide-ysa1",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-3-nct07369011",
+      "role": "experimental",
+      "label": "Eloralintide (YSA1)",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-3-placebo-ysa1",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-3-nct07369011",
+      "role": "placebo",
+      "label": "Placebo (YSA1)",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-3-eloralintide-ysa2",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-3-nct07369011",
+      "role": "experimental",
+      "label": "Eloralintide (YSA2)",
+      "intervention": "Eloralintide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enlighten-3-placebo-ysa2",
+      "studyId": "eli-lilly-and-company-eloralintide-enlighten-3-nct07369011",
+      "role": "placebo",
+      "label": "Placebo (YSA2)",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-1",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 1",
+      "intervention": "LY3841136",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-2",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 2",
+      "intervention": "LY3841136",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-3",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 3",
+      "intervention": "LY3841136",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-1-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 1 + Tirzepatide Dose 1",
+      "intervention": "LY3841136 plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-2-tirzepatide-dose-1",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 2 + Tirzepatide Dose 1",
+      "intervention": "LY3841136 plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-2-tirzepatide-dose-2",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 2 + Tirzepatide Dose 2",
+      "intervention": "LY3841136 plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-3-tirzepatide-dose-3",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 3 + Tirzepatide Dose 3",
+      "intervention": "LY3841136 plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-tirzepatide-dose-3",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "active comparator",
+      "label": "Tirzepatide Dose 3",
+      "intervention": "Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3298176"
+      }
+    },
+    {
+      "id": "nct06603571-ly3841136-dose-2-tirzepatide-dose-3",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "experimental",
+      "label": "LY3841136 Dose 2 + Tirzepatide Dose 3",
+      "intervention": "LY3841136 plus Tirzepatide",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3841136"
+      }
+    },
+    {
+      "id": "nct06603571-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-nct06603571",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo"
     }
   ],
   "analysisGroups": [],

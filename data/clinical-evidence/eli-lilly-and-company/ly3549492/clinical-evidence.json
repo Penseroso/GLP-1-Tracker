@@ -1,0 +1,129 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "eli-lilly-and-company",
+  "assetId": "ly3549492",
+  "studies": [
+    {
+      "id": "eli-lilly-and-company-naperiglipron-nct06683508",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3549492",
+      "programId": "eli-lilly-and-company-ly3549492-oral-solution",
+      "officialTitle": "A Phase 2, Parallel-Group, Double-Blind Study to Investigate Weight Management With LY3549492 Once Daily Compared With Placebo in Adult Participants With Obesity or Overweight",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06683508"
+        }
+      ],
+      "protocolIdentifiers": [
+        "W8M-MC-GN01",
+        "W8M-MC-CWMM"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06683508",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-05-13"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Adult participants with obesity or overweight.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06683508",
+            "title": "study record (NCT06683508)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct06683508-ly3549492-dose-1",
+      "studyId": "eli-lilly-and-company-naperiglipron-nct06683508",
+      "role": "experimental",
+      "label": "LY3549492 Dose 1",
+      "intervention": "LY3549492",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3549492"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06683508-ly3549492-dose-2",
+      "studyId": "eli-lilly-and-company-naperiglipron-nct06683508",
+      "role": "experimental",
+      "label": "LY3549492 Dose 2",
+      "intervention": "LY3549492",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3549492"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06683508-ly3549492-dose-3",
+      "studyId": "eli-lilly-and-company-naperiglipron-nct06683508",
+      "role": "experimental",
+      "label": "LY3549492 Dose 3",
+      "intervention": "LY3549492",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3549492"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06683508-ly3549492-dose-4",
+      "studyId": "eli-lilly-and-company-naperiglipron-nct06683508",
+      "role": "experimental",
+      "label": "LY3549492 Dose 4",
+      "intervention": "LY3549492",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3549492"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06683508-ly3549492-dose-5",
+      "studyId": "eli-lilly-and-company-naperiglipron-nct06683508",
+      "role": "experimental",
+      "label": "LY3549492 Dose 5",
+      "intervention": "LY3549492",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3549492"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "nct06683508-placebo",
+      "studyId": "eli-lilly-and-company-naperiglipron-nct06683508",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

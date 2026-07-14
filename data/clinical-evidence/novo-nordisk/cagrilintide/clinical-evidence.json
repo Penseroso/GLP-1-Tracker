@@ -51,6 +51,50 @@
         "overallStatus": "completed",
         "sourceStatus": "Completed"
       }
+    },
+    {
+      "id": "novo-nordisk-cagrilintide-renew-1-nct07220642",
+      "companyId": "novo-nordisk",
+      "assetId": "cagrilintide",
+      "programId": "novo-nordisk-cagrilintide-subcutaneous-injection",
+      "officialTitle": "Efficacy and Safety of Cagrilintide for Weight Management in Participants With Overweight or Obesity",
+      "acronym": "RENEW 1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07220642"
+        }
+      ],
+      "protocolIdentifiers": [
+        "U1111-1314-8906",
+        "2024-519530-24"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07220642",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-06-30"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Quadruple-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Participants with overweight or obesity.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07220642",
+            "title": "RENEW 1 study record (NCT07220642)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
     }
   ],
   "arms": [
@@ -97,6 +141,28 @@
       "dosingFrequency": "Once weekly or once daily",
       "treatmentDuration": "26 weeks",
       "plannedN": 101
+    },
+    {
+      "id": "renew-1-cagrilintide",
+      "studyId": "novo-nordisk-cagrilintide-renew-1-nct07220642",
+      "role": "experimental",
+      "label": "Cagrilintide",
+      "intervention": "Cagrilintide",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "cagrilintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "renew-1-placebo",
+      "studyId": "novo-nordisk-cagrilintide-renew-1-nct07220642",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
     }
   ],
   "analysisGroups": [],

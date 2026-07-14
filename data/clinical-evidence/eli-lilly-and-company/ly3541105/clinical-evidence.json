@@ -1,0 +1,114 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "eli-lilly-and-company",
+  "assetId": "ly3541105",
+  "studies": [
+    {
+      "id": "eli-lilly-and-company-ly3541105-nct05380323",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3541105",
+      "programId": "eli-lilly-and-company-ly3541105-subcutaneous-injection",
+      "officialTitle": "A Phase 1, Randomized, Placebo-Controlled, Dose-Escalation Study to Evaluate the Safety, Tolerability, and PK of LY3541105 Following Single Doses in Healthy/Overweight Participants and Multiple Doses in Overweight Participants",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05380323"
+        }
+      ],
+      "protocolIdentifiers": [
+        "J3S-MC-YEAA"
+      ],
+      "phase": "Phase 1",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05380323",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2025-06-27"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo"
+      },
+      "population": "Healthy participants with overweight (single doses) and overweight participants (multiple doses).",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05380323",
+            "title": "study record (NCT05380323)",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "nct05380323-ly3541105-part-a",
+      "studyId": "eli-lilly-and-company-ly3541105-nct05380323",
+      "role": "experimental",
+      "label": "LY3541105 (Part A)",
+      "intervention": "LY3541105",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3541105"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct05380323-ly3541105-part-b",
+      "studyId": "eli-lilly-and-company-ly3541105-nct05380323",
+      "role": "experimental",
+      "label": "LY3541105 (Part B)",
+      "intervention": "LY3541105",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3541105"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct05380323-ly3541105-part-c",
+      "studyId": "eli-lilly-and-company-ly3541105-nct05380323",
+      "role": "experimental",
+      "label": "LY3541105 (Part C)",
+      "intervention": "LY3541105",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3541105"
+      },
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct05380323-placebo-part-a",
+      "studyId": "eli-lilly-and-company-ly3541105-nct05380323",
+      "role": "placebo",
+      "label": "Placebo (Part A)",
+      "intervention": "Placebo",
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct05380323-placebo-part-b",
+      "studyId": "eli-lilly-and-company-ly3541105-nct05380323",
+      "role": "placebo",
+      "label": "Placebo (Part B)",
+      "intervention": "Placebo",
+      "route": "Subcutaneous"
+    },
+    {
+      "id": "nct05380323-placebo-part-c",
+      "studyId": "eli-lilly-and-company-ly3541105-nct05380323",
+      "role": "placebo",
+      "label": "Placebo (Part C)",
+      "intervention": "Placebo",
+      "route": "Subcutaneous"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}
