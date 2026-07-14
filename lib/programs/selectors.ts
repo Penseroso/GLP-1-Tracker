@@ -189,6 +189,47 @@ export function sortProgramsForRegister(
   });
 }
 
+/**
+ * Deterministic ordering for the program variants grouped under one asset.
+ * Development maturity uses the same registry-backed rank as the Program
+ * Register; the remaining fields are display-stability tie breakers only.
+ */
+export function sortProgramVariants(
+  programs: PipelineProgram[],
+): PipelineProgram[] {
+  return programs.slice().sort((a, b) => {
+    const rankDiff =
+      (developmentStageRank[b.development.stage] ?? 0) -
+      (developmentStageRank[a.development.stage] ?? 0);
+    if (rankDiff !== 0) {
+      return rankDiff;
+    }
+
+    const indicationDiff = a.indications
+      .join("|")
+      .localeCompare(b.indications.join("|"));
+    if (indicationDiff !== 0) {
+      return indicationDiff;
+    }
+
+    const administrationDiff = [
+      a.administration.route,
+      a.administration.dosageForm,
+      a.administration.dosingInterval ?? "",
+    ]
+      .join("|")
+      .localeCompare(
+        [
+          b.administration.route,
+          b.administration.dosageForm,
+          b.administration.dosingInterval ?? "",
+        ].join("|"),
+      );
+
+    return administrationDiff || a.id.localeCompare(b.id);
+  });
+}
+
 export function getCompanySummaries(
   companyRecords: Company[],
   programs: PipelineProgram[],

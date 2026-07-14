@@ -43,9 +43,8 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
     return <p className="text-sm text-muted-foreground">No arms recorded.</p>;
   }
 
-  // These three fields are optional on ClinicalArmRecord; only add the column
-  // when at least one arm in this study actually reports it. Required fields
-  // (arm, role, intervention, dose, route, frequency, duration) always show.
+  // Inventory Studies may omit dosing details until registry/source reporting
+  // supports them; keep stable columns and render missing values as N/A.
   const showTitration = arms.some((arm) => Boolean(arm.titration));
   const showPlannedN = arms.some((arm) => typeof arm.plannedN === "number");
   const showAnalyzedN = arms.some((arm) => typeof arm.analyzedN === "number");
@@ -169,7 +168,7 @@ function EndpointCard({ group }: { group: EndpointGroupView }) {
         </ul>
       ) : (
         <p className="mt-3 text-sm text-muted-foreground">
-          No reported results.
+          No recorded outcomes.
         </p>
       )}
     </div>
@@ -208,7 +207,7 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
             {study.phase}
           </span>
           <span className="rounded-sm border border-border bg-muted px-2.5 py-1 font-semibold text-muted-foreground">
-            {study.status}
+            {study.registryStatus.sourceStatus}
           </span>
         </div>
       </section>
@@ -220,6 +219,10 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
             value={study.registryIdentifiers
               .map((registry) => registry.id)
               .join(" / ")}
+          />
+          <MetaRow
+            label="Registry status updated"
+            value={study.registryStatus.statusUpdatedAt}
           />
           <MetaRow label="Population" value={study.population} />
           <MetaRow label="Randomization" value={study.design.randomization} />
@@ -265,7 +268,7 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
           </div>
         ) : (
           <p className="text-sm text-muted-foreground">
-            No endpoints recorded.
+            No recorded outcomes.
           </p>
         )}
       </section>

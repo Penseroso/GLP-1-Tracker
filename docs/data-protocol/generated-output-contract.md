@@ -18,9 +18,10 @@ current Contract 1.1 behavior (ADR-0030) and preserve the stage semantics
 - They are produced only by `npm run data:generate`
   (`scripts/data-registry.mjs`) from operating data plus the
   repository-controlled registries under `data/registries/`.
-- Generation creates **no new semantic facts**: every generated record is a
-  verbatim copy of an operating record (see §4). It aggregates and orders; it
-  does not transform, enrich, infer, or join.
+- Generation creates **no new canonical facts**: aggregate records are verbatim
+  copies of operating records (see §4). It aggregates and orders them; the
+  separately versioned asset-study projection derives only reciprocal links
+  already present in canonical Study and Arm records.
 
 ## 2. Determinism and ordering
 
@@ -28,15 +29,15 @@ current Contract 1.1 behavior (ADR-0030) and preserve the stage semantics
 always produce byte-identical output. Ordering is guaranteed by code in
 `scripts/data-registry.mjs`, not merely observed:
 
-- **File set:** exactly four files — `companies.json`,
-  `pipeline-programs.json`, `regimens.json`, and
-  `clinical-evidence.json`.
+- **File set:** exactly five files — `companies.json`,
+  `pipeline-programs.json`, `regimens.json`, `clinical-evidence.json`, and
+  `clinical-evidence-asset-studies.json`.
 - **Company order:** by `id` ascending (`localeCompare`).
 - **Program order:** by `companyId`, then program `id` (`localeCompare`).
 - **Regimen order:** by `companyId`, then regimen `id` (`localeCompare`).
 - **Clinical Evidence order:** studies by `companyId`, `assetId`, then `id`;
-  arms and endpoints by `studyId`, then `id`; outcomes by `studyId`,
-  `endpointId`, then `id` (`localeCompare`).
+  arms, analysis groups, and endpoints by `studyId`, then `id`; outcomes by
+  `studyId`, `endpointId`, then `id` (`localeCompare`).
 - Sort keys (`id`, `companyId`) are unique within the dataset, so ordering is
   total and independent of sort stability.
 - Records are serialized with two-space indentation and a trailing newline;
@@ -52,14 +53,14 @@ output.
 | --- | --- | --- | --- | --- | --- |
 | `companies.json` | every `data/companies/*/company.json` | JSON array of `Company` | flat aggregate | UI company lists, report grouping, loader | yes |
 | `pipeline-programs.json` | every `data/companies/*/pipeline-programs.json` | JSON array of `PipelineProgramRecord` | flat aggregate | UI program board/detail, filtering, reports | yes |
-| `regimens.json` | every `data/companies/*/regimens.json` | JSON array of `RegimenRecord` | flat aggregate | future regimen views/tooling (no current UI) | yes |
-| `clinical-evidence.json` | every `data/clinical-evidence/*/*/clinical-evidence.json` | object with `studies`, `arms`, `endpoints`, and `outcomes` arrays | flat aggregate | future Clinical Evidence tooling (no current UI) | no; separate v2 Clinical Evidence output |
+| `regimens.json` | every `data/companies/*/regimens.json` | JSON array of `RegimenRecord` | flat aggregate | future regimen views/tooling | yes |
+| `clinical-evidence.json` | every `data/clinical-evidence/*/*/clinical-evidence.json` | v3 object with `studies`, `arms`, `analysisGroups`, `endpoints`, and `outcomes` arrays | flat aggregate | Clinical selectors and Study/Asset/Company UI | no; separate Clinical Evidence output |
+| `clinical-evidence-asset-studies.json` | canonical Study and internal Arm links | v2 focal/linked Study IDs per asset | derived projection | asset-wide Clinical selectors | independently versioned |
 
-Each file is a flat concatenation of the corresponding operating records across
-all source folders, then sorted per §2. None is a joined view, index, or
-summary. `regimens.json` is type-safe and generated even though the current UI
-does not display regimens (ADR-0017). `clinical-evidence.json` is generated for
-the separate Clinical Evidence domain and is not displayed by the current UI.
+The four aggregate files concatenate corresponding operating records and sort
+them per §2. The asset-study projection is an index, not a canonical record or
+editable summary. `regimens.json` remains type-safe and generated even though
+the current UI does not display regimens (ADR-0017).
 
 ## 4. Field-level guarantees
 
@@ -82,8 +83,10 @@ For pipeline programs the generated output preserves, when present in the source
 Regimen records preserve their full operating shape (`id`, `companyId`, `name`,
 `configurationKey`, `components`, `indications`, `development`,
 `regulatoryStates`, `administration`, `relationships`, `metadata`).
-Clinical Evidence records preserve Study, Arm, Endpoint, and Outcome source
-records verbatim in separate arrays.
+Clinical Evidence records preserve Study, Arm, AnalysisGroup, Endpoint, and
+Outcome source records verbatim in separate arrays. `registryStatus` is stored
+on Study; result availability is not stored and is derived from Outcome
+existence by selectors.
 
 The generator does **not** join the resolving `Company` object into program or
 regimen records. `PipelineProgram.company` / `Regimen.company` are populated at
@@ -103,6 +106,9 @@ Downstream UI, report, and tool consumers:
 - **Must not** treat generated files as an editable source of truth.
 - **Must** make Company/Pipeline edits in `data/companies/`.
 - **Must** make Clinical Evidence edits in `data/clinical-evidence/`.
+- **Must not** infer program-specific Study relationships: use explicit
+  `Study.programId` only. Asset-wide views may use the generated focal/linked
+  projection.
 - **Must not** infer an absent source fact from a generated-field omission — an
   omitted optional field means "not recorded", not a semantic negative.
 - **Must** trace semantic questions (why a stage, what evidence) back to the

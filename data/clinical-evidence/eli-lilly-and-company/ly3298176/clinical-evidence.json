@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "companyId": "eli-lilly-and-company",
   "assetId": "ly3298176",
   "studies": [
@@ -17,7 +17,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -45,6 +44,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04184622",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -61,7 +66,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -89,6 +93,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04657003",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -105,7 +115,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -133,6 +142,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04657016",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -149,7 +164,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized withdrawal",
         "masking": "Double-blind after open-label lead-in",
@@ -177,6 +191,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04660643",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -193,7 +213,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Open-label",
@@ -221,6 +240,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05822830",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -237,7 +262,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized withdrawal",
         "masking": "Double-blind after open-label lead-in",
@@ -265,6 +289,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06047548",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -280,7 +310,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -308,7 +337,14 @@
             "checkedAt": "2026-07-13"
           }
         ]
-      }
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04847557",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
+      },
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection"
     },
     {
       "id": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
@@ -324,7 +360,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -352,6 +387,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05024032",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     }
   ],

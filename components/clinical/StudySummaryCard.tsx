@@ -15,7 +15,14 @@ export function StudySummaryCard({ study }: { study: StudySummaryView }) {
           {study.phase}
         </span>
       </span>
-      <span className="text-xs text-muted-foreground">{study.status}</span>
+      <span className="text-xs text-muted-foreground">
+        {study.registryStatus.sourceStatus}
+      </span>
+      <span className="text-xs text-muted-foreground">
+        {study.hasReportedOutcomes
+          ? "Recorded outcomes available"
+          : "No recorded outcomes"}
+      </span>
       {study.primaryRegistryId ? (
         <span className="text-xs font-medium text-muted-foreground">
           {study.primaryRegistryId}

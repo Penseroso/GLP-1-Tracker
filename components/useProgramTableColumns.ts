@@ -2,8 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
+  clampProgramTableColumnWidth,
   defaultColumnOrder,
   defaultColumnVisibility,
+  defaultColumnWidths,
   isKnownColumnId,
   isLockedColumn,
   lockedColumnIds,
@@ -13,19 +15,21 @@ import {
 } from "@/config/program-table";
 
 export const COLUMN_PREFS_STORAGE_KEY =
-  "obesity-landscape.program-register.columns.v1";
+  "obesity-landscape.program-register.columns.v2";
 
 const LOCKED_COUNT = lockedColumnIds.length;
 
 type ColumnPreferences = {
   order: ProgramTableColumnId[];
   visible: Record<ProgramTableColumnId, boolean>;
+  widths: Record<ProgramTableColumnId, number>;
 };
 
 function getDefaultPreferences(): ColumnPreferences {
   return {
     order: [...defaultColumnOrder],
     visible: { ...defaultColumnVisibility },
+    widths: { ...defaultColumnWidths },
   };
 }
 
@@ -55,6 +59,10 @@ function normalizePreferences(raw: unknown): ColumnPreferences {
     raw && typeof (raw as ColumnPreferences).visible === "object"
       ? (raw as ColumnPreferences).visible
       : {};
+  const rawWidths =
+    raw && typeof (raw as ColumnPreferences).widths === "object"
+      ? (raw as ColumnPreferences).widths
+      : {};
 
   const seen = new Set<ProgramTableColumnId>();
   const storedOrder: ProgramTableColumnId[] = [];
@@ -76,19 +84,27 @@ function normalizePreferences(raw: unknown): ColumnPreferences {
   const order = [...lockedColumnIds, ...nonLocked];
 
   const visible = {} as Record<ProgramTableColumnId, boolean>;
+  const widths = {} as Record<ProgramTableColumnId, number>;
   for (const id of order) {
     if (isLockedColumn(id)) {
       visible[id] = true;
-      continue;
+    } else {
+      const storedValue = (rawVisible as Record<string, unknown>)[id];
+      visible[id] =
+        typeof storedValue === "boolean"
+          ? storedValue
+          : defaultColumnVisibility[id];
     }
-    const storedValue = (rawVisible as Record<string, unknown>)[id];
-    visible[id] =
-      typeof storedValue === "boolean"
-        ? storedValue
-        : defaultColumnVisibility[id];
+    const storedWidth = (rawWidths as Record<string, unknown>)[id];
+    widths[id] = clampProgramTableColumnWidth(
+      id,
+      typeof storedWidth === "number" && Number.isFinite(storedWidth)
+        ? storedWidth
+        : defaultColumnWidths[id],
+    );
   }
 
-  const normalized: ColumnPreferences = { order, visible };
+  const normalized: ColumnPreferences = { order, visible, widths };
 
   // Enforce the "at least one additional visible column" invariant. If a
   // corrupt/hand-edited value hides everything optional, fall back to the
@@ -123,6 +139,9 @@ export type ProgramColumnControls = {
   toggleColumn: (id: ProgramTableColumnId) => void;
   moveColumnUp: (id: ProgramTableColumnId) => void;
   moveColumnDown: (id: ProgramTableColumnId) => void;
+  getColumnWidth: (id: ProgramTableColumnId) => number;
+  setColumnWidth: (id: ProgramTableColumnId, width: number) => void;
+  resetColumnWidth: (id: ProgramTableColumnId) => void;
   resetColumns: () => void;
   isDefault: boolean;
 };
@@ -175,6 +194,11 @@ export function useProgramTableColumns(): ProgramColumnControls {
   const isVisible = useCallback(
     (id: ProgramTableColumnId) => prefs.visible[id],
     [prefs.visible],
+  );
+
+  const getColumnWidth = useCallback(
+    (id: ProgramTableColumnId) => prefs.widths[id],
+    [prefs.widths],
   );
 
   const canToggle = useCallback(
@@ -265,6 +289,24 @@ export function useProgramTableColumns(): ProgramColumnControls {
     [move],
   );
 
+  const setColumnWidth = useCallback(
+    (id: ProgramTableColumnId, width: number) => {
+      setPrefs((current) => {
+        const nextWidth = clampProgramTableColumnWidth(id, width);
+        if (nextWidth === current.widths[id]) return current;
+        return {
+          ...current,
+          widths: { ...current.widths, [id]: nextWidth },
+        };
+      });
+    },
+    [],
+  );
+
+  const resetColumnWidth = useCallback((id: ProgramTableColumnId) => {
+    setColumnWidth(id, defaultColumnWidths[id]);
+  }, [setColumnWidth]);
+
   const resetColumns = useCallback(() => {
     setPrefs(getDefaultPreferences());
   }, []);
@@ -276,7 +318,10 @@ export function useProgramTableColumns(): ProgramColumnControls {
     const sameVisibility = defaultColumnOrder.every(
       (id) => prefs.visible[id] === defaultColumnVisibility[id],
     );
-    return sameOrder && sameVisibility;
+    const sameWidths = defaultColumnOrder.every(
+      (id) => prefs.widths[id] === defaultColumnWidths[id],
+    );
+    return sameOrder && sameVisibility && sameWidths;
   }, [prefs]);
 
   return {
@@ -291,6 +336,9 @@ export function useProgramTableColumns(): ProgramColumnControls {
     toggleColumn,
     moveColumnUp,
     moveColumnDown,
+    getColumnWidth,
+    setColumnWidth,
+    resetColumnWidth,
     resetColumns,
     isDefault,
   };

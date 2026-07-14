@@ -1,0 +1,130 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "zealand-pharma",
+  "assetId": "petrelintide",
+  "studies": [
+    {
+      "id": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "companyId": "zealand-pharma",
+      "assetId": "petrelintide",
+      "programId": "zealand-pharma-petrelintide-subcutaneous-injection",
+      "officialTitle": "A Randomized, Double-blind, Phase 2, Dose-finding Trial of Once Weekly Petrelintide Compared With Placebo in Participants With Obesity or Overweight With Weight Related Comorbidities",
+      "acronym": "ZUPREME",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06662539"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2024-512549-18"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06662539",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-03-23"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group, dose-finding trial of five once-weekly petrelintide dose groups versus placebo."
+      },
+      "population": "Participants with obesity or overweight and weight-related comorbidities.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06662539",
+            "title": "ZUPREME study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "zupreme-petrelintide-dose-1",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 1",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-2",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 2",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-3",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 3",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-4",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 4",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-5",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 5",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-placebo",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matching placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

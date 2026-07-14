@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "companyId": "novo-nordisk",
   "assetId": "cagrilintide",
   "studies": [
@@ -16,7 +16,6 @@
         }
       ],
       "phase": "Phase 2",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind for active treatment versus pooled placebo",
@@ -45,6 +44,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03856047",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     }
   ],

@@ -88,23 +88,29 @@ every existing in-scope asset:
 1. Read any existing Clinical Evidence source file for the asset.
 2. Discover relevant human interventional clinical studies broadly.
 3. Classify every discovered study as one of:
-   - **entered** - result-bearing, in scope, and represented in source data.
-   - **not entered: result-bearing but not selected for the major evidence set**
-     - result-bearing and in scope, but intentionally not stored because it does
-       not belong to the asset's major current evidence set.
-   - **excluded: no result** - no publicly disclosed study-specific result.
+   - **entered: inventory** - in scope and represented as Study + Arm(s), with
+     no recorded Outcome yet.
+   - **entered: result-bearing** - in scope and represented with Endpoint(s) and
+     Outcome(s).
    - **excluded: outside Scope v1.1** - not relevant to obesity or weight
      management under the Clinical Evidence contract.
-   - **deferred** - identity, result, source, or conflict remains unresolved.
-4. Store only entered studies in operating data. Result-bearing studies not
-   selected for the major evidence set must be reported but not entered.
+   - **deferred** - identity, explicit program/regimen mapping, source, or
+     conflict remains unresolved.
+4. Store every verified in-scope inventory Study. Absence of an Outcome is no
+   longer an exclusion reason.
 
 Do not treat one chronologically latest trial as sufficient. Build the asset's
 major current evidence set.
 
 ## 3. Major Evidence-Set Selection
 
-Include:
+Include in inventory:
+
+- registered, planned, recruiting, active, completed, terminated, suspended,
+  or withdrawn in-scope human interventional Studies with a verifiable registry
+  identity and explicit focal mapping.
+
+Prioritize for result enrichment:
 
 - distinct result-bearing pivotal or confirmatory studies.
 - the latest result-bearing study when no later-stage result exists.
@@ -117,9 +123,6 @@ Exclude:
 - routine subanalyses.
 - extension studies unless they add a distinct core endpoint, population, or
   treatment configuration.
-- registered, planned, recruiting, or completed studies without disclosed
-  study-specific results.
-- protocol-only or design-only disclosures.
 - studies outside the Clinical Evidence obesity/weight-management scope.
 
 ## 4. Sources And Updates
@@ -158,7 +161,15 @@ the affected Outcome and report the conflict.
 
 Populate the implemented `Study`, `Arm`, `AnalysisGroup`, `Endpoint`, and `Outcome`
 structures in `data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json`.
-Every source file declares `"clinicalEvidenceSchemaVersion": "2.0"`.
+Every source file declares `"clinicalEvidenceSchemaVersion": "3.0"`.
+
+- Require exactly one explicit focal mapping: `programId` xor `regimenId`.
+  Program-specific retrieval uses only `programId`; never infer it from the
+  asset, indication, title/acronym, comparator linkage, or source URL.
+- Store one `registryStatus` as the reference registry used for UI and tracking.
+  Preserve normalized `overallStatus`, exact `sourceStatus`, and the official
+  registry update date in `statusUpdatedAt`. Keep research verification in the
+  cited source's `checkedAt`.
 
 - Store experimental, placebo, and active-comparator groups as parallel Arms.
 - Store treatment and comparator arms using the same structure.
@@ -223,13 +234,15 @@ Every source file declares `"clinicalEvidenceSchemaVersion": "2.0"`.
   or p-values, transcribe values visually from charts, distribute pooled results
   across Arms, or attach subgroup results to broader Arms that do not faithfully
   represent the subgroup.
-- Store only endpoints with disclosed results.
+- Store Endpoint and Outcome records only when a result is recorded. An
+  inventory Study contains Study + Arm(s), with empty `analysisGroups`,
+  `endpoints`, and `outcomes` arrays.
 - Keep efficacy outcomes source-reported.
 - Store only a concise study-level safety summary covering major adverse-event
   patterns, serious adverse events, discontinuation, or notable safety signals
   when reported.
 - Do not reproduce exhaustive adverse-event tables.
-- Do not enter a Study unless it has at least one Arm, Endpoint, and Outcome.
+- Do not enter a Study unless it has at least one Arm.
 - Do not enter an Endpoint unless at least one Outcome is available.
 
 ### 5.1 Case-scoped deferred-schema fallback
@@ -238,7 +251,7 @@ Every source file declares `"clinicalEvidenceSchemaVersion": "2.0"`.
 not fit the schema.** Isolate the affected unit and keep going.
 
 This governs research-run behaviour, not the schema shape, so it applies to anything
-v2.0 still cannot represent — the limitations listed in
+v3.0 still cannot represent — the limitations listed in
 [`docs/clinical-evidence/README.md`](./clinical-evidence/README.md#deferred-limitations)
 and `docs/data-protocol/edge-cases.md`.
 
@@ -290,7 +303,7 @@ or a dependency independently warrants it.
 
 The retatrutide Phase 2 combined-dose result is the worked example of the whole loop:
 omitted under v1 because its starting-dose groups could not map to pooled "Arms",
-re-entered under v2.0 as `pooled` AnalysisGroups over the real protocol Arms (ADR-0037).
+re-entered under v3.0 as `pooled` AnalysisGroups over the real protocol Arms (ADR-0037).
 
 ## 6. Record Creation And Replacement
 
@@ -345,7 +358,7 @@ Each execution must:
    - `npm run data:validate:clinical-evidence:generated`
    - `npm run data:validate:clinical-evidence:synthetic`
    - `npm run data:validate:generated`
-6. report entered, updated, not-entered result-bearing, excluded, deferred, and
+6. report inventory entered, result-bearing entered/updated, excluded, deferred, and
    conflicting studies, including the **Schema boundary report** required by §5.1.
 
 If current external sources cannot be accessed, do not claim Clinical Evidence
@@ -364,9 +377,7 @@ The final response must communicate:
   update.
 - the company and assets traversed.
 - studies entered or updated.
-- result-bearing studies not entered because they were not selected for the
-  major evidence set.
-- studies excluded for no result.
+- inventory Studies entered with no recorded Outcome.
 - studies excluded as outside Scope v1.1.
 - studies deferred, with reasons.
 - the **Schema boundary report** (§5.1): every deferred schema case with its required

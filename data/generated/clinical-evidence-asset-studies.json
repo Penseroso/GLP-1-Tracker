@@ -1,5 +1,5 @@
 {
-  "projectionSchemaVersion": "1.0",
+  "projectionSchemaVersion": "2.0",
   "assets": [
     {
       "companyId": "eli-lilly-and-company",
@@ -39,7 +39,8 @@
       "assetId": "ly3502970",
       "focalStudyIds": [
         "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
-        "eli-lilly-and-company-orforglipron-attain-2-nct05872620"
+        "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+        "eli-lilly-and-company-orforglipron-attain-pad-nct07223593"
       ],
       "linkedStudyIds": []
     },
@@ -115,6 +116,14 @@
       "assetId": "ubt251",
       "focalStudyIds": [
         "novo-nordisk-ubt251-china-phase2-nct07177469"
+      ],
+      "linkedStudyIds": []
+    },
+    {
+      "companyId": "zealand-pharma",
+      "assetId": "petrelintide",
+      "focalStudyIds": [
+        "zealand-pharma-petrelintide-zupreme-nct06662539"
       ],
       "linkedStudyIds": []
     }

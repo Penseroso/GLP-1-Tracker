@@ -79,7 +79,7 @@ export function AssetStudies({ view }: { view: AssetStudiesView }) {
         </>
       ) : (
         <EmptyState
-          title="No clinical evidence recorded for this asset yet."
+          title="No clinical studies recorded for this asset yet."
           description="Studies will appear here once clinical-evidence source records are added for this asset."
         />
       )}

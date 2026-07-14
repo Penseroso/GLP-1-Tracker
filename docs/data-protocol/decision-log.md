@@ -45,7 +45,10 @@ entry.
   canonicalization, derived reciprocal asset index, and the case-scoped
   deferred-schema fallback), hardened by ADR-0038 (required `result.numericValue`;
   `clinicalEvidenceSchemaVersion` / `projectionSchemaVersion` field namespacing;
-  repository hygiene).
+  repository hygiene; superseded by ADR-0039).
+- **Clinical Evidence schema version (current):** ADR-0039 (**v3.0 Study
+  inventory**; preserves v2 result-bearing strictness and independently versions
+  the asset projection at v2.0).
 
 ---
 
@@ -1166,3 +1169,37 @@ when decided, recorded as a new appended ADR.
   alongside the existing "stale-schema-version" probe, updated to the new field name.
   `data:generate`, all Clinical Evidence and full-registry validators, lint, `tsc
   --noEmit`, and `next build` all pass with zero data-migration side effects.
+
+## ADR-0039 — Clinical Evidence Study inventory v3.0
+
+- **Date:** 2026-07-14
+- **Status:** Accepted
+- **Supersedes:** the canonical v2.0 shape in ADR-0037/0038; does not change
+  Company/Pipeline Contract 1.1.
+- **Decision:** Store every verified, in-scope human interventional Study
+  regardless of Outcome availability. Every Study has one or more Arms and
+  exactly one explicit focal mapping (`programId` xor `regimenId`). An inventory
+  Study has no AnalysisGroup, Endpoint, or Outcome. When results are available,
+  enrich the same stable Study/Arm IDs with Endpoint/Outcome records.
+- **Registry status:** `registryStatus` names one reference registry used by UI
+  and tracking. Its registry/id must be among `registryIdentifiers`; normalized
+  `overallStatus` and exact `sourceStatus` are required. `statusUpdatedAt` is the
+  registry's official update date, while source `checkedAt` remains the research
+  verification date.
+- **Derived semantics:** `hasReportedOutcomes` is not canonical data; selectors
+  derive it solely from Outcome existence. UI wording is “No recorded outcomes.”
+  Program Drawer retrieval uses only explicit `programId`; it never infers from
+  asset, indication, acronym/title, comparator linkage, or source URL.
+- **Validation:** result-bearing Studies retain v2 strictness: every Arm requires
+  dose, route, dosing frequency, and duration; every Endpoint and AnalysisGroup
+  must have an Outcome. Inventory Studies may omit those Arm dosing details but
+  must have zero Endpoint/Outcome/AnalysisGroup records.
+- **Migration:** existing Study/registry IDs and meanings are preserved. Source
+  records and the valid fixture migrate minimally to v3.0. No full external
+  re-research is part of this migration: audit local Pipeline registry IDs and
+  explicit mappings first, verify only high-confidence or stale/ambiguous
+  candidates, add only high-confidence inventory records, and report unresolved
+  candidates without guessing.
+- **Projection:** the reciprocal asset projection changes independently to
+  `projectionSchemaVersion: "2.0"`; asset-wide focal/linked discovery remains,
+  while program-specific discovery stays outside that projection.

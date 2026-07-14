@@ -1,20 +1,20 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { createPortal } from "react-dom";
 import { SourceList } from "@/components/SourceList";
 import { StudyPreviewList } from "@/components/clinical/StudyPreviewList";
-import type { AssetStudyPreview } from "@/lib/clinical-evidence/selectors";
+import type { ProgramStudyPreview } from "@/lib/clinical-evidence/selectors";
 import { formatInlineValues, formatNullableValue } from "@/lib/format";
 import type { PipelineProgram } from "@/lib/programs/types";
 
 type ProgramDetailDrawerProps = {
   program: PipelineProgram | null;
   /**
-   * Asset-scoped clinical preview when this asset has Clinical Evidence, else
-   * null. Precomputed server-side so this client component never imports the
-   * clinical data layer.
+   * Explicit programId-scoped clinical preview, or null when no Study names
+   * this program. Precomputed server-side without inference.
    */
-  clinicalPreview?: AssetStudyPreview | null;
+  clinicalPreview?: ProgramStudyPreview | null;
   onClose: () => void;
 };
 
@@ -113,12 +113,12 @@ export function ProgramDetailDrawer({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [program, onClose]);
 
-  if (!program) {
+  if (!program || typeof document === "undefined") {
     return null;
   }
 
-  return (
-    <div className="fixed inset-0 z-50">
+  return createPortal(
+    <div className="fixed inset-0 z-50 m-0 h-dvh w-screen p-0">
       <button
         aria-label="Close program detail"
         className="absolute inset-0 cursor-default bg-foreground/30"
@@ -129,7 +129,7 @@ export function ProgramDetailDrawer({
         role="dialog"
         aria-modal="true"
         aria-labelledby={headingId}
-        className="absolute right-0 top-0 flex h-full w-full max-w-2xl flex-col border-l border-border bg-card shadow-soft"
+        className="absolute inset-y-0 right-0 m-0 flex h-dvh w-full max-w-2xl flex-col border-l border-border bg-card p-0 shadow-soft"
       >
         <div className="border-b border-border px-6 py-5">
           <div className="flex items-start justify-between gap-4">
@@ -162,9 +162,6 @@ export function ProgramDetailDrawer({
             <StudyPreviewList preview={clinicalPreview} />
           ) : null}
           <dl>
-            <DetailRow label="Program ID" value={program.id} />
-            <DetailRow label="Asset ID" value={program.assetId} />
-            <DetailRow label="Company ID" value={program.companyId} />
             <DetailRow label="Company" value={program.company?.name} />
             <DetailRow
               label="Company country"
@@ -206,6 +203,7 @@ export function ProgramDetailDrawer({
           </dl>
         </div>
       </aside>
-    </div>
+    </div>,
+    document.body,
   );
 }

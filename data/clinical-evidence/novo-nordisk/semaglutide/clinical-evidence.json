@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "companyId": "novo-nordisk",
   "assetId": "semaglutide",
   "studies": [
@@ -20,7 +20,6 @@
         "NN9536-4373"
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -48,6 +47,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03548935",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -64,7 +69,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -92,6 +96,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03552757",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -111,7 +121,6 @@
         "NN9536-4378"
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -139,6 +148,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03693430",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -155,7 +170,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -184,6 +198,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04102189",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -200,7 +220,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -228,6 +247,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05646706",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -244,7 +269,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -272,6 +296,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05649137",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -288,7 +318,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -316,6 +345,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05564117",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     }
   ],

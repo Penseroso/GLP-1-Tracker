@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "companyId": "novo-nordisk",
   "assetId": "cagrisema",
   "studies": [
@@ -17,7 +17,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -45,6 +44,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05567796",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -61,7 +66,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -89,6 +93,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05394519",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -105,7 +115,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Open-label",
@@ -133,6 +142,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06131437",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     }
   ],

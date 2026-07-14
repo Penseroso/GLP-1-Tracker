@@ -54,10 +54,27 @@ function groupByStudyId<T extends { studyId: string }>(records: T[]) {
   return map;
 }
 
+function groupStudiesByExplicitMapping(
+  field: "programId" | "regimenId",
+) {
+  const map = new Map<string, ClinicalStudyRecord[]>();
+  for (const study of clinicalStudies) {
+    const id = study[field];
+    if (!id) continue;
+    const list = map.get(id);
+    if (list) list.push(study);
+    else map.set(id, [study]);
+  }
+  return map;
+}
+
 // id / studyId indexes so selectors never rescan the flat arrays per lookup.
 export const clinicalStudiesById = new Map<string, ClinicalStudyRecord>(
   clinicalStudies.map((study) => [study.id, study]),
 );
+/** Explicit focal mappings only; selectors must never infer these joins. */
+export const clinicalStudiesByProgramId = groupStudiesByExplicitMapping("programId");
+export const clinicalStudiesByRegimenId = groupStudiesByExplicitMapping("regimenId");
 export const clinicalArmsByStudyId = groupByStudyId<ClinicalArmRecord>(
   clinicalArms,
 );

@@ -9,6 +9,7 @@ import {
   clinicalOutcomesByStudyId,
   clinicalStudies,
   clinicalStudiesById,
+  clinicalStudiesByProgramId,
   companyNameById,
   pipelineAssetKeys,
 } from "./data";
@@ -18,6 +19,7 @@ import type {
   ClinicalEndpointRecord,
   ClinicalEndpointRole,
   ClinicalOutcomeRecord,
+  ClinicalRegistryStatus,
   ClinicalStudyRecord,
 } from "./types";
 
@@ -52,7 +54,9 @@ export type StudySummaryView = {
   /** Preferred short label: acronym when present, else official title. */
   title: string;
   phase: string;
-  status: string;
+  registryStatus: ClinicalRegistryStatus;
+  /** Derived solely from whether at least one Outcome is recorded. */
+  hasReportedOutcomes: boolean;
   primaryRegistryId?: string;
 };
 
@@ -105,29 +109,33 @@ export type AssetStudiesView = {
   linkedStudies: StudySummaryView[];
 };
 
-/** A study summary tagged with its relation to the asset it is previewed under. */
-export type PreviewStudy = StudySummaryView & {
-  relation: "focal" | "linked";
-};
-
 /**
- * Compact, asset-scoped clinical preview for the Program Drawer. Precomputed
- * server-side so the client drawer never imports the clinical data layer; the
- * merge/cap policy lives here in the read model, not in the UI.
+ * Compact, explicitly program-scoped clinical preview for the Program Drawer.
+ * No asset/title/indication/comparator fallback is permitted.
  */
-export type AssetStudyPreview = {
+export type ProgramStudyPreview = {
+  programId: string;
   companyId: string;
   assetId: string;
-  /** Capped list (see {@link getAssetStudyPreview}); focal entries come first. */
-  studies: PreviewStudy[];
-  /** Uncapped focal + linked total, for the "View all" affordance. */
+  studies: StudySummaryView[];
   totalCount: number;
   href: string;
 };
 
-/** Max studies shown in the drawer preview, and the reserved-linked split. */
+export type AssetClinicalRollup = {
+  companyId: string;
+  assetId: string;
+  hasStudies: boolean;
+  hasClinicalEvidence: boolean;
+  focalStudyIds: string[];
+  linkedStudyIds: string[];
+  focalStudyCount: number;
+  linkedStudyCount: number;
+  href: string;
+};
+
+/** Max explicitly linked studies shown in the drawer preview. */
 const PREVIEW_LIMIT = 5;
-const PREVIEW_LINKED_RESERVED = 1;
 
 const endpointRoleRank: Record<ClinicalEndpointRole, number> = {
   primary: 0,
@@ -158,7 +166,9 @@ function toStudySummary(study: ClinicalStudyRecord): StudySummaryView {
     acronym: study.acronym,
     title: study.acronym?.trim() || study.officialTitle,
     phase: study.phase,
-    status: study.status,
+    registryStatus: study.registryStatus,
+    hasReportedOutcomes:
+      (clinicalOutcomesByStudyId.get(study.id) ?? []).length > 0,
     primaryRegistryId: study.registryIdentifiers[0]?.id,
   };
 }
@@ -321,40 +331,22 @@ export function getAssetStudies(
 }
 
 /**
- * Compact clinical preview for the Program Drawer. Caps at {@link PREVIEW_LIMIT}
- * studies: when linked/comparator studies exist, reserve up to
- * {@link PREVIEW_LINKED_RESERVED} slot(s) for them so the comparator relationship
- * is represented without crowding out focal studies; otherwise the whole budget
- * goes to focal studies. Returns `undefined` when the asset has no evidence.
+ * Compact clinical preview for the Program Drawer. Uses only explicit programId
+ * mappings and intentionally excludes regimen-linked and asset-linked studies.
  */
-export function getAssetStudyPreview(
-  companyId: string,
-  assetId: string,
-): AssetStudyPreview | undefined {
-  const view = getAssetStudies(companyId, assetId);
-  const totalCount =
-    (view?.focalStudies.length ?? 0) + (view?.linkedStudies.length ?? 0);
-  if (!view || totalCount === 0) {
-    return undefined;
-  }
-
-  const linkedShown = view.linkedStudies.slice(
-    0,
-    Math.min(view.linkedStudies.length, PREVIEW_LINKED_RESERVED),
-  );
-  const focalShown = view.focalStudies.slice(0, PREVIEW_LIMIT - linkedShown.length);
-
-  const studies: PreviewStudy[] = [
-    ...focalShown.map((study) => ({ ...study, relation: "focal" as const })),
-    ...linkedShown.map((study) => ({ ...study, relation: "linked" as const })),
-  ];
-
+export function getProgramStudyPreview(
+  programId: string,
+): ProgramStudyPreview | undefined {
+  const records = clinicalStudiesByProgramId.get(programId) ?? [];
+  if (records.length === 0) return undefined;
+  const first = records[0];
   return {
-    companyId,
-    assetId,
-    studies,
-    totalCount,
-    href: `/assets/${companyId}/${assetId}`,
+    programId,
+    companyId: first.companyId,
+    assetId: first.assetId,
+    studies: records.slice(0, PREVIEW_LIMIT).map(toStudySummary),
+    totalCount: records.length,
+    href: `/assets/${first.companyId}/${first.assetId}`,
   };
 }
 
@@ -363,11 +355,48 @@ export function hasClinicalEvidence(
   companyId: string,
   assetId: string,
 ): boolean {
-  const entry = clinicalAssetIndexByKey.get(assetKeyOf(companyId, assetId));
+  const view = getAssetStudies(companyId, assetId);
   return Boolean(
-    entry &&
-      (entry.focalStudyIds.length > 0 || entry.linkedStudyIds.length > 0),
+    view &&
+      [...view.focalStudies, ...view.linkedStudies].some(
+        (study) => study.hasReportedOutcomes,
+      ),
   );
+}
+
+/**
+ * Minimal asset-level clinical association model for cross-domain composition.
+ * IDs let callers deduplicate across focal/linked relationships and assets
+ * without importing or joining clinical raw arrays.
+ */
+export function getAssetClinicalRollup(
+  companyId: string,
+  assetId: string,
+): AssetClinicalRollup | undefined {
+  const view = getAssetStudies(companyId, assetId);
+  if (!view) return undefined;
+
+  const focalStudyIds = Array.from(
+    new Set(view.focalStudies.map((study) => study.id)),
+  );
+  const linkedStudyIds = Array.from(
+    new Set(view.linkedStudies.map((study) => study.id)),
+  );
+  const associatedStudies = [...view.focalStudies, ...view.linkedStudies];
+
+  return {
+    companyId,
+    assetId,
+    hasStudies: associatedStudies.length > 0,
+    hasClinicalEvidence: associatedStudies.some(
+      (study) => study.hasReportedOutcomes,
+    ),
+    focalStudyIds,
+    linkedStudyIds,
+    focalStudyCount: focalStudyIds.length,
+    linkedStudyCount: linkedStudyIds.length,
+    href: `/assets/${companyId}/${assetId}`,
+  };
 }
 
 export function listClinicalStudyIds(): string[] {
