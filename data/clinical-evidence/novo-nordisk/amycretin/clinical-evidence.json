@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "companyId": "novo-nordisk",
   "assetId": "amycretin",
   "studies": [
@@ -16,7 +16,6 @@
         }
       ],
       "phase": "Phase 1",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -44,6 +43,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05369390",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -59,7 +64,6 @@
         }
       ],
       "phase": "Phase 1b/2a",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -87,6 +91,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06064006",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     }
   ],

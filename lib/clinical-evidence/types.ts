@@ -1,14 +1,14 @@
 import type { ComponentReference, RecordMetadata } from "@/lib/programs/types";
 
 /**
- * Canonical Clinical Evidence schema version. v1 records do not validate under v2.0.
+ * Canonical Clinical Evidence schema version. Earlier records require migration.
  *
  * Namespaced as `clinicalEvidenceSchemaVersion` (not a bare `schemaVersion`) because
  * this project separately versions the Company/Pipeline data shape as "Contract 1.1"
  * (ADR-0030) — a generic field name here could be misread as versioning that whole
  * registry contract rather than just this domain (ADR-0038).
  */
-export const CLINICAL_EVIDENCE_SCHEMA_VERSION = "2.0";
+export const CLINICAL_EVIDENCE_SCHEMA_VERSION = "3.0";
 
 export type ClinicalEvidenceAggregate = {
   clinicalEvidenceSchemaVersion: string;
@@ -31,6 +31,28 @@ export type ClinicalStudyDesign = {
   description?: string;
 };
 
+export type ClinicalRegistryStatusCode =
+  | "not-yet-recruiting"
+  | "recruiting"
+  | "enrolling-by-invitation"
+  | "active-not-recruiting"
+  | "suspended"
+  | "terminated"
+  | "withdrawn"
+  | "completed"
+  | "unknown";
+
+/** Status from the single registry chosen as the Study's tracking authority. */
+export type ClinicalRegistryStatus = {
+  registry: string;
+  registryId: string;
+  overallStatus: ClinicalRegistryStatusCode;
+  /** Exact registry wording, retained alongside the normalized status. */
+  sourceStatus: string;
+  /** Registry-published status update date; research checks stay on source.checkedAt. */
+  statusUpdatedAt?: string;
+};
+
 export type ClinicalStudyRecord = {
   id: string;
   companyId: string;
@@ -42,7 +64,7 @@ export type ClinicalStudyRecord = {
   registryIdentifiers: ClinicalRegistryIdentifier[];
   protocolIdentifiers?: string[];
   phase: string;
-  status: string;
+  registryStatus: ClinicalRegistryStatus;
   design: ClinicalStudyDesign;
   population: string;
   overallDuration?: string;
@@ -69,11 +91,11 @@ export type ClinicalArmRecord = {
    * externalCompanyName is reserved for genuinely external or unresolved assets.
    */
   linkedAsset?: ComponentReference;
-  dose: string;
+  dose?: string;
   titration?: string;
-  route: string;
-  dosingFrequency: string;
-  treatmentDuration: string;
+  route?: string;
+  dosingFrequency?: string;
+  treatmentDuration?: string;
   plannedN?: number;
   analyzedN?: number;
 };
@@ -183,7 +205,7 @@ export type ClinicalOutcomeRecord = {
 /**
  * Derived projection (ADR-0037 / audit R2b): reciprocal asset -> studies discovery,
  * computed from canonical internal links only. It is regenerated deterministically,
- * is never authored, and is not part of the canonical v2.0 contract.
+ * is never authored, and is not part of the canonical v3.0 contract.
  */
 export type ClinicalAssetStudyIndexEntry = {
   companyId: string;
@@ -198,7 +220,7 @@ export type ClinicalAssetStudyIndex = {
   /**
    * This projection's own format version — independent of
    * ClinicalEvidenceAggregate.clinicalEvidenceSchemaVersion by design, since the
-   * projection is not part of the canonical v2.0 contract and may change shape on its
+   * projection is not part of the canonical v3.0 contract and may change shape on its
    * own (ADR-0038).
    */
   projectionSchemaVersion: string;

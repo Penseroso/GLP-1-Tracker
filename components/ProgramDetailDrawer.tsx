@@ -3,18 +3,17 @@
 import { useEffect, useId, useRef } from "react";
 import { SourceList } from "@/components/SourceList";
 import { StudyPreviewList } from "@/components/clinical/StudyPreviewList";
-import type { AssetStudyPreview } from "@/lib/clinical-evidence/selectors";
+import type { ProgramStudyPreview } from "@/lib/clinical-evidence/selectors";
 import { formatInlineValues, formatNullableValue } from "@/lib/format";
 import type { PipelineProgram } from "@/lib/programs/types";
 
 type ProgramDetailDrawerProps = {
   program: PipelineProgram | null;
   /**
-   * Asset-scoped clinical preview when this asset has Clinical Evidence, else
-   * null. Precomputed server-side so this client component never imports the
-   * clinical data layer.
+   * Explicit programId-scoped clinical preview, or null when no Study names
+   * this program. Precomputed server-side without inference.
    */
-  clinicalPreview?: AssetStudyPreview | null;
+  clinicalPreview?: ProgramStudyPreview | null;
   onClose: () => void;
 };
 
@@ -162,9 +161,6 @@ export function ProgramDetailDrawer({
             <StudyPreviewList preview={clinicalPreview} />
           ) : null}
           <dl>
-            <DetailRow label="Program ID" value={program.id} />
-            <DetailRow label="Asset ID" value={program.assetId} />
-            <DetailRow label="Company ID" value={program.companyId} />
             <DetailRow label="Company" value={program.company?.name} />
             <DetailRow
               label="Company country"

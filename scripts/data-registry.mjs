@@ -80,17 +80,29 @@ const stageOperationalStatesByStatus = {
   Discontinued: new Set(["Paused", "Completed", "Not separately confirmed"]),
   Unknown: new Set(["Not separately confirmed"]),
 };
-// Clinical Evidence canonical schema version (ADR-0037/0038). v1 records do not
+// Clinical Evidence canonical schema version (ADR-0039). Earlier records do not
 // validate here. Namespaced as clinicalEvidenceSchemaVersion (not a bare
 // "schemaVersion") because this project also has a separate, differently-numbered
 // Company/Pipeline "Contract 1.1" versioning scheme (ADR-0030); a generic field name
 // here could be misread as versioning the whole registry contract.
-const clinicalEvidenceSchemaVersion = "2.0";
-// The derived reciprocal asset index (R2b) is explicitly NOT part of the canonical
-// v2.0 contract — it is a projection, regenerated deterministically, that may change
-// shape independently of the canonical schema. It therefore carries its own,
+const clinicalEvidenceSchemaVersion = "3.0";
+// The derived reciprocal asset index (R2b) is not part of the canonical v3.0
+// contract. It is an independently versioned projection,
+// regenerated deterministically and may change shape independently of the
+// canonical schema. It therefore carries its own,
 // separately-numbered version field rather than reusing clinicalEvidenceSchemaVersion.
-const clinicalAssetStudyIndexProjectionVersion = "1.0";
+const clinicalAssetStudyIndexProjectionVersion = "2.0";
+const clinicalRegistryStatuses = new Set([
+  "not-yet-recruiting",
+  "recruiting",
+  "enrolling-by-invitation",
+  "active-not-recruiting",
+  "suspended",
+  "terminated",
+  "withdrawn",
+  "completed",
+  "unknown",
+]);
 const clinicalArmRoles = new Set([
   "experimental",
   "placebo",
@@ -1046,7 +1058,7 @@ function readClinicalEvidenceSourceTree(baseDir, context) {
     assert(isObject(data), `${fileContext}: root must be an object`);
     assert(
       data.clinicalEvidenceSchemaVersion === clinicalEvidenceSchemaVersion,
-      `${fileContext}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the v2.0 Clinical Evidence schema`,
+      `${fileContext}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the v3.0 Clinical Evidence schema`,
     );
     assert(data.companyId === file.companyFolder, `${fileContext}: companyId must match folder name`);
     assert(data.assetId === file.assetFolder, `${fileContext}: assetId must match folder name`);
@@ -1074,7 +1086,7 @@ function readClinicalEvidenceSourceTree(baseDir, context) {
 
 // Derived projection (ADR-0037): reciprocal asset -> studies discovery computed from the
 // canonical internal links only. Never authored, no independent identity, and outside the
-// canonical v2.0 contract — it is regenerated deterministically from the aggregate.
+// canonical v3.0 contract — it is regenerated deterministically from the aggregate.
 function buildClinicalAssetStudyIndex(aggregate) {
   const entries = new Map();
 
@@ -1159,6 +1171,31 @@ function validateRegistryIdentifier(identifier, context) {
   }
 }
 
+function validateClinicalRegistryStatus(registryStatus, registryIdentifiers, context) {
+  assert(isObject(registryStatus), `${context}: registryStatus is required`);
+  assert(isNonEmptyString(registryStatus.registry), `${context}: registryStatus.registry is required`);
+  assert(isNonEmptyString(registryStatus.registryId), `${context}: registryStatus.registryId is required`);
+  assert(
+    clinicalRegistryStatuses.has(registryStatus.overallStatus),
+    `${context}: registryStatus.overallStatus "${registryStatus.overallStatus}" is not allowed`,
+  );
+  assert(isNonEmptyString(registryStatus.sourceStatus), `${context}: registryStatus.sourceStatus is required`);
+  if (registryStatus.statusUpdatedAt !== undefined) {
+    assert(
+      isValidPartialDate(registryStatus.statusUpdatedAt),
+      `${context}: registryStatus.statusUpdatedAt must be YYYY, YYYY-MM, or YYYY-MM-DD`,
+    );
+  }
+  assert(
+    registryIdentifiers.some(
+      (identifier) =>
+        normalize(identifier.registry) === normalize(registryStatus.registry) &&
+        normalize(identifier.id) === normalize(registryStatus.registryId),
+    ),
+    `${context}: registryStatus registry/id must match one registryIdentifiers entry`,
+  );
+}
+
 function validateClinicalStudy(study, context, references) {
   assert(isObject(study), `${context}: study must be an object`);
   assert(isNonEmptyString(study.id), `${context}: id is required`);
@@ -1174,6 +1211,10 @@ function validateClinicalStudy(study, context, references) {
   );
   assertOptionalNonEmptyString(study.programId, `${context}: programId`);
   assertOptionalNonEmptyString(study.regimenId, `${context}: regimenId`);
+  assert(
+    (study.programId !== undefined) !== (study.regimenId !== undefined),
+    `${context}: exactly one of programId or regimenId is required`,
+  );
 
   if (study.programId !== undefined) {
     const program = references.programById.get(study.programId);
@@ -1203,7 +1244,7 @@ function validateClinicalStudy(study, context, references) {
   }
 
   assert(isNonEmptyString(study.phase), `${context}: phase is required`);
-  assert(isNonEmptyString(study.status), `${context}: status is required`);
+  validateClinicalRegistryStatus(study.registryStatus, study.registryIdentifiers, context);
   assert(isObject(study.design), `${context}: design is required`);
   assert(isNonEmptyString(study.design.randomization), `${context}: design.randomization is required`);
   assert(isNonEmptyString(study.design.masking), `${context}: design.masking is required`);
@@ -1279,7 +1320,7 @@ function validateClinicalLinkedAsset(linkedAsset, context, references) {
   }
 }
 
-function validateClinicalArm(arm, context, references) {
+function validateClinicalArm(arm, context, references, requireResultDetails) {
   assert(isObject(arm), `${context}: arm must be an object`);
   assert(isNonEmptyString(arm.id), `${context}: id is required`);
   assert(isNonEmptyString(arm.studyId), `${context}: studyId is required`);
@@ -1287,11 +1328,23 @@ function validateClinicalArm(arm, context, references) {
   assert(isNonEmptyString(arm.label), `${context}: label is required`);
   assert(isNonEmptyString(arm.intervention), `${context}: intervention is required`);
   validateClinicalLinkedAsset(arm.linkedAsset, context, references);
-  assert(isNonEmptyString(arm.dose), `${context}: dose is required`);
+  if (requireResultDetails) {
+    assert(isNonEmptyString(arm.dose), `${context}: dose is required for a result-bearing study`);
+  } else {
+    assertOptionalNonEmptyString(arm.dose, `${context}: dose`);
+  }
   assertOptionalNonEmptyString(arm.titration, `${context}: titration`);
-  assert(isNonEmptyString(arm.route), `${context}: route is required`);
-  assert(isNonEmptyString(arm.dosingFrequency), `${context}: dosingFrequency is required`);
-  assert(isNonEmptyString(arm.treatmentDuration), `${context}: treatmentDuration is required`);
+  for (const [field, label] of [
+    ["route", "route"],
+    ["dosingFrequency", "dosingFrequency"],
+    ["treatmentDuration", "treatmentDuration"],
+  ]) {
+    if (requireResultDetails) {
+      assert(isNonEmptyString(arm[field]), `${context}: ${label} is required for a result-bearing study`);
+    } else {
+      assertOptionalNonEmptyString(arm[field], `${context}: ${label}`);
+    }
+  }
   assertOptionalPositiveInteger(arm.plannedN, `${context}: plannedN`);
   assertOptionalPositiveInteger(arm.analyzedN, `${context}: analyzedN`);
 }
@@ -1476,11 +1529,11 @@ function getClinicalArmSemanticKey(arm) {
     normalize(arm.role),
     normalize(arm.label),
     normalize(arm.intervention),
-    normalize(arm.dose),
+    normalize(arm.dose ?? ""),
     normalize(arm.titration ?? ""),
-    normalize(arm.route),
-    normalize(arm.dosingFrequency),
-    normalize(arm.treatmentDuration),
+    normalize(arm.route ?? ""),
+    normalize(arm.dosingFrequency ?? ""),
+    normalize(arm.treatmentDuration ?? ""),
     linkedAssetIdentity,
   ].join("|");
 }
@@ -1526,6 +1579,9 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
   const armSemanticKeys = new Set();
   const analysisGroupSemanticKeys = new Set();
   const endpointSemanticKeys = new Set();
+  const resultBearingStudyIds = new Set(
+    aggregate.outcomes.map((outcome) => outcome.studyId),
+  );
 
   for (const study of aggregate.studies) {
     validateClinicalStudy(study, `${context}: study ${study.id ?? "unknown-study"}`, references);
@@ -1544,7 +1600,12 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
   }
 
   for (const arm of aggregate.arms) {
-    validateClinicalArm(arm, `${context}: arm ${arm.id ?? "unknown-arm"}`, references);
+    validateClinicalArm(
+      arm,
+      `${context}: arm ${arm.id ?? "unknown-arm"}`,
+      references,
+      resultBearingStudyIds.has(arm.studyId),
+    );
     assert(!armIds.has(arm.id), `${context}: duplicate arm id ${arm.id}`);
     assert(studyIds.has(arm.studyId), `${context}: arm ${arm.id} references missing study ${arm.studyId}`);
     const armSemanticKey = getClinicalArmSemanticKey(arm);
@@ -1674,8 +1735,20 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
 
   for (const studyId of studyIds) {
     assert((armsByStudy.get(studyId) ?? []).length > 0, `${context}: study ${studyId} has no arms`);
-    assert((endpointsByStudy.get(studyId) ?? []).length > 0, `${context}: study ${studyId} has no endpoints`);
-    assert((outcomesByStudy.get(studyId) ?? []).length > 0, `${context}: study ${studyId} has no outcomes`);
+    const outcomeCount = (outcomesByStudy.get(studyId) ?? []).length;
+    const endpointCount = (endpointsByStudy.get(studyId) ?? []).length;
+    const analysisGroupCount = aggregate.analysisGroups.filter(
+      (analysisGroup) => analysisGroup.studyId === studyId,
+    ).length;
+    if (outcomeCount === 0) {
+      assert(endpointCount === 0, `${context}: inventory study ${studyId} has endpoints but no outcomes`);
+      assert(
+        analysisGroupCount === 0,
+        `${context}: inventory study ${studyId} has analysis groups but no outcomes`,
+      );
+    } else {
+      assert(endpointCount > 0, `${context}: result-bearing study ${studyId} has no endpoints`);
+    }
   }
 
   for (const endpointId of endpointIds) {
@@ -1952,6 +2025,53 @@ function validateClinicalEvidenceSyntheticFixtures() {
       narrative.result.numericValue = null;
       fixture.outcomes.push(narrative);
     }],
+    ["program-linked-inventory-study", (fixture) => {
+      fixture.studies.push({
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-program-inventory",
+        officialTitle: "Synthetic Program-linked Inventory Study",
+        registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT30000001" }],
+        registryStatus: {
+          registry: "ClinicalTrials.gov",
+          registryId: "NCT30000001",
+          overallStatus: "recruiting",
+          sourceStatus: "Recruiting",
+          statusUpdatedAt: "2026-07-12",
+        },
+      });
+      fixture.arms.push({
+        id: "fixture-arm-program-inventory",
+        studyId: "fixture-study-program-inventory",
+        role: "experimental",
+        label: "Fixture Asset",
+        intervention: "Fixture Asset",
+        plannedN: 24,
+      });
+    }],
+    ["regimen-linked-inventory-study", (fixture) => {
+      const study = {
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-regimen-inventory",
+        officialTitle: "Synthetic Regimen-linked Inventory Study",
+        registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT30000002" }],
+        registryStatus: {
+          registry: "ClinicalTrials.gov",
+          registryId: "NCT30000002",
+          overallStatus: "not-yet-recruiting",
+          sourceStatus: "Not yet recruiting",
+        },
+        regimenId: "fixture-co-fixture-asset-partner-combination",
+      };
+      delete study.programId;
+      fixture.studies.push(study);
+      fixture.arms.push({
+        id: "fixture-arm-regimen-inventory",
+        studyId: "fixture-study-regimen-inventory",
+        role: "experimental",
+        label: "Fixture combination regimen",
+        intervention: "Fixture Asset plus Partner X",
+      });
+    }],
   ];
 
   for (const [name, mutate] of validExpectations) {
@@ -1968,6 +2088,12 @@ function validateClinicalEvidenceSyntheticFixtures() {
     ...cloneJson(validAggregate.studies[0]),
     id: "fixture-study-2",
     registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT12345679" }],
+    registryStatus: {
+      registry: "ClinicalTrials.gov",
+      registryId: "NCT12345679",
+      overallStatus: "completed",
+      sourceStatus: "Completed",
+    },
   };
   const secondArm = {
     ...cloneJson(validAggregate.arms[0]),
@@ -2077,8 +2203,31 @@ function validateClinicalEvidenceSyntheticFixtures() {
     ["study-without-arm", /has no arms/, (fixture) => {
       fixture.studies.push(secondStudy);
     }],
-    ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "2\.0"/, (fixture) => {
+    ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "3\.0"/, (fixture) => {
       fixture.clinicalEvidenceSchemaVersion = "1.0";
+    }],
+    ["study-without-focal-mapping", /exactly one of programId or regimenId is required/, (fixture) => {
+      delete fixture.studies[0].programId;
+    }],
+    ["study-with-both-focal-mappings", /exactly one of programId or regimenId is required/, (fixture) => {
+      fixture.studies[0].regimenId = "fixture-co-fixture-asset-partner-combination";
+    }],
+    ["registry-status-unknown-enum", /registryStatus\.overallStatus .* is not allowed/, (fixture) => {
+      fixture.studies[0].registryStatus.overallStatus = "planning";
+    }],
+    ["registry-status-identifier-mismatch", /registryStatus registry\/id must match/, (fixture) => {
+      fixture.studies[0].registryStatus.registryId = "NCT99999999";
+    }],
+    ["registry-status-empty-source-status", /registryStatus\.sourceStatus is required/, (fixture) => {
+      fixture.studies[0].registryStatus.sourceStatus = "";
+    }],
+    ["registry-status-invalid-updated-date", /registryStatus\.statusUpdatedAt must be/, (fixture) => {
+      fixture.studies[0].registryStatus.statusUpdatedAt = "2026/07/14";
+    }],
+    ["inventory-study-with-endpoint", /inventory study .* has endpoints but no outcomes/, (fixture) => {
+      fixture.studies.push(secondStudy);
+      fixture.arms.push(secondArm);
+      fixture.endpoints.push(secondEndpoint);
     }],
     // Estimand and analysis-population canonicalization (G12/G26): a casing/hyphen variant of
     // the same term is the same semantic outcome, not a second one.

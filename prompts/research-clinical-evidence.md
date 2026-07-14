@@ -69,19 +69,17 @@ Follow these steps:
    asset, discover relevant human interventional studies broadly. Do not stop
    after one asset or one latest trial.
 
-7. **Build the major evidence set.** Include distinct result-bearing pivotal or
-   confirmatory studies; when no later-stage result exists, include the latest
-   result-bearing study; and retain an earlier study when it uniquely represents
-   a route, formulation, regimen, dose strategy, or population. Exclude
-   duplicate publications, routine subanalyses, and extensions unless they add a
-   distinct core endpoint, population, or treatment configuration.
+7. **Build the Study inventory, then enrich results.** Enter every verified
+   in-scope human interventional Study, whether planned, recruiting, active, or
+   completed and whether or not an Outcome is recorded. Deduplicate publications
+   to the stable registry/Study identity. Prioritize pivotal, confirmatory, and
+   otherwise distinctive Studies when enriching Endpoint/Outcome evidence.
 
 8. **Classify every discovered study.** Each discovered study must end as:
-   entered; not entered because it is result-bearing but not selected for the
-   major evidence set; excluded because no study-specific result exists;
-   excluded as outside Scope v1.1; or deferred because identity, result, source,
-   or conflict remains unresolved. Nothing discovered may be silently dropped.
-   Only entered studies are stored in operating data.
+   entered inventory; entered result-bearing; excluded as outside Scope v1.1;
+   or deferred because identity, explicit focal mapping, source, or conflict
+   remains unresolved. Nothing discovered may be silently dropped. No recorded
+   Outcome is not an exclusion reason.
 
 9. **Apply source priority.** Use this default result-source priority:
    peer-reviewed publication; registry-posted results including ClinicalTrials.gov;
@@ -93,9 +91,10 @@ Follow these steps:
    publication does not upgrade unsupported Outcomes or authorize filling
    unpublished statistical details.
 
-10. **Extract source-reported evidence only.** Populate Study, Arm, Endpoint,
-    and Outcome records. Store experimental, placebo, and active-comparator
-    groups as parallel Arms. Store only endpoints with disclosed results. Keep
+10. **Extract source-reported evidence only.** Always populate Study and Arm
+    records. Populate Endpoint and Outcome only when an actual result is
+    recorded; otherwise leave AnalysisGroup/Endpoint/Outcome empty. Store
+    experimental, placebo, and active-comparator groups as parallel Arms. Keep
     efficacy outcomes source-reported. Capture only directly reported arm-level or
     between-arm values. Do not calculate treatment differences from arm-level
     values, infer unpublished confidence intervals or p-values, transcribe chart
@@ -103,8 +102,14 @@ Follow these steps:
     subgroup result to broader Arms that do not faithfully represent it. Store
     adjusted or comparative values only when directly reported.
 
-11. **Author entities per the contract conventions (schema v2.0).** Every source file
-    declares `"clinicalEvidenceSchemaVersion": "2.0"`. An Arm is a protocol-defined treatment
+11. **Author entities per the contract conventions (schema v3.0).** Every source file
+    declares `"clinicalEvidenceSchemaVersion": "3.0"`. Require exactly one explicit
+    focal mapping on every Study: `programId` xor `regimenId`. Program-specific
+    selectors use only `programId`; never infer one from the asset, indication,
+    acronym/title, comparator relationship, or source URL. `registryStatus`
+    denotes one reference registry for UI/tracking; preserve its normalized and
+    source statuses plus official update date in `statusUpdatedAt`, while the
+    research check date remains source `checkedAt`. An Arm is a protocol-defined treatment
     configuration within one study — not a cohort, sub-study, or pooled group. Model a
     distinct sub-study/cohort as its own Study **when it has its own distinct registry
     identity**; a master protocol sharing one registry identifier across sub-studies
@@ -127,7 +132,7 @@ Follow these steps:
     confidence intervals or p-values only when directly reported. Arm array order
     does not encode direction or create a distinct semantic Outcome.
 
-    Also required by v2.0:
+    Also required by v3.0:
 
     - **Internal linked assets.** When an Arm's comparator or component resolves to a
       registry asset — **including another company's asset** — link it with `companyId`
@@ -192,9 +197,8 @@ Follow these steps:
 
 18. **Report completely.** Communicate whether this was an initial Clinical
     Evidence investigation or update; the assets traversed; studies entered or
-    updated; result-bearing studies not entered because they were not selected
-    for the major evidence set; studies excluded for no result; studies excluded
-    as outside Scope v1.1; deferred studies with reasons; pipeline
+    updated; inventory Studies with no recorded Outcome; studies excluded as
+    outside Scope v1.1; deferred studies with reasons; pipeline
     discrepancies; source-access failures; generated aggregate status;
     the **Schema boundary report** (workflow §5.1) with every deferred schema case and
     the counts of entered / `DEFERRED_SCHEMA_CASE` / `REVIEW_REQUIRED` /

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import {
   getProgramTableColumnLabel,
@@ -13,7 +14,7 @@ import {
   getProgramFilterOptions,
   sortProgramsForRegister,
 } from "@/lib/programs/selectors";
-import type { AssetStudyPreview } from "@/lib/clinical-evidence/selectors";
+import type { ProgramStudyPreview } from "@/lib/clinical-evidence/selectors";
 import type { PipelineProgram, ProgramFilters } from "@/lib/programs/types";
 import { formatInlineValues, formatNullableValue } from "@/lib/format";
 import { ColumnSettings } from "./ColumnSettings";
@@ -26,12 +27,10 @@ import { useProgramTableColumns } from "./useProgramTableColumns";
 type PipelineTableProps = {
   programs: PipelineProgram[];
   /**
-   * `companyId|assetId` -> asset-scoped clinical preview, for assets that have
-   * Clinical Evidence. Precomputed on the server so this client component never
-   * imports the clinical data layer; used to render the trial preview inside the
-   * detail drawer.
+   * `programId` -> explicitly program-linked studies. Precomputed server-side;
+   * this client component never imports or infers from the clinical data layer.
    */
-  clinicalPreviewByAssetKey?: Record<string, AssetStudyPreview>;
+  clinicalPreviewByProgramId?: Record<string, ProgramStudyPreview>;
 };
 
 function getAssetLabel(program: PipelineProgram) {
@@ -87,32 +86,30 @@ function getProgramCellValue(
 
 export function PipelineTable({
   programs,
-  clinicalPreviewByAssetKey,
+  clinicalPreviewByProgramId,
 }: PipelineTableProps) {
   const [filters, setFilters] = useState<ProgramFilters>(emptyProgramFilters);
   const [selectedProgram, setSelectedProgram] = useState<PipelineProgram | null>(
     null,
   );
-  const triggerRowRef = useRef<HTMLTableRowElement | null>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement | null>(null);
 
   const clinicalPreview =
-    selectedProgram && clinicalPreviewByAssetKey
-      ? clinicalPreviewByAssetKey[
-          `${selectedProgram.companyId}|${selectedProgram.assetId}`
-        ] ?? null
+    selectedProgram && clinicalPreviewByProgramId
+      ? clinicalPreviewByProgramId[selectedProgram.id] ?? null
       : null;
 
   const openProgram = (
     program: PipelineProgram,
-    row: HTMLTableRowElement,
+    trigger: HTMLButtonElement,
   ) => {
-    triggerRowRef.current = row;
+    triggerButtonRef.current = trigger;
     setSelectedProgram(program);
   };
 
   const closeDrawer = () => {
     setSelectedProgram(null);
-    triggerRowRef.current?.focus();
+    triggerButtonRef.current?.focus();
   };
 
   const options = useMemo(() => getProgramFilterOptions(programs), [programs]);
@@ -167,16 +164,22 @@ export function PipelineTable({
               {filteredPrograms.map((program) => (
                 <tr
                   key={program.id}
-                  role="button"
-                  tabIndex={0}
-                  onClick={(event) => openProgram(program, event.currentTarget)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      openProgram(program, event.currentTarget);
+                  onClick={(event) => {
+                    const target = event.target;
+                    if (
+                      target instanceof Element &&
+                      target.closest(
+                        "a, button, input, select, textarea, [role='button']",
+                      )
+                    ) {
+                      return;
                     }
+                    const trigger = event.currentTarget.querySelector<HTMLButtonElement>(
+                      "button[data-program-details]",
+                    );
+                    if (trigger) openProgram(program, trigger);
                   }}
-                  className="cursor-pointer bg-card transition hover:bg-accent/45 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                  className="cursor-pointer bg-card transition hover:bg-accent/45"
                 >
                   {visibleColumns.map((column) => {
                     const value = getProgramCellValue(program, column.id);
@@ -187,7 +190,29 @@ export function PipelineTable({
                         key={column.id}
                         className="px-3 py-2.5 text-muted-foreground"
                       >
-                        {column.id === "development" ? (
+                        {column.id === "company" ? (
+                          <Link
+                            href={`/companies/${program.companyId}`}
+                            className="block max-w-[175px] truncate rounded-sm font-medium text-foreground hover:text-primary hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                            title={value}
+                          >
+                            {value}
+                          </Link>
+                        ) : column.id === "asset" ? (
+                          <button
+                            type="button"
+                            data-program-details
+                            aria-label={`Open program details for ${program.assetName}, ${formatInlineValues(program.indications)}`}
+                            title={value}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              openProgram(program, event.currentTarget);
+                            }}
+                            className="block max-w-[185px] truncate rounded-sm text-left text-muted-foreground hover:text-foreground hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                          >
+                            {value}
+                          </button>
+                        ) : column.id === "development" ? (
                           <StageBadge stage={value} />
                         ) : truncateClassName ? (
                           <div

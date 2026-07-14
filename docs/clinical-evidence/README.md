@@ -1,8 +1,8 @@
 # Clinical Evidence Data Contract
 
-**Schema version: 2.0** (ADR-0037, field name finalized by ADR-0038). v2.0 is a
-distinct version, not a superset of v1: every source file declares
-`"clinicalEvidenceSchemaVersion": "2.0"` and a v1 file is rejected. The field is
+**Schema version: 3.0** (ADR-0039; builds on ADR-0037 and ADR-0038). v3.0 is a
+distinct version: every source file declares
+`"clinicalEvidenceSchemaVersion": "3.0"` and an earlier file is rejected. The field is
 namespaced to this domain — not a bare `schemaVersion` — because Company/Pipeline
 data is separately versioned as "Contract 1.1" (ADR-0030); a generic name here could
 be misread as versioning that whole registry contract instead of just Clinical
@@ -21,23 +21,22 @@ Routing is active (ADR-0035); see
 
 ## Evidence Scope
 
-Clinical Evidence v2 initially covers only **human interventional clinical
-studies relevant to obesity or weight management that have publicly available
-results**.
+Clinical Evidence v3 stores **in-scope human interventional Studies regardless
+of whether an Outcome has been recorded yet**.
 
-Include a study only when both are true:
+Include a Study when both are true:
 
 - the enrolled population or explicit development objective includes obesity,
   overweight, chronic weight management, or weight reduction.
-- at least one study-specific result is publicly available from an acceptable
-  source.
+- the Study has one explicit focal Company/Pipeline mapping (`programId` xor
+  `regimenId`) and a registry identity that can be verified.
 
-A result may be final, interim, topline, conference-presented, registry-posted,
-or peer-reviewed, but its maturity must be distinguishable.
+An inventory Study starts with Study + one or more protocol Arms. When results
+become available, enrich the same stable Study and Arm IDs with Endpoint and
+Outcome records; do not create a migration entity or duplicate Study.
 
-Do not include registered, planned, recruiting, or completed studies with no
-disclosed results; protocol-only or design-only disclosures; healthy-volunteer
-PK studies without an explicit obesity or weight-management objective; MASH-only,
+Do not include non-human or observational studies; healthy-volunteer PK studies
+without an explicit obesity or weight-management objective; MASH-only,
 T2D-only, CKD/CV/lipid/comorbidity-only studies; studies where body weight is
 incidental; or preclinical/non-human studies.
 
@@ -61,7 +60,7 @@ Each asset file declares its schema version and contains five parallel arrays:
 
 ```json
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "companyId": "<company-id>",
   "assetId": "<asset-id>",
   "studies": [],
@@ -89,10 +88,19 @@ authoritative; generated output must not be edited by hand.
 ## Entity And Field Rules
 
 **Study** is one identifiable clinical protocol or registry study. It requires a
-stable study ID, `companyId`, `assetId`, optional `programId` or `regimenId`,
-official title, registry identifier, phase, status, study design, population,
+stable study ID, `companyId`, `assetId`, exactly one of `programId` or `regimenId`,
+official title, registry identifier, phase, `registryStatus`, study design, population,
 optional duration/follow-up/safety summary, and verification metadata. NCT IDs
 must match `NCT########`.
+
+`registryStatus` identifies the **single reference registry** used for tracking
+and UI. Its `registry` + `registryId` must match one `registryIdentifiers` entry.
+`overallStatus` uses: `not-yet-recruiting`, `recruiting`,
+`enrolling-by-invitation`, `active-not-recruiting`, `suspended`, `terminated`,
+`withdrawn`, `completed`, or `unknown`; `sourceStatus` preserves registry text.
+`statusUpdatedAt` is the registry-published record/status update date. Research
+verification time remains `metadata.sources[].checkedAt`; the two dates are not
+interchangeable.
 
 Study grouping is not modeled. Extensions, rollovers, and platform/master-protocol
 groupings are stored as **separate Study records with no stored parent/child
@@ -106,10 +114,12 @@ identity would collide. That case is a deferred schema limitation (see
 model by inventing surrogate registry ids.
 
 **Arm / intervention** is one treatment or comparator configuration **within a
-single study**. It requires an arm ID, `studyId`, role (`experimental`, `placebo`,
-`active comparator`, or `other`), label, intervention, dose, route, dosing
-frequency, and treatment duration. Planned and analyzed N are optional when
-disclosed. Treatment and comparator arms use the same structure.
+single study**. It always requires an arm ID, `studyId`, role (`experimental`,
+`placebo`, `active comparator`, or `other`), label, and intervention. For an
+inventory Study, dose, route, dosing frequency, and treatment duration are
+optional. Once any Outcome is recorded for the Study, those four fields are
+required on every Arm, preserving the v2 result-bearing strictness. Planned and
+analyzed N remain optional when disclosed.
 
 An Arm is a treatment configuration inside one study — it is **not** a cohort, a
 sub-study, or a pooled/derived analysis group. There is no Cohort entity: when a
@@ -154,8 +164,9 @@ and is not promoted to a regimen or a separate asset.
 
 **Endpoint** is one prespecified outcome definition at one assessment timepoint. It
 requires an endpoint ID, `studyId`, name, structured `role`, and assessment
-timepoint. Only endpoints with at least one actual disclosed result may be
-stored.
+timepoint. Only endpoints with at least one actual disclosed Outcome may be
+stored. Therefore a Study with zero Outcomes must also have zero Endpoints and
+zero AnalysisGroups.
 
 `role` is a required enum: `primary`, `co-primary`, `key-secondary`, `secondary`,
 `exploratory`, `safety`, `other`. It must be **confirmed from the study's cited
@@ -332,9 +343,11 @@ Clinical Evidence reuses existing identity anchors where applicable:
 - `regimenId`
 
 The company and asset referenced by a source file must exist in the existing
-Company/Pipeline source data. A `programId`, when present, must belong to the
-same company and asset. A `regimenId`, when present, must belong to the same
-company.
+Company/Pipeline source data. Exactly one focal mapping is required. A
+`programId` must belong to the same company and asset; a `regimenId` must belong
+to the same company. Program-specific selectors use only explicit `programId`;
+they never infer a connection from asset, indication, acronym/title, comparator
+links, or source URLs.
 
 Arms, analysis groups and endpoints must belong to their referenced study. An
 analysis group's member arms must belong to that same study. Outcomes must reference
@@ -426,14 +439,14 @@ It is a **derived projection, not canonical data**:
 - versioned separately: it declares its own `projectionSchemaVersion`, not the
   canonical `clinicalEvidenceSchemaVersion`. The two numbers are intentionally
   independent — this file's shape may change without implying a change to the
-  canonical v2.0 contract, and vice versa (ADR-0038).
+  canonical v3.0 contract, and vice versa (ADR-0038, ADR-0039).
 
-It is therefore **outside** the frozen v2.0 canonical contract, and a consumer must
+It is therefore **outside** the canonical v3.0 contract, and a consumer must
 not treat it as a source of record.
 
 ## Deferred limitations
 
-v2.0 is explicit about what it still cannot represent. Each is logged in
+v3.0 is explicit about what it still cannot represent. Each is logged in
 `docs/data-protocol/edge-cases.md`, and a research run that meets one **omits and
 reports** it under the case-scoped fallback policy (workflow §5.1) rather than
 distorting the data:
@@ -469,9 +482,9 @@ and invalid checks. The synthetic fixtures are not real clinical evidence.
 
 ## Non-Goals
 
-This data layer does not introduce:
-
-- real clinical evidence records.
-- routing activation.
-- UI, ranking, scoring, or comparison behavior.
-- changes to Contract 1.1 or Scope v1.1.
+This data layer does not introduce rankings, cross-company comparisons, new
+clinical calculations, news, timelines, or complex charts. Result availability
+is not a stored field: `hasReportedOutcomes` is derived solely from Outcome
+existence, and UI copy says “No recorded outcomes” rather than claiming that no
+result has been publicly disclosed. Company/Pipeline Contract 1.1 remains a
+separate authority.

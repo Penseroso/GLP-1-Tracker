@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "companyId": "novo-nordisk",
   "assetId": "liraglutide",
   "studies": [
@@ -20,7 +20,6 @@
         "NN8022-1839"
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -48,6 +47,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT01272219",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -64,7 +69,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -92,6 +96,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT01272232",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -108,7 +118,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -137,6 +146,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT02918279",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -153,7 +168,6 @@
         }
       ],
       "phase": "Phase 3a",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -182,6 +196,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04775082",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     }
   ],

@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "id": "fixture-co-fixture-asset-partner-combination",
+    "companyId": "fixture-co",
+    "name": "Fixture Asset plus Partner X",
+    "components": [
+      { "assetId": "fixture-asset", "role": "focal asset" },
+      {
+        "assetName": "Partner X",
+        "externalCompanyName": "Example Partner",
+        "role": "combination partner"
+      }
+    ],
+    "indications": ["Obesity"],
+    "development": { "stage": "Phase 2", "status": "Active" },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-14",
+      "updatedAt": "2026-07-14",
+      "sources": [
+        {
+          "url": "https://example.com/fixture-regimen",
+          "title": "Fixture regimen source",
+          "sourceType": "synthetic fixture",
+          "checkedAt": "2026-07-14"
+        }
+      ]
+    }
+  }
+]

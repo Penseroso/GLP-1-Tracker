@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "2.0",
+  "clinicalEvidenceSchemaVersion": "3.0",
   "studies": [
     {
       "id": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
@@ -14,7 +14,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -42,7 +41,14 @@
             "checkedAt": "2026-07-13"
           }
         ]
-      }
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04847557",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
+      },
+      "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection"
     },
     {
       "id": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
@@ -58,7 +64,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -86,6 +91,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04184622",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -102,7 +113,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -130,6 +140,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04657003",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -146,7 +162,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -174,6 +189,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04657016",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -190,7 +211,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized withdrawal",
         "masking": "Double-blind after open-label lead-in",
@@ -218,6 +238,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04660643",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -234,7 +260,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Open-label",
@@ -262,6 +287,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05822830",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -278,7 +309,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -306,6 +336,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05024032",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -322,7 +358,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized withdrawal",
         "masking": "Double-blind after open-label lead-in",
@@ -350,6 +385,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06047548",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -366,7 +407,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -394,6 +434,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05607680",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -410,7 +456,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -438,6 +483,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06164873",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -453,7 +504,6 @@
         }
       ],
       "phase": "Phase 2",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -481,6 +531,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04881760",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -497,7 +553,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -525,6 +580,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05931367",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -541,7 +602,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -569,6 +629,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05869903",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -585,7 +651,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -613,6 +678,57 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05872620",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
+      }
+    },
+    {
+      "id": "eli-lilly-and-company-orforglipron-attain-pad-nct07223593",
+      "companyId": "eli-lilly-and-company",
+      "assetId": "ly3502970",
+      "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-pad",
+      "officialTitle": "A Study to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants With Peripheral Artery Disease: A Randomized, Double-Blind, Placebo Controlled Trial",
+      "acronym": "ATTAIN-PAD",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07223593"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2025-523283-21-00",
+        "J2A-MC-GZPR"
+      ],
+      "phase": "Phase 3",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07223593",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group trial of once-daily oral orforglipron versus placebo."
+      },
+      "population": "Participants with peripheral artery disease.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07223593",
+            "title": "ATTAIN-PAD study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
+          }
+        ]
       }
     },
     {
@@ -628,7 +744,6 @@
         }
       ],
       "phase": "Phase 2",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -656,6 +771,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06230523",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -671,7 +792,6 @@
         }
       ],
       "phase": "Phase 1",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -699,6 +819,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05369390",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -714,7 +840,6 @@
         }
       ],
       "phase": "Phase 1b/2a",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -742,6 +867,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06064006",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -757,7 +888,6 @@
         }
       ],
       "phase": "Phase 2",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind for active treatment versus pooled placebo",
@@ -786,6 +916,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03856047",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -802,7 +938,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -830,6 +965,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05567796",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -846,7 +987,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -874,6 +1014,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05394519",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -890,7 +1036,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Open-label",
@@ -918,6 +1063,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06131437",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -934,7 +1085,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -962,6 +1112,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT01272232",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -978,7 +1134,6 @@
         }
       ],
       "phase": "Phase 3a",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1007,6 +1162,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04775082",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1026,7 +1187,6 @@
         "NN8022-1839"
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1054,6 +1214,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT01272219",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1070,7 +1236,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1099,6 +1264,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT02918279",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1115,7 +1286,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1143,6 +1313,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05564117",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1162,7 +1338,6 @@
         "NN9536-4373"
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1190,6 +1365,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03548935",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1206,7 +1387,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1234,6 +1414,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03552757",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1253,7 +1439,6 @@
         "NN9536-4378"
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1281,6 +1466,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT03693430",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1297,7 +1488,6 @@
         }
       ],
       "phase": "Phase 3",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1326,6 +1516,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04102189",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1342,7 +1538,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1370,6 +1565,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05646706",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1386,7 +1587,6 @@
         }
       ],
       "phase": "Phase 3b",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1414,6 +1614,12 @@
             "checkedAt": "2026-07-13"
           }
         ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05649137",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
       }
     },
     {
@@ -1433,7 +1639,6 @@
         }
       ],
       "phase": "Phase 2",
-      "status": "Completed",
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
@@ -1459,6 +1664,56 @@
             "sourceType": "company topline announcement",
             "publishedAt": "2026-02-24",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07177469",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed"
+      }
+    },
+    {
+      "id": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "companyId": "zealand-pharma",
+      "assetId": "petrelintide",
+      "programId": "zealand-pharma-petrelintide-subcutaneous-injection",
+      "officialTitle": "A Randomized, Double-blind, Phase 2, Dose-finding Trial of Once Weekly Petrelintide Compared With Placebo in Participants With Obesity or Overweight With Weight Related Comorbidities",
+      "acronym": "ZUPREME",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06662539"
+        }
+      ],
+      "protocolIdentifiers": [
+        "2024-512549-18"
+      ],
+      "phase": "Phase 2",
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06662539",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-03-23"
+      },
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group, dose-finding trial of five once-weekly petrelintide dose groups versus placebo."
+      },
+      "population": "Participants with obesity or overweight and weight-related comorbidities.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-14",
+        "updatedAt": "2026-07-14",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06662539",
+            "title": "ZUPREME study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-14"
           }
         ]
       }
@@ -1744,6 +1999,28 @@
       "route": "Oral",
       "dosingFrequency": "Once daily",
       "treatmentDuration": "72 weeks"
+    },
+    {
+      "id": "attain-pad-orforglipron",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-pad-nct07223593",
+      "role": "experimental",
+      "label": "Orforglipron",
+      "intervention": "Orforglipron",
+      "linkedAsset": {
+        "companyId": "eli-lilly-and-company",
+        "assetId": "ly3502970"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
+    },
+    {
+      "id": "attain-pad-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-pad-nct07223593",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo",
+      "route": "Oral",
+      "dosingFrequency": "Once daily"
     },
     {
       "id": "reta-p2-12mg",
@@ -2818,6 +3095,80 @@
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "24 weeks"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-1",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 1",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-2",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 2",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-3",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 3",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-4",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 4",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-petrelintide-dose-5",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "experimental",
+      "label": "Petrelintide Dose 5",
+      "intervention": "Petrelintide",
+      "linkedAsset": {
+        "companyId": "zealand-pharma",
+        "assetId": "petrelintide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "zupreme-placebo",
+      "studyId": "zealand-pharma-petrelintide-zupreme-nct06662539",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Matching placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
     }
   ],
   "analysisGroups": [
