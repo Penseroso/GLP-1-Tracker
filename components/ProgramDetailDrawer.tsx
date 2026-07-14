@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { createPortal } from "react-dom";
 import { SourceList } from "@/components/SourceList";
 import { StudyPreviewList } from "@/components/clinical/StudyPreviewList";
 import type { ProgramStudyPreview } from "@/lib/clinical-evidence/selectors";
@@ -112,12 +113,12 @@ export function ProgramDetailDrawer({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [program, onClose]);
 
-  if (!program) {
+  if (!program || typeof document === "undefined") {
     return null;
   }
 
-  return (
-    <div className="fixed inset-0 z-50">
+  return createPortal(
+    <div className="fixed inset-0 z-50 m-0 h-dvh w-screen p-0">
       <button
         aria-label="Close program detail"
         className="absolute inset-0 cursor-default bg-foreground/30"
@@ -128,7 +129,7 @@ export function ProgramDetailDrawer({
         role="dialog"
         aria-modal="true"
         aria-labelledby={headingId}
-        className="absolute right-0 top-0 flex h-full w-full max-w-2xl flex-col border-l border-border bg-card shadow-soft"
+        className="absolute inset-y-0 right-0 m-0 flex h-dvh w-full max-w-2xl flex-col border-l border-border bg-card p-0 shadow-soft"
       >
         <div className="border-b border-border px-6 py-5">
           <div className="flex items-start justify-between gap-4">
@@ -202,6 +203,7 @@ export function ProgramDetailDrawer({
           </dl>
         </div>
       </aside>
-    </div>
+    </div>,
+    document.body,
   );
 }

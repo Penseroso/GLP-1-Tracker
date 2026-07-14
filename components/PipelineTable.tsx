@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import {
   getProgramTableColumnLabel,
+  type ProgramTableColumn,
   type ProgramTableColumnId,
 } from "@/config/program-table";
 import {
@@ -22,16 +23,33 @@ import { EmptyState } from "./EmptyState";
 import { FilterBar } from "./FilterBar";
 import { ProgramDetailDrawer } from "./ProgramDetailDrawer";
 import { StageBadge } from "./StageBadge";
-import { useProgramTableColumns } from "./useProgramTableColumns";
+import {
+  useProgramTableColumns,
+  type ProgramColumnControls,
+} from "./useProgramTableColumns";
 
 type PipelineTableProps = {
   programs: PipelineProgram[];
-  /**
-   * `programId` -> explicitly program-linked studies. Precomputed server-side;
-   * this client component never imports or infers from the clinical data layer.
-   */
+  /** Explicit programId-scoped Clinical previews, prepared server-side. */
   clinicalPreviewByProgramId?: Record<string, ProgramStudyPreview>;
 };
+
+type SortDirection = "ascending" | "descending";
+
+type ProgramSort = {
+  columnId: ProgramTableColumnId;
+  direction: SortDirection;
+};
+
+type ProgramAssetGroup = {
+  key: string;
+  programs: PipelineProgram[];
+};
+
+const alphabeticalCollator = new Intl.Collator("en", {
+  sensitivity: "base",
+  numeric: true,
+});
 
 function getAssetLabel(program: PipelineProgram) {
   const codeName = program.codeName?.trim();
@@ -43,16 +61,6 @@ function getAssetLabel(program: PipelineProgram) {
 
   return `${program.assetName} (${program.codeName})`;
 }
-
-const truncatedCellClassName: Partial<Record<ProgramTableColumnId, string>> = {
-  company: "max-w-[175px] truncate",
-  asset: "max-w-[185px] truncate",
-  mechanism: "max-w-[180px] truncate",
-  dosageForm: "max-w-[110px] truncate",
-  dosingInterval: "max-w-[140px] truncate",
-  indications: "max-w-[200px] truncate",
-  platform: "max-w-[160px] truncate",
-};
 
 function getProgramCellValue(
   program: PipelineProgram,
@@ -84,11 +92,118 @@ function getProgramCellValue(
   }
 }
 
+/** Preserve first-seen order; the input already carries default priority order. */
+function groupProgramsByAsset(programs: PipelineProgram[]): ProgramAssetGroup[] {
+  const groups = new Map<string, ProgramAssetGroup>();
+
+  for (const program of programs) {
+    const key = `${program.companyId}|${program.assetId}`;
+    const group = groups.get(key);
+    if (group) {
+      group.programs.push(program);
+    } else {
+      groups.set(key, {
+        key,
+        programs: [program],
+      });
+    }
+  }
+
+  return Array.from(groups.values());
+}
+
+function getGroupSortValue(
+  group: ProgramAssetGroup,
+  columnId: ProgramTableColumnId,
+) {
+  return Array.from(
+    new Set(group.programs.map((program) => getProgramCellValue(program, columnId))),
+  )
+    .sort(alphabeticalCollator.compare)
+    .join(" | ");
+}
+
+function ColumnResizeHandle({
+  column,
+  controls,
+}: {
+  column: ProgramTableColumn;
+  controls: ProgramColumnControls;
+}) {
+  const dragRef = useRef<{
+    pointerId: number;
+    startX: number;
+    startWidth: number;
+  } | null>(null);
+  const label = getProgramTableColumnLabel(column);
+  const width = controls.getColumnWidth(column.id);
+
+  return (
+    <span
+      role="separator"
+      aria-label={`Resize ${label} column`}
+      aria-orientation="vertical"
+      aria-valuemin={column.minWidth}
+      aria-valuemax={column.maxWidth}
+      aria-valuenow={width}
+      tabIndex={0}
+      title={`Drag to resize ${label}; double-click to reset`}
+      onClick={(event) => event.stopPropagation()}
+      onDoubleClick={(event) => {
+        event.stopPropagation();
+        controls.resetColumnWidth(column.id);
+      }}
+      onPointerDown={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        event.currentTarget.setPointerCapture(event.pointerId);
+        dragRef.current = {
+          pointerId: event.pointerId,
+          startX: event.clientX,
+          startWidth: width,
+        };
+      }}
+      onPointerMove={(event) => {
+        const drag = dragRef.current;
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        controls.setColumnWidth(
+          column.id,
+          drag.startWidth + event.clientX - drag.startX,
+        );
+      }}
+      onPointerUp={(event) => {
+        if (dragRef.current?.pointerId !== event.pointerId) return;
+        dragRef.current = null;
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }}
+      onPointerCancel={() => {
+        dragRef.current = null;
+      }}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          controls.setColumnWidth(column.id, width - 12);
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          controls.setColumnWidth(column.id, width + 12);
+        } else if (event.key === "Home") {
+          event.preventDefault();
+          controls.resetColumnWidth(column.id);
+        }
+      }}
+      className="group/resize absolute -right-1.5 top-0 z-10 flex h-full w-3 cursor-col-resize touch-none items-center justify-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+    >
+      <span className="h-5 w-px bg-border transition group-hover/resize:h-7 group-hover/resize:bg-primary group-focus-visible/resize:h-7 group-focus-visible/resize:bg-primary" />
+    </span>
+  );
+}
+
 export function PipelineTable({
   programs,
   clinicalPreviewByProgramId,
 }: PipelineTableProps) {
   const [filters, setFilters] = useState<ProgramFilters>(emptyProgramFilters);
+  const [sort, setSort] = useState<ProgramSort | null>(null);
   const [selectedProgram, setSelectedProgram] = useState<PipelineProgram | null>(
     null,
   );
@@ -113,17 +228,60 @@ export function PipelineTable({
   };
 
   const options = useMemo(() => getProgramFilterOptions(programs), [programs]);
-  const orderedPrograms = useMemo(
+  const priorityOrderedPrograms = useMemo(
     () => sortProgramsForRegister(programs),
     [programs],
   );
   const filteredPrograms = useMemo(
-    () => filterPrograms(orderedPrograms, filters),
-    [orderedPrograms, filters],
+    () => filterPrograms(priorityOrderedPrograms, filters),
+    [priorityOrderedPrograms, filters],
   );
+  const displayedGroups = useMemo(() => {
+    const groups = groupProgramsByAsset(filteredPrograms);
+    if (!sort) return groups;
+
+    const direction = sort.direction === "ascending" ? 1 : -1;
+    const defaultIndex = new Map(
+      filteredPrograms.map((program, index) => [program.id, index]),
+    );
+
+    for (const group of groups) {
+      group.programs.sort((a, b) => {
+        const valueDiff = alphabeticalCollator.compare(
+          getProgramCellValue(a, sort.columnId),
+          getProgramCellValue(b, sort.columnId),
+        );
+        if (valueDiff !== 0) return valueDiff * direction;
+        return (defaultIndex.get(a.id) ?? 0) - (defaultIndex.get(b.id) ?? 0);
+      });
+    }
+
+    return groups.sort((a, b) => {
+      const valueDiff = alphabeticalCollator.compare(
+        getGroupSortValue(a, sort.columnId),
+        getGroupSortValue(b, sort.columnId),
+      );
+      return valueDiff * direction || a.key.localeCompare(b.key);
+    });
+  }, [filteredPrograms, sort]);
+
   const columnControls = useProgramTableColumns();
   const visibleColumns = columnControls.visibleColumns;
+  const tableWidth = visibleColumns.reduce(
+    (sum, column) => sum + columnControls.getColumnWidth(column.id),
+    0,
+  );
   const resetFilters = () => setFilters(emptyProgramFilters);
+
+  const toggleSort = (columnId: ProgramTableColumnId) => {
+    setSort((current) => ({
+      columnId,
+      direction:
+        current?.columnId === columnId && current.direction === "ascending"
+          ? "descending"
+          : "ascending",
+    }));
+  };
 
   return (
     <div className="space-y-4">
@@ -135,10 +293,35 @@ export function PipelineTable({
               Program Register
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              {filteredPrograms.length} of {programs.length} programs shown
+              {displayedGroups.length} assets · {filteredPrograms.length} of{" "}
+              {programs.length} programs shown
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              {sort
+                ? `Sorted by ${getProgramTableColumnLabel(
+                    visibleColumns.find((column) => column.id === sort.columnId) ??
+                      // A sorted column may be hidden from Column Settings later.
+                      columnControls.orderedColumns.find(
+                        (column) => column.id === sort.columnId,
+                      )!,
+                  )} (${sort.direction})`
+                : "Default order: highest development priority first"}
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Click a header to sort alphabetically · drag its right divider to
+              resize
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+            {sort ? (
+              <button
+                type="button"
+                onClick={() => setSort(null)}
+                className="rounded-md border border-border px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                Default priority
+              </button>
+            ) : null}
             <ColumnSettings controls={columnControls} />
             <button
               type="button"
@@ -150,86 +333,148 @@ export function PipelineTable({
           </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[980px] border-collapse text-left text-sm">
+          <table
+            className="border-collapse text-left text-sm"
+            style={{
+              tableLayout: "fixed",
+              width: `${tableWidth}px`,
+              minWidth: "100%",
+            }}
+          >
+            <colgroup>
+              {visibleColumns.map((column) => (
+                <col
+                  key={column.id}
+                  style={{ width: columnControls.getColumnWidth(column.id) }}
+                />
+              ))}
+            </colgroup>
             <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
               <tr>
-                {visibleColumns.map((column) => (
-                  <th key={column.id} className="px-3 py-2.5 font-semibold">
-                    {getProgramTableColumnLabel(column)}
-                  </th>
-                ))}
+                {visibleColumns.map((column) => {
+                  const label = getProgramTableColumnLabel(column);
+                  const activeSort = sort?.columnId === column.id ? sort : null;
+                  return (
+                    <th
+                      key={column.id}
+                      aria-sort={
+                        activeSort?.direction ??
+                        (!sort && column.id === "development"
+                          ? "other"
+                          : undefined)
+                      }
+                      className="relative p-0 font-semibold"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => toggleSort(column.id)}
+                        aria-label={`Sort by ${label} ${
+                          activeSort?.direction === "ascending"
+                            ? "descending"
+                            : "ascending"
+                        }`}
+                        className="flex w-full items-center justify-between gap-2 px-3 py-2.5 pr-4 text-left transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                      >
+                        <span className="truncate">{label}</span>
+                        <span aria-hidden="true" className="shrink-0 text-[0.7rem]">
+                          {activeSort
+                            ? activeSort.direction === "ascending"
+                              ? "▲"
+                              : "▼"
+                            : !sort && column.id === "development"
+                              ? "★"
+                            : "↕"}
+                        </span>
+                      </button>
+                      <ColumnResizeHandle
+                        column={column}
+                        controls={columnControls}
+                      />
+                    </th>
+                  );
+                })}
               </tr>
             </thead>
-            <tbody className="divide-y divide-border">
-              {filteredPrograms.map((program) => (
-                <tr
-                  key={program.id}
-                  onClick={(event) => {
-                    const target = event.target;
-                    if (
-                      target instanceof Element &&
-                      target.closest(
-                        "a, button, input, select, textarea, [role='button']",
-                      )
-                    ) {
-                      return;
-                    }
-                    const trigger = event.currentTarget.querySelector<HTMLButtonElement>(
-                      "button[data-program-details]",
-                    );
-                    if (trigger) openProgram(program, trigger);
-                  }}
-                  className="cursor-pointer bg-card transition hover:bg-accent/45"
-                >
-                  {visibleColumns.map((column) => {
-                    const value = getProgramCellValue(program, column.id);
-                    const truncateClassName = truncatedCellClassName[column.id];
+            {displayedGroups.map((group, groupIndex) => (
+              <tbody
+                key={group.key}
+                aria-label={`${group.programs[0].assetName} program variants`}
+                className="border-t-2 border-border first:border-t-0"
+              >
+                {group.programs.map((program, programIndex) => (
+                  <tr
+                    key={program.id}
+                    onClick={(event) => {
+                      const target = event.target;
+                      if (
+                        target instanceof Element &&
+                        target.closest(
+                          "a, button, input, select, textarea, [role='button']",
+                        )
+                      ) {
+                        return;
+                      }
+                      const trigger =
+                        event.currentTarget.querySelector<HTMLButtonElement>(
+                          "button[data-program-details]",
+                        );
+                      if (trigger) openProgram(program, trigger);
+                    }}
+                    className={`cursor-pointer border-t border-border/70 transition first:border-t-0 hover:bg-accent/45 ${
+                      groupIndex % 2 === 0 ? "bg-card" : "bg-muted/20"
+                    }`}
+                  >
+                    {visibleColumns.map((column) => {
+                      const value = getProgramCellValue(program, column.id);
 
-                    return (
-                      <td
-                        key={column.id}
-                        className="px-3 py-2.5 text-muted-foreground"
-                      >
-                        {column.id === "company" ? (
-                          <Link
-                            href={`/companies/${program.companyId}`}
-                            className="block max-w-[175px] truncate rounded-sm font-medium text-foreground hover:text-primary hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                            title={value}
-                          >
-                            {value}
-                          </Link>
-                        ) : column.id === "asset" ? (
-                          <button
-                            type="button"
-                            data-program-details
-                            aria-label={`Open program details for ${program.assetName}, ${formatInlineValues(program.indications)}`}
-                            title={value}
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              openProgram(program, event.currentTarget);
-                            }}
-                            className="block max-w-[185px] truncate rounded-sm text-left text-muted-foreground hover:text-foreground hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                          >
-                            {value}
-                          </button>
-                        ) : column.id === "development" ? (
-                          <StageBadge stage={value} />
-                        ) : truncateClassName ? (
-                          <div
-                            className={`truncate ${truncateClassName}`}
-                            title={value}
-                          >
-                            {value}
-                          </div>
-                        ) : (
-                          <span className="whitespace-nowrap">{value}</span>
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-              {filteredPrograms.length === 0 ? (
+                      return (
+                        <td
+                          key={column.id}
+                          className="overflow-hidden px-3 py-2.5 text-muted-foreground"
+                        >
+                          {column.id === "company" ? (
+                            <Link
+                              href={`/companies/${program.companyId}`}
+                              className="block truncate rounded-sm font-medium text-foreground hover:text-primary hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                              title={value}
+                            >
+                              {value}
+                            </Link>
+                          ) : column.id === "asset" ? (
+                            <button
+                              type="button"
+                              data-program-details
+                              aria-label={`Open program details for ${program.assetName}, ${formatInlineValues(program.indications)}`}
+                              title={value}
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                openProgram(program, event.currentTarget);
+                              }}
+                              className="flex w-full min-w-0 items-center gap-2 rounded-sm text-left text-muted-foreground hover:text-foreground hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                            >
+                              <span className="min-w-0 truncate">{value}</span>
+                              {programIndex === 0 && group.programs.length > 1 ? (
+                                <span className="shrink-0 rounded-sm border border-border bg-muted px-1.5 py-0.5 text-[0.65rem] font-semibold text-muted-foreground">
+                                  {group.programs.length} variants
+                                </span>
+                              ) : null}
+                            </button>
+                          ) : column.id === "development" ? (
+                            <StageBadge stage={value} />
+                          ) : (
+                            <div className="truncate" title={value}>
+                              {value}
+                            </div>
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            ))}
+            {filteredPrograms.length === 0 ? (
+              <tbody>
                 <tr>
                   <td colSpan={visibleColumns.length} className="p-0">
                     {programs.length === 0 ? (
@@ -246,8 +491,8 @@ export function PipelineTable({
                     )}
                   </td>
                 </tr>
-              ) : null}
-            </tbody>
+              </tbody>
+            ) : null}
           </table>
         </div>
       </section>
