@@ -1,10 +1,17 @@
 import Link from "next/link";
+import { SourceList } from "@/components/SourceList";
+import { OutcomeResult } from "@/components/clinical/OutcomeResult";
 import { formatNullableValue } from "@/lib/format";
 import type {
+  AnalysisGroupView,
   ArmView,
   EndpointGroupView,
   StudyDetailView,
 } from "@/lib/clinical-evidence/selectors";
+
+function formatCount(count?: number): string {
+  return typeof count === "number" ? count.toLocaleString() : "N/A";
+}
 
 function MetaRow({ label, value }: { label: string; value?: string | null }) {
   return (
@@ -38,15 +45,19 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
 
   return (
     <div className="overflow-x-auto rounded-md border border-border bg-card shadow-soft">
-      <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+      <table className="w-full min-w-[1040px] border-collapse text-left text-sm">
         <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
           <tr>
             <th className="px-3 py-2.5 font-semibold">Arm</th>
             <th className="px-3 py-2.5 font-semibold">Role</th>
             <th className="px-3 py-2.5 font-semibold">Intervention</th>
             <th className="px-3 py-2.5 font-semibold">Dose</th>
+            <th className="px-3 py-2.5 font-semibold">Titration</th>
             <th className="px-3 py-2.5 font-semibold">Route</th>
             <th className="px-3 py-2.5 font-semibold">Frequency</th>
+            <th className="px-3 py-2.5 font-semibold">Duration</th>
+            <th className="px-3 py-2.5 font-semibold">Planned N</th>
+            <th className="px-3 py-2.5 font-semibold">Analyzed N</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-border">
@@ -60,14 +71,56 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
                 <ArmInterventionCell arm={arm} />
               </td>
               <td className="px-3 py-2.5">{formatNullableValue(arm.dose)}</td>
+              <td className="px-3 py-2.5">
+                {formatNullableValue(arm.titration)}
+              </td>
               <td className="px-3 py-2.5">{formatNullableValue(arm.route)}</td>
               <td className="px-3 py-2.5">
                 {formatNullableValue(arm.dosingFrequency)}
+              </td>
+              <td className="px-3 py-2.5">
+                {formatNullableValue(arm.treatmentDuration)}
+              </td>
+              <td className="px-3 py-2.5 tabular-nums">
+                {formatCount(arm.plannedN)}
+              </td>
+              <td className="px-3 py-2.5 tabular-nums">
+                {formatCount(arm.analyzedN)}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+function AnalysisGroupCard({ group }: { group: AnalysisGroupView }) {
+  return (
+    <div className="rounded-md border border-border bg-card p-4 shadow-soft">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h3 className="text-sm font-semibold text-card-foreground">
+          {group.label}
+        </h3>
+        <span className="whitespace-nowrap rounded-sm border border-border bg-muted px-2 py-0.5 text-xs font-semibold text-muted-foreground">
+          {group.kind}
+        </span>
+      </div>
+      {group.memberArmLabels.length > 0 ? (
+        <p className="mt-1 text-xs text-muted-foreground">
+          <span className="font-semibold text-foreground">Member arms:</span>{" "}
+          {group.memberArmLabels.join(", ")}
+        </p>
+      ) : null}
+      {group.description ? (
+        <p className="mt-2 text-sm text-muted-foreground">{group.description}</p>
+      ) : null}
+      {typeof group.analyzedN === "number" ? (
+        <p className="mt-2 text-xs text-muted-foreground">
+          <span className="font-semibold text-foreground">Analyzed N:</span>{" "}
+          <span className="tabular-nums">{formatCount(group.analyzedN)}</span>
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -85,28 +138,15 @@ function EndpointCard({ group }: { group: EndpointGroupView }) {
         </span>
       </div>
       <p className="mt-1 text-xs text-muted-foreground">
-        {formatNullableValue(endpoint.assessmentTimepoint)}
+        {[endpoint.domain, endpoint.assessmentTimepoint]
+          .filter(Boolean)
+          .join(" · ") || "N/A"}
       </p>
       {outcomes.length > 0 ? (
-        <ul className="mt-3 space-y-2">
-          {outcomes.map((outcome) => {
-            const anchor =
-              outcome.groupLabel ??
-              (outcome.armLabels.length > 0
-                ? outcome.armLabels.join(" vs ")
-                : "N/A");
-            return (
-              <li
-                key={outcome.outcome.id}
-                className="border-t border-border pt-2 text-sm first:border-t-0 first:pt-0"
-              >
-                <p className="text-foreground">{outcome.outcome.result.value}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {anchor} · {outcome.outcome.maturity}
-                </p>
-              </li>
-            );
-          })}
+        <ul className="mt-3 space-y-3">
+          {outcomes.map((outcome) => (
+            <OutcomeResult key={outcome.outcome.id} outcome={outcome} />
+          ))}
         </ul>
       ) : (
         <p className="mt-3 text-sm text-muted-foreground">
@@ -118,7 +158,14 @@ function EndpointCard({ group }: { group: EndpointGroupView }) {
 }
 
 export function StudyDetail({ detail }: { detail: StudyDetailView }) {
-  const { study, asset, arms, endpointGroups, linkedFromAssets } = detail;
+  const {
+    study,
+    asset,
+    arms,
+    analysisGroups,
+    endpointGroups,
+    linkedFromAssets,
+  } = detail;
 
   return (
     <div className="space-y-6 pb-10">
@@ -159,6 +206,7 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
           <MetaRow label="Randomization" value={study.design.randomization} />
           <MetaRow label="Masking" value={study.design.masking} />
           <MetaRow label="Comparator" value={study.design.comparator} />
+          <MetaRow label="Design" value={study.design.description} />
           <MetaRow label="Overall duration" value={study.overallDuration} />
           <MetaRow label="Follow-up" value={study.followUpDuration} />
           <MetaRow label="Safety summary" value={study.safetySummary} />
@@ -169,6 +217,22 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
         <h2 className="text-base font-semibold text-foreground">Arms</h2>
         <ArmsTable arms={arms} />
       </section>
+
+      {analysisGroups.length > 0 ? (
+        <section className="space-y-3">
+          <h2 className="text-base font-semibold text-foreground">
+            Analysis groups
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            Source-reported analysis units that are not protocol-defined arms.
+          </p>
+          <div className="grid gap-3 md:grid-cols-2">
+            {analysisGroups.map((group) => (
+              <AnalysisGroupCard key={group.id} group={group} />
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="space-y-3">
         <h2 className="text-base font-semibold text-foreground">
@@ -185,6 +249,13 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
             No endpoints recorded.
           </p>
         )}
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-base font-semibold text-foreground">Sources</h2>
+        <div className="space-y-2 text-sm">
+          <SourceList sources={study.metadata.sources} emptyLabel="N/A" />
+        </div>
       </section>
 
       {linkedFromAssets.length > 0 ? (

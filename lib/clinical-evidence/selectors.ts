@@ -80,12 +80,17 @@ export type EndpointGroupView = {
   outcomes: OutcomeView[];
 };
 
+export type AnalysisGroupView = ClinicalAnalysisGroupRecord & {
+  /** Labels of the protocol arms that make up this analysis group. */
+  memberArmLabels: string[];
+};
+
 export type StudyDetailView = {
   study: ClinicalStudyRecord;
   /** The study's canonical focal asset (back-link target). */
   asset: ClinicalAssetRef;
   arms: ArmView[];
-  analysisGroups: ClinicalAnalysisGroupRecord[];
+  analysisGroups: AnalysisGroupView[];
   endpointGroups: EndpointGroupView[];
   /** Reciprocal: other assets that link to this study via an Arm linkedAsset. */
   linkedFromAssets: ClinicalAssetRef[];
@@ -99,6 +104,30 @@ export type AssetStudiesView = {
   focalStudies: StudySummaryView[];
   linkedStudies: StudySummaryView[];
 };
+
+/** A study summary tagged with its relation to the asset it is previewed under. */
+export type PreviewStudy = StudySummaryView & {
+  relation: "focal" | "linked";
+};
+
+/**
+ * Compact, asset-scoped clinical preview for the Program Drawer. Precomputed
+ * server-side so the client drawer never imports the clinical data layer; the
+ * merge/cap policy lives here in the read model, not in the UI.
+ */
+export type AssetStudyPreview = {
+  companyId: string;
+  assetId: string;
+  /** Capped list (see {@link getAssetStudyPreview}); focal entries come first. */
+  studies: PreviewStudy[];
+  /** Uncapped focal + linked total, for the "View all" affordance. */
+  totalCount: number;
+  href: string;
+};
+
+/** Max studies shown in the drawer preview, and the reserved-linked split. */
+const PREVIEW_LIMIT = 5;
+const PREVIEW_LINKED_RESERVED = 1;
 
 const endpointRoleRank: Record<ClinicalEndpointRole, number> = {
   primary: 0,
@@ -166,9 +195,31 @@ export function getStudyDetail(studyId: string): StudyDetailView | undefined {
 
   const armLabelById = new Map(arms.map((arm) => [arm.id, arm.label]));
 
-  const analysisGroups = clinicalAnalysisGroupsByStudyId.get(studyId) ?? [];
+  // Resolve an arm id to its label, failing loud on a dangling reference. A
+  // missing arm means the generated data is corrupt (mirrors the orphan-endpoint
+  // hardening below), not something to paper over with a raw id in the UI.
+  const resolveArmLabel = (armId: string, context: string): string => {
+    const label = armLabelById.get(armId);
+    if (label === undefined) {
+      throw new Error(
+        `Clinical Evidence ${context} references missing arm "${armId}" in study "${studyId}"`,
+      );
+    }
+    return label;
+  };
+
+  const analysisGroupRecords =
+    clinicalAnalysisGroupsByStudyId.get(studyId) ?? [];
   const groupLabelById = new Map(
-    analysisGroups.map((group) => [group.id, group.label]),
+    analysisGroupRecords.map((group) => [group.id, group.label]),
+  );
+  const analysisGroups: AnalysisGroupView[] = analysisGroupRecords.map(
+    (group) => ({
+      ...group,
+      memberArmLabels: group.memberArmIds.map((armId) =>
+        resolveArmLabel(armId, `analysis group "${group.id}"`),
+      ),
+    }),
   );
 
   const endpointsById = new Map(
@@ -189,13 +240,22 @@ export function getStudyDetail(studyId: string): StudyDetailView | undefined {
         `Clinical Evidence outcome "${outcome.id}" references missing endpoint "${outcome.endpointId}" in study "${studyId}"`,
       );
     }
+    let groupLabel: string | undefined;
+    if (outcome.analysisGroupId) {
+      groupLabel = groupLabelById.get(outcome.analysisGroupId);
+      if (groupLabel === undefined) {
+        throw new Error(
+          `Clinical Evidence outcome "${outcome.id}" references missing analysis group "${outcome.analysisGroupId}" in study "${studyId}"`,
+        );
+      }
+    }
     const view: OutcomeView = {
       outcome,
       endpoint,
-      armLabels: (outcome.armIds ?? []).map((id) => armLabelById.get(id) ?? id),
-      groupLabel: outcome.analysisGroupId
-        ? groupLabelById.get(outcome.analysisGroupId) ?? outcome.analysisGroupId
-        : undefined,
+      armLabels: (outcome.armIds ?? []).map((id) =>
+        resolveArmLabel(id, `outcome "${outcome.id}"`),
+      ),
+      groupLabel,
     };
     const list = outcomesByEndpointId.get(endpoint.id);
     if (list) {
@@ -257,6 +317,44 @@ export function getAssetStudies(
     companyName: companyNameById.get(companyId),
     focalStudies: toSummaries(entry?.focalStudyIds ?? []),
     linkedStudies: toSummaries(entry?.linkedStudyIds ?? []),
+  };
+}
+
+/**
+ * Compact clinical preview for the Program Drawer. Caps at {@link PREVIEW_LIMIT}
+ * studies: when linked/comparator studies exist, reserve up to
+ * {@link PREVIEW_LINKED_RESERVED} slot(s) for them so the comparator relationship
+ * is represented without crowding out focal studies; otherwise the whole budget
+ * goes to focal studies. Returns `undefined` when the asset has no evidence.
+ */
+export function getAssetStudyPreview(
+  companyId: string,
+  assetId: string,
+): AssetStudyPreview | undefined {
+  const view = getAssetStudies(companyId, assetId);
+  const totalCount =
+    (view?.focalStudies.length ?? 0) + (view?.linkedStudies.length ?? 0);
+  if (!view || totalCount === 0) {
+    return undefined;
+  }
+
+  const linkedShown = view.linkedStudies.slice(
+    0,
+    Math.min(view.linkedStudies.length, PREVIEW_LINKED_RESERVED),
+  );
+  const focalShown = view.focalStudies.slice(0, PREVIEW_LIMIT - linkedShown.length);
+
+  const studies: PreviewStudy[] = [
+    ...focalShown.map((study) => ({ ...study, relation: "focal" as const })),
+    ...linkedShown.map((study) => ({ ...study, relation: "linked" as const })),
+  ];
+
+  return {
+    companyId,
+    assetId,
+    studies,
+    totalCount,
+    href: `/assets/${companyId}/${assetId}`,
   };
 }
 

@@ -13,6 +13,7 @@ import {
   getProgramFilterOptions,
   sortProgramsForRegister,
 } from "@/lib/programs/selectors";
+import type { AssetStudyPreview } from "@/lib/clinical-evidence/selectors";
 import type { PipelineProgram, ProgramFilters } from "@/lib/programs/types";
 import { formatInlineValues, formatNullableValue } from "@/lib/format";
 import { ColumnSettings } from "./ColumnSettings";
@@ -25,11 +26,12 @@ import { useProgramTableColumns } from "./useProgramTableColumns";
 type PipelineTableProps = {
   programs: PipelineProgram[];
   /**
-   * `companyId|assetId` keys of assets that have Clinical Evidence. Precomputed
-   * on the server so this client component never imports the clinical data
-   * layer; used to offer a link from the detail drawer into the asset route.
+   * `companyId|assetId` -> asset-scoped clinical preview, for assets that have
+   * Clinical Evidence. Precomputed on the server so this client component never
+   * imports the clinical data layer; used to render the trial preview inside the
+   * detail drawer.
    */
-  clinicalAssetKeys?: string[];
+  clinicalPreviewByAssetKey?: Record<string, AssetStudyPreview>;
 };
 
 function getAssetLabel(program: PipelineProgram) {
@@ -85,7 +87,7 @@ function getProgramCellValue(
 
 export function PipelineTable({
   programs,
-  clinicalAssetKeys,
+  clinicalPreviewByAssetKey,
 }: PipelineTableProps) {
   const [filters, setFilters] = useState<ProgramFilters>(emptyProgramFilters);
   const [selectedProgram, setSelectedProgram] = useState<PipelineProgram | null>(
@@ -93,17 +95,11 @@ export function PipelineTable({
   );
   const triggerRowRef = useRef<HTMLTableRowElement | null>(null);
 
-  const clinicalAssetKeySet = useMemo(
-    () => new Set(clinicalAssetKeys ?? []),
-    [clinicalAssetKeys],
-  );
-
-  const clinicalEvidenceHref =
-    selectedProgram &&
-    clinicalAssetKeySet.has(
-      `${selectedProgram.companyId}|${selectedProgram.assetId}`,
-    )
-      ? `/assets/${selectedProgram.companyId}/${selectedProgram.assetId}`
+  const clinicalPreview =
+    selectedProgram && clinicalPreviewByAssetKey
+      ? clinicalPreviewByAssetKey[
+          `${selectedProgram.companyId}|${selectedProgram.assetId}`
+        ] ?? null
       : null;
 
   const openProgram = (
@@ -232,7 +228,7 @@ export function PipelineTable({
       </section>
       <ProgramDetailDrawer
         program={selectedProgram}
-        clinicalEvidenceHref={clinicalEvidenceHref}
+        clinicalPreview={clinicalPreview}
         onClose={closeDrawer}
       />
     </div>

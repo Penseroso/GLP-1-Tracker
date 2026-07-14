@@ -25,8 +25,8 @@ function StudySection({
 }
 
 export function AssetStudies({ view }: { view: AssetStudiesView }) {
-  const hasStudies =
-    view.focalStudies.length > 0 || view.linkedStudies.length > 0;
+  const totalStudies = view.focalStudies.length + view.linkedStudies.length;
+  const hasStudies = totalStudies > 0;
 
   return (
     <div className="space-y-6 pb-10">
@@ -39,6 +39,12 @@ export function AssetStudies({ view }: { view: AssetStudiesView }) {
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
           {view.companyName ?? view.companyId}
+          {hasStudies ? (
+            <>
+              {" · "}
+              {totalStudies} {totalStudies === 1 ? "study" : "studies"}
+            </>
+          ) : null}
         </p>
       </section>
 

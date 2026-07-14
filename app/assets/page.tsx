@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import { PipelineTable } from "@/components/PipelineTable";
-import { listClinicalAssetKeys } from "@/lib/clinical-evidence/selectors";
+import {
+  getAssetStudyPreview,
+  listClinicalAssetKeys,
+  type AssetStudyPreview,
+} from "@/lib/clinical-evidence/selectors";
 import { pipelinePrograms } from "@/lib/programs/data";
 
 export const metadata: Metadata = {
   title: "Program Register",
 };
 
-// Keys of assets that have clinical evidence, so the Program Register can offer
-// a link into the Clinical Evidence route only where there is content to show.
-const clinicalAssetKeys = listClinicalAssetKeys().map(
-  ({ companyId, assetId }) => `${companyId}|${assetId}`,
-);
+// Precompute the asset-scoped clinical preview per asset key, so the client
+// table/drawer can render trial previews without importing the clinical data
+// layer. Only assets with evidence get an entry (getAssetStudyPreview returns
+// undefined otherwise).
+const clinicalPreviewByAssetKey: Record<string, AssetStudyPreview> =
+  Object.fromEntries(
+    listClinicalAssetKeys().flatMap(({ companyId, assetId }) => {
+      const preview = getAssetStudyPreview(companyId, assetId);
+      return preview ? [[`${companyId}|${assetId}`, preview]] : [];
+    }),
+  );
 
 export default function AssetsPage() {
   return (
@@ -31,7 +41,7 @@ export default function AssetsPage() {
       </section>
       <PipelineTable
         programs={pipelinePrograms}
-        clinicalAssetKeys={clinicalAssetKeys}
+        clinicalPreviewByAssetKey={clinicalPreviewByAssetKey}
       />
     </div>
   );
