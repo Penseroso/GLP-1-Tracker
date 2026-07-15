@@ -17,8 +17,10 @@ module completes.
   [Data Protocol](../../docs/data-protocol/README.md).
 - Research execution remains in the
   [Company/Pipeline Research Workflow](../../docs/research-workflow.md).
-- Types, loaders, filters, portfolio logic, constants, and selectors remain in
-  `lib/programs/`.
+- Company/Pipeline type declarations are canonical at
+  `domains/company-pipeline/lib/types.ts`; `lib/programs/types.ts` is a
+  temporary type-only compatibility shim. Loaders, filters, portfolio logic,
+  constants, and selectors remain in `lib/programs/`.
 - Editable Company/Pipeline data remains in `data/companies/` and
   `data/registries/`; fixtures and generated artifacts remain under their
   existing `data/` paths.
@@ -32,10 +34,11 @@ validation boundary.
 
 ## Migration status
 
-Module 1 creates this entrypoint only. No existing file has moved, and no
-import, loader, validator, generator, selector, data path, fixture, or generated
-output has changed. Shared-type placement (D2), data relocation (D4), and
-selector/read-model ownership (D5) remain unresolved.
+Module 1 created this entrypoint. Module 2 resolves D2: `ComponentReference`
+remains Company/Pipeline-owned, while `RecordMetadata` and `SourceReference`
+are shared provenance types. Only the type file has moved; no loader, validator,
+generator, selector, data path, fixture, or generated output has changed. Data
+relocation (D4) and selector/read-model ownership (D5) remain unresolved.
 
 ## Authority boundaries
 

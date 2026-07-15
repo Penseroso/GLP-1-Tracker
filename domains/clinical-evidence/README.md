@@ -18,6 +18,9 @@ module completes.
 - Research execution remains in the
   [Clinical Evidence Workflow](../../docs/clinical-evidence-workflow.md).
 - Types, loading, and selectors remain in `lib/clinical-evidence/`.
+- Clinical Evidence imports shared `RecordMetadata` from
+  `domains/shared/lib/record-metadata.ts` and Company/Pipeline-owned
+  `ComponentReference` from `domains/company-pipeline/lib/types.ts`.
 - Editable evidence, fixtures, the generated aggregate, and the derived
   projection remain under their existing `data/` paths.
 - Clinical routes and components remain owned by Application/UI.
@@ -31,9 +34,10 @@ domain.
 
 ## Migration status
 
-Module 1 creates this entrypoint only. No existing file has moved, and no
-import, loader, validator, generator, selector, data path, fixture, or generated
-output has changed. Shared dependency placement (D2), data relocation (D4), and
+Module 1 created this entrypoint. Module 2 resolves D2 while preserving the
+one-way Clinical Evidence to Company/Pipeline identity dependency. No Clinical
+Evidence file has moved, and no loader, validator, generator, selector, data
+path, fixture, or generated output has changed. Data relocation (D4) and
 selector/read-model ownership (D5) remain unresolved.
 
 ## Authority boundaries

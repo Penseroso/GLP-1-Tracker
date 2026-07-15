@@ -17,7 +17,10 @@ module completes.
   entrypoint and repository task router.
 - Root configuration and tooling remain at their existing repository paths.
 - Validation and generation remain in `scripts/data-registry.mjs`.
-- Shared formatting remains in `lib/format.ts`.
+- Shared provenance types `RecordMetadata` and `SourceReference` are canonical
+  at `domains/shared/lib/record-metadata.ts`.
+- Display formatting remains physically at `lib/format.ts`, but Module 2
+  identifies it as Application/UI-owned and defers its move to that phase.
 
 ## Intended future ownership
 
@@ -27,10 +30,12 @@ tooling remain in place unless a later approved module explicitly changes them.
 
 ## Migration status
 
-Module 1 creates this entrypoint only. No existing file has moved, and no
-import, validator, generator, configuration, data path, fixture, or generated
-output has changed. Shared-type placement (D2) and ownership of the dual-domain
-registry script (D3) remain unresolved.
+Module 1 created this entrypoint. Module 2 resolves D2 by extracting only the
+domain-neutral provenance types; it does not treat Company/Pipeline-owned
+`ComponentReference` or Application/UI-owned display formatting as shared.
+No validator, generator, configuration, data path, fixture, or generated output
+has changed. Ownership of the dual-domain registry script (D3) remains
+unresolved.
 
 ## Authority boundaries
 
