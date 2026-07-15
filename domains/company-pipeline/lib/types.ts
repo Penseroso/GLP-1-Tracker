@@ -1,5 +1,5 @@
 import type { RecordMetadata } from "@/domains/shared/lib/record-metadata";
-import type { developmentStatuses } from "@/lib/programs/constants";
+import type { developmentStatuses } from "./constants";
 
 export type {
   RecordMetadata,
