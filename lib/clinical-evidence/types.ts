@@ -1,4 +1,5 @@
-import type { ComponentReference, RecordMetadata } from "@/lib/programs/types";
+import type { RecordMetadata } from "@/domains/shared/lib/record-metadata";
+import type { ComponentReference } from "@/domains/company-pipeline/lib/types";
 
 /**
  * Canonical Clinical Evidence schema version. Earlier records require migration.

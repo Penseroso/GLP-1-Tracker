@@ -19,6 +19,9 @@ module completes.
 - Presentation and interaction, including clinical UI, remain in `components/`.
 - Application configuration remains in `config/`.
 - Current read models and selectors remain at their existing `lib/` paths.
+- Display formatting remains at `lib/format.ts`. Module 2 identifies it as
+  Application/UI-owned but defers its physical move and compatibility shim to
+  the Application/UI phase.
 
 ## Intended future ownership
 
@@ -28,10 +31,11 @@ not to Clinical Evidence.
 
 ## Migration status
 
-Module 1 creates this entrypoint only. No existing file has moved, and no route,
-import, selector, read model, loader, data consumer, or configuration has
-changed. Read-model ownership (D5) and the framework-pinned `app/` destination
-(D6) remain unresolved.
+Module 1 created this entrypoint. Module 2 records Application/UI ownership of
+`lib/format.ts` without moving it or changing its consumers. No route, selector,
+read model, loader, data consumer, or configuration has changed. Read-model
+ownership (D5) and the framework-pinned `app/` destination (D6) remain
+unresolved.
 
 ## Authority boundaries
 
