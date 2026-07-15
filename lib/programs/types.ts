@@ -1,23 +1,15 @@
+import type { RecordMetadata } from "@/domains/shared/lib/record-metadata";
 import type { developmentStatuses } from "./constants";
+
+export type {
+  RecordMetadata,
+  SourceReference,
+} from "@/domains/shared/lib/record-metadata";
 
 export type Company = {
   id: string;
   name: string;
   headquartersCountry: string;
-};
-
-export type SourceReference = {
-  url: string;
-  title?: string;
-  sourceType?: string;
-  publishedAt?: string;
-  checkedAt: string;
-};
-
-export type RecordMetadata = {
-  lastVerifiedAt: string;
-  updatedAt: string;
-  sources: SourceReference[];
 };
 
 export type AssetType =
