@@ -235,6 +235,13 @@ clinical-stage evidence supports Phase 1.
 - Use `null` or `Unknown` where the current contract permits.
 - Record unresolved **structural** cases in `edge-cases.md`.
 
+## Company record creation
+
+- Create a new Company record **only when both** the canonical official company
+  name **and** `headquartersCountry` are confirmed from reliable current sources.
+- Do **not** guess or create a partial Company record when the headquarters
+  country is unresolved. **Defer** and report the finding instead.
+
 ## Field-entry rules
 
 Rules by field.
@@ -337,6 +344,9 @@ Additional rules:
 
 - A **completed trial** does **not** mean the overall program is discontinued.
 - **Pipeline disappearance alone** does **not** prove discontinuation.
+- **Retain** an evidenced `Discontinued` program in the dataset: discontinuation
+  updates its status and **never deletes** the record (ADR-0008).
+- `Approved` programs likewise remain in the dataset.
 - **Delay alone** does **not** prove `On hold`.
 - **Explicit evidence** should support `On hold` and `Discontinued`.
 - A confirmed program with unresolved current status may use `Unknown`.
