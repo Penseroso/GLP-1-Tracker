@@ -70,6 +70,7 @@ Unless already GLP-1-based:
 - MASH-only, T2D-only, or comorbidity-only programs without qualifying core
   mechanism or confirmed obesity/weight-management intent;
 - preclinical/non-human material that does not establish a tracked program;
+- pure generic or biosimilar copies of an already-marketed product;
 - unsupported, speculative, or unidentifiable candidates.
 
 Detailed Clinical Evidence eligibility is governed by the separate Clinical

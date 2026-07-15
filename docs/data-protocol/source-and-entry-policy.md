@@ -344,6 +344,9 @@ Additional rules:
 
 - A **completed trial** does **not** mean the overall program is discontinued.
 - **Pipeline disappearance alone** does **not** prove discontinuation.
+- **Retain** an evidenced `Discontinued` program in the dataset: discontinuation
+  updates its status and **never deletes** the record. `Approved` programs
+  likewise remain in the dataset (ADR-0008).
 - **Delay alone** does **not** prove `On hold`.
 - **Explicit evidence** should support `On hold` and `Discontinued`.
 - A confirmed program with unresolved current status may use `Unknown`.
