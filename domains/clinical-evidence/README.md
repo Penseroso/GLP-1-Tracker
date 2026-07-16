@@ -8,8 +8,9 @@ update-boundary: Update only when Clinical Evidence migration ownership or statu
 # Clinical Evidence Domain
 
 This README is a **non-authoritative migration entrypoint**. Current authority
-remains at the existing repository paths linked below until a later migration
-module completes.
+remains at the canonical repository paths linked below; temporary compatibility
+entrypoints remain at the legacy paths until a later migration module removes
+them.
 
 ## Current ownership
 
