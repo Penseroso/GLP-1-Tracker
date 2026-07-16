@@ -18,11 +18,11 @@ them.
   [Data Protocol](./docs/README.md).
 - Research execution is canonical in the
   [Company/Pipeline Research Workflow](./docs/research-workflow.md).
-- Company/Pipeline types, loaders, filters, portfolio logic, and constants are
-  canonical under `domains/company-pipeline/lib/`. Their legacy
-  `lib/programs/` paths are temporary compatibility shims.
-- Selectors and `asset-alias-types.json` remain in `lib/programs/` pending the
-  separate D5 and D3 boundaries.
+- Company/Pipeline types, loaders, filters, portfolio logic, constants, and the
+  selector read model are canonical under `domains/company-pipeline/lib/`. Their
+  legacy `lib/programs/` paths are temporary compatibility shims.
+- `asset-alias-types.json` remains in `lib/programs/` pending the separate D3
+  boundary.
 - Editable Company/Pipeline data remains in `data/companies/` and
   `data/registries/`; fixtures and generated artifacts remain under their
   existing `data/` paths.
@@ -39,8 +39,10 @@ Module 1 created this entrypoint. Module 2 resolved D2: `ComponentReference`
 remains Company/Pipeline-owned, while `RecordMetadata` and `SourceReference`
 are shared provenance types. Module 3 moved the settled authoritative
 documentation and the types, loaders, filters, portfolio logic, and constants
-while preserving legacy import and documentation entrypoints. No validator,
-generator, selector, data path, fixture, or generated output changed. D3-D6
+while preserving legacy import and documentation entrypoints. Module 5 resolved
+D5 for Company/Pipeline: the selector read model moved into
+`domains/company-pipeline/lib/` byte-identically behind a compatibility shim,
+with no data, validator, generator, or generated-output change. D3, D4, and D6
 remain unresolved.
 
 ## Authority boundaries

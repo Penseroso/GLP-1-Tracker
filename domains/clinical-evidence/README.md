@@ -20,7 +20,9 @@ them.
   [Clinical Evidence Workflow](./docs/workflow.md).
 - Types and loading are canonical under `domains/clinical-evidence/lib/`.
   Their legacy `lib/clinical-evidence/` paths are temporary compatibility
-  shims; selectors remain there pending D5.
+  shims. Module 5 classified `lib/clinical-evidence/selectors.ts` as an
+  Application/UI read model (not domain library); it stays at its legacy path
+  and moves with the Application/UI phase (M6).
 - Clinical Evidence imports shared `RecordMetadata` from
   `domains/shared/lib/record-metadata.ts` and Company/Pipeline-owned
   `ComponentReference` from `domains/company-pipeline/lib/types.ts`.
@@ -40,9 +42,11 @@ domain.
 Module 1 created this entrypoint. Module 2 resolved D2 while preserving the
 one-way Clinical Evidence to Company/Pipeline identity dependency. Module 4
 moved the settled authoritative documentation, types, and loader while
-preserving legacy documentation and import entrypoints. No validator,
-generator, selector, data path, fixture, or generated output changed. Data
-relocation (D4) and selector/read-model ownership (D5) remain unresolved.
+preserving legacy documentation and import entrypoints. Module 5 resolved D5:
+`lib/clinical-evidence/selectors.ts` is an Application/UI read model deferred to
+the Application/UI phase (M6); no Clinical Evidence file moved and no validator,
+generator, data path, fixture, or generated output changed. Data relocation (D4)
+remains unresolved.
 
 ## Authority boundaries
 
