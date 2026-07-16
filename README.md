@@ -7,8 +7,8 @@ records and a separate Clinical Evidence v3 domain.
 Agents start at [`AGENTS.md`](AGENTS.md). Current rules live in the
 [Data Protocol](domains/company-pipeline/docs/README.md), the
 [Clinical Evidence contract](domains/clinical-evidence/docs/README.md), and the
-[UI reference](docs/ui/README.md). Historical reports are not implementation
-instructions.
+[UI reference](domains/app/docs/README.md). Historical reports are not
+implementation instructions.
 
 ## Data flow
 
@@ -18,7 +18,7 @@ data/companies/<company-id>/*
   -> npm run data:generate
   -> data/generated/{companies,pipeline-programs,regimens}.json
   -> domains/company-pipeline/lib (types, loaders, selectors)
-     + lib/company-detail (Application read model)
+     + domains/app/lib/company-detail (Application read model)
   -> pages and components
 
 Clinical Evidence source
@@ -27,7 +27,7 @@ data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json
   -> data/generated/clinical-evidence.json
      + clinical-evidence-asset-studies.json
   -> domains/clinical-evidence/lib
-     + lib/clinical-evidence/selectors
+     + domains/app/lib/clinical-evidence/selectors
   -> company, asset, program, and study UI
 ```
 
@@ -47,8 +47,14 @@ boundary is defined in the
 
 ## Repository structure
 
-- `app/`: routes and page composition;
-- `components/`: presentation and interaction;
+- `app/`: routes and page composition (root-pinned; see the
+  [UI reference](domains/app/docs/README.md) for the D6 resolution);
+- `components/`, `config/`, `lib/format.ts`: compatibility shims for the
+  canonical Application/UI code under `domains/app/`;
+- `domains/app/`: authoritative Application/UI presentation and interaction
+  (`components/`), configuration (`config/`), display formatting
+  (`lib/format.ts`), and the cross-domain read-model tier
+  (`lib/company-detail/`, `lib/clinical-evidence/selectors.ts`);
 - `domains/company-pipeline/`: authoritative Company/Pipeline documentation and
   settled types, loaders, filters, constants, portfolio logic, and the selector
   read model;
@@ -56,10 +62,10 @@ boundary is defined in the
   type list pending D3;
 - `domains/clinical-evidence/`: authoritative Clinical Evidence documentation,
   types, and loading;
-- `lib/clinical-evidence/`: compatibility shims and the Application/UI read
-  model (`selectors.ts`) pending the Application/UI phase (M6);
-- `lib/company-detail/`: cross-domain company detail read model
-  (Application/UI, pending M6);
+- `lib/clinical-evidence/`: compatibility shims only (`selectors.ts` moved to
+  `domains/app/lib/clinical-evidence/` in Module 6);
+- `lib/company-detail/`: compatibility shim only (read model moved to
+  `domains/app/lib/company-detail/` in Module 6);
 - `data/companies/`: editable Company/Pipeline source records;
 - `data/clinical-evidence/`: editable Clinical Evidence source records;
 - `data/registries/`: controlled Company/Pipeline vocabularies;
