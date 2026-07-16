@@ -17,8 +17,8 @@ Company/Pipeline source
 data/companies/<company-id>/*
   -> npm run data:generate
   -> data/generated/{companies,pipeline-programs,regimens}.json
-  -> domains/company-pipeline/lib
-     + lib/programs/selectors + lib/company-detail
+  -> domains/company-pipeline/lib (types, loaders, selectors)
+     + lib/company-detail (Application read model)
   -> pages and components
 
 Clinical Evidence source
@@ -50,13 +50,16 @@ boundary is defined in the
 - `app/`: routes and page composition;
 - `components/`: presentation and interaction;
 - `domains/company-pipeline/`: authoritative Company/Pipeline documentation and
-  settled types, loaders, filters, constants, and portfolio logic;
-- `lib/programs/`: compatibility shims, selectors pending D5, and the
-  validator-consumed asset-alias type list pending D3;
+  settled types, loaders, filters, constants, portfolio logic, and the selector
+  read model;
+- `lib/programs/`: compatibility shims and the validator-consumed asset-alias
+  type list pending D3;
 - `domains/clinical-evidence/`: authoritative Clinical Evidence documentation,
   types, and loading;
-- `lib/clinical-evidence/`: compatibility shims and selectors pending D5;
-- `lib/company-detail/`: company detail read model;
+- `lib/clinical-evidence/`: compatibility shims and the Application/UI read
+  model (`selectors.ts`) pending the Application/UI phase (M6);
+- `lib/company-detail/`: cross-domain company detail read model
+  (Application/UI, pending M6);
 - `data/companies/`: editable Company/Pipeline source records;
 - `data/clinical-evidence/`: editable Clinical Evidence source records;
 - `data/registries/`: controlled Company/Pipeline vocabularies;

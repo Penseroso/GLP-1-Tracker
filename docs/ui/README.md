@@ -21,10 +21,12 @@ boundaries. Historical UI audits are not part of the implementation path.
 | `/studies/[studyId]` | Study, arms, endpoints, outcomes, and source detail |
 
 `app/` owns routing and page composition. `components/` owns presentation and
-interaction. `lib/programs/` and `lib/company-detail/` own Company/Pipeline read
-models; `domains/clinical-evidence/lib/` owns Clinical Evidence types and
-loading, while `lib/clinical-evidence/selectors.ts` remains the read model
-pending D5.
+interaction. `domains/company-pipeline/lib/` owns the Company/Pipeline read
+model (`lib/programs/selectors.ts` is a compatibility shim);
+`domains/clinical-evidence/lib/` owns Clinical Evidence types and loading. The
+Application read-model tier — `lib/company-detail/read-model.ts` (cross-domain
+company composition) and `lib/clinical-evidence/selectors.ts` (Clinical Evidence
+read model) — remains at its `lib/` paths pending the Application/UI phase (M6).
 Components must not read editable source JSON directly.
 
 ## Data boundaries

@@ -1,5 +1,5 @@
 import { companies, pipelinePrograms } from "./data";
-import { sortProgramVariants } from "@/lib/programs/selectors";
+import { sortProgramVariants } from "./selectors";
 import type {
   AdministrationProfile,
   AssetAlias,

@@ -18,7 +18,11 @@ module completes.
 - Routing and page composition remain in `app/`.
 - Presentation and interaction, including clinical UI, remain in `components/`.
 - Application configuration remains in `config/`.
-- Current read models and selectors remain at their existing `lib/` paths.
+- The Company/Pipeline selector read model is canonical under
+  `domains/company-pipeline/lib/` (Module 5). The Application read-model tier —
+  `lib/clinical-evidence/selectors.ts` and `lib/company-detail/read-model.ts` —
+  is Application/UI-owned and remains at its existing `lib/` paths, moving in the
+  Application/UI phase (M6).
 - Display formatting remains at `lib/format.ts`. Module 2 identifies it as
   Application/UI-owned but defers its physical move and compatibility shim to
   the Application/UI phase.
@@ -31,11 +35,14 @@ not to Clinical Evidence.
 
 ## Migration status
 
-Module 1 created this entrypoint. Module 2 records Application/UI ownership of
-`lib/format.ts` without moving it or changing its consumers. No route, selector,
-read model, loader, data consumer, or configuration has changed. Read-model
-ownership (D5) and the framework-pinned `app/` destination (D6) remain
-unresolved.
+Module 1 created this entrypoint. Module 2 recorded Application/UI ownership of
+`lib/format.ts` without moving it or changing its consumers; at that stage, no
+route, selector, read model, loader, data consumer, or configuration moved.
+Module 5 resolved D5: the Company/Pipeline selector read model moved to its domain
+library, while `lib/clinical-evidence/selectors.ts` (Clinical Evidence read
+model) and `lib/company-detail/read-model.ts` (cross-domain company composition)
+are Application/UI-owned and deferred to M6. The framework-pinned `app/`
+destination (D6) remains unresolved.
 
 ## Authority boundaries
 
