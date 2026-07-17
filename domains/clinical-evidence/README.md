@@ -21,8 +21,11 @@ them.
 - Types and loading are canonical under `domains/clinical-evidence/lib/`.
   Their legacy `lib/clinical-evidence/` paths are temporary compatibility
   shims. Module 5 classified `lib/clinical-evidence/selectors.ts` as an
-  Application/UI read model (not domain library); it stays at its legacy path
-  and moves with the Application/UI phase (M6).
+  Application/UI read model (not domain library); Module 6 moved it to
+  `domains/app/lib/clinical-evidence/selectors.ts`, leaving a compatibility
+  shim at the legacy path. It continues reading Clinical Evidence data
+  through the legacy `@/lib/clinical-evidence/data` shim, pending Module 9
+  compatibility cleanup, per the `eslint.config.mjs` import boundary.
 - Clinical Evidence imports shared `RecordMetadata` from
   `domains/shared/lib/record-metadata.ts` and Company/Pipeline-owned
   `ComponentReference` from `domains/company-pipeline/lib/types.ts`.
@@ -45,8 +48,10 @@ moved the settled authoritative documentation, types, and loader while
 preserving legacy documentation and import entrypoints. Module 5 resolved D5:
 `lib/clinical-evidence/selectors.ts` is an Application/UI read model deferred to
 the Application/UI phase (M6); no Clinical Evidence file moved and no validator,
-generator, data path, fixture, or generated output changed. Data relocation (D4)
-remains unresolved.
+generator, data path, fixture, or generated output changed. Module 6 moved that
+read model to `domains/app/lib/clinical-evidence/selectors.ts`; no Clinical
+Evidence-owned file, validator, generator, data path, fixture, or generated
+output changed. Data relocation (D4) remains unresolved.
 
 ## Authority boundaries
 

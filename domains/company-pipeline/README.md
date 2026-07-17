@@ -42,8 +42,10 @@ documentation and the types, loaders, filters, portfolio logic, and constants
 while preserving legacy import and documentation entrypoints. Module 5 resolved
 D5 for Company/Pipeline: the selector read model moved into
 `domains/company-pipeline/lib/` byte-identically behind a compatibility shim,
-with no data, validator, generator, or generated-output change. D3, D4, and D6
-remain unresolved.
+with no data, validator, generator, or generated-output change. Module 6
+resolved D6 (Application/UI phase): `app/` is root-pinned for the current
+Next.js architecture and this migration program, not relocatable under a
+domain root. D3 and D4 remain unresolved.
 
 ## Authority boundaries
 
