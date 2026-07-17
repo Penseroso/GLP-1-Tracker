@@ -29,8 +29,14 @@ them.
 - Clinical Evidence imports shared `RecordMetadata` from
   `domains/shared/lib/record-metadata.ts` and Company/Pipeline-owned
   `ComponentReference` from `domains/company-pipeline/lib/types.ts`.
-- Editable evidence, fixtures, the generated aggregate, and the derived
-  projection remain under their existing `data/` paths.
+- Editable evidence (`data/clinical-evidence/`), the Clinical Evidence fixtures
+  (`data/validation-fixtures/clinical-evidence/`), the generated aggregate
+  (`data/generated/clinical-evidence.json`), and the derived projection
+  (`data/generated/clinical-evidence-asset-studies.json`) are Clinical
+  Evidence-owned (Module 7, D4). They are **temporarily retained** at their
+  existing `data/` paths: physical relocation depends on the D3
+  generator/validator restructure and on the shared multi-domain
+  `data/generated/` sink, and is deferred to a post-Module-8 execution module.
 - Clinical routes and components remain owned by Application/UI.
 
 ## Intended future ownership
@@ -51,7 +57,12 @@ the Application/UI phase (M6); no Clinical Evidence file moved and no validator,
 generator, data path, fixture, or generated output changed. Module 6 moved that
 read model to `domains/app/lib/clinical-evidence/selectors.ts`; no Clinical
 Evidence-owned file, validator, generator, data path, fixture, or generated
-output changed. Data relocation (D4) remains unresolved.
+output changed. Module 7 decision-resolved D4: it assigned semantic domain
+ownership of Clinical Evidence source, fixtures, and generated outputs (see
+Current ownership) but moved no file, and changed no validator, generator, data
+path, fixture, or generated output. Physical relocation is deferred to a
+post-Module-8 execution module because it depends on the D3 generator/validator
+restructure and the split of the shared `data/generated/` sink.
 
 ## Authority boundaries
 
