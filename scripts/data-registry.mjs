@@ -15,7 +15,7 @@ const companySourceDir = path.join(companyPipelineDataDir, "companies");
 const generatedDir = path.join(dataDir, "generated");
 const clinicalEvidenceSourceDir = path.join(dataDir, "clinical-evidence");
 const registryDir = path.join(companyPipelineDataDir, "registries");
-const syntheticFixtureDir = path.join(dataDir, "validation-fixtures", "synthetic");
+const syntheticFixtureDir = path.join(companyPipelineDataDir, "validation-fixtures", "synthetic");
 const clinicalEvidenceFixtureDir = path.join(dataDir, "validation-fixtures", "clinical-evidence");
 
 const fullDatePattern = /^\d{4}-\d{2}-\d{2}$/;
