@@ -17,7 +17,7 @@ const generatedDir = path.join(dataDir, "generated");
 const clinicalEvidenceSourceDir = path.join(clinicalEvidenceDataDir, "clinical-evidence");
 const registryDir = path.join(companyPipelineDataDir, "registries");
 const syntheticFixtureDir = path.join(companyPipelineDataDir, "validation-fixtures", "synthetic");
-const clinicalEvidenceFixtureDir = path.join(dataDir, "validation-fixtures", "clinical-evidence");
+const clinicalEvidenceFixtureDir = path.join(clinicalEvidenceDataDir, "validation-fixtures", "clinical-evidence");
 
 const fullDatePattern = /^\d{4}-\d{2}-\d{2}$/;
 const partialDatePattern = /^\d{4}(-\d{2}(-\d{2})?)?$/;
