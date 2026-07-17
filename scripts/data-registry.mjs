@@ -11,7 +11,7 @@ import process from "node:process";
 const root = process.cwd();
 const dataDir = path.join(root, "data");
 const companyPipelineDataDir = path.join(root, "domains", "company-pipeline", "data");
-const companySourceDir = path.join(dataDir, "companies");
+const companySourceDir = path.join(companyPipelineDataDir, "companies");
 const generatedDir = path.join(dataDir, "generated");
 const clinicalEvidenceSourceDir = path.join(dataDir, "clinical-evidence");
 const registryDir = path.join(companyPipelineDataDir, "registries");
