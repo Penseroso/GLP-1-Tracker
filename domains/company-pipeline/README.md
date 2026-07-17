@@ -23,9 +23,14 @@ them.
   legacy `lib/programs/` paths are temporary compatibility shims.
 - `asset-alias-types.json` remains in `lib/programs/` pending the separate D3
   boundary.
-- Editable Company/Pipeline data remains in `data/companies/` and
-  `data/registries/`; fixtures and generated artifacts remain under their
-  existing `data/` paths.
+- Editable Company/Pipeline data (`data/companies/`), the controlled
+  vocabularies (`data/registries/`), the synthetic fixtures
+  (`data/validation-fixtures/synthetic/`), and the Company/Pipeline generated
+  aggregates (`data/generated/{companies,pipeline-programs,regimens}.json`) are
+  Company/Pipeline-owned (Module 7, D4). They are **temporarily retained** at
+  their existing `data/` paths: physical relocation depends on the D3
+  generator/validator restructure and on the shared multi-domain
+  `data/generated/` sink, and is deferred to a post-Module-8 execution module.
 
 ## Intended future ownership
 
@@ -45,7 +50,13 @@ D5 for Company/Pipeline: the selector read model moved into
 with no data, validator, generator, or generated-output change. Module 6
 resolved D6 (Application/UI phase): `app/` is root-pinned for the current
 Next.js architecture and this migration program, not relocatable under a
-domain root. D3 and D4 remain unresolved.
+domain root. Module 7 decision-resolved D4: it assigned semantic domain
+ownership of source data, registries, fixtures, and generated outputs (see
+Current ownership) but moved no file. Data has no compatibility-shim mechanism
+(it is read by filesystem path in `scripts/data-registry.mjs`), so physical
+relocation cannot precede the D3 generator/validator restructure and the split
+of the shared `data/generated/` sink; D4 physical execution is therefore
+deferred to a post-Module-8 execution module. D3 remains unresolved (Module 8).
 
 ## Authority boundaries
 

@@ -66,11 +66,15 @@ boundary is defined in the
   `domains/app/lib/clinical-evidence/` in Module 6);
 - `lib/company-detail/`: compatibility shim only (read model moved to
   `domains/app/lib/company-detail/` in Module 6);
-- `data/companies/`: editable Company/Pipeline source records;
-- `data/clinical-evidence/`: editable Clinical Evidence source records;
-- `data/registries/`: controlled Company/Pipeline vocabularies;
-- `data/generated/`: generated consumer artifacts;
-- `data/validation-fixtures/`: active synthetic validation fixtures;
+- `data/**`: source records, registries, fixtures, and generated artifacts.
+  Domain ownership is decided (Module 7, D4), but these paths are temporarily
+  retained; physical relocation depends on the D3 generator/validator
+  restructure and is deferred to a post-Module-8 execution module:
+  - `data/companies/`: editable Company/Pipeline source records;
+  - `data/clinical-evidence/`: editable Clinical Evidence source records;
+  - `data/registries/`: controlled Company/Pipeline vocabularies;
+  - `data/generated/`: generated consumer artifacts (shared multi-domain sink);
+  - `data/validation-fixtures/`: active synthetic validation fixtures;
 - `docs/history/`: frozen non-authoritative audits, migrations, and diagnostic
   evidence.
 
