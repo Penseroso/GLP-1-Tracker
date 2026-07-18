@@ -3,7 +3,7 @@
 Human-edited Clinical Evidence v3 source files live at:
 
 ```text
-data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json
+domains/clinical-evidence/data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json
 ```
 
 Each file declares `clinicalEvidenceSchemaVersion: "3.0"` and contains
