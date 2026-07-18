@@ -103,11 +103,31 @@ export function CompanyStageMatrix({ matrix }: CompanyStageMatrixProps) {
                 </td>
                 {columns.map((column) => {
                   const count = row.counts[column.id];
+                  const chip = (
+                    <span className={heatChipClassName(count)}>
+                      {count > 0 ? count : <>&ndash;</>}
+                    </span>
+                  );
                   return (
                     <td key={column.id} className="px-3 py-2.5 text-center">
-                      <span className={heatChipClassName(count)}>
-                        {count > 0 ? count : <>&ndash;</>}
-                      </span>
+                      {count > 0 ? (
+                        // Drill-down: reproduce this exact cell in the Program
+                        // Register via company + stage-bucket URL filters. Zero
+                        // cells stay non-interactive.
+                        <Link
+                          href={`/assets?company=${encodeURIComponent(
+                            row.companyId,
+                          )}&stage=${column.id}`}
+                          aria-label={`${row.companyName} ${column.label}, ${count} program${
+                            count === 1 ? "" : "s"
+                          } — open in Program Register`}
+                          className="inline-flex rounded-sm transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        >
+                          {chip}
+                        </Link>
+                      ) : (
+                        chip
+                      )}
                     </td>
                   );
                 })}
