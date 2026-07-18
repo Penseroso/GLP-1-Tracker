@@ -8,5 +8,5 @@ truth. Each folder contains:
 - `regimens.json`
 
 Do not edit `data/generated/*.json` directly. Research and entry rules live in
-[`docs/data-protocol/`](../../docs/data-protocol/README.md); run
+the [Company/Pipeline Data Protocol](../../docs/README.md); run
 `npm run data:generate` after valid source changes.

@@ -45,12 +45,16 @@ canonical paths directly.
   splitting it.
 - Clinical routes and components remain owned by Application/UI.
 
-## Intended future ownership
+## Ownership boundary
 
-Later migration modules may place settled Clinical Evidence documentation,
-domain library code, editable evidence, fixtures, and domain-owned generated
-artifacts under this root. UI presentation and interaction are not part of this
-domain.
+Clinical Evidence documentation, types and loading, and editable data are owned
+under this root: source records in
+`domains/clinical-evidence/data/clinical-evidence/` and fixtures in
+`domains/clinical-evidence/data/validation-fixtures/clinical-evidence/`. The
+Clinical Evidence-owned generated outputs remain in the shared `data/generated/`
+sink at the repository root. UI presentation and interaction are not part of
+this domain. The domain-modularization migration is complete; there is no
+pending relocation.
 
 ## Migration status
 

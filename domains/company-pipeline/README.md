@@ -43,11 +43,16 @@ canonical paths directly.
   repository root**; the D4 execution retained that sink in place (mirroring the
   Module 8 retention of `scripts/data-registry.mjs`) rather than splitting it.
 
-## Intended future ownership
+## Ownership boundary
 
-Later migration modules may place remaining settled Company/Pipeline code,
-editable data, fixtures, and domain-owned generated artifacts under this root.
-Each relocation requires its own approved module and validation boundary.
+Company/Pipeline documentation, settled library code, and editable data are
+owned under this root: source records in
+`domains/company-pipeline/data/companies/`, controlled registries in
+`domains/company-pipeline/data/registries/`, and synthetic fixtures in
+`domains/company-pipeline/data/validation-fixtures/synthetic/`. The
+Company/Pipeline-owned generated aggregates remain in the shared
+`data/generated/` sink at the repository root. The domain-modularization
+migration is complete; there is no pending relocation.
 
 ## Migration status
 

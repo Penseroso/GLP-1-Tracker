@@ -13,7 +13,7 @@ semantics remain authoritative in the [Data Protocol](./README.md).
 
 ## 1. Establish the run
 
-1. Inspect `data/companies/`, the relevant generated aggregates, registries,
+1. Inspect `domains/company-pipeline/data/companies/`, the relevant generated aggregates, registries,
    and current Company/Pipeline types.
 2. If the company is absent, perform an initial company-wide investigation. If
    it exists, refresh every current record. Request wording never selects a

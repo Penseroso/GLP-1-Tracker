@@ -40,11 +40,13 @@ boundaries, and user-visible data semantics.
   The Tailwind content boundary now scans `domains/app/**` for the canonical
   UI source.
 
-## Intended future ownership
+## Ownership boundary
 
-Later migration modules may place additional settled presentation,
-interaction, and application configuration under this root. Clinical UI
-belongs to this domain, not to Clinical Evidence.
+Application/UI presentation and interaction, application configuration, the
+cross-domain read-model tier, and display formatting are owned under this root;
+`app/` remains root-pinned for the current Next.js architecture. Clinical UI
+belongs to this domain, not to Clinical Evidence. The domain-modularization
+migration is complete; there is no pending relocation.
 
 ## Migration status
 
@@ -59,7 +61,7 @@ files to `domains/app/`, leaving compatibility shims at every legacy path,
 and resolved D6: `app/` is root-pinned for the current architecture and
 program, not relocatable under a domain root without a framework
 restructure. `docs/ui/README.md` moved to `docs/README.md` under this root;
-the old path is now a compatibility redirect. Module 9 completed the
+Module 9 removed that legacy `docs/ui/` redirect. Module 9 completed the
 Application/UI migration: it repointed every route and domain consumer off the
 legacy `components/`, `config/`, `lib/format.ts`, read-model, and
 `@/lib/programs/*` compatibility shims to their canonical `domains/app/` (and

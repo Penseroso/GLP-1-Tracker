@@ -31,11 +31,13 @@ shims; the shared infrastructure recorded here is unchanged by that cleanup.
   the canonical `domains/app/lib/format.ts` and Module 9 removed the legacy
   `lib/format.ts` shim. It is not shared infrastructure.
 
-## Intended future ownership
+## Ownership boundary
 
-Later migration modules may place only approved, genuinely cross-domain library
-or infrastructure code under this root. Root-pinned routing, configuration, and
-tooling remain in place unless a later approved module explicitly changes them.
+This root holds only approved, genuinely cross-domain library and infrastructure
+code. Root-pinned routing, configuration, and tooling — including
+`scripts/data-registry.mjs` and the shared `data/generated/` sink — remain in
+place. The domain-modularization migration is complete; any future cross-domain
+extraction would be a new, separately approved change.
 
 ## Migration status
 
