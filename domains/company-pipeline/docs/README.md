@@ -79,12 +79,12 @@ Evidence contract and must not be inferred from Company/Pipeline inclusion.
 ## Data layout and authority
 
 ```text
-data/companies/<company-id>/
+domains/company-pipeline/data/companies/<company-id>/
   company.json
   pipeline-programs.json
   regimens.json
 
-data/registries/
+domains/company-pipeline/data/registries/
   development-stages.json
   regulatory-states.json
   company-relationship-roles.json
@@ -97,7 +97,7 @@ data/generated/
   clinical-evidence-asset-studies.json
 ```
 
-`data/companies/` and `data/clinical-evidence/` are editable operating sources.
+`domains/company-pipeline/data/companies/` and `domains/clinical-evidence/data/clinical-evidence/` are editable operating sources.
 `data/generated/` is deterministic output and is never hand-edited. Historical
 diagnostic material under `docs/history/` is not operating data, a fixture, or
 a validation input.

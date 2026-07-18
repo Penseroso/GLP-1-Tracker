@@ -53,7 +53,7 @@ later scope decision.
 Editable source data is company/asset scoped:
 
 ```text
-data/clinical-evidence/
+domains/clinical-evidence/data/clinical-evidence/
 └─ <company-id>/
    └─ <asset-id>/
       └─ clinical-evidence.json

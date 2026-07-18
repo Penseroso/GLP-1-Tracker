@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { CompanyStageMatrix } from "@/components/CompanyStageMatrix";
-import { MostAdvancedProgramsTable } from "@/components/MostAdvancedProgramsTable";
-import { OverviewMetadataStrip } from "@/components/OverviewMetadataStrip";
-import { RouteMixPanel } from "@/components/RouteMixPanel";
-import { companies, pipelinePrograms } from "@/lib/programs/data";
+import { CompanyStageMatrix } from "@/domains/app/components/CompanyStageMatrix";
+import { MostAdvancedProgramsTable } from "@/domains/app/components/MostAdvancedProgramsTable";
+import { OverviewMetadataStrip } from "@/domains/app/components/OverviewMetadataStrip";
+import { RouteMixPanel } from "@/domains/app/components/RouteMixPanel";
+import { companies, pipelinePrograms } from "@/domains/company-pipeline/lib/data";
 import {
   getClinicalStageProgramCount,
   getCompanyStageMatrix,
   getLatestUpdateDate,
   getMostAdvancedPrograms,
   getRouteDistribution,
-} from "@/lib/programs/selectors";
+} from "@/domains/company-pipeline/lib/selectors";
 
 export const metadata: Metadata = {
   // The root page.tsx shares its route segment with the root layout.tsx, so

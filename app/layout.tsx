@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PrimaryNav } from "@/components/PrimaryNav";
+import { PrimaryNav } from "@/domains/app/components/PrimaryNav";
 import "./globals.css";
 
 export const metadata: Metadata = {

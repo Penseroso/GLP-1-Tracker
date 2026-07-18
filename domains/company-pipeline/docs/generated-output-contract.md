@@ -16,15 +16,15 @@ current Contract 1.1 behavior (ADR-0030) and preserve the stage semantics
 
 ## 1. Source-of-truth boundary
 
-- `data/companies/<company-id>/{company,pipeline-programs,regimens}.json` are the
+- `domains/company-pipeline/data/companies/<company-id>/{company,pipeline-programs,regimens}.json` are the
   human-edited Company/Pipeline operating source of truth.
-- `data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json` files
+- `domains/clinical-evidence/data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json` files
   are the human-edited Clinical Evidence source of truth.
 - `data/generated/*.json` files are **generated artifacts**. Do not edit them by
   hand.
 - They are produced only by `npm run data:generate`
   (`scripts/data-registry.mjs`) from operating data plus the
-  repository-controlled registries under `data/registries/`.
+  repository-controlled registries under `domains/company-pipeline/data/registries/`.
 - Generation creates **no new canonical facts**: aggregate records are verbatim
   copies of operating records (see §4). It aggregates and orders them; the
   separately versioned asset-study projection derives only reciprocal links
@@ -58,10 +58,10 @@ output.
 
 | File | Source operating files | Shape | Kind | Primary consumers | Stable v1 output |
 | --- | --- | --- | --- | --- | --- |
-| `companies.json` | every `data/companies/*/company.json` | JSON array of `Company` | flat aggregate | UI company lists, report grouping, loader | yes |
-| `pipeline-programs.json` | every `data/companies/*/pipeline-programs.json` | JSON array of `PipelineProgramRecord` | flat aggregate | UI program board/detail, filtering, reports | yes |
-| `regimens.json` | every `data/companies/*/regimens.json` | JSON array of `RegimenRecord` | flat aggregate | future regimen views/tooling | yes |
-| `clinical-evidence.json` | every `data/clinical-evidence/*/*/clinical-evidence.json` | v3 object with `studies`, `arms`, `analysisGroups`, `endpoints`, and `outcomes` arrays | flat aggregate | Clinical selectors and Study/Asset/Company UI | no; separate Clinical Evidence output |
+| `companies.json` | every `domains/company-pipeline/data/companies/*/company.json` | JSON array of `Company` | flat aggregate | UI company lists, report grouping, loader | yes |
+| `pipeline-programs.json` | every `domains/company-pipeline/data/companies/*/pipeline-programs.json` | JSON array of `PipelineProgramRecord` | flat aggregate | UI program board/detail, filtering, reports | yes |
+| `regimens.json` | every `domains/company-pipeline/data/companies/*/regimens.json` | JSON array of `RegimenRecord` | flat aggregate | future regimen views/tooling | yes |
+| `clinical-evidence.json` | every `domains/clinical-evidence/data/clinical-evidence/*/*/clinical-evidence.json` | v3 object with `studies`, `arms`, `analysisGroups`, `endpoints`, and `outcomes` arrays | flat aggregate | Clinical selectors and Study/Asset/Company UI | no; separate Clinical Evidence output |
 | `clinical-evidence-asset-studies.json` | canonical Study and internal Arm links | v2 focal/linked Study IDs per asset | derived projection | asset-wide Clinical selectors | independently versioned |
 
 The four aggregate files concatenate corresponding operating records and sort
@@ -111,8 +111,8 @@ Downstream UI, report, and tool consumers:
 - **May** read generated files for display, filtering, sorting, and
   board/report views.
 - **Must not** treat generated files as an editable source of truth.
-- **Must** make Company/Pipeline edits in `data/companies/`.
-- **Must** make Clinical Evidence edits in `data/clinical-evidence/`.
+- **Must** make Company/Pipeline edits in `domains/company-pipeline/data/companies/`.
+- **Must** make Clinical Evidence edits in `domains/clinical-evidence/data/clinical-evidence/`.
 - **Must not** infer program-specific Study relationships: use explicit
   `Study.programId` only. Asset-wide views may use the generated focal/linked
   projection.

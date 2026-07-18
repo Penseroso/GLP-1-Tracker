@@ -313,7 +313,7 @@ General requirements:
   dosing interval.
 - Do **not** store empty strings.
 - Do **not** store `"N/A"` in JSON. `"N/A"` is a **UI-only** rendering of an
-  absent value produced by `lib/format.ts`.
+  absent value produced by `domains/app/lib/format.ts`.
 - Use `null` **only** for nullable fields when information is unavailable or not
   applicable.
 - Use `Unknown` **only** for the unresolved stage or status of a **confirmed**

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { StudyDetail } from "@/components/clinical/StudyDetail";
+import { StudyDetail } from "@/domains/app/components/clinical/StudyDetail";
 import {
   getStudyDetail,
   listClinicalStudyIds,
-} from "@/lib/clinical-evidence/selectors";
+} from "@/domains/app/lib/clinical-evidence/selectors";
 
 type StudyPageProps = {
   params: Promise<{ studyId: string }>;

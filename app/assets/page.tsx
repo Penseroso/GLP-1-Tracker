@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { PipelineTable } from "@/components/PipelineTable";
+import { PipelineTable } from "@/domains/app/components/PipelineTable";
 import {
   getAssetClinicalRollup,
   getProgramStudyPreview,
   type AssetClinicalRollup,
   type ProgramStudyPreview,
-} from "@/lib/clinical-evidence/selectors";
-import { pipelinePrograms } from "@/lib/programs/data";
+} from "@/domains/app/lib/clinical-evidence/selectors";
+import { pipelinePrograms } from "@/domains/company-pipeline/lib/data";
 
 export const metadata: Metadata = {
   title: "Program Register",

@@ -67,7 +67,7 @@ resolve a conflict, defer the affected result.
 Create source files only at:
 
 ```text
-data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json
+domains/clinical-evidence/data/clinical-evidence/<company-id>/<asset-id>/clinical-evidence.json
 ```
 
 Apply the [Clinical Evidence contract](./README.md) for Study,

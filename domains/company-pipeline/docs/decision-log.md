@@ -12,7 +12,7 @@ through ADR-0039 is available only through the
 | ADR-0003 | Exclude stage and status from program identity. | They are mutable state. | Active | [Entities and Rows](./entities-and-rows.md) |
 | ADR-0004 | Update mutable stage/status in place. | Progression must not fragment identity. | Active | [Entities and Rows](./entities-and-rows.md) |
 | ADR-0005 | Judge source authority by field or claim type. | Different claims have different best sources. | Active | [Source and Entry Policy](./source-and-entry-policy.md) |
-| ADR-0006 | Treat `N/A` as UI output only. | Missing data and display fallback are separate. | Active | [UI reference](../../../docs/ui/README.md) |
+| ADR-0006 | Treat `N/A` as UI output only. | Missing data and display fallback are separate. | Active | [UI reference](../../app/docs/README.md) |
 | ADR-0007 | Keep `null` distinct from `Unknown`. | They express absence versus confirmed unresolved state. | Active | [Source and Entry Policy](./source-and-entry-policy.md) |
 | ADR-0008 | Retain evidenced discontinued programs. | Competitive history remains relevant to the current landscape. | Active | [Source and Entry Policy](./source-and-entry-policy.md) |
 | ADR-0009 | Treat the original schema as provisional. | Early structural gaps required pilot evidence. | Superseded by ADR-0030 | [Data Protocol versioning](./README.md#versioning) |
