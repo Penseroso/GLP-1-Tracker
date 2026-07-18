@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { SourceList } from "@/domains/app/components/SourceList";
-import { Badge, OutcomeResult } from "@/domains/app/components/clinical/OutcomeResult";
+import { EndpointsSection } from "@/domains/app/components/clinical/EndpointsSection";
 import { formatNullableValue } from "@/domains/app/lib/format";
 import type {
   AnalysisGroupView,
   ArmView,
-  EndpointGroupView,
   StudyDetailView,
 } from "@/domains/app/lib/clinical-evidence/selectors";
-import type { SourceReference } from "@/domains/company-pipeline/lib/types";
 
 function formatCount(count?: number): string {
   return typeof count === "number" ? count.toLocaleString() : "N/A";
@@ -162,88 +160,6 @@ function AnalysisGroupCard({ group }: { group: AnalysisGroupView }) {
   );
 }
 
-/** Order-independent identity of a source set, used only to detect duplication. */
-function sourceSetKey(sources: SourceReference[]): string {
-  return sources
-    .map((source) => source.url)
-    .slice()
-    .sort()
-    .join("|");
-}
-
-/** The single value shared by every outcome, or undefined when any differ. */
-function commonValue<T>(
-  outcomes: EndpointGroupView["outcomes"],
-  select: (outcome: EndpointGroupView["outcomes"][number]) => T,
-): T | undefined {
-  if (outcomes.length === 0) return undefined;
-  const first = select(outcomes[0]);
-  return outcomes.every((outcome) => select(outcome) === first)
-    ? first
-    : undefined;
-}
-
-function EndpointCard({ group }: { group: EndpointGroupView }) {
-  const { endpoint, outcomes } = group;
-
-  // Hoist maturity/source to the endpoint header only when every outcome in
-  // this endpoint shares the exact same value — genuine differences between
-  // outcomes must stay visible on their own row, never be hidden.
-  const commonMaturity = commonValue(outcomes, (o) => o.outcome.maturity);
-  const commonSourceKey = commonValue(outcomes, (o) =>
-    sourceSetKey(o.outcome.metadata.sources),
-  );
-  const commonSources =
-    commonSourceKey && commonSourceKey.length > 0
-      ? outcomes[0].outcome.metadata.sources
-      : undefined;
-
-  return (
-    <div className="rounded-md border border-border bg-card shadow-soft">
-      <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 border-b border-border/70 bg-muted/30 px-4 py-3.5">
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-2">
-            <h3 className="text-base font-semibold text-card-foreground">
-              {endpoint.name}
-            </h3>
-            <Badge tone="accent">{endpoint.role}</Badge>
-            {commonMaturity ? <Badge>{commonMaturity}</Badge> : null}
-          </div>
-          <p className="mt-1 text-sm font-medium text-muted-foreground">
-            {[endpoint.domain, endpoint.assessmentTimepoint]
-              .filter(Boolean)
-              .join(" · ") || "N/A"}
-          </p>
-        </div>
-        {commonSources && commonSources.length > 0 ? (
-          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
-            <span className="font-semibold text-foreground">Source</span>
-            <SourceList sources={commonSources} variant="inline" />
-          </p>
-        ) : null}
-      </div>
-      <div className="px-4 py-1">
-        {outcomes.length > 0 ? (
-          <ul className="divide-y divide-border">
-            {outcomes.map((outcome) => (
-              <OutcomeResult
-                key={outcome.outcome.id}
-                outcome={outcome}
-                hideMaturity={Boolean(commonMaturity)}
-                hideSource={Boolean(commonSources)}
-              />
-            ))}
-          </ul>
-        ) : (
-          <p className="py-3 text-sm text-muted-foreground">
-            No recorded outcomes.
-          </p>
-        )}
-      </div>
-    </div>
-  );
-}
-
 /**
  * Sticky in-page section nav. Server-only (plain anchor links): no scroll-spy,
  * so it needs no client boundary and stays fully keyboard/no-JS accessible.
@@ -373,17 +289,7 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
         <h2 className="text-base font-semibold text-foreground">
           Endpoints &amp; outcomes
         </h2>
-        {endpointGroups.length > 0 ? (
-          <div className="space-y-4">
-            {endpointGroups.map((group) => (
-              <EndpointCard key={group.endpoint.id} group={group} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-muted-foreground">
-            No recorded outcomes.
-          </p>
-        )}
+        <EndpointsSection endpointGroups={endpointGroups} />
       </section>
 
       <section id="sources" className="space-y-3 scroll-mt-20">
