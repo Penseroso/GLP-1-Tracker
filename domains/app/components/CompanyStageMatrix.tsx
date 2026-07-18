@@ -117,7 +117,7 @@ export function CompanyStageMatrix({ matrix }: CompanyStageMatrixProps) {
                         <Link
                           href={`/assets?company=${encodeURIComponent(
                             row.companyId,
-                          )}&stage=${column.id}`}
+                          )}&stageBucket=${column.id}`}
                           aria-label={`${row.companyName} ${column.label}, ${count} program${
                             count === 1 ? "" : "s"
                           } — open in Program Register`}

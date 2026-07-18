@@ -226,17 +226,17 @@ export function PipelineTable({
   }, [programs]);
 
   // URL-driven filters for the Company × Development Stage Matrix drill-down.
-  // Only `company` (by companyId) and `stage` (a bucket id) are read; unknown or
-  // invalid values fall back to "All". Every other filter stays at its default,
-  // so a plain /assets visit is unchanged.
+  // Only `company` (by companyId) and `stageBucket` (a bucket id) are read;
+  // unknown or invalid values fall back to "All". Every other filter stays at
+  // its default, so a plain /assets visit is unchanged.
   const seededCompany = useMemo(() => {
     const companyId = searchParams.get("company");
     return (companyId ? companyNameById.get(companyId) : undefined) ?? "All";
   }, [searchParams, companyNameById]);
   const seededStageBucket = useMemo<ProgramFilters["stageBucket"]>(() => {
-    const stageParam = searchParams.get("stage");
-    return stageBuckets.some((bucket) => bucket.id === stageParam)
-      ? (stageParam as StageBucketId)
+    const bucketParam = searchParams.get("stageBucket");
+    return stageBuckets.some((bucket) => bucket.id === bucketParam)
+      ? (bucketParam as StageBucketId)
       : "All";
   }, [searchParams]);
 
@@ -352,14 +352,14 @@ export function PipelineTable({
       : undefined;
   const clearStageBucket = () => {
     setFilters((prev) => ({ ...prev, stageBucket: "All" }));
-    // Drop the stage query but keep company (and any other param) so the URL
-    // matches the screen and a refresh does not re-apply the bucket. The
+    // Drop the stageBucket query but keep company (and any other param) so the
+    // URL matches the screen and a refresh does not re-apply the bucket. The
     // re-seed effect then merges stageBucket:"All" without touching manual
     // filters.
     if (typeof window === "undefined" || !window.location.search) return;
     const params = new URLSearchParams(window.location.search);
-    if (!params.has("stage")) return;
-    params.delete("stage");
+    if (!params.has("stageBucket")) return;
+    params.delete("stageBucket");
     const query = params.toString();
     window.history.replaceState(
       null,
