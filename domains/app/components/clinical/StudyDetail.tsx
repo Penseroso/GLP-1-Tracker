@@ -244,6 +244,48 @@ function EndpointCard({ group }: { group: EndpointGroupView }) {
   );
 }
 
+/**
+ * Sticky in-page section nav. Server-only (plain anchor links): no scroll-spy,
+ * so it needs no client boundary and stays fully keyboard/no-JS accessible.
+ * Only sections actually present are listed — Analysis groups is omitted when
+ * the study has none. `scroll-mt-*` on each target offsets the sticky bar.
+ */
+function StudySectionNav({
+  hasAnalysisGroups,
+}: {
+  hasAnalysisGroups: boolean;
+}) {
+  const sections = [
+    { id: "overview", label: "Overview" },
+    { id: "arms", label: "Arms" },
+    ...(hasAnalysisGroups
+      ? [{ id: "analysis-groups", label: "Analysis groups" }]
+      : []),
+    { id: "endpoints", label: "Endpoints" },
+    { id: "sources", label: "Sources" },
+  ];
+
+  return (
+    <nav
+      aria-label="Study sections"
+      className="sticky top-0 z-20 -mx-5 overflow-x-auto border-b border-border bg-background px-5 py-2 sm:-mx-8 sm:px-8"
+    >
+      <ul className="flex gap-1 text-sm">
+        {sections.map((section) => (
+          <li key={section.id}>
+            <a
+              href={`#${section.id}`}
+              className="inline-flex whitespace-nowrap rounded-md px-3 py-1.5 font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              {section.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 export function StudyDetail({ detail }: { detail: StudyDetailView }) {
   const {
     study,
@@ -281,7 +323,9 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
         </div>
       </section>
 
-      <section>
+      <StudySectionNav hasAnalysisGroups={analysisGroups.length > 0} />
+
+      <section id="overview" className="scroll-mt-20">
         <dl>
           <MetaRow
             label="Registry ID"
@@ -304,13 +348,13 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
         </dl>
       </section>
 
-      <section className="space-y-3">
+      <section id="arms" className="space-y-3 scroll-mt-20">
         <h2 className="text-base font-semibold text-foreground">Arms</h2>
         <ArmsTable arms={arms} />
       </section>
 
       {analysisGroups.length > 0 ? (
-        <section className="space-y-3">
+        <section id="analysis-groups" className="space-y-3 scroll-mt-20">
           <h2 className="text-base font-semibold text-foreground">
             Analysis groups
           </h2>
@@ -325,7 +369,7 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
         </section>
       ) : null}
 
-      <section className="space-y-3">
+      <section id="endpoints" className="space-y-3 scroll-mt-20">
         <h2 className="text-base font-semibold text-foreground">
           Endpoints &amp; outcomes
         </h2>
@@ -342,7 +386,7 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
         )}
       </section>
 
-      <section className="space-y-3">
+      <section id="sources" className="space-y-3 scroll-mt-20">
         <h2 className="text-base font-semibold text-foreground">Sources</h2>
         <div className="space-y-2 text-sm">
           <SourceList sources={study.metadata.sources} emptyLabel="N/A" />
