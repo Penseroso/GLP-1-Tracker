@@ -24,21 +24,21 @@ boundaries, and user-visible data semantics.
   (e.g. adopting `src/`) may revisit this; no later move-only module may
   relocate it.
 - Presentation and interaction, including clinical UI, are canonical under
-  `domains/app/components/`. The legacy `components/` paths are
-  compatibility shims.
-- Application configuration is canonical at `domains/app/config/program-table.ts`;
-  the legacy `config/program-table.ts` is a compatibility shim.
-- Display formatting is canonical at `domains/app/lib/format.ts`; the legacy
-  `lib/format.ts` is a compatibility shim.
+  `domains/app/components/`.
+- Application configuration is canonical at `domains/app/config/program-table.ts`.
+- Display formatting is canonical at `domains/app/lib/format.ts`.
 - The Application read-model tier is canonical at
   `domains/app/lib/clinical-evidence/selectors.ts` (Clinical Evidence read
   model) and `domains/app/lib/company-detail/read-model.ts` (cross-domain
-  company composition). Their legacy `lib/clinical-evidence/selectors.ts`
-  and `lib/company-detail/read-model.ts` paths are compatibility shims.
+  company composition).
 - The Company/Pipeline selector read model remains canonical under
-  `domains/company-pipeline/lib/` (Module 5); this domain's files still
-  import it through the legacy `@/lib/programs/*` shim paths, deferred to
-  Module 9 cleanup.
+  `domains/company-pipeline/lib/` (Module 5).
+- Module 9 removed the legacy `components/`, `config/program-table.ts`,
+  `lib/format.ts`, `lib/clinical-evidence/selectors.ts`,
+  `lib/company-detail/read-model.ts`, and `@/lib/programs/*` compatibility
+  shims; routes and this domain's files import the canonical paths directly.
+  The Tailwind content boundary now scans `domains/app/**` for the canonical
+  UI source.
 
 ## Intended future ownership
 
@@ -59,7 +59,14 @@ files to `domains/app/`, leaving compatibility shims at every legacy path,
 and resolved D6: `app/` is root-pinned for the current architecture and
 program, not relocatable under a domain root without a framework
 restructure. `docs/ui/README.md` moved to `docs/README.md` under this root;
-the old path is now a compatibility redirect.
+the old path is now a compatibility redirect. Module 9 completed the
+Application/UI migration: it repointed every route and domain consumer off the
+legacy `components/`, `config/`, `lib/format.ts`, read-model, and
+`@/lib/programs/*` compatibility shims to their canonical `domains/app/` (and
+`domains/company-pipeline/lib/`) paths, deleted the shims, and — via a
+prerequisite remediation — repointed the Tailwind `content` boundary from the
+obsolete `./components/**` glob to `./domains/app/**`. No route or UI-behavior
+change beyond the intended Tailwind content-boundary correction.
 
 ## Authority boundaries
 

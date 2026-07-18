@@ -49,27 +49,23 @@ boundary is defined in the
 
 - `app/`: routes and page composition (root-pinned; see the
   [UI reference](domains/app/docs/README.md) for the D6 resolution);
-- `components/`, `config/`, `lib/format.ts`: compatibility shims for the
-  canonical Application/UI code under `domains/app/`;
 - `domains/app/`: authoritative Application/UI presentation and interaction
   (`components/`), configuration (`config/`), display formatting
   (`lib/format.ts`), and the cross-domain read-model tier
-  (`lib/company-detail/`, `lib/clinical-evidence/selectors.ts`);
+  (`lib/company-detail/`, `lib/clinical-evidence/selectors.ts`); routes and
+  every domain consumer import these canonical paths directly (the legacy
+  root `components/`, `config/`, and `lib/format.ts` shims were removed in
+  Module 9);
 - `domains/company-pipeline/`: authoritative Company/Pipeline documentation and
   settled types, loaders, filters, constants, portfolio logic, the selector
   read model, the `asset-alias-types.json` contract vocabulary (moved here in
   Module 8, D3), and Company/Pipeline-owned editable data under
   `domains/company-pipeline/data/` (source records, registries, and synthetic
   fixtures, relocated in the post-Module-8 D4 execution module);
-- `lib/programs/`: compatibility shims only (pending Module 9);
 - `domains/clinical-evidence/`: authoritative Clinical Evidence documentation,
   types, loading, and Clinical Evidence-owned editable data under
   `domains/clinical-evidence/data/` (source records and fixtures, relocated in
   the post-Module-8 D4 execution module);
-- `lib/clinical-evidence/`: compatibility shims only (`selectors.ts` moved to
-  `domains/app/lib/clinical-evidence/` in Module 6);
-- `lib/company-detail/`: compatibility shim only (read model moved to
-  `domains/app/lib/company-detail/` in Module 6);
 - domain-owned editable data, relocated in the post-Module-8 D4 execution
   module (semantic ownership was decided in Module 7, D4; D3 was resolved by
   retention in Module 8, which removed the earlier relocation precondition):
