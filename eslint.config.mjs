@@ -4,20 +4,16 @@ import nextTypescript from "eslint-config-next/typescript";
 // Read-model boundary (ADR: Clinical Evidence data access):
 // - Generated Clinical Evidence JSON may be imported only from the canonical
 //   domains/clinical-evidence/lib/data.ts loader.
-// - The canonical loader may be imported only by the legacy data shim;
-//   selectors.ts remains the sole consumer of that compatibility entrypoint.
-// Every other file, including files in either Clinical Evidence library root,
-// is restricted from both. Each block fully restates its restriction set
-// because ESLint flat config replaces a rule value per matching config.
+// - That canonical loader may be imported only by the canonical Application/UI
+//   read model, domains/app/lib/clinical-evidence/selectors.ts, which is the
+//   sole consumer of the loader.
+// Every other file, including files in the Clinical Evidence library root, is
+// restricted from both. Each block fully restates its restriction set because
+// ESLint flat config replaces a rule value per matching config.
 const clinicalGeneratedJsonRestriction = {
   group: ["**/generated/clinical-evidence*.json"],
   message:
     "Import the generated Clinical Evidence JSON only from domains/clinical-evidence/lib/data.ts.",
-};
-const clinicalLegacyDataModuleRestriction = {
-  group: ["@/lib/clinical-evidence/data", "**/clinical-evidence/data"],
-  message:
-    "Read clinical evidence through @/lib/clinical-evidence/selectors, not the raw data layer.",
 };
 const clinicalCanonicalDataModuleRestriction = {
   group: [
@@ -25,12 +21,12 @@ const clinicalCanonicalDataModuleRestriction = {
     "**/clinical-evidence/lib/data",
   ],
   message:
-    "Read clinical evidence through @/lib/clinical-evidence/selectors, not the raw data layer.",
+    "Read clinical evidence through @/domains/app/lib/clinical-evidence/selectors, not the raw data layer.",
 };
 const clinicalDataModuleSameDirRestriction = {
   group: ["./data"],
   message:
-    "Read clinical evidence through @/lib/clinical-evidence/selectors, not the raw data layer.",
+    "Read clinical evidence through @/domains/app/lib/clinical-evidence/selectors, not the raw data layer.",
 };
 
 const eslintConfig = [
@@ -47,7 +43,6 @@ const eslintConfig = [
         {
           patterns: [
             clinicalGeneratedJsonRestriction,
-            clinicalLegacyDataModuleRestriction,
             clinicalCanonicalDataModuleRestriction,
           ],
         },
@@ -62,7 +57,6 @@ const eslintConfig = [
         "error",
         {
           patterns: [
-            clinicalLegacyDataModuleRestriction,
             clinicalCanonicalDataModuleRestriction,
             clinicalDataModuleSameDirRestriction,
           ],
@@ -71,58 +65,19 @@ const eslintConfig = [
     },
   },
   {
-    // The legacy shim may re-export the canonical loader, but nothing else.
-    files: ["lib/clinical-evidence/data.ts"],
-    rules: {
-      "no-restricted-imports": [
-        "error",
-        {
-          patterns: [
-            clinicalGeneratedJsonRestriction,
-            clinicalLegacyDataModuleRestriction,
-            clinicalDataModuleSameDirRestriction,
-          ],
-        },
-      ],
-    },
-  },
-  {
-    // domains/app/lib/clinical-evidence/selectors.ts alone consumes the
-    // legacy data compatibility entrypoint (Module 6 relocated selectors.ts
-    // out of lib/clinical-evidence/; this carve-out moved with it).
+    // The canonical Application/UI selectors alone consume the loader.
     files: ["domains/app/lib/clinical-evidence/selectors.ts"],
     rules: {
       "no-restricted-imports": [
         "error",
         {
-          patterns: [
-            clinicalGeneratedJsonRestriction,
-            clinicalCanonicalDataModuleRestriction,
-          ],
+          patterns: [clinicalGeneratedJsonRestriction],
         },
       ],
     },
   },
   {
-    // All other legacy Clinical Evidence files get the full boundary.
-    files: ["lib/clinical-evidence/**"],
-    ignores: ["lib/clinical-evidence/data.ts"],
-    rules: {
-      "no-restricted-imports": [
-        "error",
-        {
-          patterns: [
-            clinicalGeneratedJsonRestriction,
-            clinicalLegacyDataModuleRestriction,
-            clinicalCanonicalDataModuleRestriction,
-            clinicalDataModuleSameDirRestriction,
-          ],
-        },
-      ],
-    },
-  },
-  {
-    // Canonical Clinical Evidence siblings get the same boundary.
+    // All other Clinical Evidence library siblings get the full boundary.
     files: ["domains/clinical-evidence/lib/**"],
     ignores: ["domains/clinical-evidence/lib/data.ts"],
     rules: {
@@ -131,7 +86,6 @@ const eslintConfig = [
         {
           patterns: [
             clinicalGeneratedJsonRestriction,
-            clinicalLegacyDataModuleRestriction,
             clinicalCanonicalDataModuleRestriction,
             clinicalDataModuleSameDirRestriction,
           ],

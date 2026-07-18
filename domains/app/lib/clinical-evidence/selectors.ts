@@ -12,7 +12,7 @@ import {
   clinicalStudiesByProgramId,
   companyNameById,
   pipelineAssetKeys,
-} from "@/lib/clinical-evidence/data";
+} from "@/domains/clinical-evidence/lib/data";
 import type {
   ClinicalAnalysisGroupRecord,
   ClinicalArmRecord,

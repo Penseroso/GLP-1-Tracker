@@ -4,7 +4,7 @@ import { AssetStudies } from "@/components/clinical/AssetStudies";
 import {
   getAssetStudies,
   listClinicalAssetKeys,
-} from "@/lib/clinical-evidence/selectors";
+} from "@/domains/app/lib/clinical-evidence/selectors";
 
 type AssetPageProps = {
   params: Promise<{ companyId: string; assetId: string }>;

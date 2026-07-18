@@ -5,7 +5,7 @@ import {
   getProgramStudyPreview,
   type AssetClinicalRollup,
   type ProgramStudyPreview,
-} from "@/lib/clinical-evidence/selectors";
+} from "@/domains/app/lib/clinical-evidence/selectors";
 import { pipelinePrograms } from "@/domains/company-pipeline/lib/data";
 
 export const metadata: Metadata = {
