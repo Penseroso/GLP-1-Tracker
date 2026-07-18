@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SourceList } from "@/domains/app/components/SourceList";
-import { OutcomeResult } from "@/domains/app/components/clinical/OutcomeResult";
+import { Badge, OutcomeResult } from "@/domains/app/components/clinical/OutcomeResult";
 import { formatNullableValue } from "@/domains/app/lib/format";
 import type {
   AnalysisGroupView,
@@ -8,6 +8,7 @@ import type {
   EndpointGroupView,
   StudyDetailView,
 } from "@/domains/app/lib/clinical-evidence/selectors";
+import type { SourceReference } from "@/domains/company-pipeline/lib/types";
 
 function formatCount(count?: number): string {
   return typeof count === "number" ? count.toLocaleString() : "N/A";
@@ -38,6 +39,16 @@ function ArmInterventionCell({ arm }: { arm: ArmView }) {
   return <span>{formatNullableValue(arm.intervention)}</span>;
 }
 
+/**
+ * Sticky-left cell shared by the Arm and Intervention columns, which stay
+ * visible while the rest of the Arms table scrolls horizontally. Background
+ * must be fully opaque (not the header's translucent `bg-muted/70`) so
+ * content scrolling underneath the pinned columns cannot bleed through.
+ */
+const stickyArmCellPosition = "sticky left-0 z-10 w-36 min-w-[9rem] max-w-[9rem] px-3 py-2.5";
+const stickyInterventionCellPosition =
+  "sticky left-36 z-10 min-w-[12rem] border-r border-border px-3 py-2.5";
+
 function ArmsTable({ arms }: { arms: ArmView[] }) {
   if (arms.length === 0) {
     return <p className="text-sm text-muted-foreground">No arms recorded.</p>;
@@ -54,9 +65,15 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
       <table className="w-full min-w-[1040px] border-collapse text-left text-sm">
         <thead className="bg-muted/70 text-xs uppercase tracking-[0.12em] text-muted-foreground">
           <tr>
-            <th className="px-3 py-2.5 font-semibold">Arm</th>
+            <th className={`${stickyArmCellPosition} bg-muted font-semibold`}>
+              Arm
+            </th>
+            <th
+              className={`${stickyInterventionCellPosition} bg-muted font-semibold`}
+            >
+              Intervention
+            </th>
             <th className="px-3 py-2.5 font-semibold">Role</th>
-            <th className="px-3 py-2.5 font-semibold">Intervention</th>
             <th className="px-3 py-2.5 font-semibold">Dose</th>
             {showTitration ? (
               <th className="px-3 py-2.5 font-semibold">Titration</th>
@@ -75,13 +92,15 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
         <tbody className="divide-y divide-border">
           {arms.map((arm) => (
             <tr key={arm.id} className="bg-card text-muted-foreground">
-              <td className="px-3 py-2.5 font-medium text-foreground">
+              <td
+                className={`${stickyArmCellPosition} bg-card font-medium text-foreground`}
+              >
                 {arm.label}
               </td>
-              <td className="px-3 py-2.5">{arm.role}</td>
-              <td className="px-3 py-2.5">
+              <td className={`${stickyInterventionCellPosition} bg-card`}>
                 <ArmInterventionCell arm={arm} />
               </td>
+              <td className="px-3 py-2.5">{arm.role}</td>
               <td className="px-3 py-2.5">{formatNullableValue(arm.dose)}</td>
               {showTitration ? (
                 <td className="px-3 py-2.5">
@@ -143,34 +162,84 @@ function AnalysisGroupCard({ group }: { group: AnalysisGroupView }) {
   );
 }
 
+/** Order-independent identity of a source set, used only to detect duplication. */
+function sourceSetKey(sources: SourceReference[]): string {
+  return sources
+    .map((source) => source.url)
+    .slice()
+    .sort()
+    .join("|");
+}
+
+/** The single value shared by every outcome, or undefined when any differ. */
+function commonValue<T>(
+  outcomes: EndpointGroupView["outcomes"],
+  select: (outcome: EndpointGroupView["outcomes"][number]) => T,
+): T | undefined {
+  if (outcomes.length === 0) return undefined;
+  const first = select(outcomes[0]);
+  return outcomes.every((outcome) => select(outcome) === first)
+    ? first
+    : undefined;
+}
+
 function EndpointCard({ group }: { group: EndpointGroupView }) {
   const { endpoint, outcomes } = group;
+
+  // Hoist maturity/source to the endpoint header only when every outcome in
+  // this endpoint shares the exact same value — genuine differences between
+  // outcomes must stay visible on their own row, never be hidden.
+  const commonMaturity = commonValue(outcomes, (o) => o.outcome.maturity);
+  const commonSourceKey = commonValue(outcomes, (o) =>
+    sourceSetKey(o.outcome.metadata.sources),
+  );
+  const commonSources =
+    commonSourceKey && commonSourceKey.length > 0
+      ? outcomes[0].outcome.metadata.sources
+      : undefined;
+
   return (
-    <div className="rounded-md border border-border bg-card p-4 shadow-soft">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 className="text-sm font-semibold text-card-foreground">
-          {endpoint.name}
-        </h3>
-        <span className="whitespace-nowrap rounded-sm border border-border bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground">
-          {endpoint.role}
-        </span>
+    <div className="rounded-md border border-border bg-card shadow-soft">
+      <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2 border-b border-border/70 bg-muted/30 px-4 py-3.5">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="text-base font-semibold text-card-foreground">
+              {endpoint.name}
+            </h3>
+            <Badge tone="accent">{endpoint.role}</Badge>
+            {commonMaturity ? <Badge>{commonMaturity}</Badge> : null}
+          </div>
+          <p className="mt-1 text-sm font-medium text-muted-foreground">
+            {[endpoint.domain, endpoint.assessmentTimepoint]
+              .filter(Boolean)
+              .join(" · ") || "N/A"}
+          </p>
+        </div>
+        {commonSources && commonSources.length > 0 ? (
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
+            <span className="font-semibold text-foreground">Source</span>
+            <SourceList sources={commonSources} variant="inline" />
+          </p>
+        ) : null}
       </div>
-      <p className="mt-1 text-xs text-muted-foreground">
-        {[endpoint.domain, endpoint.assessmentTimepoint]
-          .filter(Boolean)
-          .join(" · ") || "N/A"}
-      </p>
-      {outcomes.length > 0 ? (
-        <ul className="mt-3 space-y-3">
-          {outcomes.map((outcome) => (
-            <OutcomeResult key={outcome.outcome.id} outcome={outcome} />
-          ))}
-        </ul>
-      ) : (
-        <p className="mt-3 text-sm text-muted-foreground">
-          No recorded outcomes.
-        </p>
-      )}
+      <div className="px-4 py-1">
+        {outcomes.length > 0 ? (
+          <ul className="divide-y divide-border">
+            {outcomes.map((outcome) => (
+              <OutcomeResult
+                key={outcome.outcome.id}
+                outcome={outcome}
+                hideMaturity={Boolean(commonMaturity)}
+                hideSource={Boolean(commonSources)}
+              />
+            ))}
+          </ul>
+        ) : (
+          <p className="py-3 text-sm text-muted-foreground">
+            No recorded outcomes.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -261,7 +330,7 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
           Endpoints &amp; outcomes
         </h2>
         {endpointGroups.length > 0 ? (
-          <div className="grid gap-3 md:grid-cols-2">
+          <div className="space-y-4">
             {endpointGroups.map((group) => (
               <EndpointCard key={group.endpoint.id} group={group} />
             ))}

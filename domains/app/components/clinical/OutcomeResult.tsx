@@ -24,7 +24,7 @@ function displayValue(value: string, unit: string): string {
   return unitAlreadyInValue(value, unit) ? value : `${value} ${unit}`;
 }
 
-function Badge({
+export function Badge({
   children,
   tone = "muted",
 }: {
@@ -55,7 +55,19 @@ function MetricChip({ label, value }: { label?: string; value: string }) {
   );
 }
 
-export function OutcomeResult({ outcome }: { outcome: OutcomeView }) {
+type OutcomeResultProps = {
+  outcome: OutcomeView;
+  /** Suppress the per-row maturity badge when the endpoint header already states it. */
+  hideMaturity?: boolean;
+  /** Suppress the per-row source line when the endpoint header already states it. */
+  hideSource?: boolean;
+};
+
+export function OutcomeResult({
+  outcome,
+  hideMaturity = false,
+  hideSource = false,
+}: OutcomeResultProps) {
   const { result, analysisPopulation, estimand, maturity, metadata } =
     outcome.outcome;
   const isBetweenArm = result.resultType === "between-arm";
@@ -82,32 +94,52 @@ export function OutcomeResult({ outcome }: { outcome: OutcomeView }) {
   }
 
   return (
-    <li className="border-t border-border pt-3 first:border-t-0 first:pt-0">
-      <div className="flex flex-wrap items-center gap-2">
-        <Badge tone={isBetweenArm ? "accent" : "muted"}>
-          {isBetweenArm ? "Between-arm" : "Arm-level"}
-        </Badge>
-        <Badge>{maturity}</Badge>
+    <li className="grid grid-cols-1 gap-x-5 gap-y-2 py-3 first:pt-0 last:pb-0 sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)] sm:items-start">
+      {/* Column 1: treatment-regimen subject (arm/dose or analysis-group). */}
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <Badge tone={isBetweenArm ? "accent" : "muted"}>
+            {isBetweenArm ? "Between-arm" : "Arm-level"}
+          </Badge>
+          {!hideMaturity ? <Badge>{maturity}</Badge> : null}
+        </div>
+        <p className="mt-1.5 text-sm font-medium text-foreground">{subject}</p>
       </div>
-      <p className="mt-2 text-sm font-medium text-muted-foreground">{subject}</p>
-      <p className="mt-0.5 text-base font-semibold text-foreground">
-        {displayValue(result.value, result.unit)}
-      </p>
-      <div className="mt-2 flex flex-wrap gap-1.5">
-        {result.confidenceInterval ? (
-          <MetricChip value={result.confidenceInterval} />
+
+      {/* Column 2: efficacy estimand, kept visually distinct from the regimen subject. */}
+      <div className="min-w-0 space-y-1 text-xs text-muted-foreground">
+        <p>
+          <span className="font-semibold text-foreground">Population</span>{" "}
+          {analysisPopulation}
+        </p>
+        {estimand ? (
+          <p>
+            <span className="font-semibold text-foreground">Estimand</span>{" "}
+            {estimand}
+          </p>
         ) : null}
-        {result.pValue ? (
-          <MetricChip label="p-value" value={result.pValue} />
-        ) : null}
-        {result.responderThreshold ? (
-          <MetricChip label="Responder" value={result.responderThreshold} />
-        ) : null}
-        <MetricChip label="Population" value={analysisPopulation} />
-        {estimand ? <MetricChip label="Estimand" value={estimand} /> : null}
       </div>
-      {metadata.sources.length > 0 ? (
-        <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
+
+      {/* Column 3: result value, emphasized above supporting statistical detail. */}
+      <div className="min-w-0">
+        <p className="text-base font-semibold text-foreground">
+          {displayValue(result.value, result.unit)}
+        </p>
+        <div className="mt-1.5 flex flex-wrap gap-1.5">
+          {result.confidenceInterval ? (
+            <MetricChip value={result.confidenceInterval} />
+          ) : null}
+          {result.pValue ? (
+            <MetricChip label="p-value" value={result.pValue} />
+          ) : null}
+          {result.responderThreshold ? (
+            <MetricChip label="Responder" value={result.responderThreshold} />
+          ) : null}
+        </div>
+      </div>
+
+      {!hideSource && metadata.sources.length > 0 ? (
+        <p className="col-span-full flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
           <span className="font-semibold text-foreground">Source</span>
           <SourceList sources={metadata.sources} variant="inline" />
         </p>
