@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CompanyDetail } from "@/components/CompanyDetail";
+import { CompanyDetail } from "@/domains/app/components/CompanyDetail";
 import {
   getCompanyDetail,
   listCompanyDetailIds,
-} from "@/lib/company-detail/read-model";
+} from "@/domains/app/lib/company-detail/read-model";
 
 type CompanyPageProps = {
   params: Promise<{ companyId: string }>;

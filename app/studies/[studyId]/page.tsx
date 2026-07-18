@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { StudyDetail } from "@/components/clinical/StudyDetail";
+import { StudyDetail } from "@/domains/app/components/clinical/StudyDetail";
 import {
   getStudyDetail,
   listClinicalStudyIds,

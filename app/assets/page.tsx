@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PipelineTable } from "@/components/PipelineTable";
+import { PipelineTable } from "@/domains/app/components/PipelineTable";
 import {
   getAssetClinicalRollup,
   getProgramStudyPreview,

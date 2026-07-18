@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { AssetStudies } from "@/components/clinical/AssetStudies";
+import { AssetStudies } from "@/domains/app/components/clinical/AssetStudies";
 import {
   getAssetStudies,
   listClinicalAssetKeys,
