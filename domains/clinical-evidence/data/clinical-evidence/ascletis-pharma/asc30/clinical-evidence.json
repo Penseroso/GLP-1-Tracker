@@ -302,6 +302,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 1 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -316,6 +317,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 2 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -330,6 +332,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 3 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -344,6 +347,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 4 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -358,6 +362,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 5 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -372,6 +377,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 6 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -386,6 +392,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 7 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -400,6 +407,7 @@
         "companyId": "ascletis-pharma",
         "assetId": "asc30"
       },
+      "dose": "Registry-defined SAD dose 8 (exact dose not disclosed)",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -410,6 +418,7 @@
       "role": "placebo",
       "label": "SAD Cohort 1: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 1",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -420,6 +429,7 @@
       "role": "placebo",
       "label": "SAD Cohort 2: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 2",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -430,6 +440,7 @@
       "role": "placebo",
       "label": "SAD Cohort 3: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 3",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -440,6 +451,7 @@
       "role": "placebo",
       "label": "SAD Cohort 4: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 4",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -450,6 +462,7 @@
       "role": "placebo",
       "label": "SAD Cohort 5: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 5",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -460,6 +473,7 @@
       "role": "placebo",
       "label": "SAD Cohort 6: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 6",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -470,6 +484,7 @@
       "role": "placebo",
       "label": "SAD Cohort 7: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 7",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -480,6 +495,7 @@
       "role": "placebo",
       "label": "SAD Cohort 8: matching placebo",
       "intervention": "Single dose of matching placebo subcutaneous injection in SAD dose cohort 8",
+      "dose": "Volume-matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Single dose",
       "treatmentDuration": "Single administration"
@@ -805,6 +821,30 @@
   ],
   "endpoints": [
     {
+      "id": "asc30-202-body-weight-percent-change-week-13",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "name": "Percent change from baseline in body weight",
+      "role": "primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 13"
+    },
+    {
+      "id": "asc30-101-body-weight-percent-change-week-12",
+      "studyId": "ascletis-pharma-asc30-nct06679959",
+      "name": "Percent change from baseline in body weight",
+      "role": "primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 12"
+    },
+    {
+      "id": "asc30-101-body-weight-percent-change-week-16",
+      "studyId": "ascletis-pharma-asc30-nct06679959",
+      "name": "Percent change from baseline in body weight",
+      "role": "other",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 16"
+    },
+    {
       "id": "asc30-102-body-weight-percent-change-day-29",
       "studyId": "ascletis-pharma-asc30-nct06680440",
       "name": "Percent change from baseline in body weight",
@@ -814,6 +854,197 @@
     }
   ],
   "outcomes": [
+    {
+      "id": "asc30-202-20mg-body-weight-week-13-between",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "endpointId": "asc30-202-body-weight-percent-change-week-13",
+      "armIds": [
+        "asc30-202-cohort-1-tablets-20mg",
+        "asc30-202-cohort-4-tablets-a1-20mg",
+        "asc30-202-cohort-3-placebo",
+        "asc30-202-cohort-7-placebo"
+      ],
+      "analysisPopulation": "Topline efficacy analysis population (not further specified)",
+      "result": {
+        "value": "5.4%",
+        "numericValue": -5.4,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted mean difference in percent change from baseline",
+        "comparisonType": "Placebo-adjusted mean difference, pooled ASC30 20 mg minus pooled placebo",
+        "pValue": "<0.0001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-20",
+        "updatedAt": "2026-07-20",
+        "sources": [
+          {
+            "url": "https://www.ascletis.com/data/upload/pdf/ASC30%20Phase%202%20%40%20ADA%202026%20-%2020250518%20-%20final.pdf",
+            "title": "Oral Small Molecule GLP-1, ASC30, Demonstrated Placebo-Adjusted Weight Loss of 7.7% with Better Gastrointestinal Tolerability in Its 13-Week U.S. Phase II Study",
+            "sourceType": "official scientific presentation",
+            "publishedAt": "2026-06",
+            "checkedAt": "2026-07-20"
+          },
+          {
+            "url": "https://www.ascletis.com/data/upload/admin/20251209/6937c422c3795.pdf",
+            "title": "Ascletis' Oral Small Molecule GLP-1, ASC30, Demonstrated Placebo-Adjusted Weight Loss of 7.7% in Its 13-Week U.S. Phase II Study",
+            "sourceType": "company topline announcement",
+            "publishedAt": "2025-12-08",
+            "checkedAt": "2026-07-20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "asc30-202-40mg-body-weight-week-13-between",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "endpointId": "asc30-202-body-weight-percent-change-week-13",
+      "armIds": [
+        "asc30-202-cohort-2-tablets-40mg",
+        "asc30-202-cohort-5-tablets-a1-40mg",
+        "asc30-202-cohort-3-placebo",
+        "asc30-202-cohort-7-placebo"
+      ],
+      "analysisPopulation": "Topline efficacy analysis population (not further specified)",
+      "result": {
+        "value": "7.0%",
+        "numericValue": -7.0,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted mean difference in percent change from baseline",
+        "comparisonType": "Placebo-adjusted mean difference, pooled ASC30 40 mg minus pooled placebo",
+        "pValue": "<0.0001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-20",
+        "updatedAt": "2026-07-20",
+        "sources": [
+          {
+            "url": "https://www.ascletis.com/data/upload/pdf/ASC30%20Phase%202%20%40%20ADA%202026%20-%2020250518%20-%20final.pdf",
+            "title": "Oral Small Molecule GLP-1, ASC30, Demonstrated Placebo-Adjusted Weight Loss of 7.7% with Better Gastrointestinal Tolerability in Its 13-Week U.S. Phase II Study",
+            "sourceType": "official scientific presentation",
+            "publishedAt": "2026-06",
+            "checkedAt": "2026-07-20"
+          },
+          {
+            "url": "https://www.ascletis.com/data/upload/admin/20251209/6937c422c3795.pdf",
+            "title": "Ascletis' Oral Small Molecule GLP-1, ASC30, Demonstrated Placebo-Adjusted Weight Loss of 7.7% in Its 13-Week U.S. Phase II Study",
+            "sourceType": "company topline announcement",
+            "publishedAt": "2025-12-08",
+            "checkedAt": "2026-07-20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "asc30-202-60mg-body-weight-week-13-between",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "endpointId": "asc30-202-body-weight-percent-change-week-13",
+      "armIds": [
+        "asc30-202-cohort-6-tablets-a1-60mg",
+        "asc30-202-cohort-3-placebo",
+        "asc30-202-cohort-7-placebo"
+      ],
+      "analysisPopulation": "Topline efficacy analysis population (not further specified)",
+      "result": {
+        "value": "7.7%",
+        "numericValue": -7.7,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted mean difference in percent change from baseline",
+        "comparisonType": "Placebo-adjusted mean difference, ASC30 60 mg minus pooled placebo",
+        "pValue": "<0.0001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-20",
+        "updatedAt": "2026-07-20",
+        "sources": [
+          {
+            "url": "https://www.ascletis.com/data/upload/pdf/ASC30%20Phase%202%20%40%20ADA%202026%20-%2020250518%20-%20final.pdf",
+            "title": "Oral Small Molecule GLP-1, ASC30, Demonstrated Placebo-Adjusted Weight Loss of 7.7% with Better Gastrointestinal Tolerability in Its 13-Week U.S. Phase II Study",
+            "sourceType": "official scientific presentation",
+            "publishedAt": "2026-06",
+            "checkedAt": "2026-07-20"
+          },
+          {
+            "url": "https://www.ascletis.com/data/upload/admin/20251209/6937c422c3795.pdf",
+            "title": "Ascletis' Oral Small Molecule GLP-1, ASC30, Demonstrated Placebo-Adjusted Weight Loss of 7.7% in Its 13-Week U.S. Phase II Study",
+            "sourceType": "company topline announcement",
+            "publishedAt": "2025-12-08",
+            "checkedAt": "2026-07-20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "asc30-101-a1-body-weight-week-12-between",
+      "studyId": "ascletis-pharma-asc30-nct06679959",
+      "endpointId": "asc30-101-body-weight-percent-change-week-12",
+      "armIds": [
+        "asc30-101-mad-cohort-1",
+        "asc30-101-mad-cohort-1-placebo"
+      ],
+      "analysisPopulation": "Topline efficacy analysis population (not further specified)",
+      "result": {
+        "value": "6.3%",
+        "numericValue": -6.3,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted mean difference in percent change from baseline",
+        "comparisonType": "Placebo-adjusted mean difference, ASC30 depot formulation A1 minus matching placebo",
+        "pValue": "<0.05"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-20",
+        "updatedAt": "2026-07-20",
+        "sources": [
+          {
+            "url": "https://www.prnewswire.com/news-releases/ascletis-announces-positive-topline-results-from-us-phase-ii-24-week-study-for-its-ultra-long-acting-subcutaneous-depot-formulations-of-small-molecule-glp-1r-agonist-asc30-for-obesity-302709245.html",
+            "title": "Ascletis Announces Positive Topline Results from U.S. Phase II, 24-Week Study for Its Ultra-Long-Acting Subcutaneous Depot Formulations of ASC30 for Obesity",
+            "sourceType": "company topline announcement",
+            "publishedAt": "2026-03-10",
+            "checkedAt": "2026-07-20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "asc30-101-a1-body-weight-week-16-between",
+      "studyId": "ascletis-pharma-asc30-nct06679959",
+      "endpointId": "asc30-101-body-weight-percent-change-week-16",
+      "armIds": [
+        "asc30-101-mad-cohort-1",
+        "asc30-101-mad-cohort-1-placebo"
+      ],
+      "analysisPopulation": "Topline efficacy analysis population (not further specified)",
+      "result": {
+        "value": "7.5%",
+        "numericValue": -7.5,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted mean difference in percent change from baseline",
+        "comparisonType": "Placebo-adjusted mean difference, ASC30 depot formulation A1 minus matching placebo",
+        "pValue": "<0.05"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-20",
+        "updatedAt": "2026-07-20",
+        "sources": [
+          {
+            "url": "https://www.prnewswire.com/news-releases/ascletis-announces-positive-topline-results-from-us-phase-ii-24-week-study-for-its-ultra-long-acting-subcutaneous-depot-formulations-of-small-molecule-glp-1r-agonist-asc30-for-obesity-302709245.html",
+            "title": "Ascletis Announces Positive Topline Results from U.S. Phase II, 24-Week Study for Its Ultra-Long-Acting Subcutaneous Depot Formulations of ASC30 for Obesity",
+            "sourceType": "company topline announcement",
+            "publishedAt": "2026-03-10",
+            "checkedAt": "2026-07-20"
+          }
+        ]
+      }
+    },
     {
       "id": "asc30-102-mad-1-body-weight-day-29",
       "studyId": "ascletis-pharma-asc30-nct06680440",
