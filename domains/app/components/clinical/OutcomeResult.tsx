@@ -61,12 +61,18 @@ type OutcomeResultProps = {
   hideMaturity?: boolean;
   /** Suppress the per-row source line when the endpoint header already states it. */
   hideSource?: boolean;
+  /** Suppress the per-row Population/Estimand block when a cluster header above already states it. */
+  hidePopulationEstimand?: boolean;
+  /** Indents the row to read as nested under a cluster header rather than a top-level entry. */
+  clustered?: boolean;
 };
 
 export function OutcomeResult({
   outcome,
   hideMaturity = false,
   hideSource = false,
+  hidePopulationEstimand = false,
+  clustered = false,
 }: OutcomeResultProps) {
   const { result, analysisPopulation, estimand, maturity, metadata } =
     outcome.outcome;
@@ -94,7 +100,11 @@ export function OutcomeResult({
   }
 
   return (
-    <li className="grid grid-cols-1 gap-x-5 gap-y-2 py-4 sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)] sm:items-center">
+    <li
+      className={`grid grid-cols-1 gap-x-5 gap-y-2 py-4 sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)] sm:items-center ${
+        clustered ? "pl-3 sm:pl-4" : ""
+      }`}
+    >
       {/* Column 1: treatment-regimen subject (arm/dose or analysis-group). */}
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-1.5">
@@ -108,15 +118,19 @@ export function OutcomeResult({
 
       {/* Column 2: efficacy estimand, kept visually distinct from the regimen subject. */}
       <div className="min-w-0 space-y-1 text-xs text-muted-foreground">
-        <p>
-          <span className="font-semibold text-foreground">Population</span>{" "}
-          {analysisPopulation}
-        </p>
-        {estimand ? (
-          <p>
-            <span className="font-semibold text-foreground">Estimand</span>{" "}
-            {estimand}
-          </p>
+        {!hidePopulationEstimand ? (
+          <>
+            <p>
+              <span className="font-semibold text-foreground">Population</span>{" "}
+              {analysisPopulation}
+            </p>
+            {estimand ? (
+              <p>
+                <span className="font-semibold text-foreground">Estimand</span>{" "}
+                {estimand}
+              </p>
+            ) : null}
+          </>
         ) : null}
       </div>
 

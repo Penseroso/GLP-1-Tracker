@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { SourceList } from "@/domains/app/components/SourceList";
 import { Badge, OutcomeResult } from "@/domains/app/components/clinical/OutcomeResult";
 import type { EndpointGroupView } from "@/domains/app/lib/clinical-evidence/selectors";
@@ -55,6 +55,90 @@ function commonValue<T>(
     : undefined;
 }
 
+type OutcomeRow =
+  | { kind: "outcome"; outcome: EndpointGroupView["outcomes"][number] }
+  | {
+      kind: "cluster";
+      analysisPopulation: string;
+      estimand: string;
+      outcomes: EndpointGroupView["outcomes"];
+    };
+
+/**
+ * Eligible to join a Population/Estimand cluster: arm-anchored (not an
+ * AnalysisGroup, whose own label already carries the context a cluster
+ * header would otherwise state) with a non-empty population and estimand.
+ */
+function isClusterEligible(outcome: EndpointGroupView["outcomes"][number]) {
+  const { analysisPopulation, estimand } = outcome.outcome;
+  if (outcome.groupLabel) return false;
+  if (!analysisPopulation || analysisPopulation.trim().length === 0)
+    return false;
+  if (!estimand || estimand.trim().length === 0) return false;
+  return true;
+}
+
+/** Exact-match cluster identity: population + estimand + result shape. */
+function clusterKey(outcome: EndpointGroupView["outcomes"][number]): string {
+  const { analysisPopulation, estimand, result } = outcome.outcome;
+  return [analysisPopulation.trim(), estimand!.trim(), result.resultType].join(
+    " ",
+  );
+}
+
+/**
+ * Groups outcomes sharing an exact Population/Estimand/result-shape key,
+ * wherever they fall in the endpoint's outcome list — the generated outcome
+ * order is not itself grouped by estimand (it sorts by outcome id), so
+ * requiring adjacency would leave almost every endpoint ungrouped.
+ *
+ * This is a stable group-by, not a re-sort: it keys only on the two fields
+ * the grouping is defined by (population, estimand), never on id, arm label,
+ * dose, result value, or role. Members keep their original relative order
+ * inside the cluster; a cluster surfaces at the position of its first
+ * matching member; every other outcome keeps its original relative position.
+ * A key matched by only one outcome renders as a plain row, not a cluster.
+ */
+function clusterOutcomes(
+  outcomes: EndpointGroupView["outcomes"],
+): OutcomeRow[] {
+  const membersByKey = new Map<string, EndpointGroupView["outcomes"]>();
+  for (const outcome of outcomes) {
+    if (!isClusterEligible(outcome)) continue;
+    const key = clusterKey(outcome);
+    const members = membersByKey.get(key);
+    if (members) {
+      members.push(outcome);
+    } else {
+      membersByKey.set(key, [outcome]);
+    }
+  }
+
+  const emittedKeys = new Set<string>();
+  const rows: OutcomeRow[] = [];
+  for (const outcome of outcomes) {
+    if (!isClusterEligible(outcome)) {
+      rows.push({ kind: "outcome", outcome });
+      continue;
+    }
+    const key = clusterKey(outcome);
+    const members = membersByKey.get(key)!;
+    if (members.length < 2) {
+      rows.push({ kind: "outcome", outcome });
+      continue;
+    }
+    if (emittedKeys.has(key)) continue;
+    emittedKeys.add(key);
+    rows.push({
+      kind: "cluster",
+      analysisPopulation: outcome.outcome.analysisPopulation.trim(),
+      estimand: outcome.outcome.estimand!.trim(),
+      outcomes: members,
+    });
+  }
+  return rows;
+}
+
 function EndpointCard({
   group,
   expanded,
@@ -77,6 +161,8 @@ function EndpointCard({
     commonSourceKey && commonSourceKey.length > 0
       ? outcomes[0].outcome.metadata.sources
       : undefined;
+
+  const rows = clusterOutcomes(outcomes);
 
   const bodyId = `endpoint-body-${endpoint.id}`;
 
@@ -126,14 +212,45 @@ function EndpointCard({
         <div id={bodyId} className="px-4 py-1">
           {outcomes.length > 0 ? (
             <ul className="divide-y divide-border">
-              {outcomes.map((outcome) => (
-                <OutcomeResult
-                  key={outcome.outcome.id}
-                  outcome={outcome}
-                  hideMaturity={Boolean(commonMaturity)}
-                  hideSource={Boolean(commonSources)}
-                />
-              ))}
+              {rows.map((row) =>
+                row.kind === "outcome" ? (
+                  <OutcomeResult
+                    key={row.outcome.outcome.id}
+                    outcome={row.outcome}
+                    hideMaturity={Boolean(commonMaturity)}
+                    hideSource={Boolean(commonSources)}
+                  />
+                ) : (
+                  <Fragment key={`cluster-${row.outcomes[0].outcome.id}`}>
+                    <li className="flex flex-wrap items-center gap-x-2 gap-y-1 bg-muted/30 px-1 py-2 text-xs text-muted-foreground">
+                      <Badge>{row.outcomes.length} results</Badge>
+                      <span>
+                        <span className="font-semibold text-foreground">
+                          Population
+                        </span>{" "}
+                        {row.analysisPopulation}
+                      </span>
+                      <span aria-hidden="true">·</span>
+                      <span>
+                        <span className="font-semibold text-foreground">
+                          Estimand
+                        </span>{" "}
+                        {row.estimand}
+                      </span>
+                    </li>
+                    {row.outcomes.map((outcome) => (
+                      <OutcomeResult
+                        key={outcome.outcome.id}
+                        outcome={outcome}
+                        hideMaturity={Boolean(commonMaturity)}
+                        hideSource={Boolean(commonSources)}
+                        hidePopulationEstimand
+                        clustered
+                      />
+                    ))}
+                  </Fragment>
+                ),
+              )}
             </ul>
           ) : (
             <p className="py-3 text-sm text-muted-foreground">
