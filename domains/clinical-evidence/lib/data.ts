@@ -116,6 +116,11 @@ export const clinicalAssetNameByKey = new Map<string, string>(
 /** Every valid Company/Pipeline asset key; authority for "does this asset exist". */
 export const pipelineAssetKeys = new Set<string>(clinicalAssetNameByKey.keys());
 
+/** Stable Program identity lookup for the Application Clinical Evidence read model. */
+export const pipelineProgramsById = new Map(
+  pipelinePrograms.map((program) => [program.id, program]),
+);
+
 export const companyNameById = new Map<string, string>(
   companies.map((company) => [company.id, company.name]),
 );

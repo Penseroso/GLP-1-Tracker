@@ -7,7 +7,15 @@
       "WebFetch(domain:www.sec.gov)",
       "WebFetch(domain:www.globenewswire.com)",
       "Bash(npm run *)",
-      "WebFetch(domain:clinicaltrials.gov)"
+      "WebFetch(domain:clinicaltrials.gov)",
+      "Bash(npx tsc *)",
+      "Skill(run)",
+      "Bash(command -v chromium-cli)",
+      "Bash(echo \"exit:$?\")",
+      "Read(//c//**)",
+      "Bash(curl -s http://localhost:3000/studies/eli-lilly-and-company-tirzepatide-nct06037252 -o /tmp/study.html --max-time 10)",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"http://localhost:3000/studies/novo-nordisk-semaglutide-step-1-nct03548935\" -o /tmp/s2.html --max-time 15)"
     ]
   }
 }

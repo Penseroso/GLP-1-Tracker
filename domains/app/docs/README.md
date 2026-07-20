@@ -53,7 +53,13 @@ JSON, and only these canonical selectors import that loader.
 - UI reads generated artifacts through typed loaders and selectors.
 - Program-specific clinical retrieval uses explicit `Study.programId`; it does
   not infer a relationship from asset, indication, title, or source URL.
-- Asset views may use the generated focal/linked asset-study projection.
+- Asset views may use the generated focal/linked asset-study projection. Within
+  the focal list, the Asset Studies view groups only Studies with an explicit
+  `programId`, using the exact Program boundary and displaying its route, dosage
+  form, dosing interval, and indication scope. Regimen-mapped focal Studies stay
+  in a separate regimen section, and reciprocal linked Studies remain an
+  ungrouped asset-level list; neither relationship is assigned to a Program by
+  inference.
 - Missing optional values render through shared formatting; `N/A` is never
   stored in source data.
 - Outcome existence alone determines whether a Study has recorded results.

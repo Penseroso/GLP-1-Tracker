@@ -12,6 +12,7 @@ import {
   clinicalStudiesByProgramId,
   companyNameById,
   pipelineAssetKeys,
+  pipelineProgramsById,
 } from "@/domains/clinical-evidence/lib/data";
 import type {
   ClinicalAnalysisGroupRecord,
@@ -107,7 +108,18 @@ export type AssetStudiesView = {
   assetName: string;
   companyName?: string;
   focalStudies: StudySummaryView[];
+  programStudyGroups: ProgramStudyGroupView[];
+  regimenStudies: StudySummaryView[];
   linkedStudies: StudySummaryView[];
+};
+
+export type ProgramStudyGroupView = {
+  programId: string;
+  route: string;
+  dosageForm: string;
+  dosingInterval: string | null;
+  indications: string[];
+  studies: StudySummaryView[];
 };
 
 /**
@@ -327,12 +339,105 @@ export function getAssetStudies(
       .map((id) => getStudySummary(id))
       .filter((summary): summary is StudySummaryView => Boolean(summary));
 
+  const canonicalFocalStudyIds = entry?.focalStudyIds ?? [];
+  const focalStudies = toSummaries(canonicalFocalStudyIds);
+  const programStudyGroups: ProgramStudyGroupView[] = [];
+  const programStudyGroupById = new Map<string, ProgramStudyGroupView>();
+  const regimenStudies: StudySummaryView[] = [];
+
+  for (const summary of focalStudies) {
+    const study = clinicalStudiesById.get(summary.id);
+    if (!study) {
+      throw new Error(
+        `Clinical Evidence focal Study "${summary.id}" is missing for asset "${companyId}/${assetId}"`,
+      );
+    }
+
+    if (study.programId) {
+      const program = pipelineProgramsById.get(study.programId);
+      if (!program) {
+        throw new Error(
+          `Clinical Evidence Study "${study.id}" references missing Program "${study.programId}"`,
+        );
+      }
+      if (program.companyId !== companyId || program.assetId !== assetId) {
+        throw new Error(
+          `Clinical Evidence Study "${study.id}" Program "${study.programId}" does not belong to asset "${companyId}/${assetId}"`,
+        );
+      }
+
+      let group = programStudyGroupById.get(study.programId);
+      if (!group) {
+        group = {
+          programId: study.programId,
+          route: program.administration.route,
+          dosageForm: program.administration.dosageForm,
+          dosingInterval: program.administration.dosingInterval,
+          indications: [...program.indications],
+          studies: [],
+        };
+        programStudyGroupById.set(study.programId, group);
+        programStudyGroups.push(group);
+      }
+      group.studies.push(summary);
+    } else if (study.regimenId) {
+      regimenStudies.push(summary);
+    } else {
+      throw new Error(
+        `Clinical Evidence focal Study "${study.id}" has no Program or regimen mapping`,
+      );
+    }
+  }
+
+  // Program groups plus regimen Studies must form an exact, duplicate-free
+  // partition of the canonical focal list. Keep this fail-loud invariant close
+  // to the grouping logic so future read-model changes cannot silently hide or
+  // double-render a focal Study.
+  const partitionedStudyIds = [
+    ...programStudyGroups.flatMap((group) =>
+      group.studies.map((study) => study.id),
+    ),
+    ...regimenStudies.map((study) => study.id),
+  ];
+  const focalStudyIdSet = new Set(canonicalFocalStudyIds);
+  const partitionedStudyIdSet = new Set(partitionedStudyIds);
+  const duplicateIds = Array.from(
+    partitionedStudyIds.reduce((counts, id) => {
+      counts.set(id, (counts.get(id) ?? 0) + 1);
+      return counts;
+    }, new Map<string, number>()),
+  )
+    .filter(([, count]) => count > 1)
+    .map(([id]) => id);
+  const missingIds = canonicalFocalStudyIds.filter(
+    (id) => !partitionedStudyIdSet.has(id),
+  );
+  const unexpectedIds = partitionedStudyIds.filter(
+    (id) => !focalStudyIdSet.has(id),
+  );
+
+  if (
+    partitionedStudyIds.length !== canonicalFocalStudyIds.length ||
+    duplicateIds.length > 0 ||
+    missingIds.length > 0 ||
+    unexpectedIds.length > 0
+  ) {
+    throw new Error(
+      `Clinical Evidence focal partition failed for asset "${companyId}/${assetId}": ` +
+        `expected ${canonicalFocalStudyIds.length}, got ${partitionedStudyIds.length}; ` +
+        `duplicates [${duplicateIds.join(", ")}], missing [${missingIds.join(", ")}], ` +
+        `unexpected [${unexpectedIds.join(", ")}]`,
+    );
+  }
+
   return {
     companyId,
     assetId,
     assetName: clinicalAssetNameByKey.get(key) ?? assetId,
     companyName: companyNameById.get(companyId),
-    focalStudies: toSummaries(entry?.focalStudyIds ?? []),
+    focalStudies,
+    programStudyGroups,
+    regimenStudies,
     linkedStudies: toSummaries(entry?.linkedStudyIds ?? []),
   };
 }

@@ -1,5 +1,6 @@
 import { EmptyState } from "@/domains/app/components/EmptyState";
 import { StudySummaryCard } from "@/domains/app/components/clinical/StudySummaryCard";
+import { formatInlineValues, formatNullableValue } from "@/domains/app/lib/format";
 import type { AssetStudiesView } from "@/domains/app/lib/clinical-evidence/selectors";
 
 function StudySection({
@@ -52,10 +53,58 @@ export function AssetStudies({ view }: { view: AssetStudiesView }) {
         <>
           <StudySection title="Focal studies" count={view.focalStudies.length}>
             {view.focalStudies.length > 0 ? (
-              <div className="grid gap-3 sm:grid-cols-2">
-                {view.focalStudies.map((study) => (
-                  <StudySummaryCard key={study.id} study={study} />
+              <div className="space-y-5">
+                {view.programStudyGroups.map((group) => (
+                  <section
+                    key={group.programId}
+                    className="space-y-3 rounded-md border border-border bg-muted/25 p-4"
+                  >
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-sm font-semibold text-foreground">
+                          {group.route} · {group.dosageForm} ·{" "}
+                          {formatNullableValue(group.dosingInterval)}
+                        </h3>
+                        <p className="mt-1 text-xs text-muted-foreground">
+                          Program scope: {formatInlineValues(group.indications)}
+                        </p>
+                      </div>
+                      <span className="text-xs text-muted-foreground">
+                        {group.studies.length}{" "}
+                        {group.studies.length === 1 ? "study" : "studies"}
+                      </span>
+                    </div>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {group.studies.map((study) => (
+                        <StudySummaryCard key={study.id} study={study} />
+                      ))}
+                    </div>
+                  </section>
                 ))}
+
+                {view.regimenStudies.length > 0 ? (
+                  <section className="space-y-3">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <div>
+                        <h3 className="text-sm font-semibold text-foreground">
+                          Regimen studies
+                        </h3>
+                        <p className="mt-1 text-xs text-muted-foreground">
+                          Studies anchored to an independently administered regimen involving this asset.
+                        </p>
+                      </div>
+                      <span className="text-xs text-muted-foreground">
+                        {view.regimenStudies.length}{" "}
+                        {view.regimenStudies.length === 1 ? "study" : "studies"}
+                      </span>
+                    </div>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {view.regimenStudies.map((study) => (
+                        <StudySummaryCard key={study.id} study={study} />
+                      ))}
+                    </div>
+                  </section>
+                ) : null}
               </div>
             ) : (
               <p className="text-sm text-muted-foreground">
