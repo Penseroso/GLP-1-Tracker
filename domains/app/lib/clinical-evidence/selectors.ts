@@ -12,8 +12,8 @@ import {
   clinicalStudiesByProgramId,
   companyNameById,
   pipelineAssetKeys,
-  pipelineProgramsById,
 } from "@/domains/clinical-evidence/lib/data";
+import { pipelinePrograms } from "@/domains/company-pipeline/lib/data";
 import type {
   ClinicalAnalysisGroupRecord,
   ClinicalArmRecord,
@@ -149,6 +149,11 @@ export type AssetClinicalRollup = {
 
 /** Max explicitly linked studies shown in the drawer preview. */
 const PREVIEW_LIMIT = 5;
+
+/** Application-owned Program lookup for cross-domain Clinical Evidence composition. */
+const pipelineProgramsById = new Map(
+  pipelinePrograms.map((program) => [program.id, program]),
+);
 
 /**
  * Presentation ranking for endpoint groups. Deliberately role-only, with no
