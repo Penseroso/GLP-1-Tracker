@@ -1,3 +1,4 @@
+import { getStageBucketId } from "./constants";
 import type { PipelineProgram, ProgramFilters } from "./types";
 
 export const emptyProgramFilters: ProgramFilters = {
@@ -5,6 +6,7 @@ export const emptyProgramFilters: ProgramFilters = {
   indication: "All",
   route: "All",
   stage: "All",
+  stageBucket: "All",
   status: "All",
   keyword: "",
 };
@@ -26,6 +28,12 @@ export function filterPrograms(
       filters.route === "All" || program.administration.route === filters.route;
     const matchesStage =
       filters.stage === "All" || program.development.stage === filters.stage;
+    // Bucket match reuses the same getStageBucketId mapping as the Company ×
+    // Development Stage Matrix, so a drill-down reproduces the clicked cell's
+    // set exactly (no regrouping). Independent of the label-level `stage`.
+    const matchesStageBucket =
+      filters.stageBucket === "All" ||
+      getStageBucketId(program.development.stage) === filters.stageBucket;
     const matchesStatus =
       filters.status === "All" || program.development.status === filters.status;
 
@@ -55,6 +63,7 @@ export function filterPrograms(
       matchesIndication &&
       matchesRoute &&
       matchesStage &&
+      matchesStageBucket &&
       matchesStatus &&
       (!keyword || searchable.includes(keyword))
     );

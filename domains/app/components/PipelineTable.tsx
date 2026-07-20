@@ -1,12 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   getProgramTableColumnLabel,
   type ProgramTableColumn,
   type ProgramTableColumnId,
 } from "@/domains/app/config/program-table";
+import {
+  stageBuckets,
+  type StageBucketId,
+} from "@/domains/company-pipeline/lib/constants";
 import {
   emptyProgramFilters,
   filterPrograms,
@@ -208,7 +213,56 @@ export function PipelineTable({
   clinicalPreviewByProgramId,
   clinicalContextByProgramId,
 }: PipelineTableProps) {
-  const [filters, setFilters] = useState<ProgramFilters>(emptyProgramFilters);
+  const searchParams = useSearchParams();
+
+  const companyNameById = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const program of programs) {
+      if (program.company?.name) {
+        map.set(program.companyId, program.company.name);
+      }
+    }
+    return map;
+  }, [programs]);
+
+  // URL-driven filters for the Company × Development Stage Matrix drill-down.
+  // Only `company` (by companyId) and `stageBucket` (a bucket id) are read;
+  // unknown or invalid values fall back to "All". Every other filter stays at
+  // its default, so a plain /assets visit is unchanged.
+  const seededCompany = useMemo(() => {
+    const companyId = searchParams.get("company");
+    return (companyId ? companyNameById.get(companyId) : undefined) ?? "All";
+  }, [searchParams, companyNameById]);
+  const seededStageBucket = useMemo<ProgramFilters["stageBucket"]>(() => {
+    const bucketParam = searchParams.get("stageBucket");
+    return stageBuckets.some((bucket) => bucket.id === bucketParam)
+      ? (bucketParam as StageBucketId)
+      : "All";
+  }, [searchParams]);
+
+  const [filters, setFilters] = useState<ProgramFilters>(() => ({
+    ...emptyProgramFilters,
+    company: seededCompany,
+    stageBucket: seededStageBucket,
+  }));
+
+  // Re-apply the seed when the URL's seed actually changes (deep link,
+  // browser back/forward, chip removal, reset). This overrides ONLY the two
+  // URL-driven dimensions and merges into the current filters, so manual
+  // FilterBar edits (indication/route/exact stage/status/keyword) are never
+  // reset. The ref guard skips the no-op case where the seed is unchanged.
+  const seedKey = `${seededCompany}|${seededStageBucket}`;
+  const lastSeedKeyRef = useRef(seedKey);
+  useEffect(() => {
+    if (lastSeedKeyRef.current === seedKey) return;
+    lastSeedKeyRef.current = seedKey;
+    setFilters((prev) => ({
+      ...prev,
+      company: seededCompany,
+      stageBucket: seededStageBucket,
+    }));
+  }, [seedKey, seededCompany, seededStageBucket]);
+
   const [sort, setSort] = useState<ProgramSort | null>(null);
   const [selectedProgram, setSelectedProgram] = useState<PipelineProgram | null>(
     null,
@@ -281,7 +335,38 @@ export function PipelineTable({
     (sum, column) => sum + columnControls.getColumnWidth(column.id),
     0,
   );
-  const resetFilters = () => setFilters(emptyProgramFilters);
+  const resetFilters = () => {
+    setFilters(emptyProgramFilters);
+    // Clear any drill-down query so a later remount does not re-seed the
+    // filters. history.replaceState updates the URL without a route navigation
+    // (which Next dedupes here, since the page reads no server-side params);
+    // the App Router keeps useSearchParams in sync with it.
+    if (typeof window !== "undefined" && window.location.search) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  };
+
+  const activeStageBucketLabel =
+    filters.stageBucket !== "All"
+      ? stageBuckets.find((bucket) => bucket.id === filters.stageBucket)?.label
+      : undefined;
+  const clearStageBucket = () => {
+    setFilters((prev) => ({ ...prev, stageBucket: "All" }));
+    // Drop the stageBucket query but keep company (and any other param) so the
+    // URL matches the screen and a refresh does not re-apply the bucket. The
+    // re-seed effect then merges stageBucket:"All" without touching manual
+    // filters.
+    if (typeof window === "undefined" || !window.location.search) return;
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("stageBucket")) return;
+    params.delete("stageBucket");
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      query ? `${window.location.pathname}?${query}` : window.location.pathname,
+    );
+  };
 
   const toggleSort = (columnId: ProgramTableColumnId) => {
     setSort((current) => ({
@@ -296,6 +381,22 @@ export function PipelineTable({
   return (
     <div className="space-y-4">
       <FilterBar filters={filters} options={options} onChange={setFilters} />
+      {activeStageBucketLabel ? (
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-muted-foreground">Stage bucket:</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-2.5 py-1 text-xs font-semibold text-foreground">
+            {activeStageBucketLabel}
+            <button
+              type="button"
+              onClick={clearStageBucket}
+              aria-label={`Clear ${activeStageBucketLabel} stage bucket filter`}
+              className="rounded-full text-muted-foreground transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
+            >
+              <span aria-hidden="true">✕</span>
+            </button>
+          </span>
+        </div>
+      ) : null}
       <section className="overflow-hidden rounded-md border border-border bg-card shadow-soft">
         <div className="flex flex-col gap-2 border-b border-border px-5 py-4 sm:flex-row sm:items-end sm:justify-between">
           <div>

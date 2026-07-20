@@ -1,5 +1,5 @@
 import type { RecordMetadata } from "@/domains/shared/lib/record-metadata";
-import type { developmentStatuses } from "./constants";
+import type { developmentStatuses, StageBucketId } from "./constants";
 
 export type {
   RecordMetadata,
@@ -155,12 +155,20 @@ export type CompanySummary = {
 
 export type DevelopmentStageFilter = DevelopmentStage | "All";
 export type DevelopmentStatusFilter = DevelopmentStatus | "All";
+/**
+ * Overview stage-bucket filter. Coarser than `stage` (a single stage label):
+ * a bucket such as `phase-1` aggregates several labels. URL-driven only (the
+ * Company × Development Stage Matrix drill-down); the FilterBar exposes the
+ * label-level `stage` control, not this. Defaults to "All".
+ */
+export type StageBucketFilter = StageBucketId | "All";
 
 export type ProgramFilters = {
   company: string;
   indication: string;
   route: string;
   stage: DevelopmentStageFilter;
+  stageBucket: StageBucketFilter;
   status: DevelopmentStatusFilter;
   keyword: string;
 };

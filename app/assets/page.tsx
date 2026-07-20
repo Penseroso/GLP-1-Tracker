@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { PipelineTable } from "@/domains/app/components/PipelineTable";
 import {
@@ -48,11 +49,22 @@ export default function AssetsPage() {
           development status.
         </p>
       </section>
-      <PipelineTable
-        programs={pipelinePrograms}
-        clinicalPreviewByProgramId={clinicalPreviewByProgramId}
-        clinicalContextByProgramId={clinicalContextByProgramId}
-      />
+      {/* PipelineTable reads drill-down filters from the URL via
+          useSearchParams, which requires a Suspense boundary on this
+          statically-rendered route. */}
+      <Suspense
+        fallback={
+          <div className="rounded-md border border-border bg-card p-6 text-sm text-muted-foreground shadow-soft">
+            Loading register…
+          </div>
+        }
+      >
+        <PipelineTable
+          programs={pipelinePrograms}
+          clinicalPreviewByProgramId={clinicalPreviewByProgramId}
+          clinicalContextByProgramId={clinicalContextByProgramId}
+        />
+      </Suspense>
     </div>
   );
 }
