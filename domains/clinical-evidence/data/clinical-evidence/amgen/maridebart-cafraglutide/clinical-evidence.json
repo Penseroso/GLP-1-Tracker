@@ -1,0 +1,369 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "amgen",
+  "assetId": "maridebart-cafraglutide",
+  "studies": [
+    {
+      "id": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "companyId": "amgen",
+      "assetId": "maridebart-cafraglutide",
+      "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection",
+      "officialTitle": "A Phase 2 Randomized, Placebo-controlled, Double-blind, Dose-ranging Study to Evaluate the Efficacy, Safety, and Tolerability of AMG 133 in Adult Subjects With Overweight or Obesity, With or Without Type 2 Diabetes Mellitus",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05669599"
+        }
+      ],
+      "phase": "Phase 2",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Dose-ranging trial with two cohorts (Cohort A without type 2 diabetes, Cohort B with type 2 diabetes); fixed monthly doses and an every-8-week arm."
+      },
+      "population": "Adults with obesity, or overweight with a weight-related comorbidity, with or without type 2 diabetes (two cohorts).",
+      "overallDuration": "52 weeks",
+      "safetySummary": "Gastrointestinal adverse events were the most common and were mostly mild to moderate, concentrated during dose initiation.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05669599",
+            "title": "Dose-ranging Study to Evaluate the Efficacy, Safety, and Tolerability of AMG 133 in Adult Subjects With Overweight or Obesity, With or Without Type 2 Diabetes Mellitus",
+            "sourceType": "trial registry",
+            "publishedAt": "2026-01-20",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.amgen.com/newsroom/press-releases/2025/06/results-from-amgens-phase-2-obesity-study-of-monthly-maritide-presented-at-the-american-diabetes-association-85th-scientific-sessions",
+            "title": "Results From Amgen's Phase 2 Obesity Study of Monthly MariTide Presented at the American Diabetes Association 85th Scientific Sessions",
+            "sourceType": "company press release",
+            "publishedAt": "2025-06",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05669599",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-01-20"
+      }
+    },
+    {
+      "id": "amgen-maridebart-cafraglutide-maritime-1-nct06858839",
+      "companyId": "amgen",
+      "assetId": "maridebart-cafraglutide",
+      "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection",
+      "officialTitle": "A Phase 3 Randomized, Double-blind, Placebo-controlled Study to Evaluate the Efficacy, Safety, and Tolerability of Maridebart Cafraglutide in Adult Participants Without Type 2 Diabetes Mellitus Who Have Obesity or Are Overweight",
+      "acronym": "MARITIME-1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06858839"
+        }
+      ],
+      "phase": "Phase 3",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group fixed-dose trial across low, medium, and high subcutaneous doses versus placebo."
+      },
+      "population": "Adults with obesity, or overweight with a weight-related comorbidity, without type 2 diabetes.",
+      "overallDuration": "72 weeks",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06858839",
+            "title": "Evaluation of Maridebart Cafraglutide in Adult Participants Without Type 2 Diabetes Mellitus Who Have Obesity or Are Overweight (MARITIME-1)",
+            "sourceType": "trial registry",
+            "publishedAt": "2025-10-20",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06858839",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2025-10-20"
+      }
+    },
+    {
+      "id": "amgen-maridebart-cafraglutide-maritime-2-nct06858878",
+      "companyId": "amgen",
+      "assetId": "maridebart-cafraglutide",
+      "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection-type-2-diabetes",
+      "officialTitle": "A Phase 3 Randomized, Double-blind, Placebo-controlled Study to Evaluate the Efficacy, Safety, and Tolerability of Maridebart Cafraglutide in Adult Participants With Type 2 Diabetes Mellitus Who Have Obesity or Are Overweight",
+      "acronym": "MARITIME-2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06858878"
+        }
+      ],
+      "phase": "Phase 3",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group fixed-dose trial across low, medium, and high subcutaneous doses versus placebo in participants with type 2 diabetes."
+      },
+      "population": "Adults with type 2 diabetes who have obesity or are overweight; weight management was an explicit objective.",
+      "overallDuration": "72 weeks",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06858878",
+            "title": "Efficacy and Safety of Maridebart Cafraglutide in Adult Participants With Type 2 Diabetes Mellitus Who Have Obesity or Are Overweight (MARITIME-2)",
+            "sourceType": "trial registry",
+            "publishedAt": "2025-12-31",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06858878",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2025-12-31"
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "mt-p2-a-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "placebo",
+      "label": "Cohort A (without T2D): Placebo",
+      "intervention": "Placebo once monthly, subcutaneous",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-a-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "experimental",
+      "label": "Cohort A (without T2D): Maridebart cafraglutide 140 mg once monthly",
+      "intervention": "Maridebart cafraglutide 140 mg once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "dose": "140 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-a-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "experimental",
+      "label": "Cohort A (without T2D): Maridebart cafraglutide 280 mg once monthly",
+      "intervention": "Maridebart cafraglutide 280 mg once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "dose": "280 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-a-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "experimental",
+      "label": "Cohort A (without T2D): Maridebart cafraglutide 420 mg once monthly",
+      "intervention": "Maridebart cafraglutide 420 mg once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "dose": "420 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-a-420-q8w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "experimental",
+      "label": "Cohort A (without T2D): Maridebart cafraglutide 420 mg every 8 weeks",
+      "intervention": "Maridebart cafraglutide 420 mg every 8 weeks, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "dose": "420 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once every 8 weeks",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-b-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "placebo",
+      "label": "Cohort B (with T2D): Placebo",
+      "intervention": "Placebo once monthly, subcutaneous",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-b-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "experimental",
+      "label": "Cohort B (with T2D): Maridebart cafraglutide 140 mg once monthly",
+      "intervention": "Maridebart cafraglutide 140 mg once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "dose": "140 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-b-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "experimental",
+      "label": "Cohort B (with T2D): Maridebart cafraglutide 280 mg once monthly",
+      "intervention": "Maridebart cafraglutide 280 mg once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "dose": "280 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt-p2-b-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "role": "experimental",
+      "label": "Cohort B (with T2D): Maridebart cafraglutide 420 mg once monthly",
+      "intervention": "Maridebart cafraglutide 420 mg once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "dose": "420 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly",
+      "treatmentDuration": "52 weeks"
+    },
+    {
+      "id": "mt1-high",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-1-nct06858839",
+      "role": "experimental",
+      "label": "Maridebart cafraglutide high dose",
+      "intervention": "Maridebart cafraglutide high dose once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    },
+    {
+      "id": "mt1-medium",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-1-nct06858839",
+      "role": "experimental",
+      "label": "Maridebart cafraglutide medium dose",
+      "intervention": "Maridebart cafraglutide medium dose once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    },
+    {
+      "id": "mt1-low",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-1-nct06858839",
+      "role": "experimental",
+      "label": "Maridebart cafraglutide low dose",
+      "intervention": "Maridebart cafraglutide low dose once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    },
+    {
+      "id": "mt1-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-1-nct06858839",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo once monthly, subcutaneous",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    },
+    {
+      "id": "mt2-high",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-2-nct06858878",
+      "role": "experimental",
+      "label": "Maridebart cafraglutide high dose",
+      "intervention": "Maridebart cafraglutide high dose once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    },
+    {
+      "id": "mt2-medium",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-2-nct06858878",
+      "role": "experimental",
+      "label": "Maridebart cafraglutide medium dose",
+      "intervention": "Maridebart cafraglutide medium dose once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    },
+    {
+      "id": "mt2-low",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-2-nct06858878",
+      "role": "experimental",
+      "label": "Maridebart cafraglutide low dose",
+      "intervention": "Maridebart cafraglutide low dose once monthly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "amgen",
+        "assetId": "maridebart-cafraglutide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    },
+    {
+      "id": "mt2-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-maritime-2-nct06858878",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo once monthly, subcutaneous",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once monthly"
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [],
+  "outcomes": []
+}

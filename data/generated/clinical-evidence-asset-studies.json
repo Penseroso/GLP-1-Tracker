@@ -2,6 +2,16 @@
   "projectionSchemaVersion": "2.0",
   "assets": [
     {
+      "companyId": "amgen",
+      "assetId": "maridebart-cafraglutide",
+      "focalStudyIds": [
+        "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+        "amgen-maridebart-cafraglutide-maritime-1-nct06858839",
+        "amgen-maridebart-cafraglutide-maritime-2-nct06858878"
+      ],
+      "linkedStudyIds": []
+    },
+    {
       "companyId": "ascletis-pharma",
       "assetId": "asc30",
       "focalStudyIds": [
