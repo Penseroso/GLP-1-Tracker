@@ -17564,6 +17564,138 @@
       }
     },
     {
+      "id": "en101-sad-c1-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c1-0-5mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "0.8%",
+        "numericValue": 0.8,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 0.5 mg minus pooled placebo",
+        "confidenceInterval": "95% CI 0.02 to 1.56"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-sad-c2-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c2-2mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-0.8%",
+        "numericValue": -0.8,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 2 mg minus pooled placebo",
+        "confidenceInterval": "95% CI -1.50 to -0.01"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-sad-c3-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c3-5mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-1.3%",
+        "numericValue": -1.3,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 5 mg minus pooled placebo",
+        "confidenceInterval": "95% CI -2.03 to -0.53"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-sad-c4-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c4-6mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-1.6%",
+        "numericValue": -1.6,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 6 mg minus pooled placebo",
+        "confidenceInterval": "95% CI -2.36 to -0.83"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
       "id": "en101-sad-c5-weight-vs-placebo-d8",
       "studyId": "roche-enicepatide-ct388-101-nct04838405",
       "endpointId": "en101-sad-weight-d8",
@@ -17605,24 +17737,23 @@
       ],
       "analysisPopulation": "Not reported",
       "result": {
-        "value": "-4.8%",
-        "numericValue": -4.8,
+        "value": "-4.1%",
+        "numericValue": -4.1,
         "unit": "percentage points",
         "resultType": "between-arm",
-        "effectMeasure": "Least-squares mean difference in percent change in body weight",
-        "comparisonType": "Least-squares mean difference, MAD cohort 6 minus pooled placebo",
-        "confidenceInterval": "95% CI -6.3 to -3.3"
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, MAD cohort 6 minus pooled placebo"
       },
-      "maturity": "conference result",
+      "maturity": "peer-reviewed publication",
       "metadata": {
         "lastVerifiedAt": "2026-07-21",
         "updatedAt": "2026-07-21",
         "sources": [
           {
-            "url": "https://doi.org/10.2337/db23-75-LB",
-            "title": "75-LB: CT-388, a Novel Once-Weekly Dual GLP-1 and GIP Receptor Modulator, Is Safe, Well-Tolerated, and Produces More than 8% Weight Loss in Four Weeks in Overweight and Obese Adults",
-            "sourceType": "conference abstract",
-            "publishedAt": "2023-06-20",
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
             "checkedAt": "2026-07-21"
           }
         ]
@@ -17638,24 +17769,23 @@
       ],
       "analysisPopulation": "Not reported",
       "result": {
-        "value": "-6.4%",
-        "numericValue": -6.4,
+        "value": "-5.6%",
+        "numericValue": -5.6,
         "unit": "percentage points",
         "resultType": "between-arm",
-        "effectMeasure": "Least-squares mean difference in percent change in body weight",
-        "comparisonType": "Least-squares mean difference, MAD cohort 7 minus pooled placebo",
-        "confidenceInterval": "95% CI -7.8 to -5.0"
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, MAD cohort 7 minus pooled placebo"
       },
-      "maturity": "conference result",
+      "maturity": "peer-reviewed publication",
       "metadata": {
         "lastVerifiedAt": "2026-07-21",
         "updatedAt": "2026-07-21",
         "sources": [
           {
-            "url": "https://doi.org/10.2337/db23-75-LB",
-            "title": "75-LB: CT-388, a Novel Once-Weekly Dual GLP-1 and GIP Receptor Modulator, Is Safe, Well-Tolerated, and Produces More than 8% Weight Loss in Four Weeks in Overweight and Obese Adults",
-            "sourceType": "conference abstract",
-            "publishedAt": "2023-06-20",
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
             "checkedAt": "2026-07-21"
           }
         ]
@@ -17688,13 +17818,6 @@
             "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-11-28",
-            "checkedAt": "2026-07-21"
-          },
-          {
-            "url": "https://doi.org/10.2337/db23-75-LB",
-            "title": "75-LB: CT-388, a Novel Once-Weekly Dual GLP-1 and GIP Receptor Modulator, Is Safe, Well-Tolerated, and Produces More than 8% Weight Loss in Four Weeks in Overweight and Obese Adults",
-            "sourceType": "conference abstract",
-            "publishedAt": "2023-06-20",
             "checkedAt": "2026-07-21"
           }
         ]
