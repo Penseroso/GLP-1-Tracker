@@ -1,0 +1,3267 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "roche",
+  "assetId": "enicepatide",
+  "studies": [
+    {
+      "id": "roche-enicepatide-ct388-103-nct06525935",
+      "companyId": "roche",
+      "assetId": "enicepatide",
+      "programId": "roche-enicepatide-subcutaneous-injection",
+      "officialTitle": "A Randomized, Double-Blind, Placebo-Controlled, Parallel Group, Multi-Center Phase 2 Study to Evaluate the Efficacy, Safety, and Tolerability of Once-Weekly CT-388 in Participants With Obesity or Overweight With at Least One Weight-Related Comorbidity",
+      "acronym": "CT388-103",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06525935"
+        }
+      ],
+      "phase": "Phase 2",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group, multi-dose, dose-finding trial of once-weekly subcutaneous enicepatide across five dose levels versus placebo."
+      },
+      "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, excluding type 2 diabetes.",
+      "overallDuration": "48 weeks",
+      "safetySummary": "At ADA 2026, adverse events were predominantly gastrointestinal and mostly mild to moderate; serious and Grade 3 events were infrequent and not dose-dependent, and no Grade 4 or 5 events were reported.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06525935",
+            "title": "A Study of Enicepatide (CT-388) in Participants With Obesity or Overweight With at Least One Weight-Related Comorbidity",
+            "sourceType": "trial registry",
+            "publishedAt": "2024-08-16",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-06-01",
+            "title": "Roche to present new data advancing its obesity portfolio at the American Diabetes Association's 2026 Scientific Sessions",
+            "sourceType": "company press release",
+            "publishedAt": "2026-06-01",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06525935",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2026-04-17"
+      }
+    },
+    {
+      "id": "roche-enicepatide-ct388-104-nct06628362",
+      "companyId": "roche",
+      "assetId": "enicepatide",
+      "programId": "roche-enicepatide-subcutaneous-injection-type-2-diabetes",
+      "officialTitle": "A Randomized, Double-Blind, Placebo-Controlled, Parallel-Group, Multi-Center Phase 2 Study to Evaluate the Efficacy, Safety, and Tolerability of Once-Weekly CT-388 in Participants Who Are Overweight or Obese With Type 2 Diabetes Mellitus",
+      "acronym": "CT388-104",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT06628362"
+        }
+      ],
+      "phase": "Phase 2",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group, multi-dose trial of once-weekly subcutaneous enicepatide versus placebo in participants with type 2 diabetes; co-primary body-weight and HbA1c objectives."
+      },
+      "population": "Adults who are overweight or obese with type 2 diabetes mellitus; weight reduction and glycemic control were co-primary objectives.",
+      "overallDuration": "48 weeks",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT06628362",
+            "title": "A Study of Enicepatide (CT-388) in Participants Who Are Overweight or Obese With Type 2 Diabetes Mellitus",
+            "sourceType": "trial registry",
+            "publishedAt": "2024-11-21",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT06628362",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-06-24"
+      }
+    },
+    {
+      "id": "roche-enicepatide-enith1-nct07351045",
+      "companyId": "roche",
+      "assetId": "enicepatide",
+      "programId": "roche-enicepatide-subcutaneous-injection",
+      "officialTitle": "A Phase III, Randomized, Double-Blind, Placebo-Controlled, Parallel Group Study to Evaluate the Efficacy and Safety of Once-Weekly RO7795068 Administered to Participants With Obesity or Overweight Without Type 2 Diabetes",
+      "acronym": "Enith1",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07351045"
+        }
+      ],
+      "phase": "Phase 3",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group pivotal trial of once-weekly subcutaneous enicepatide across three dosing regimens versus placebo."
+      },
+      "population": "Adults with obesity, or overweight with a weight-related comorbidity, without type 2 diabetes.",
+      "overallDuration": "72 weeks",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07351045",
+            "title": "A Clinical Study to Evaluate the Effects of Enicepatide (RO7795068) in Participants With Obesity or Overweight Without Type 2 Diabetes",
+            "sourceType": "trial registry",
+            "publishedAt": "2026-03-16",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07351045",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-20"
+      }
+    },
+    {
+      "id": "roche-enicepatide-enith2-nct07351058",
+      "companyId": "roche",
+      "assetId": "enicepatide",
+      "programId": "roche-enicepatide-subcutaneous-injection-type-2-diabetes",
+      "officialTitle": "A Phase III, Randomized, Double-Blind, Placebo-Controlled, Parallel Group Study to Evaluate the Efficacy and Safety of Once-Weekly RO7795068 Administered to Participants With Obesity or Overweight and Type 2 Diabetes",
+      "acronym": "Enith2",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07351058"
+        }
+      ],
+      "phase": "Phase 3",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group pivotal trial of once-weekly subcutaneous enicepatide across three dosing regimens versus placebo in participants with type 2 diabetes."
+      },
+      "population": "Adults with obesity or overweight and type 2 diabetes.",
+      "overallDuration": "72 weeks",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07351058",
+            "title": "A Clinical Study to Evaluate the Effects of Enicepatide (RO7795068) in Participants With Obesity or Overweight and Type 2 Diabetes",
+            "sourceType": "trial registry",
+            "publishedAt": "2026-03-23",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07351058",
+        "overallStatus": "recruiting",
+        "sourceStatus": "Recruiting",
+        "statusUpdatedAt": "2026-07-20"
+      }
+    },
+    {
+      "id": "roche-enicepatide-ct388-101-nct04838405",
+      "companyId": "roche",
+      "assetId": "enicepatide",
+      "programId": "roche-enicepatide-subcutaneous-injection",
+      "officialTitle": "A Phase 1 Randomized, Double Blind, Placebo Controlled, Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of CT-388 in Otherwise Healthy Overweight and Obese Adult Participants and in Obese Patients With Type 2 Diabetes Mellitus",
+      "acronym": "CT-388-101",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT04838405"
+        }
+      ],
+      "phase": "Phase 1",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Triple-masked",
+        "comparator": "Placebo",
+        "description": "First-in-human sequential, multi-arm, multi-cohort SAD/MAD/MD study of subcutaneous enicepatide versus matched placebo, including cohorts with overweight or obesity without diabetes and a later cohort with obesity and type 2 diabetes."
+      },
+      "population": "Adults with overweight or obesity without diabetes in the SAD, MAD, and longer multiple-dose cohorts, plus a 12-week cohort of adults with obesity and type 2 diabetes treated with diet and exercise alone or metformin; weight change was an explicit pharmacodynamic objective.",
+      "overallDuration": "Up to 24 weeks",
+      "safetySummary": "Across the early SAD/MAD publication and the 12- to 24-week obesity and T2D cohorts, adverse events were predominantly gastrointestinal and mostly mild to moderate; no unexpected safety signal emerged, and the later cohorts reported no study-drug-related discontinuations or serious adverse events in the T2D cohort.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04838405",
+            "title": "A Study of CT-388 in Otherwise Healthy Overweight and Obese Adults and Patients With Type 2 Diabetes Mellitus",
+            "sourceType": "trial registry",
+            "publishedAt": "2021-04-09",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://doi.org/10.2337/db23-75-LB",
+            "title": "75-LB: CT-388, a Novel Once-Weekly Dual GLP-1 and GIP Receptor Modulator, Is Safe, Well-Tolerated, and Produces More than 8% Weight Loss in Four Weeks in Overweight and Obese Adults",
+            "sourceType": "conference abstract",
+            "publishedAt": "2023-06-20",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2024-05-16",
+            "title": "Roche reports positive Phase Ib results for its dual GLP-1/GIP receptor agonist CT-388 in people with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2024-05-16",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+            "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-12",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://doi.org/10.2337/db25-763-P",
+            "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+            "sourceType": "conference abstract",
+            "publishedAt": "2025-06-20",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://doi.org/10.2337/db25-125-OR",
+            "title": "125-OR: Effect of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, on Liver-Related MRI Parameters in Patients with Obesity",
+            "sourceType": "conference abstract",
+            "publishedAt": "2025-06-20",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT04838405",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2025-10-20"
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "en103-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Volume-matched placebo once weekly, subcutaneous",
+      "dose": "Volume-matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "en103-enicepatide-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "role": "experimental",
+      "label": "Enicepatide 4 mg",
+      "intervention": "Enicepatide (CT-388/RO7795068) 4 mg once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "4 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "en103-enicepatide-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "role": "experimental",
+      "label": "Enicepatide 8 mg",
+      "intervention": "Enicepatide (CT-388/RO7795068) 8 mg once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "8 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "en103-enicepatide-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "role": "experimental",
+      "label": "Enicepatide 12 mg",
+      "intervention": "Enicepatide (CT-388/RO7795068) 12 mg once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "12 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "en103-enicepatide-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "role": "experimental",
+      "label": "Enicepatide 16 mg",
+      "intervention": "Enicepatide (CT-388/RO7795068) 16 mg once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "16 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "en103-enicepatide-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "role": "experimental",
+      "label": "Enicepatide 24 mg",
+      "intervention": "Enicepatide (CT-388/RO7795068) 24 mg once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "24 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "48 weeks"
+    },
+    {
+      "id": "en104-enicepatide",
+      "studyId": "roche-enicepatide-ct388-104-nct06628362",
+      "role": "experimental",
+      "label": "Enicepatide",
+      "intervention": "Enicepatide (CT-388/RO7795068) once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "en104-placebo",
+      "studyId": "roche-enicepatide-ct388-104-nct06628362",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Volume-matched placebo once weekly, subcutaneous"
+    },
+    {
+      "id": "enith1-enicepatide",
+      "studyId": "roche-enicepatide-enith1-nct07351045",
+      "role": "experimental",
+      "label": "Enicepatide",
+      "intervention": "Enicepatide (RO7795068) once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enith1-placebo",
+      "studyId": "roche-enicepatide-enith1-nct07351045",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Volume-matched placebo once weekly, subcutaneous"
+    },
+    {
+      "id": "enith2-enicepatide",
+      "studyId": "roche-enicepatide-enith2-nct07351058",
+      "role": "experimental",
+      "label": "Enicepatide",
+      "intervention": "Enicepatide (RO7795068) once weekly, subcutaneous",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly"
+    },
+    {
+      "id": "enith2-placebo",
+      "studyId": "roche-enicepatide-enith2-nct07351058",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Volume-matched placebo once weekly, subcutaneous"
+    },
+    {
+      "id": "en101-sad-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "placebo",
+      "label": "SAD pooled placebo (cohorts 1–5)",
+      "intervention": "Volume-matched placebo pooled across the five single-ascending-dose cohorts",
+      "dose": "Volume-matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Single dose",
+      "treatmentDuration": "1 day",
+      "analyzedN": 10
+    },
+    {
+      "id": "en101-sad-c1-0-5mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "SAD cohort 1 — 0.5 mg",
+      "intervention": "Single subcutaneous dose of enicepatide (CT-388) 0.5 mg",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "0.5 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Single dose",
+      "treatmentDuration": "1 day",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-sad-c2-2mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "SAD cohort 2 — 2 mg",
+      "intervention": "Single subcutaneous dose of enicepatide (CT-388) 2 mg",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "2 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Single dose",
+      "treatmentDuration": "1 day",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-sad-c3-5mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "SAD cohort 3 — 5 mg",
+      "intervention": "Single subcutaneous dose of enicepatide (CT-388) 5 mg",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "5 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Single dose",
+      "treatmentDuration": "1 day",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-sad-c4-6mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "SAD cohort 4 — 6 mg",
+      "intervention": "Single subcutaneous dose of enicepatide (CT-388) 6 mg",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "6 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Single dose",
+      "treatmentDuration": "1 day",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-sad-c5-7-5mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "SAD cohort 5 — 7.5 mg",
+      "intervention": "Single subcutaneous dose of enicepatide (CT-388) 7.5 mg",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "7.5 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Single dose",
+      "treatmentDuration": "1 day",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-mad-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "placebo",
+      "label": "MAD pooled placebo (cohorts 6–8)",
+      "intervention": "Volume-matched placebo pooled across the three multiple-ascending-dose cohorts",
+      "dose": "Volume-matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "4 weeks",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-mad-c6-7-5mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "MAD cohort 6 — 5/5/5/7.5 mg",
+      "intervention": "Enicepatide (CT-388) 5 mg on Days 1, 8, and 15, then 7.5 mg on Day 22",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "5/5/5/7.5 mg",
+      "titration": "5 mg on Days 1, 8, and 15; 7.5 mg on Day 22",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "4 weeks",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-mad-c7-12mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "MAD cohort 7 — 5/5/8/12 mg",
+      "intervention": "Enicepatide (CT-388) 5 mg on Days 1 and 8, 8 mg on Day 15, then 12 mg on Day 22",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "5/5/8/12 mg",
+      "titration": "5 mg on Days 1 and 8; 8 mg on Day 15; 12 mg on Day 22",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "4 weeks",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-mad-c8-12mg",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "MAD cohort 8 — 5/8/12/12 mg",
+      "intervention": "Enicepatide (CT-388) 5 mg on Day 1, 8 mg on Day 8, then 12 mg on Days 15 and 22",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "5/8/12/12 mg",
+      "titration": "5 mg on Day 1; 8 mg on Day 8; 12 mg on Days 15 and 22",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "4 weeks",
+      "analyzedN": 6
+    },
+    {
+      "id": "en101-md8-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "placebo",
+      "label": "MD 8 mg cohort placebo",
+      "intervention": "Volume-matched placebo once weekly for 12 weeks",
+      "dose": "Volume-matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "12 weeks",
+      "analyzedN": 3
+    },
+    {
+      "id": "en101-md8-ct388",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "MD 8 mg cohort",
+      "intervention": "Enicepatide (CT-388) once weekly with rapid up-titration to 8 mg for 12 weeks",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "Up to 8 mg",
+      "titration": "Rapid up-titration to 8 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "12 weeks",
+      "analyzedN": 12
+    },
+    {
+      "id": "en101-md22-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "placebo",
+      "label": "MD 22 mg cohort placebo",
+      "intervention": "Volume-matched placebo once weekly for 24 weeks",
+      "dose": "Volume-matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "24 weeks",
+      "analyzedN": 7
+    },
+    {
+      "id": "en101-md22-ct388",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "MD 22 mg cohort",
+      "intervention": "Enicepatide (CT-388) once weekly with rapid up-titration toward 22 mg for 24 weeks",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "Up to 22 mg",
+      "titration": "Rapid multi-step up-titration toward 22 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "24 weeks",
+      "analyzedN": 24
+    },
+    {
+      "id": "en101-t2d-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "placebo",
+      "label": "T2D cohort placebo",
+      "intervention": "Volume-matched placebo once weekly for 12 weeks in adults with obesity and type 2 diabetes",
+      "dose": "Volume-matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "12 weeks",
+      "analyzedN": 5
+    },
+    {
+      "id": "en101-t2d-ct388",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "role": "experimental",
+      "label": "T2D cohort — 22 mg",
+      "intervention": "Enicepatide (CT-388) once weekly with up-titration to 22 mg for 12 weeks in adults with obesity and type 2 diabetes",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "enicepatide"
+      },
+      "dose": "Up to 22 mg",
+      "titration": "Up-titration to 22 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "12 weeks",
+      "analyzedN": 14
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [
+    {
+      "id": "en103-weight-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Percentage change from baseline in body weight",
+      "role": "primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-resp5-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants achieving at least 5% body weight reduction",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-resp10-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants achieving at least 10% body weight reduction",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-resp15-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants achieving at least 15% body weight reduction",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-resp20-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants achieving at least 20% body weight reduction",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-resp25-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants achieving at least 25% body weight reduction",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-resp30-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants achieving at least 30% body weight reduction",
+      "role": "exploratory",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-bmi30-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants achieving resolution of obesity (BMI < 30 kg/m^2)",
+      "role": "other",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-glucose-norm-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Proportion of participants with baseline prediabetes achieving normoglycemia",
+      "role": "key-secondary",
+      "domain": "glycemic",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en101-sad-weight-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Percentage change from baseline in body weight",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Day 8"
+    },
+    {
+      "id": "en101-mad-weight-d29",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Percentage change from baseline in body weight",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Day 29"
+    },
+    {
+      "id": "en101-md8-weight-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Percentage change from baseline in body weight",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 12"
+    },
+    {
+      "id": "en101-md22-weight-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Percentage change from baseline in body weight",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 24"
+    },
+    {
+      "id": "en101-md22-resp5-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants achieving greater than 5% body weight loss",
+      "role": "other",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 24"
+    },
+    {
+      "id": "en101-md22-resp10-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants achieving greater than 10% body weight loss",
+      "role": "other",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 24"
+    },
+    {
+      "id": "en101-md22-resp15-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants achieving greater than 15% body weight loss",
+      "role": "other",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 24"
+    },
+    {
+      "id": "en101-md22-resp20-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants achieving greater than 20% body weight loss",
+      "role": "other",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 24"
+    },
+    {
+      "id": "en101-md22-normoglycemia-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants with prediabetes at baseline achieving normoglycemia",
+      "role": "secondary",
+      "domain": "glycemic",
+      "assessmentTimepoint": "Week 24"
+    },
+    {
+      "id": "en101-t2d-hba1c-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Change from baseline in HbA1c",
+      "role": "secondary",
+      "domain": "glycemic",
+      "assessmentTimepoint": "Week 12"
+    },
+    {
+      "id": "en101-t2d-hba1c65-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants achieving HbA1c at or below 6.5%",
+      "role": "other",
+      "domain": "glycemic",
+      "assessmentTimepoint": "Week 12"
+    },
+    {
+      "id": "en101-t2d-hba1c57-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants achieving HbA1c below 5.7%",
+      "role": "other",
+      "domain": "glycemic",
+      "assessmentTimepoint": "Week 12"
+    },
+    {
+      "id": "en101-t2d-weightloss-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Percentage body weight loss",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 12"
+    },
+    {
+      "id": "en101-t2d-resp5-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Proportion of participants achieving at least 5% body weight loss",
+      "role": "other",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 12"
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "en101-sad-c1-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c1-0-5mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "0.8%",
+        "numericValue": 0.8,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 0.5 mg minus pooled placebo",
+        "confidenceInterval": "95% CI 0.02 to 1.56"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-sad-c2-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c2-2mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-0.8%",
+        "numericValue": -0.8,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 2 mg minus pooled placebo",
+        "confidenceInterval": "95% CI -1.50 to -0.01"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-sad-c3-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c3-5mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-1.3%",
+        "numericValue": -1.3,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 5 mg minus pooled placebo",
+        "confidenceInterval": "95% CI -2.03 to -0.53"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-sad-c4-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c4-6mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-1.6%",
+        "numericValue": -1.6,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 6 mg minus pooled placebo",
+        "confidenceInterval": "95% CI -2.36 to -0.83"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-sad-c5-weight-vs-placebo-d8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-weight-d8",
+      "armIds": [
+        "en101-sad-c5-7-5mg",
+        "en101-sad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-3.1%",
+        "numericValue": -3.1,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 7.5 mg minus pooled placebo",
+        "confidenceInterval": "95% CI -3.92 to -2.37"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-mad-c6-weight-vs-placebo-d29",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-weight-d29",
+      "armIds": [
+        "en101-mad-c6-7-5mg",
+        "en101-mad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-4.1%",
+        "numericValue": -4.1,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, MAD cohort 6 minus pooled placebo",
+        "confidenceInterval": "95% CI -6.37 to -1.80"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-mad-c7-weight-vs-placebo-d29",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-weight-d29",
+      "armIds": [
+        "en101-mad-c7-12mg",
+        "en101-mad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-5.6%",
+        "numericValue": -5.6,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, MAD cohort 7 minus pooled placebo",
+        "confidenceInterval": "95% CI -7.93 to -3.28"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-mad-c8-weight-vs-placebo-d29",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-weight-d29",
+      "armIds": [
+        "en101-mad-c8-12mg",
+        "en101-mad-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-7.5%",
+        "numericValue": -7.5,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, MAD cohort 8 minus pooled placebo",
+        "confidenceInterval": "95% CI -9.81 to -5.25"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.1016/j.molmet.2025.102291",
+            "title": "Effects of CT-388, a once-weekly signaling-biased dual GLP-1/GIP receptor agonist, on weight loss and glycemic control in preclinical models and participants with obesity",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-11-28",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-md8-weight-vs-placebo-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md8-weight-w12",
+      "armIds": [
+        "en101-md8-ct388",
+        "en101-md8-placebo"
+      ],
+      "analysisPopulation": "All participants who received treatment",
+      "result": {
+        "value": "-9.3%",
+        "numericValue": -9.3,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean percent change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 8 mg minus placebo",
+        "confidenceInterval": "95% CI -13.4 to -5.2"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+            "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-12",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-md22-weight-vs-placebo-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md22-weight-w24",
+      "armIds": [
+        "en101-md22-ct388",
+        "en101-md22-placebo"
+      ],
+      "analysisPopulation": "All participants who received treatment",
+      "result": {
+        "value": "-18.8%",
+        "numericValue": -18.8,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean percent change in body weight",
+        "comparisonType": "Placebo-adjusted least-squares mean difference, CT-388 22 mg cohort minus placebo",
+        "confidenceInterval": "95% CI -23.6 to -14.0",
+        "pValue": "<0.001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+            "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-12",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2024-05-16",
+            "title": "Roche reports positive Phase Ib results for its dual GLP-1/GIP receptor agonist CT-388 in people with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2024-05-16",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en101-md22-resp5-ct388-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md22-resp5-w24",
+      "armIds": ["en101-md22-ct388"],
+      "analysisPopulation": "Participants who completed Week 24",
+      "result": {
+        "value": "100%",
+        "numericValue": 100,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+          "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+          "sourceType": "scientific presentation",
+          "publishedAt": "2024-09-12",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-md22-resp10-ct388-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md22-resp10-w24",
+      "armIds": ["en101-md22-ct388"],
+      "analysisPopulation": "Participants who completed Week 24",
+      "result": {"value": "85%", "numericValue": 85, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+          "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+          "sourceType": "scientific presentation",
+          "publishedAt": "2024-09-12",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-md22-resp15-ct388-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md22-resp15-w24",
+      "armIds": ["en101-md22-ct388"],
+      "analysisPopulation": "Participants who completed Week 24",
+      "result": {"value": "70%", "numericValue": 70, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+          "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+          "sourceType": "scientific presentation",
+          "publishedAt": "2024-09-12",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-md22-resp20-ct388-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md22-resp20-w24",
+      "armIds": ["en101-md22-ct388"],
+      "analysisPopulation": "Participants who completed Week 24",
+      "result": {"value": "45%", "numericValue": 45, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+          "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+          "sourceType": "scientific presentation",
+          "publishedAt": "2024-09-12",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-md22-normoglycemia-ct388-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md22-normoglycemia-w24",
+      "armIds": ["en101-md22-ct388"],
+      "analysisPopulation": "Participants with prediabetes at baseline who completed Week 24",
+      "result": {"value": "100% (7/7)", "numericValue": 100, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+          "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+          "sourceType": "scientific presentation",
+          "publishedAt": "2024-09-12",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-md22-normoglycemia-placebo-w24",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-md22-normoglycemia-w24",
+      "armIds": ["en101-md22-placebo"],
+      "analysisPopulation": "Participants with prediabetes at baseline who completed Week 24",
+      "result": {"value": "0% (0/4)", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://medically.roche.com/content/dam/pdmahub/non-restricted/metabolism/easd-2024/EASD-2024-presentation-chakravarthy-safety-pharmacokinetics-and-pharmacodynamics-of-ct-388.pdf",
+          "title": "Safety, Pharmacokinetics, and Pharmacodynamics of CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist, Over 24 Weeks in Adults With Obesity",
+          "sourceType": "scientific presentation",
+          "publishedAt": "2024-09-12",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-hba1c-ct388-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-hba1c-w12",
+      "armIds": ["en101-t2d-ct388"],
+      "analysisPopulation": "Not reported",
+      "result": {"value": "-3.0%", "numericValue": -3, "unit": "percentage points", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-hba1c-placebo-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-hba1c-w12",
+      "armIds": ["en101-t2d-placebo"],
+      "analysisPopulation": "Not reported",
+      "result": {"value": "-0.2%", "numericValue": -0.2, "unit": "percentage points", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-hba1c-vs-placebo-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-hba1c-w12",
+      "armIds": ["en101-t2d-ct388", "en101-t2d-placebo"],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "2.8%",
+        "numericValue": 2.8,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean reduction in HbA1c",
+        "comparisonType": "Placebo-adjusted reduction with CT-388 versus placebo",
+        "confidenceInterval": "95% CI 2.1 to 3.6"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-hba1c65-ct388-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-hba1c65-w12",
+      "armIds": ["en101-t2d-ct388"],
+      "analysisPopulation": "Not reported",
+      "result": {"value": "100% (14/14)", "numericValue": 100, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-hba1c57-ct388-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-hba1c57-w12",
+      "armIds": ["en101-t2d-ct388"],
+      "analysisPopulation": "Not reported",
+      "result": {"value": "50% (7/14)", "numericValue": 50, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-weightloss-ct388-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-weightloss-w12",
+      "armIds": ["en101-t2d-ct388"],
+      "analysisPopulation": "Not reported",
+      "result": {"value": "8.6%", "numericValue": 8.6, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-weightloss-placebo-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-weightloss-w12",
+      "armIds": ["en101-t2d-placebo"],
+      "analysisPopulation": "Not reported",
+      "result": {"value": "1.2%", "numericValue": 1.2, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-weightloss-vs-placebo-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-weightloss-w12",
+      "armIds": ["en101-t2d-ct388", "en101-t2d-placebo"],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "7.4%",
+        "numericValue": 7.4,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean body weight loss",
+        "comparisonType": "Placebo-adjusted body weight loss with CT-388 versus placebo",
+        "confidenceInterval": "95% CI 4.9 to 9.8"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en101-t2d-resp5-ct388-w12",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-t2d-resp5-w12",
+      "armIds": ["en101-t2d-ct388"],
+      "analysisPopulation": "Not reported",
+      "result": {"value": "100% (14/14)", "numericValue": 100, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [{
+          "url": "https://doi.org/10.2337/db25-763-P",
+          "title": "763-P: Glycemic Control, Weight Reduction, and Safety with CT-388, a Signal-Biased Dual GLP-1/GIP Receptor Agonist—Results from a 12-Week Cohort in Adults with Obesity and Type 2 Diabetes",
+          "sourceType": "conference abstract",
+          "publishedAt": "2025-06-20",
+          "checkedAt": "2026-07-21"
+        }]
+      }
+    },
+    {
+      "id": "en103-weight-efficacy-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-0.2%",
+        "numericValue": -0.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "estimand": "Efficacy estimand"
+    },
+    {
+      "id": "en103-weight-efficacy-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-6.7%",
+        "numericValue": -6.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "estimand": "Efficacy estimand"
+    },
+    {
+      "id": "en103-weight-efficacy-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-14.2%",
+        "numericValue": -14.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "estimand": "Efficacy estimand"
+    },
+    {
+      "id": "en103-weight-efficacy-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-16.6%",
+        "numericValue": -16.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "estimand": "Efficacy estimand"
+    },
+    {
+      "id": "en103-weight-efficacy-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-18.4%",
+        "numericValue": -18.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "estimand": "Efficacy estimand"
+    },
+    {
+      "id": "en103-weight-efficacy-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-22.7%",
+        "numericValue": -22.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "estimand": "Efficacy estimand"
+    },
+    {
+      "id": "en103-weight-efficacy",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-24mg",
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-22.5%",
+        "numericValue": -22.5,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Estimated treatment difference in percent change in body weight",
+        "comparisonType": "Estimated treatment difference, enicepatide 24 mg minus placebo",
+        "confidenceInterval": "95% CI -25.3 to -19.8",
+        "pValue": "≤0.001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-weight-treatment-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-4mg",
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "estimand": "Treatment estimand",
+      "result": {
+        "value": "-5.0%",
+        "numericValue": -5,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Estimated treatment difference in percent change in body weight",
+        "comparisonType": "Estimated treatment difference, enicepatide 4 mg minus placebo",
+        "confidenceInterval": "95% CI -8.4 to -1.6"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-weight-treatment-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-8mg",
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "estimand": "Treatment estimand",
+      "result": {
+        "value": "-10.7%",
+        "numericValue": -10.7,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Estimated treatment difference in percent change in body weight",
+        "comparisonType": "Estimated treatment difference, enicepatide 8 mg minus placebo",
+        "confidenceInterval": "95% CI -14.0 to -7.4",
+        "pValue": "≤0.001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-weight-treatment-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-12mg",
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "estimand": "Treatment estimand",
+      "result": {
+        "value": "-11.7%",
+        "numericValue": -11.7,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Estimated treatment difference in percent change in body weight",
+        "comparisonType": "Estimated treatment difference, enicepatide 12 mg minus placebo",
+        "confidenceInterval": "95% CI -15.0 to -8.4",
+        "pValue": "≤0.001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-weight-treatment-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-16mg",
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "estimand": "Treatment estimand",
+      "result": {
+        "value": "-13.4%",
+        "numericValue": -13.4,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Estimated treatment difference in percent change in body weight",
+        "comparisonType": "Estimated treatment difference, enicepatide 16 mg minus placebo",
+        "confidenceInterval": "95% CI -16.7 to -10.0",
+        "pValue": "≤0.001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-weight-trt-regimen",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-weight-w48",
+      "armIds": [
+        "en103-enicepatide-24mg",
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "estimand": "Treatment estimand",
+      "result": {
+        "value": "-18.3%",
+        "numericValue": -18.3,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Estimated treatment difference in percent change in body weight",
+        "comparisonType": "Estimated treatment difference, enicepatide 24 mg minus placebo",
+        "confidenceInterval": "95% CI -21.6 to -14.9",
+        "pValue": "≤0.001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp5-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp5-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "15%",
+        "numericValue": 15,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp5-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp5-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "52%",
+        "numericValue": 52,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp5-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp5-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "86%",
+        "numericValue": 86,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp5-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp5-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "86%",
+        "numericValue": 86,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp5-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp5-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "93%",
+        "numericValue": 93,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp5-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp5-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "95.7%",
+        "numericValue": 95.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp10-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp10-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "4%",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp10-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp10-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "31%",
+        "numericValue": 31,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp10-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp10-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "70%",
+        "numericValue": 70,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp10-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp10-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "71%",
+        "numericValue": 71,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp10-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp10-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "81%",
+        "numericValue": 81,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp10-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp10-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "87.0%",
+        "numericValue": 87,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp15-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp15-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "2%",
+        "numericValue": 2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp15-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp15-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "12%",
+        "numericValue": 12,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp15-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp15-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "41%",
+        "numericValue": 41,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp15-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp15-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "51%",
+        "numericValue": 51,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp15-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp15-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "52%",
+        "numericValue": 52,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp15-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp15-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "71%",
+        "numericValue": 71,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp20-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp20-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "0%",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp20-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp20-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "4%",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp20-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp20-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "25%",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp20-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp20-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "32%",
+        "numericValue": 32,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp20-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp20-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "35%",
+        "numericValue": 35,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp20-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp20-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "47.8%",
+        "numericValue": 47.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp25-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp25-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "0%",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp25-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp25-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "0%",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp25-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp25-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "15%",
+        "numericValue": 15,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp25-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp25-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "13%",
+        "numericValue": 13,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp25-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp25-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "22%",
+        "numericValue": 22,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp25-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp25-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "38%",
+        "numericValue": 38,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp30-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp30-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "0%",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp30-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp30-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "0%",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp30-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp30-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "6%",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp30-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp30-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "6%",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp30-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp30-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "10%",
+        "numericValue": 10,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-resp30-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-resp30-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Participants who reached Week 48",
+      "result": {
+        "value": "26.1%",
+        "numericValue": 26.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-glucose-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-glucose-norm-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Participants with prediabetes at baseline who reached Week 48",
+      "result": {
+        "value": "7.5%",
+        "numericValue": 7.5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-glucose-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-glucose-norm-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Participants with prediabetes at baseline who reached Week 48",
+      "result": {
+        "value": "45.0%",
+        "numericValue": 45,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-glucose-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-glucose-norm-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Participants with prediabetes at baseline who reached Week 48",
+      "result": {
+        "value": "69.8%",
+        "numericValue": 69.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-glucose-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-glucose-norm-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Participants with prediabetes at baseline who reached Week 48",
+      "result": {
+        "value": "52.9%",
+        "numericValue": 52.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-glucose-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-glucose-norm-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Participants with prediabetes at baseline who reached Week 48",
+      "result": {
+        "value": "69.2%",
+        "numericValue": 69.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-glucose-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-glucose-norm-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Participants with prediabetes at baseline who reached Week 48",
+      "result": {
+        "value": "73.0%",
+        "numericValue": 73,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://doi.org/10.2337/db26-2813-LB",
+            "title": "2813-LB: CT-388, a cAMP Signal-Biased GLP-1/GIP Receptor Agonist, Achieves Clinically Meaningful Weight Loss in People With Overweight/Obesity: A 48-Week Phase 2 Study",
+            "sourceType": "conference abstract",
+            "publishedAt": "2026-06-05",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "title": "Roche ADA 2026 Virtual Investor Event — CT388-103 Phase II results",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2026-06-08",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-bmi30-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-bmi30-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Topline analysis population (not further specified)",
+      "result": {
+        "value": "54%",
+        "numericValue": 54,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-bmi30-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-bmi30-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Topline analysis population (not further specified)",
+      "result": {
+        "value": "13%",
+        "numericValue": 13,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2026-01-27",
+            "title": "Roche announces positive Phase II results for its dual GLP-1/GIP receptor agonist CT-388 in people living with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2026-01-27",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    }
+  ]
+}

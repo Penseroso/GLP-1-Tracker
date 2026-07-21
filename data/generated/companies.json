@@ -20,6 +20,11 @@
     "headquartersCountry": "Denmark"
   },
   {
+    "id": "roche",
+    "name": "Roche",
+    "headquartersCountry": "Switzerland"
+  },
+  {
     "id": "zealand-pharma",
     "name": "Zealand Pharma",
     "headquartersCountry": "Denmark"

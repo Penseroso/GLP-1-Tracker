@@ -257,7 +257,8 @@
       ],
       "linkedStudyIds": [
         "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
-        "novo-nordisk-cagrisema-redefine-1-nct05567796"
+        "novo-nordisk-cagrisema-redefine-1-nct05567796",
+        "roche-ct-996-bp45703-nct07112872"
       ]
     },
     {
@@ -266,6 +267,28 @@
       "focalStudyIds": [
         "novo-nordisk-ubt251-china-phase2-nct07177469",
         "novo-nordisk-ubt251-nct07395687"
+      ],
+      "linkedStudyIds": []
+    },
+    {
+      "companyId": "roche",
+      "assetId": "ct-996",
+      "focalStudyIds": [
+        "roche-ct-996-201-nct05814107",
+        "roche-ct-996-bp45702-nct07081958",
+        "roche-ct-996-bp45703-nct07112872"
+      ],
+      "linkedStudyIds": []
+    },
+    {
+      "companyId": "roche",
+      "assetId": "enicepatide",
+      "focalStudyIds": [
+        "roche-enicepatide-ct388-103-nct06525935",
+        "roche-enicepatide-ct388-104-nct06628362",
+        "roche-enicepatide-enith1-nct07351045",
+        "roche-enicepatide-enith2-nct07351058",
+        "roche-enicepatide-ct388-101-nct04838405"
       ],
       "linkedStudyIds": []
     },
