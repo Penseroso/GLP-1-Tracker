@@ -1271,6 +1271,16 @@ function validateClinicalStudy(study, context, references) {
 
   assert(isNonEmptyString(study.officialTitle), `${context}: officialTitle is required`);
   assertOptionalNonEmptyString(study.acronym, `${context}: acronym`);
+  // studyFamily is an authored sponsor series name (ADR-0042). It is never derived from
+  // acronym or title, so the validator checks only its shape here; cross-study label
+  // consistency is an aggregate-level check.
+  assertOptionalNonEmptyString(study.studyFamily, `${context}: studyFamily`);
+  if (study.studyFamily !== undefined) {
+    assert(
+      study.studyFamily === study.studyFamily.trim(),
+      `${context}: studyFamily must not have leading or trailing whitespace`,
+    );
+  }
   assert(Array.isArray(study.registryIdentifiers), `${context}: registryIdentifiers must be an array`);
   assert(study.registryIdentifiers.length > 0, `${context}: at least one registry identifier is required`);
   for (const [index, identifier] of study.registryIdentifiers.entries()) {
@@ -1637,11 +1647,27 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
   const resultBearingStudyIds = new Set(
     aggregate.outcomes.map((outcome) => outcome.studyId),
   );
+  // studyFamily is free text, so the only defence against a family splitting in two
+  // ("SURMOUNT" vs "Surmount") is to require one stored spelling per normalized key.
+  const studyFamilyLabels = new Map();
 
   for (const study of aggregate.studies) {
     validateClinicalStudy(study, `${context}: study ${study.id ?? "unknown-study"}`, references);
     assert(!studyIds.has(study.id), `${context}: duplicate study id ${study.id}`);
     studyIds.add(study.id);
+
+    if (study.studyFamily !== undefined) {
+      const familyKey = normalize(study.studyFamily);
+      const existing = studyFamilyLabels.get(familyKey);
+      if (existing === undefined) {
+        studyFamilyLabels.set(familyKey, { label: study.studyFamily, studyId: study.id });
+      } else {
+        assert(
+          existing.label === study.studyFamily,
+          `${context}: studyFamily "${existing.label}" in ${existing.studyId} and "${study.studyFamily}" in ${study.id} are the same family with different stored text; one family has exactly one spelling`,
+        );
+      }
+    }
 
     for (const identifier of study.registryIdentifiers) {
       const identity = `${normalize(identifier.registry)}|${normalize(identifier.id)}`;
@@ -2349,6 +2375,33 @@ function validateClinicalEvidenceSyntheticFixtures() {
         studyId: "fixture-study-reference-registry-second",
       });
     }],
+    // Two studies may share one family, and a study may carry no family at all:
+    // studyFamily is authored, so an absent value is "unclassified", not an error.
+    ["study-family-shared-by-two-studies", (fixture) => {
+      const sibling = {
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-family-sibling",
+        studyFamily: fixture.studies[0].studyFamily,
+        registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT30000006" }],
+        registryStatus: {
+          registry: "ClinicalTrials.gov",
+          registryId: "NCT30000006",
+          overallStatus: "recruiting",
+          sourceStatus: "Recruiting",
+        },
+      };
+      fixture.studies.push(sibling);
+      fixture.arms.push({
+        ...cloneJson(fixture.arms[0]),
+        id: "fixture-arm-family-sibling",
+        studyId: sibling.id,
+      });
+    }],
+    ["study-family-optional-absent", (fixture) => {
+      for (const study of fixture.studies) {
+        delete study.studyFamily;
+      }
+    }],
   ];
 
   for (const [name, mutate] of validExpectations) {
@@ -2479,6 +2532,22 @@ function validateClinicalEvidenceSyntheticFixtures() {
     }],
     ["study-without-arm", /has no arms/, (fixture) => {
       fixture.studies.push(secondStudy);
+    }],
+    // One family, one spelling: a casing variant would silently split the family into
+    // two groups in the Asset Clinical Detail table.
+    ["study-family-label-drift", /are the same family with different stored text/, (fixture) => {
+      fixture.studies[0].studyFamily = "SURMOUNT";
+      fixture.studies.push({
+        ...cloneJson(secondStudy),
+        studyFamily: "Surmount",
+      });
+      fixture.arms.push(cloneJson(secondArm));
+    }],
+    ["study-family-blank", /studyFamily must be non-empty when present/, (fixture) => {
+      fixture.studies[0].studyFamily = "   ";
+    }],
+    ["study-family-untrimmed", /studyFamily must not have leading or trailing whitespace/, (fixture) => {
+      fixture.studies[0].studyFamily = " SURMOUNT";
     }],
     ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "3\.0"/, (fixture) => {
       fixture.clinicalEvidenceSchemaVersion = "1.0";
