@@ -1,0 +1,847 @@
+{
+  "clinicalEvidenceSchemaVersion": "3.0",
+  "companyId": "roche",
+  "assetId": "ct-996",
+  "studies": [
+    {
+      "id": "roche-ct-996-201-nct05814107",
+      "companyId": "roche",
+      "assetId": "ct-996",
+      "programId": "roche-ct-996-oral-capsule",
+      "officialTitle": "A Double-Blind, Randomized, Placebo-Controlled Phase 1 Study Evaluating the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of Single and Multiple Doses of CT-996 in Overweight/Obese Participants and in Patients With Type 2 Diabetes Mellitus",
+      "acronym": "CT-996-201",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT05814107"
+        }
+      ],
+      "phase": "Phase 1",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Three-part, sequential dose-escalation study; recorded outcomes are from the 28-day Part 2 multiple-ascending-dose cohorts in adults with obesity without type 2 diabetes."
+      },
+      "population": "Part 2 enrolled otherwise healthy adults with obesity without type 2 diabetes; the overall protocol also included overweight/obesity and type 2 diabetes cohorts.",
+      "overallDuration": "58 days for Parts 2 and 3, including safety follow-up",
+      "safetySummary": "In the Part 2 MAD cohorts, all treatment-emergent adverse events were mild or moderate, one serious event was unrelated to study drug, and no discontinuation was related to study drug; gastrointestinal events were most common.",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT05814107",
+            "title": "Phase 1 Study of CT-996 in Overweight/Obese Participants and Patients With Type 2 Diabetes Mellitus",
+            "sourceType": "trial registry",
+            "publishedAt": "2023-04-14",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2024-07-17",
+            "title": "Roche announces positive Phase I results of its oral GLP-1 receptor agonist CT-996 for the treatment of people with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2024-07-17",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT05814107",
+        "overallStatus": "completed",
+        "sourceStatus": "Completed",
+        "statusUpdatedAt": "2025-11-28"
+      }
+    },
+    {
+      "id": "roche-ct-996-bp45702-nct07081958",
+      "companyId": "roche",
+      "assetId": "ct-996",
+      "programId": "roche-ct-996-oral-capsule",
+      "officialTitle": "A Randomized, Double-Blind, Placebo-Controlled, Parallel-Group, Multi-Center, Phase II Study to Evaluate the Efficacy, Safety, and Tolerability of Once-Daily RO7795081 Administered for 38 Weeks to Participants With Obesity or Overweight With at Least One Weight-Related Comorbidity",
+      "acronym": "BP45702",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07081958"
+        }
+      ],
+      "phase": "Phase 2",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind",
+        "comparator": "Placebo",
+        "description": "Parallel-group, dose-range-finding study of seven once-daily oral RO7795081 dosing regimens versus placebo."
+      },
+      "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes mellitus.",
+      "overallDuration": "42 weeks, including 38 weeks of treatment and safety follow-up",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07081958",
+            "title": "A Study Evaluating the Effect of Daily Oral RO7795081 in Participants With Obesity or Overweight With at Least One Weight-Related Comorbidity",
+            "sourceType": "trial registry",
+            "publishedAt": "2025-07-24",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07081958",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-05-07"
+      }
+    },
+    {
+      "id": "roche-ct-996-bp45703-nct07112872",
+      "companyId": "roche",
+      "assetId": "ct-996",
+      "programId": "roche-ct-996-oral-capsule-type-2-diabetes",
+      "officialTitle": "A Randomized, Double-Blind, Placebo- and Open-Label Active Comparator- Controlled, Parallel-Group, Multi-Center Phase II Study to Evaluate the Efficacy, Safety, and Tolerability of Once-Daily RO7795081 Administered for 30 Weeks to Participants With Type 2 Diabetes Mellitus",
+      "acronym": "BP45703",
+      "registryIdentifiers": [
+        {
+          "registry": "ClinicalTrials.gov",
+          "id": "NCT07112872"
+        },
+        {
+          "registry": "CTIS",
+          "id": "2024-520322-11-00"
+        }
+      ],
+      "phase": "Phase 2",
+      "design": {
+        "randomization": "Randomized",
+        "masking": "Double-blind for RO7795081 and placebo; open-label active comparator",
+        "comparator": "Placebo and oral semaglutide",
+        "description": "Parallel-group, dose-range-finding glycemic-control study of seven RO7795081 regimens versus placebo and oral semaglutide, with prespecified body-weight outcomes."
+      },
+      "population": "Adults with type 2 diabetes mellitus and BMI at least 23 kg/m^2.",
+      "overallDuration": "34 weeks, including 30 weeks of treatment and safety follow-up",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT07112872",
+            "title": "A Study to Compare Different Doses of RO7795081 With a Placebo or Semaglutide in People With Type 2 Diabetes",
+            "sourceType": "trial registry",
+            "publishedAt": "2025-08-08",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      },
+      "registryStatus": {
+        "registry": "ClinicalTrials.gov",
+        "registryId": "NCT07112872",
+        "overallStatus": "active-not-recruiting",
+        "sourceStatus": "Active, not recruiting",
+        "statusUpdatedAt": "2026-07-07"
+      }
+    }
+  ],
+  "arms": [
+    {
+      "id": "ct996-201-part2-placebo",
+      "role": "placebo",
+      "label": "Part 2 pooled placebo",
+      "intervention": "Matching placebo capsule once daily",
+      "dose": "Matching placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "28 days"
+    },
+    {
+      "id": "ct996-201-part2-cohort1",
+      "role": "experimental",
+      "label": "Part 2 CT-996 MAD cohort 1",
+      "intervention": "CT-996 capsule once daily with 10/30/60/90 mg titration",
+      "dose": "10/30/60/90 mg titration",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "studyId": "roche-ct-996-201-nct05814107",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "28 days"
+    },
+    {
+      "id": "ct996-201-part2-cohort2",
+      "role": "experimental",
+      "label": "Part 2 CT-996 MAD cohort 2",
+      "intervention": "CT-996 capsule once daily with 10/30/60/90/120 mg titration",
+      "dose": "10/30/60/90/120 mg titration",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "studyId": "roche-ct-996-201-nct05814107",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "28 days"
+    },
+    {
+      "id": "ct996-201-part2-cohort3",
+      "role": "experimental",
+      "label": "Part 2 CT-996 MAD cohort 3",
+      "intervention": "CT-996 capsule once daily with 10/30/50/80/120 mg titration",
+      "dose": "10/30/50/80/120 mg titration",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "studyId": "roche-ct-996-201-nct05814107",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "28 days"
+    },
+    {
+      "id": "ct996-bp45702-regimen1",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 1",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45702-regimen2",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 2",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45702-regimen3",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 3",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45702-regimen4",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 4",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45702-regimen5",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 5",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45702-regimen6",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 6",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45702-regimen7",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 7",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      },
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45702-placebo",
+      "studyId": "roche-ct-996-bp45702-nct07081958",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo capsule matched to the randomized RO7795081 regimen, orally once daily",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "38 weeks"
+    },
+    {
+      "id": "ct996-bp45703-placebo",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "placebo",
+      "label": "Placebo",
+      "intervention": "Placebo orally once daily"
+    },
+    {
+      "id": "ct996-bp45703-semaglutide",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "active comparator",
+      "label": "Semaglutide 14 mg",
+      "intervention": "Oral semaglutide 14 mg once daily with label-directed up-titration",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "semaglutide"
+      }
+    },
+    {
+      "id": "ct996-bp45703-regimen1",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 1",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      }
+    },
+    {
+      "id": "ct996-bp45703-regimen2",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 2",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      }
+    },
+    {
+      "id": "ct996-bp45703-regimen3",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 3",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      }
+    },
+    {
+      "id": "ct996-bp45703-regimen4",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 4",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      }
+    },
+    {
+      "id": "ct996-bp45703-regimen5",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 5",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      }
+    },
+    {
+      "id": "ct996-bp45703-regimen6",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 6",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      }
+    },
+    {
+      "id": "ct996-bp45703-regimen7",
+      "studyId": "roche-ct-996-bp45703-nct07112872",
+      "role": "experimental",
+      "label": "RO7795081 dosing regimen 7",
+      "intervention": "RO7795081 capsule orally once daily according to the randomized dosing regimen",
+      "linkedAsset": {
+        "companyId": "roche",
+        "assetId": "ct-996"
+      }
+    }
+  ],
+  "analysisGroups": [],
+  "endpoints": [
+    {
+      "id": "ct996-weight-d29",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Percent change from baseline in body weight",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Day 29"
+    },
+    {
+      "id": "ct996-glucose-auc-d28",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Change from Day -1 to Day 28 in glucose AUC0-240min during a mixed meal tolerance test",
+      "role": "secondary",
+      "domain": "glycemic",
+      "assessmentTimepoint": "Day 28"
+    },
+    {
+      "id": "ct996-insulin-auc-d28",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Change from Day -1 to Day 28 in insulin AUC0-240min during a mixed meal tolerance test",
+      "role": "secondary",
+      "domain": "glycemic",
+      "assessmentTimepoint": "Day 28"
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "ct996-weight-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-weight-d29",
+      "armIds": [
+        "ct996-201-part2-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-1.2%",
+        "numericValue": -1.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2024-07-17",
+            "title": "Roche announces positive Phase I results of its oral GLP-1 receptor agonist CT-996 for the treatment of people with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2024-07-17",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-weight-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-weight-d29",
+      "armIds": [
+        "ct996-201-part2-cohort1"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-2.3%",
+        "numericValue": -2.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-weight-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-weight-d29",
+      "armIds": [
+        "ct996-201-part2-cohort2"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-5.8%",
+        "numericValue": -5.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-weight-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-weight-d29",
+      "armIds": [
+        "ct996-201-part2-cohort3"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-7.3%",
+        "numericValue": -7.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2024-07-17",
+            "title": "Roche announces positive Phase I results of its oral GLP-1 receptor agonist CT-996 for the treatment of people with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2024-07-17",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-glucose-auc-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-glucose-auc-d28",
+      "armIds": [
+        "ct996-201-part2-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "0.3",
+        "numericValue": 0.3,
+        "unit": "mmol/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-glucose-auc-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-glucose-auc-d28",
+      "armIds": [
+        "ct996-201-part2-cohort1"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-1.8",
+        "numericValue": -1.8,
+        "unit": "mmol/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-glucose-auc-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-glucose-auc-d28",
+      "armIds": [
+        "ct996-201-part2-cohort2"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-2.2",
+        "numericValue": -2.2,
+        "unit": "mmol/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-glucose-auc-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-glucose-auc-d28",
+      "armIds": [
+        "ct996-201-part2-cohort3"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-2.0",
+        "numericValue": -2,
+        "unit": "mmol/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-insulin-auc-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-insulin-auc-d28",
+      "armIds": [
+        "ct996-201-part2-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-0.9",
+        "numericValue": -0.9,
+        "unit": "mIU/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-insulin-auc-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-insulin-auc-d28",
+      "armIds": [
+        "ct996-201-part2-cohort1"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-24.8",
+        "numericValue": -24.8,
+        "unit": "mIU/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-insulin-auc-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-insulin-auc-d28",
+      "armIds": [
+        "ct996-201-part2-cohort2"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-85.7",
+        "numericValue": -85.7,
+        "unit": "mIU/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-insulin-auc-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-insulin-auc-d28",
+      "armIds": [
+        "ct996-201-part2-cohort3"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-64.3",
+        "numericValue": -64.3,
+        "unit": "mIU/L*min",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-weight-cohort3-vs-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-weight-d29",
+      "armIds": [
+        "ct996-201-part2-cohort3",
+        "ct996-201-part2-placebo"
+      ],
+      "analysisPopulation": "Not reported",
+      "result": {
+        "value": "-6.1%",
+        "numericValue": -6.1,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Placebo-adjusted least-squares mean difference in percent change in body weight",
+        "comparisonType": "Least-squares mean difference, CT-996 cohort 3 minus placebo",
+        "pValue": "<0.001"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-21",
+        "updatedAt": "2026-07-21",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "title": "Roche's Virtual Investor Event at EASD 2024 — CT-996 data presented at EASD",
+            "sourceType": "scientific presentation",
+            "publishedAt": "2024-09-13",
+            "checkedAt": "2026-07-21"
+          },
+          {
+            "url": "https://www.roche.com/media/releases/med-cor-2024-07-17",
+            "title": "Roche announces positive Phase I results of its oral GLP-1 receptor agonist CT-996 for the treatment of people with obesity",
+            "sourceType": "company press release",
+            "publishedAt": "2024-07-17",
+            "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    }
+  ]
+}

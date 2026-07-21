@@ -3853,6 +3853,129 @@
     }
   },
   {
+    "id": "roche-ct-996-oral-capsule",
+    "assetId": "ct-996",
+    "companyId": "roche",
+    "assetName": "CT-996",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "RO7795081"
+      },
+      {
+        "type": "development-code",
+        "value": "RG6652"
+      }
+    ],
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Capsule",
+      "dosingInterval": "Once daily"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-21",
+      "updatedAt": "2026-07-21",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07081958",
+          "title": "A Study Evaluating the Effect of Daily Oral RO7795081 in Participants With Obesity or Overweight With at Least One Weight-Related Comorbidity",
+          "sourceType": "trial registry",
+          "publishedAt": "2025-07-24",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05814107",
+          "title": "Phase 1 Study of CT-996 in Overweight/Obese Participants and Patients With Type 2 Diabetes Mellitus",
+          "sourceType": "trial registry",
+          "publishedAt": "2023-04-14",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://www.gene.com/medical-professionals/pipeline/ct-996",
+          "title": "CT-996 | Genentech Pipeline",
+          "sourceType": "company pipeline page",
+          "checkedAt": "2026-07-21"
+        }
+      ]
+    }
+  },
+  {
+    "id": "roche-ct-996-oral-capsule-type-2-diabetes",
+    "assetId": "ct-996",
+    "companyId": "roche",
+    "assetName": "CT-996",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "RO7795081"
+      },
+      {
+        "type": "development-code",
+        "value": "RG6652"
+      }
+    ],
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Capsule",
+      "dosingInterval": "Once daily"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-21",
+      "updatedAt": "2026-07-21",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07112872",
+          "title": "A Study to Compare Different Doses of RO7795081 With a Placebo or Semaglutide in People With Type 2 Diabetes",
+          "sourceType": "trial registry",
+          "publishedAt": "2025-08-08",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05814107",
+          "title": "Phase 1 Study of CT-996 in Overweight/Obese Participants and Patients With Type 2 Diabetes Mellitus",
+          "sourceType": "trial registry",
+          "publishedAt": "2023-04-14",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://www.gene.com/medical-professionals/pipeline/ct-996",
+          "title": "CT-996 | Genentech Pipeline",
+          "sourceType": "company pipeline page",
+          "checkedAt": "2026-07-21"
+        }
+      ]
+    }
+  },
+  {
     "id": "roche-enicepatide-subcutaneous-injection",
     "assetId": "enicepatide",
     "companyId": "roche",
