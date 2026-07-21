@@ -224,6 +224,12 @@ clinical-stage evidence supports Phase 1.
 - A secondary source alone should **not override** a primary source.
 - Do **not** reject useful official company evidence merely because no
   publication exists.
+- A search that returned nothing and a source that could not be reached are
+  **not evidence of non-disclosure**. Whether a claim counts as checked is
+  decided by the field-specific source classes above: a claim is unconfirmed only
+  after the source classes appropriate to it have actually been consulted. The
+  procedure for exhausting discovery belongs to the
+  [Research Workflow](./research-workflow.md).
 
 ## Conflict handling
 

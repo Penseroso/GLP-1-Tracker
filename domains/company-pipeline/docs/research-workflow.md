@@ -20,7 +20,9 @@ semantics remain authoritative in the [Data Protocol](./README.md).
    mode.
 3. Before editing, confirm that current external sources are reachable. If
    required sources cannot be accessed, make no operating-data change and
-   report the failure.
+   report the failure as a source-access blocker. Do not reclassify a candidate
+   as insufficiently evidenced, or report a claim as undisclosed, because a
+   source was unreachable.
 
 ## 2. Discover and classify
 
@@ -40,7 +42,9 @@ candidate must finish in exactly one state:
 - **excluded**: outside scope or insufficiently evidenced, with a reason.
 
 Nothing surfaced may be silently dropped. One deferred candidate does not
-block other valid updates.
+block other valid updates. `deferred` and `excluded` are provisional until the
+independent coverage pass in section 5 has run: a candidate is not insufficiently
+evidenced merely because the first pass did not surface its evidence.
 
 ## 3. Apply the contracts
 

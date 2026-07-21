@@ -38,7 +38,24 @@ asset:
    completed, terminated, suspended, or withdrawn Studies without an Outcome.
 4. For every Study in the run, record one in-session result-availability state:
    `RESULT_SOURCE_FOUND`, `NO_PUBLIC_RESULTS`, or
-   `RESULT_AVAILABILITY_UNRESOLVED`, with the sources and check date. For
+   `RESULT_AVAILABILITY_UNRESOLVED`, with the sources and check date.
+
+   `NO_PUBLIC_RESULTS` is a finding about the world, not about the search. Record it
+   only after exhausting every one of these surfaces: the registry's own results
+   section, the sponsor's newsroom and investor materials, the relevant congress
+   abstract archives, and a literature-index lookup by each of the registry
+   identifier, the asset name and development code, and the study acronym. If any
+   surface was not attempted, the state is not `NO_PUBLIC_RESULTS`.
+
+   A blocked source is not a missing result. **Neither a search that returned
+   nothing nor a failure to reach a source is by itself grounds for
+   `NO_PUBLIC_RESULTS`.** When a required surface is unreachable but a reasonable
+   alternative primary source supplies the same evidence, proceed on that source.
+   Use `RESULT_AVAILABILITY_UNRESOLVED` only when a required surface is blocked
+   **and** no alternative primary source could be obtained, and record which surface
+   was blocked and which alternatives were tried.
+
+   For
    `RESULT_SOURCE_FOUND`, review every confirmed result-bearing source that is
    discovered or cited in Study metadata. Record an in-session disposition for
    each distinct directly disclosed result, identified at least by source,
@@ -52,7 +69,10 @@ asset:
      non-goal, with the result and reason reported;
    - **deferred**: direct disclosure exists but evidence, identity, or reliable
      Arm/AnalysisGroup/Endpoint mapping is insufficient, with the missing
-     evidence and re-entry condition reported;
+     evidence and re-entry condition reported. A search that found nothing and a
+     source that could not be reached are **not** result dispositions: they are
+     Study-level availability states under step 4, and deferring on either before
+     the search is exhausted misreports an incomplete search as non-disclosure;
    - **schema boundary**: the source-supported result cannot be represented by
      the current contract and is handled under the case-scoped fallback.
 6. Classify every discovered study as inventory entered, result-bearing
@@ -87,6 +107,12 @@ separate obligations under the contract.
 For an unchanged semantic outcome, replace a superseded value in place and
 preserve useful prior source references. If authority and recency cannot
 resolve a conflict, defer the affected result.
+
+When a new source supersedes existing results, scope the update by the
+**comparison family** that source covers, not by the individual Outcome you
+happened to be looking at. Re-derive every Outcome in the family from the new
+source; where one cannot be re-derived, report the evidence for keeping its
+earlier value or defer it. Never leave part of a family on the superseded source.
 
 ## 4. Author under the v3 contract
 
@@ -156,7 +182,13 @@ Before claiming completion, reconcile the in-session result-review manifest:
 4. every entered result has direct supporting source metadata on its Outcome;
 5. every omitted public result appears individually in the final report with
    its source, disposition, reason, and re-entry condition where applicable;
-6. the count of undispositioned disclosed results is zero.
+6. the count of undispositioned disclosed results is zero;
+7. every comparison family touched in this run was re-evaluated as a whole, with
+   no Outcome left on a superseded source;
+8. every `NO_PUBLIC_RESULTS` names the surfaces exhausted and the check date, and
+   the count of `NO_PUBLIC_RESULTS` recorded without an exhausted search is zero;
+9. every `RESULT_AVAILABILITY_UNRESOLVED` names the blocked surface and the
+   alternative primary sources attempted.
 
 The JSON validators enforce only facts represented in canonical data. They
 cannot inspect external source contents or infer that a Study-level citation is
@@ -174,7 +206,9 @@ Report:
 - assets traversed;
 - Studies entered or updated, including inventory-only Studies;
 - result-availability state, checked sources, and check date for every Study,
-  plus the result-bearing sources reviewed;
+  plus the result-bearing sources reviewed. Keep "no result was disclosed" and
+  "a source could not be reached" distinct in the wording; do not report a
+  blocked source as non-disclosure;
 - entered results and every omitted public result, each with its source,
   disposition, reason, and re-entry condition where applicable;
 - result-disposition counts, including an explicit zero count for
