@@ -109,13 +109,20 @@ export type PrimaryFindingView = {
   assessmentTimepoint: string;
   endpointRole: ClinicalEndpointRole;
   /**
-   * One value, or the low and high of a single comparison family. Both entries are
-   * stored values for stored anchors: this is selection, never calculation.
+   * Every value of one comparison family, in curated source order. All are stored
+   * values for stored anchors: this is selection, never calculation.
    */
   values: PrimaryFindingValueView[];
   effectMeasure?: string;
   /** The shared comparator/anchor arm, when the values are between-arm estimates. */
   comparatorLabel?: string;
+  /**
+   * The analysis axes the shown family belongs to. Surfaced because a Study may
+   * report the same endpoint under several estimands with no stored designation of
+   * which one is primary — the reader must be able to see which vintage this is.
+   */
+  estimand?: string;
+  analysisPopulation: string;
 };
 
 export type StudyFamilyGroupView = {
@@ -395,40 +402,19 @@ function toPrimaryFinding(study: ClinicalStudyRecord): PrimaryFindingView | null
     label: labelOf(outcome),
   });
 
-  const base = {
+  // Every Outcome of the family, in curated source order (dose-ascending, ADR-0040).
+  // Showing only the extremes would silently drop middle doses, leaving the cell
+  // disagreeing with the dose list in the Treatment column; each value carries its own
+  // unit and anchor, so no ordering or comparability is derived here.
+  return {
     endpointName: endpoint.name,
     assessmentTimepoint: endpoint.assessmentTimepoint,
     endpointRole: endpoint.role,
     effectMeasure: family[0].result.effectMeasure,
     comparatorLabel: anchorArmId ? armLabelById.get(anchorArmId) : undefined,
-  };
-
-  // Anything that would make a low/high pair misleading — one value, mixed units or
-  // effect measures, or a narrative result with no number to order by — collapses to
-  // the first authored Outcome, rendered verbatim.
-  const units = new Set(family.map((outcome) => outcome.result.unit));
-  const effectMeasures = new Set(
-    family.map((outcome) => outcome.result.effectMeasure ?? ""),
-  );
-  const comparable =
-    family.length > 1 &&
-    units.size === 1 &&
-    effectMeasures.size === 1 &&
-    family.every((outcome) => outcome.result.numericValue !== null);
-
-  if (!comparable) {
-    return { ...base, values: [toValue(family[0])] };
-  }
-
-  const byValue = [...family].sort(
-    (a, b) => (a.result.numericValue as number) - (b.result.numericValue as number),
-  );
-  const extremes = new Set([byValue[0], byValue[byValue.length - 1]]);
-  // Emit in curated source order (dose-ascending, ADR-0040) rather than by magnitude,
-  // so the pair reads as the authored dose sequence.
-  return {
-    ...base,
-    values: family.filter((outcome) => extremes.has(outcome)).map(toValue),
+    estimand: family[0].estimand,
+    analysisPopulation: family[0].analysisPopulation,
+    values: family.map(toValue),
   };
 }
 

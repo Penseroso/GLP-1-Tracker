@@ -63,8 +63,11 @@ function PrimaryFinding({ finding }: { finding: PrimaryFindingView | null }) {
           ? ""
           : ` (${finding.endpointRole})`}
       </span>
-      {finding.values.map((value) => (
-        <span key={value.label} className="mt-1 block text-foreground">
+      {finding.values.map((value, index) => (
+        <span
+          key={`${value.label}-${value.value}-${index}`}
+          className="mt-1 block text-foreground"
+        >
           <span className="font-semibold tabular-nums">
             {value.value} {value.unit}
           </span>
@@ -79,6 +82,13 @@ function PrimaryFinding({ finding }: { finding: PrimaryFindingView | null }) {
           {finding.effectMeasure ? ` · ${finding.effectMeasure}` : ""}
         </span>
       ) : null}
+      {/* Which analysis these values come from: a Study may report the same endpoint
+          under several estimands, and none is stored as the primary one. */}
+      <span className="mt-1 block text-xs text-muted-foreground">
+        {finding.estimand
+          ? `${finding.estimand} · ${finding.analysisPopulation}`
+          : finding.analysisPopulation}
+      </span>
     </>
   );
 }
