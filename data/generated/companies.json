@@ -1,5 +1,10 @@
 [
   {
+    "id": "amgen",
+    "name": "Amgen Inc.",
+    "headquartersCountry": "United States"
+  },
+  {
     "id": "ascletis-pharma",
     "name": "Ascletis Pharma Inc.",
     "headquartersCountry": "China"
