@@ -28,7 +28,7 @@
       "stage": "Phase 3",
       "status": "Active",
       "stageBasis": "Operational evidence",
-      "stageOperationalState": "Active not recruiting"
+      "stageOperationalState": "Initiated or active"
     },
     "metadata": {
       "lastVerifiedAt": "2026-07-21",
@@ -49,10 +49,31 @@
           "checkedAt": "2026-07-21"
         },
         {
+          "url": "https://clinicaltrials.gov/study/NCT07575399",
+          "title": "Efficacy, Safety and Tolerability of Switching From Glucagon-like Peptide-1 Receptor Agonists (GLP-1RA) to Maridebart Cafraglutide in Adults With Obesity or Overweight (MARITIME-SWITCH)",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-05-08",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07684235",
+          "title": "Extension Trial to Evaluate the Long-term Efficacy, Safety, and Tolerability of Maridebart Cafraglutide (MARITIME-1-EXTENSION)",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-07-06",
+          "checkedAt": "2026-07-21"
+        },
+        {
           "url": "https://www.amgen.com/newsroom/press-releases/2025/06/results-from-amgens-phase-2-obesity-study-of-monthly-maritide-presented-at-the-american-diabetes-association-85th-scientific-sessions",
           "title": "Results From Amgen's Phase 2 Obesity Study of Monthly MariTide Presented at the American Diabetes Association 85th Scientific Sessions",
           "sourceType": "company press release",
           "publishedAt": "2025-06",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://investors.amgen.com/static-files/e03cb67f-f3cb-42bb-9c8a-e53151d412f6",
+          "title": "Amgen Reports First Quarter 2026 Financial Results",
+          "sourceType": "regulatory filing",
+          "publishedAt": "2026-04-30",
           "checkedAt": "2026-07-21"
         }
       ]
@@ -86,7 +107,7 @@
       "stage": "Phase 3",
       "status": "Active",
       "stageBasis": "Operational evidence",
-      "stageOperationalState": "Active not recruiting"
+      "stageOperationalState": "Initiated or active"
     },
     "metadata": {
       "lastVerifiedAt": "2026-07-21",
@@ -100,10 +121,75 @@
           "checkedAt": "2026-07-21"
         },
         {
+          "url": "https://clinicaltrials.gov/study/NCT07684144",
+          "title": "Extension Trial to Evaluate the Long-term Efficacy, Safety, and Tolerability of Maridebart Cafraglutide (MARITIME-2-EXTENSION)",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-07-06",
+          "checkedAt": "2026-07-21"
+        },
+        {
           "url": "https://www.amgen.com/newsroom/press-releases/2025/06/results-from-amgens-phase-2-obesity-study-of-monthly-maritide-presented-at-the-american-diabetes-association-85th-scientific-sessions",
           "title": "Results From Amgen's Phase 2 Obesity Study of Monthly MariTide Presented at the American Diabetes Association 85th Scientific Sessions",
           "sourceType": "company press release",
           "publishedAt": "2025-06",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://investors.amgen.com/static-files/e03cb67f-f3cb-42bb-9c8a-e53151d412f6",
+          "title": "Amgen Reports First Quarter 2026 Financial Results",
+          "sourceType": "regulatory filing",
+          "publishedAt": "2026-04-30",
+          "checkedAt": "2026-07-21"
+        }
+      ]
+    }
+  },
+  {
+    "id": "amgen-maridebart-cafraglutide-subcutaneous-injection-elevated-liver-fat",
+    "assetId": "maridebart-cafraglutide",
+    "companyId": "amgen",
+    "assetName": "Maridebart cafraglutide",
+    "codeName": "AMG 133",
+    "aliases": [
+      {
+        "type": "brand-name",
+        "value": "MariTide"
+      }
+    ],
+    "technical": {
+      "mechanism": "GLP-1R agonist/GIPR antagonist",
+      "platform": "Peptide-antibody conjugate"
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Every 4 weeks"
+    },
+    "indications": [
+      "Elevated liver fat with obesity or overweight"
+    ],
+    "development": {
+      "stage": "Phase 2b",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-21",
+      "updatedAt": "2026-07-21",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07441252",
+          "title": "A Trial to Evaluate Efficacy and Safety of Maridebart Cafraglutide in Adults Living With Elevated Liver Fat and Obesity or Overweight",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-02-27",
+          "checkedAt": "2026-07-21"
+        },
+        {
+          "url": "https://investors.amgen.com/static-files/e03cb67f-f3cb-42bb-9c8a-e53151d412f6",
+          "title": "Amgen Reports First Quarter 2026 Financial Results",
+          "sourceType": "regulatory filing",
+          "publishedAt": "2026-04-30",
           "checkedAt": "2026-07-21"
         }
       ]
