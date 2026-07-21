@@ -20,7 +20,9 @@ semantics remain authoritative in the [Data Protocol](./README.md).
    mode.
 3. Before editing, confirm that current external sources are reachable. If
    required sources cannot be accessed, make no operating-data change and
-   report the failure.
+   report the failure as a source-access blocker. Do not reclassify a candidate
+   as insufficiently evidenced, or report a claim as undisclosed, because a
+   source was unreachable.
 
 ## 2. Discover and classify
 
@@ -40,7 +42,9 @@ candidate must finish in exactly one state:
 - **excluded**: outside scope or insufficiently evidenced, with a reason.
 
 Nothing surfaced may be silently dropped. One deferred candidate does not
-block other valid updates.
+block other valid updates. `deferred` and `excluded` are provisional until the
+independent coverage pass in section 5 has run: a candidate is not insufficiently
+evidenced merely because the first pass did not surface its evidence.
 
 ## 3. Apply the contracts
 
@@ -81,9 +85,13 @@ Before generation and reporting:
 3. Classify every newly surfaced candidate.
 4. Repeat company-centred discovery independently, without using the first
    pass's source list or inventory as the starting point.
-5. If the independent pass finds an unclassified candidate, research and
+5. The independent pass covers previously `deferred` and unresolved candidates
+   and claims as well as new ones. Re-search each of them and record which
+   applies: new evidence now resolves it, the same blocker still stands, or its
+   disposition has changed. A prior deferral is not carried forward untested.
+6. If the independent pass finds an unclassified candidate, research and
    classify it, then repeat the independent pass. Completion requires a final
-   pass with no unclassified candidate.
+   pass with no unclassified candidate and no unre-searched prior deferral.
 
 This audit is in-session only. Do not create a per-run ledger or report file.
 

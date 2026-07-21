@@ -311,6 +311,17 @@ are execution/reporting state, not canonical fields: result availability is not
 persisted, and validator success cannot establish that an external source was
 fully reviewed. See the workflow's result-review completion gate.
 
+A **comparison family** is the set of results a single source reports together: the same
+Study, Endpoint, analysis population, and estimand, sharing a common comparator or anchor
+Arm — for example every dose cohort compared against one pooled placebo arm. When a
+follow-up source re-reports such a family, re-evaluate the family **atomically**: re-derive
+every Outcome in it from that source, or, where an Outcome cannot be re-derived, state the
+evidence for keeping the earlier value or defer it. Do not update part of a family and leave
+the rest on the superseded source, which mixes two sources' values, analyses, and provenance
+inside one family. This does not weaken the per-Outcome rule above: `maturity` and
+`metadata.sources` still record the strongest source that directly supports each exact value,
+and may differ within a family when the sources genuinely differ.
+
 Do not:
 
 - calculate a treatment difference from arm-level values.

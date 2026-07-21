@@ -1536,6 +1536,20 @@ function getClinicalOutcomeSemanticKey(outcome) {
   ].join("|");
 }
 
+// Grouping key for between-arm outcomes that a single result source would report together:
+// one study, one endpoint, one analysis population, one estimand. This is deliberately coarser
+// than the semantic key — armIds and comparisonType are excluded, because the point is to see
+// several comparisons side by side. estimand and analysisPopulation are canonicalized so a
+// casing/hyphen variant does not split a group that is really one.
+function getClinicalComparisonGroupKey(outcome) {
+  return [
+    outcome.studyId,
+    outcome.endpointId,
+    canonicalizeClinicalAnalysisPopulation(outcome.analysisPopulation),
+    canonicalizeClinicalEstimand(outcome.estimand),
+  ].join("|");
+}
+
 // Content identity for an AnalysisGroup within its study; blocks an obvious duplicate group
 // record, mirroring the Arm/Endpoint defensive checks.
 function getClinicalAnalysisGroupSemanticKey(analysisGroup) {
@@ -1615,6 +1629,7 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
   const outcomesByStudy = new Map();
   const outcomesByEndpoint = new Map();
   const outcomesByAnalysisGroup = new Map();
+  const betweenArmOutcomesByComparisonGroup = new Map();
   const semanticOutcomeKeys = new Set();
   const armSemanticKeys = new Set();
   const analysisGroupSemanticKeys = new Set();
@@ -1771,6 +1786,15 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
     const endpointOutcomes = outcomesByEndpoint.get(outcome.endpointId) ?? [];
     endpointOutcomes.push(outcome);
     outcomesByEndpoint.set(outcome.endpointId, endpointOutcomes);
+
+    // effectMeasure exists only on between-arm outcomes, so the comparison-family check below
+    // only ever needs those.
+    if (outcome.result.resultType === "between-arm") {
+      const comparisonGroupKey = getClinicalComparisonGroupKey(outcome);
+      const groupOutcomes = betweenArmOutcomesByComparisonGroup.get(comparisonGroupKey) ?? [];
+      groupOutcomes.push(outcome);
+      betweenArmOutcomesByComparisonGroup.set(comparisonGroupKey, groupOutcomes);
+    }
   }
 
   for (const studyId of studyIds) {
@@ -1793,6 +1817,48 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
 
   for (const endpointId of endpointIds) {
     assert((outcomesByEndpoint.get(endpointId) ?? []).length > 0, `${context}: endpoint ${endpointId} has no outcome`);
+  }
+
+  // A follow-up source that re-reports a whole comparison family must be applied to the family
+  // atomically. Applying it to only some outcomes leaves values, analyses and provenance from
+  // two different sources side by side inside one family — the CT-388-101 Day-29 case, where
+  // two dose cohorts kept a 2023 abstract's "Least-squares mean difference in percent change in
+  // body weight" while a third carried the 2025 publication's placebo-adjusted measure.
+  //
+  // A family is narrower than the comparison group: it is the subset of a group's between-arm
+  // outcomes that share a comparator/anchor arm (an arm appearing in two or more of the group's
+  // outcomes, typically the pooled placebo). Outcomes with no shared arm are genuinely different
+  // comparisons and are left alone. maturity is deliberately NOT checked here: it must reflect
+  // the strongest source directly supporting each exact value, so it can legitimately differ
+  // within one family. Keeping a family on one source is a workflow/completion-gate obligation;
+  // this check is only the mechanical part of it.
+  for (const [comparisonGroupKey, groupOutcomes] of betweenArmOutcomesByComparisonGroup) {
+    if (groupOutcomes.length < 2) {
+      continue;
+    }
+    const armOccurrences = new Map();
+    for (const outcome of groupOutcomes) {
+      for (const armId of outcome.armIds ?? []) {
+        armOccurrences.set(armId, (armOccurrences.get(armId) ?? 0) + 1);
+      }
+    }
+    for (const [anchorArmId, occurrences] of armOccurrences) {
+      if (occurrences < 2) {
+        continue;
+      }
+      const family = groupOutcomes.filter((outcome) => (outcome.armIds ?? []).includes(anchorArmId));
+      const effectMeasures = sortedStrings([
+        ...new Set(family.map((outcome) => outcome.result.effectMeasure)),
+      ]);
+      assert(
+        effectMeasures.length === 1,
+        `${context}: comparison family ${comparisonGroupKey} anchored on arm ${anchorArmId} mixes effect measures ${effectMeasures
+          .map((effectMeasure) => `"${effectMeasure}"`)
+          .join(" and ")} across outcomes ${family
+          .map((outcome) => outcome.id)
+          .join(", ")} — a follow-up source must be applied to the whole family, not to some of its outcomes; if the comparisons really differ, separate them by analysis population, estimand, or comparator arm`,
+      );
+    }
   }
 
   // Analysis groups are not stored speculatively: a group exists because a source reports a
@@ -2148,6 +2214,16 @@ function validateClinicalEvidenceSyntheticFixtures() {
     "clinical evidence valid fixture must contain an analysis-group-anchored outcome",
   );
 
+  // Reference point for the comparison-family probes: a between-arm outcome comparing the 10 mg
+  // arm against the dose-ranging study's placebo arm.
+  const betweenArmOutcome = validAggregate.outcomes.find(
+    (outcome) => outcome.id === "fixture-outcome-dr-between",
+  );
+  assert(
+    betweenArmOutcome !== undefined,
+    "clinical evidence valid fixture must contain the dose-ranging between-arm outcome",
+  );
+
   // Mutations that must still validate: a distinct analysis unit or a source-supported
   // subgroup is a distinct outcome, not a duplicate.
   const validExpectations = [
@@ -2164,6 +2240,28 @@ function validateClinicalEvidenceSyntheticFixtures() {
       twin.id = "fixture-outcome-dr-pooled-titration";
       twin.analysisGroupId = "fixture-group-pooled-titration";
       fixture.outcomes.push(twin);
+    }],
+    // Same endpoint, population and estimand, but no shared comparator arm: these are two
+    // different comparisons, not one family, so their effect measures may differ.
+    ["disjoint-comparison-family-may-differ", (fixture) => {
+      const comboComparison = cloneJson(betweenArmOutcome);
+      comboComparison.id = "fixture-outcome-dr-between-combo";
+      comboComparison.armIds = ["fixture-arm-dr-comboA", "fixture-arm-dr-comboB"];
+      comboComparison.result.effectMeasure = "Estimated treatment difference";
+      comboComparison.result.comparisonType =
+        "Estimated treatment difference, combination A minus combination B";
+      fixture.outcomes.push(comboComparison);
+    }],
+    // Inside one family, maturity may still differ: it reflects the strongest source directly
+    // supporting each exact value, and is never checked at family level.
+    ["comparison-family-may-mix-maturity", (fixture) => {
+      const sameFamily = cloneJson(betweenArmOutcome);
+      sameFamily.id = "fixture-outcome-dr-between-5mg";
+      sameFamily.armIds = ["fixture-arm-dr-5mg", "fixture-arm-dr-placebo"];
+      sameFamily.maturity = "peer-reviewed publication";
+      sameFamily.result.comparisonType =
+        "Least-squares mean difference, fixture asset 5 mg minus placebo";
+      fixture.outcomes.push(sameFamily);
     }],
     ["analysis-population-subgroup-stays-distinct", (fixture) => {
       const subgroup = cloneJson(analysisGroupOutcome);
@@ -2587,6 +2685,17 @@ function validateClinicalEvidenceSyntheticFixtures() {
       groupOutcome.result.resultType = "between-arm";
       groupOutcome.result.comparisonType = "Least-squares mean difference, pooled minus placebo";
       groupOutcome.result.effectMeasure = "Least-squares mean difference";
+    }],
+    // Two dose comparisons against the same placebo arm are one comparison family; a follow-up
+    // source applied to only one of them shows up as two effect measures (the CT-388-101 case).
+    ["mixed-comparison-family-effect-measure", /mixes effect measures/, (fixture) => {
+      const sameFamily = cloneJson(betweenArmOutcome);
+      sameFamily.id = "fixture-outcome-dr-between-5mg";
+      sameFamily.armIds = ["fixture-arm-dr-5mg", "fixture-arm-dr-placebo"];
+      sameFamily.result.effectMeasure = "Estimated treatment difference";
+      sameFamily.result.comparisonType =
+        "Estimated treatment difference, fixture asset 5 mg minus placebo";
+      fixture.outcomes.push(sameFamily);
     }],
     ["missing-analysis-group-reference", /references missing analysis group/, (fixture) => {
       const groupOutcome = fixture.outcomes.find(
