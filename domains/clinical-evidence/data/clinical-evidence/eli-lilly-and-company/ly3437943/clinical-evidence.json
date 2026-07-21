@@ -58,6 +58,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-oa",
       "officialTitle": "A Study of Retatrutide (LY3437943) in Participants With Obesity or Overweight and Knee Osteoarthritis",
       "acronym": "TRIUMPH-4",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -107,6 +108,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
       "officialTitle": "A Phase 3b Study to Investigate the Efficacy and Safety of Retatrutide Once Weekly in Participants Without Type 2 Diabetes Who Have Obesity or Overweight: A Randomized, Double-Blind, Placebo-Controlled Trial",
       "acronym": "TRIUMPH-8",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -150,6 +152,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-triumph-1-basket",
       "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of LY3437943 Once Weekly in Participants Without Type 2 Diabetes Who Have Obesity or Overweight: A Randomized, Double-Blind, Placebo-Controlled Trial (TRIUMPH-1)",
       "acronym": "TRIUMPH-1",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -196,6 +199,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-triumph-outcomes",
       "officialTitle": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled, Event-Driven Study to Investigate the Effect of Retatrutide on the Incidence of Major Adverse Cardiovascular Events and Major Adverse Kidney Events in Participants With Body Mass Index ≥27 kg/m2 and Atherosclerotic Cardiovascular Disease and/or Chronic Kidney Disease",
       "acronym": "TRIUMPH-Outcomes",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -240,6 +244,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection-low-back-pain",
       "officialTitle": "A Phase 3, Randomized, Double-Blind, Placebo-Controlled Study to Investigate the Efficacy and Safety of Retatrutide Once Weekly in Participants Who Have Obesity or Overweight and Chronic Low Back Pain",
       "acronym": "TRIUMPH-7",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -284,6 +289,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
       "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of LY3437943 Once Weekly in Participants With Type 2 Diabetes Mellitus Who Have Obesity or Overweight: A Randomized Double-Blind, Placebo-Controlled Trial",
       "acronym": "TRIUMPH-2",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -330,6 +336,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
       "officialTitle": "A Randomized, Double-Blind, Phase 3 Study to Investigate the Efficacy and Safety of LY3437943 Once Weekly Compared to Placebo in Participants With Severe Obesity and Established Cardiovascular Disease",
       "acronym": "TRIUMPH-3",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -375,6 +382,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
       "officialTitle": "A Phase 3, Randomized, Double-Blind Study to Evaluate the Efficacy and Safety of Retatrutide Compared to Tirzepatide in Adults Who Have Obesity",
       "acronym": "TRIUMPH-5",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -420,6 +428,7 @@
       "programId": "eli-lilly-and-company-ly3437943-subcutaneous-injection",
       "officialTitle": "A Phase 3b, Randomized, Double-Blind, Placebo-Controlled Study to Evaluate Retatrutide Treatment in the Maintenance of Weight Reduction in Individuals With Obesity",
       "acronym": "TRIUMPH-6",
+      "studyFamily": "TRIUMPH",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

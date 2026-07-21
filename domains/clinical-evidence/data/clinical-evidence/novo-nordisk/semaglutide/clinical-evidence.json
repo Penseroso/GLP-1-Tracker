@@ -10,6 +10,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "STEP 1: Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity",
       "acronym": "STEP 1",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -62,6 +63,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Research Study Investigating How Well Semaglutide Works in People With Type 2 Diabetes Suffering From Overweight or Obesity",
       "acronym": "STEP 2",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -111,6 +113,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Two-year Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity",
       "acronym": "STEP 5",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -163,6 +166,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "A Research Study on How Well Semaglutide Works in Adolescents With Overweight or Obesity",
       "acronym": "STEP TEENS",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -213,6 +217,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "A Research Study to See How Well Semaglutide Helps People With Excess Body Weight Lose Weight",
       "acronym": "STEP UP",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -262,6 +267,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "A Research Study to See How Well Semaglutide Helps People With Type 2 Diabetes and Excess Body Weight Lose Weight",
       "acronym": "STEP UP T2D",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -311,6 +317,7 @@
       "programId": "novo-nordisk-semaglutide-oral-tablets",
       "officialTitle": "A Research Study to See How Well Oral Semaglutide Helps People With Overweight or Obesity Lose Weight",
       "acronym": "OASIS 4",
+      "studyFamily": "OASIS",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -360,6 +367,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect and Safety of Semaglutide 2.4 mg Once-weekly as Adjunct to Intensive Behavioural Therapy in Subjects With Overweight or Obesity",
       "acronym": "STEP 3",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -405,6 +413,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect and Safety of Semaglutide 2.4 mg Once-weekly in Subjects With Overweight or Obesity Who Have Reached Target Dose During run-in Period",
       "acronym": "STEP 4",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -451,6 +460,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect and Safety of Semaglutide Once-weekly in East Asian Subjects With Overweight or Obesity",
       "acronym": "STEP 6",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -496,6 +506,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect and Safety of Semaglutide 2.4 mg Once-weekly on Weight Management in Subjects With Overweight or Obesity.",
       "acronym": "STEP7",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -541,6 +552,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect and Safety of Subcutaneous Semaglutide 2.4 mg Once Weekly Compared to Liraglutide 3.0 mg Once Daily on Weight Management in Subjects With Overweight or Obesity",
       "acronym": "STEP 8",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -586,6 +598,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect of Subcutaneous Semaglutide 2.4 mg Once-weekly Compared to Placebo in Subjects With Obesity and Knee Osteoarthritis",
       "acronym": "STEP 9",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -639,6 +652,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Efficacy and Safety of Subcutaneous Semaglutide 2.4 mg Once-weekly in Subjects With Obesity and Prediabetes",
       "acronym": "STEP 10",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -685,6 +699,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Efficacy and Safety of Semaglutide 2.4 mg Once-weekly in Adults With Overweight and Obesity",
       "acronym": "STEP12",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -730,6 +745,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect of Semaglutide 2.4 mg Once Weekly on Function and Symptoms in Subjects With Obesity-related Heart Failure With Preserved Ejection Fraction",
       "acronym": "STEP-HFpEF",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -776,6 +792,7 @@
       "programId": "novo-nordisk-semaglutide-subcutaneous-injection",
       "officialTitle": "Effect of Semaglutide 2.4 mg Once-weekly on Function and Symptoms in Subjects With Obesity-related Heart Failure With Preserved Ejection Fraction, and Type 2 Diabetes",
       "acronym": "STEP HFpEF DM",
+      "studyFamily": "STEP",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -866,6 +883,7 @@
       "programId": "novo-nordisk-semaglutide-oral-tablets",
       "officialTitle": "Efficacy and Safety of Oral Semaglutide 50 mg Once Daily in Subjects With Overweight or Obesity (OASIS 1)",
       "acronym": "OASIS 1",
+      "studyFamily": "OASIS",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -912,6 +930,7 @@
       "programId": "novo-nordisk-semaglutide-oral-tablets",
       "officialTitle": "Efficacy and Safety of Oral Semaglutide 50 mg Once Daily in East Asian Participants With Overweight or Obesity",
       "acronym": "OASIS 2",
+      "studyFamily": "OASIS",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -957,6 +976,7 @@
       "programId": "novo-nordisk-semaglutide-oral-tablets",
       "officialTitle": "Efficacy and Safety of Oral Semaglutide 50 mg Once Daily in Chinese Adults With Overweight or Obesity (OASIS 3)",
       "acronym": "OASIS 3",
+      "studyFamily": "OASIS",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

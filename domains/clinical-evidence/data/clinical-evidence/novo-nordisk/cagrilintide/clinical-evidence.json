@@ -59,6 +59,7 @@
       "programId": "novo-nordisk-cagrilintide-subcutaneous-injection",
       "officialTitle": "Efficacy and Safety of Cagrilintide for Weight Management in Participants With Overweight or Obesity",
       "acronym": "RENEW 1",
+      "studyFamily": "RENEW",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

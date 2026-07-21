@@ -10,6 +10,7 @@
       "programId": "eli-lilly-and-company-ly3305677-subcutaneous-injection",
       "officialTitle": "A Study of Mazdutide in Chinese Adults With Obesity or Overweight",
       "acronym": "GLORY-1",
+      "studyFamily": "GLORY",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -59,6 +60,7 @@
       "programId": "eli-lilly-and-company-ly3305677-subcutaneous-injection",
       "officialTitle": "A Study of Mazdutide in Chinese Adults With Obesity",
       "acronym": "GLORY-2",
+      "studyFamily": "GLORY",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

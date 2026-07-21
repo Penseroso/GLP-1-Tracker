@@ -74,6 +74,7 @@
       "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection",
       "officialTitle": "A Phase 3 Randomized, Double-blind, Placebo-controlled Study to Evaluate the Efficacy, Safety, and Tolerability of Maridebart Cafraglutide in Adult Participants Without Type 2 Diabetes Mellitus Who Have Obesity or Are Overweight",
       "acronym": "MARITIME-1",
+      "studyFamily": "MARITIME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -117,6 +118,7 @@
       "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection-type-2-diabetes",
       "officialTitle": "A Phase 3 Randomized, Double-blind, Placebo-controlled Study to Evaluate the Efficacy, Safety, and Tolerability of Maridebart Cafraglutide in Adult Participants With Type 2 Diabetes Mellitus Who Have Obesity or Are Overweight",
       "acronym": "MARITIME-2",
+      "studyFamily": "MARITIME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -160,6 +162,7 @@
       "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection",
       "officialTitle": "A Phase 3 Randomized, Double-blind, Placebo-controlled Study to Evaluate the Efficacy, Safety, and Tolerability of Maridebart Cafraglutide in Adult Participants in Japan Who Have Obesity Disease",
       "acronym": "MARITIME-3-J",
+      "studyFamily": "MARITIME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -259,6 +262,7 @@
       "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection",
       "officialTitle": "A Phase 3, Open-label Trial to Evaluate the Efficacy, Safety and Tolerability of Switching From the Glucagon-like Peptide-1 Receptor Agonists to Maridebart Cafraglutide in Adult Participants With Obesity or Overweight",
       "acronym": "MARITIME-SWITCH",
+      "studyFamily": "MARITIME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -305,6 +309,7 @@
       "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection",
       "officialTitle": "A Phase 3, Randomized, Double-Blind Extension Trial to Evaluate the Long-term Efficacy, Safety, and Tolerability of Maridebart Cafraglutide in Participants With Obesity or Overweight",
       "acronym": "MARITIME-1-EXTENSION",
+      "studyFamily": "MARITIME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -352,6 +357,7 @@
       "programId": "amgen-maridebart-cafraglutide-subcutaneous-injection-type-2-diabetes",
       "officialTitle": "A Phase 3, Randomized, Double-Blind Extension Trial to Evaluate the Long-term Efficacy, Safety, and Tolerability of Maridebart Cafraglutide in Participants With Obesity or Overweight With Type 2 Diabetes Mellitus",
       "acronym": "MARITIME-2-EXTENSION",
+      "studyFamily": "MARITIME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
