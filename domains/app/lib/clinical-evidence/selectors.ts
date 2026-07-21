@@ -13,6 +13,10 @@ import {
   companyNameById,
   pipelineAssetKeys,
 } from "@/domains/clinical-evidence/lib/data";
+import {
+  canonicalizeClinicalAnalysisPopulation,
+  canonicalizeClinicalEstimand,
+} from "@/domains/clinical-evidence/lib/clinical-term-canonicalization.mjs";
 import { pipelinePrograms, regimens } from "@/domains/company-pipeline/lib/data";
 import type {
   ClinicalAnalysisGroupRecord,
@@ -255,17 +259,11 @@ function assetRef(companyId: string, assetId: string): ClinicalAssetRef {
  * order, which the generator preserves (ADR-0040).
  */
 function toTreatmentView(study: ClinicalStudyRecord): StudyTreatmentView {
-  const arms = clinicalArmsByStudyId.get(study.id) ?? [];
-  const experimental = arms.filter((arm) => arm.role === "experimental");
-  // A study whose investigational arm is authored under another role would otherwise
-  // render an empty Treatment cell; fall back to every non-placebo arm rather than
-  // showing nothing.
-  const treatmentArms =
-    experimental.length > 0
-      ? experimental
-      : arms.filter((arm) => arm.role !== "placebo");
+  const experimental = (clinicalArmsByStudyId.get(study.id) ?? []).filter(
+    (arm) => arm.role === "experimental",
+  );
   const labels = Array.from(
-    new Set(treatmentArms.map((arm) => arm.dose?.trim() || arm.label)),
+    new Set(experimental.map((arm) => arm.dose?.trim() || arm.label)),
   );
   return {
     experimentalArms: labels.slice(0, TREATMENT_ARM_DISPLAY_LIMIT),
@@ -275,21 +273,14 @@ function toTreatmentView(study: ClinicalStudyRecord): StudyTreatmentView {
 }
 
 /**
- * Grouping key for Outcomes a single source would report together, mirroring the
- * validator's `getClinicalComparisonGroupKey`. The endpoint is fixed by the caller, so
- * only the analysis axes remain. Raw strings are used rather than the validator's
- * canonicalized forms — a casing variant merely splits a group, which the "largest
- * group" rule below absorbs deterministically.
- */
-/**
  * Estimand strategies that count participants as randomised regardless of what they
  * actually took. These are the analyses trials of this dataset register as their main
  * one, so a Study reporting one endpoint under several estimands shows this camp.
  *
  * The estimand vocabulary is deliberately open (see the Clinical Evidence contract), so
  * an unrecognised term is NOT demoted — it ranks with the alternatives and the existing
- * size / source-order rules settle it. Matching is on the validator's canonical form:
- * casing and punctuation folded, trailing "estimand" dropped.
+ * size / source-order rules settle it. Membership is tested on the shared canonical
+ * form, so "Treatment-regimen estimand" and "treatment regimen" are one strategy.
  */
 const treatmentPolicyEstimands = new Set([
   "treatment policy",
@@ -298,25 +289,27 @@ const treatmentPolicyEstimands = new Set([
   "treatment",
 ]);
 
-function canonicalEstimandOf(outcome: ClinicalOutcomeRecord): string {
-  return (outcome.estimand ?? "")
-    .trim()
-    .toLowerCase()
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .replace(/\s*estimand( population)?$/, "");
-}
-
 /** 0 = treatment-policy camp, 1 = everything else (efficacy, hypothetical, unlabelled). */
 function estimandRankOf(outcome: ClinicalOutcomeRecord): number {
-  return treatmentPolicyEstimands.has(canonicalEstimandOf(outcome)) ? 0 : 1;
+  return treatmentPolicyEstimands.has(
+    canonicalizeClinicalEstimand(outcome.estimand),
+  )
+    ? 0
+    : 1;
 }
 
+/**
+ * Grouping key for Outcomes a single source would report together, mirroring the
+ * validator's `getClinicalComparisonGroupKey`. The endpoint is fixed by the caller, so
+ * only the analysis axes remain, and they enter the key through the **same shared
+ * canonicalization the validator uses**: both must draw the same group boundary, or a
+ * casing or hyphenation variant would split a group here that the validator treats as one.
+ */
 function comparisonGroupKeyOf(outcome: ClinicalOutcomeRecord): string {
   return [
     outcome.result.resultType,
-    outcome.analysisPopulation,
-    outcome.estimand ?? "",
+    canonicalizeClinicalAnalysisPopulation(outcome.analysisPopulation),
+    canonicalizeClinicalEstimand(outcome.estimand),
   ].join("|");
 }
 

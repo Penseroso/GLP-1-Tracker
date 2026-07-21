@@ -5446,7 +5446,7 @@
       "design": {
         "randomization": "Randomized",
         "masking": "Double-blind",
-        "comparator": "Placebo and active comparator"
+        "comparator": "Placebo"
       },
       "population": "Subjects with overweight or obesity.",
       "metadata": {
@@ -11290,7 +11290,7 @@
     {
       "id": "nct06000891-zp7570",
       "studyId": "zealand-pharma-dapiglutide-nct06000891",
-      "role": "active comparator",
+      "role": "experimental",
       "label": "ZP7570",
       "intervention": "ZP7570",
       "linkedAsset": {

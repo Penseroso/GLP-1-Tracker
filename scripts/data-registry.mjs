@@ -7,6 +7,12 @@ import {
 } from "node:fs";
 import path from "node:path";
 import process from "node:process";
+// Canonicalization is shared with the Application read model so the validator's semantic
+// keys and the UI's comparison groups cannot drift apart.
+import {
+  canonicalizeClinicalAnalysisPopulation,
+  canonicalizeClinicalEstimand,
+} from "../domains/clinical-evidence/lib/clinical-term-canonicalization.mjs";
 
 const root = process.cwd();
 const dataDir = path.join(root, "data");
@@ -156,20 +162,6 @@ const clinicalAnalysisPopulationEstimandLabelPattern = /\bestimand(?: population
 // means, not what it is measured in; it belongs in result.effectMeasure.
 const clinicalEffectMeasureUnitPattern =
   /\b(hazard ratio|odds ratio|risk ratio|rate ratio|relative risk|mean difference|treatment difference|difference)\b/;
-// Standard analysis-set abbreviations. The vocabulary stays open: an unknown source term is
-// canonicalized structurally (casing/punctuation) and passes through unchanged.
-const clinicalAnalysisSetAliases = new Map([
-  ["itt", "intention to treat"],
-  ["intent to treat", "intention to treat"],
-  ["mitt", "modified intention to treat"],
-  ["modified itt", "modified intention to treat"],
-  ["modified intent to treat", "modified intention to treat"],
-  ["fas", "full analysis set"],
-  ["eas", "efficacy analysis set"],
-  ["pp", "per protocol"],
-  ["safety set", "safety analysis set"],
-]);
-
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, "utf8"));
 }
@@ -188,42 +180,6 @@ function normalize(value) {
 
 function sortedStrings(values) {
   return [...values].sort((a, b) => a.localeCompare(b));
-}
-
-// Field-specific canonicalization (ADR-0037). Used ONLY to compute semantic keys and
-// grouping; the source-reported text stays on the record verbatim. normalize() itself is
-// left punctuation-sensitive because other domains rely on its exact behaviour.
-function canonicalizeClinicalTermText(value) {
-  return normalize(value)
-    .replace(/[‐-―]/g, "-")
-    .replace(/[-_/]+/g, " ")
-    .replace(/[.,;:'"()[\]]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-// "Treatment-policy estimand" and "Treatment policy estimand" are one estimand. The
-// trailing "estimand" / "estimand population" wording is a suffix, not part of the
-// strategy name. Unknown strategies remain valid and are canonicalized structurally.
-function canonicalizeClinicalEstimand(value) {
-  if (value === undefined) {
-    return "";
-  }
-
-  return canonicalizeClinicalTermText(value).replace(/\s*estimand(?: population)?$/, "");
-}
-
-// The analysis set and any trailing parenthetical subgroup are canonicalized separately, so
-// "Full analysis set (overall)" and "Full analysis set (Part B)" stay distinct while "FAS"
-// and "Full analysis set" collapse.
-function canonicalizeClinicalAnalysisPopulation(value) {
-  const trimmed = value.trim();
-  const subgroupMatch = /^(.*?)\s*\(([^()]*)\)$/.exec(trimmed);
-  const setText = canonicalizeClinicalTermText(subgroupMatch ? subgroupMatch[1] : trimmed);
-  const subgroupText = subgroupMatch ? canonicalizeClinicalTermText(subgroupMatch[2]) : "";
-  const canonicalSet = clinicalAnalysisSetAliases.get(setText) ?? setText;
-
-  return subgroupText ? `${canonicalSet}(${subgroupText})` : canonicalSet;
 }
 
 function assert(condition, message) {
