@@ -62,6 +62,12 @@ export type ClinicalStudyRecord = {
   regimenId?: string;
   officialTitle: string;
   acronym?: string;
+  /**
+   * Explicit sponsor study-series name (SURMOUNT, STEP, REDEFINE). Authored only —
+   * never inferred from acronym or title. Absent means the Study is unclassified,
+   * not that its family is unknown pending research.
+   */
+  studyFamily?: string;
   registryIdentifiers: ClinicalRegistryIdentifier[];
   protocolIdentifiers?: string[];
   phase: string;

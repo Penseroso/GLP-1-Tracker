@@ -49,5 +49,7 @@ through ADR-0039 is available only through the
 | ADR-0040 | Preserve curated source-record order in generated Clinical Evidence output. | An `id` tie-breaker discarded authored clinical curation such as dose-ascending arms. | Active | [Generated Output Contract](./generated-output-contract.md) |
 | ADR-0041 | Re-evaluate a comparison family atomically when a follow-up source re-reports it, and exhaust the search before declaring non-disclosure. | A follow-up publication was applied to only part of one CT-388 placebo-anchored family, and an unexhausted search was recorded as non-disclosure. | Active | [Clinical Evidence contract](../../clinical-evidence/docs/README.md), [Clinical Evidence workflow](../../clinical-evidence/docs/workflow.md) |
 
+| ADR-0042 | Own Study family as an explicit authored field and group Asset Clinical Detail by it. | Acronym-derived grouping would invent series from asset codes and protocol numbers. | Active | [Clinical Evidence contract](../../clinical-evidence/docs/README.md), [UI Reference](../../app/docs/README.md) |
+
 New entries stay one row. Put the enforceable rule in its current authority and
 use this index only to preserve the decision, short reason, status, and pointer.

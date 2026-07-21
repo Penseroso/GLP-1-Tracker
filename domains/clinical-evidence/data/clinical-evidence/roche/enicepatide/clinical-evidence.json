@@ -125,6 +125,7 @@
       "programId": "roche-enicepatide-subcutaneous-injection",
       "officialTitle": "A Phase III, Randomized, Double-Blind, Placebo-Controlled, Parallel Group Study to Evaluate the Efficacy and Safety of Once-Weekly RO7795068 Administered to Participants With Obesity or Overweight Without Type 2 Diabetes",
       "acronym": "Enith1",
+      "studyFamily": "Enith",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -168,6 +169,7 @@
       "programId": "roche-enicepatide-subcutaneous-injection-type-2-diabetes",
       "officialTitle": "A Phase III, Randomized, Double-Blind, Placebo-Controlled, Parallel Group Study to Evaluate the Efficacy and Safety of Once-Weekly RO7795068 Administered to Participants With Obesity or Overweight and Type 2 Diabetes",
       "acronym": "Enith2",
+      "studyFamily": "Enith",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

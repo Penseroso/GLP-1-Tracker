@@ -13,7 +13,11 @@ import {
   companyNameById,
   pipelineAssetKeys,
 } from "@/domains/clinical-evidence/lib/data";
-import { pipelinePrograms } from "@/domains/company-pipeline/lib/data";
+import {
+  canonicalizeClinicalAnalysisPopulation,
+  canonicalizeClinicalEstimand,
+} from "@/domains/clinical-evidence/lib/clinical-term-canonicalization.mjs";
+import { pipelinePrograms, regimens } from "@/domains/company-pipeline/lib/data";
 import type {
   ClinicalAnalysisGroupRecord,
   ClinicalArmRecord,
@@ -55,11 +59,91 @@ export type StudySummaryView = {
   /** Preferred short label: acronym when present, else official title. */
   title: string;
   phase: string;
+  population: string;
+  /** `study.overallDuration`; never reconstructed from Arm durations. */
+  duration: string | null;
+  treatment: StudyTreatmentView;
+  /** Null when the Study has no recorded Outcome; the UI renders "Not reported". */
+  primaryFinding: PrimaryFindingView | null;
+  /** Authored sponsor series; absent means the Study is unclassified. */
+  studyFamily?: string;
+  /** Program relationship, carried as row metadata rather than a grouping boundary. */
+  programContext?: StudyProgramContext;
+  /** Regimen relationship for a regimen-mapped Study; mutually exclusive with the above. */
+  regimenContext?: StudyRegimenContext;
   registryStatus: ClinicalRegistryStatus;
   /** Derived solely from whether at least one Outcome is recorded. */
   hasReportedOutcomes: boolean;
   /** The UI/tracking authority registry id — always study.registryStatus.registryId. */
   referenceRegistryId?: string;
+};
+
+export type StudyProgramContext = {
+  programId: string;
+  route: string;
+  dosageForm: string;
+  dosingInterval: string | null;
+};
+
+export type StudyRegimenContext = {
+  regimenId: string;
+  name: string;
+};
+
+export type StudyTreatmentView = {
+  /** Experimental arms as authored (dose when stored, else the arm label). */
+  experimentalArms: string[];
+  /** Experimental arms beyond the display limit, so the UI can say "+N more". */
+  hiddenArmCount: number;
+  /** `study.design.comparator`, verbatim. */
+  comparator: string;
+};
+
+/** One reported value plus the analysis unit it belongs to. Never a derived figure. */
+export type PrimaryFindingValueView = {
+  /** `outcome.result.value`, exactly as stored. */
+  value: string;
+  unit: string;
+  /** Arm label, or analysis-group label for a group-anchored Outcome. */
+  label: string;
+};
+
+/** One comparison group of the selected endpoint. */
+export type PrimaryFindingGroupView = {
+  /**
+   * Every value of this group's comparison family, in curated source order. All are
+   * stored values for stored anchors: this is selection, never calculation.
+   */
+  values: PrimaryFindingValueView[];
+  effectMeasure?: string;
+  /** The shared comparator/anchor arm, when the values are between-arm estimates. */
+  comparatorLabel?: string;
+  /**
+   * The analysis axes this group belongs to. Surfaced because a Study may report the
+   * same endpoint under several estimands, populations, or cohorts with no stored
+   * designation of which one is primary — the reader must be able to tell them apart.
+   */
+  estimand?: string;
+  analysisPopulation: string;
+};
+
+export type PrimaryFindingView = {
+  endpointName: string;
+  assessmentTimepoint: string;
+  endpointRole: ClinicalEndpointRole;
+  /**
+   * Every comparison group of the selected endpoint, in curated source order and never
+   * merged across analysis population, estimand, or cohort. The read model does not drop
+   * a group for being one too many to show: truncation is a per-screen presentation
+   * policy, owned by the consuming view.
+   */
+  groups: PrimaryFindingGroupView[];
+};
+
+export type StudyFamilyGroupView = {
+  /** Authored family text, or null for the trailing unclassified group. */
+  family: string | null;
+  studies: StudySummaryView[];
 };
 
 export type ArmView = ClinicalArmRecord & {
@@ -107,19 +191,11 @@ export type AssetStudiesView = {
   assetId: string;
   assetName: string;
   companyName?: string;
+  /** Canonical flat focal list; the family groups are a partition of exactly this. */
   focalStudies: StudySummaryView[];
-  programStudyGroups: ProgramStudyGroupView[];
-  regimenStudies: StudySummaryView[];
+  focalFamilyGroups: StudyFamilyGroupView[];
   linkedStudies: StudySummaryView[];
-};
-
-export type ProgramStudyGroupView = {
-  programId: string;
-  route: string;
-  dosageForm: string;
-  dosingInterval: string | null;
-  indications: string[];
-  studies: StudySummaryView[];
+  linkedFamilyGroups: StudyFamilyGroupView[];
 };
 
 /**
@@ -155,6 +231,12 @@ const pipelineProgramsById = new Map(
   pipelinePrograms.map((program) => [program.id, program]),
 );
 
+/** Regimen lookup, so a regimen-mapped Study can name its regimen on the row. */
+const regimensById = new Map(regimens.map((regimen) => [regimen.id, regimen]));
+
+/** Experimental arms listed inline before the row collapses the remainder. */
+const TREATMENT_ARM_DISPLAY_LIMIT = 4;
+
 /**
  * Presentation ranking for endpoint groups. Deliberately role-only, with no
  * tie-breaker: `Array.prototype.sort` is stable, so endpoints sharing a role keep
@@ -181,6 +263,213 @@ function assetRef(companyId: string, assetId: string): ClinicalAssetRef {
   };
 }
 
+/**
+ * Treatment summary for the list table: the Study's experimental Arms plus its
+ * source-reported comparator. `dose` is preferred over `label` because the authored
+ * dose is what distinguishes sibling arms; arms keep their curated (dose-ascending)
+ * order, which the generator preserves (ADR-0040).
+ */
+function toTreatmentView(study: ClinicalStudyRecord): StudyTreatmentView {
+  const experimental = (clinicalArmsByStudyId.get(study.id) ?? []).filter(
+    (arm) => arm.role === "experimental",
+  );
+  const labels = Array.from(
+    new Set(experimental.map((arm) => arm.dose?.trim() || arm.label)),
+  );
+  return {
+    experimentalArms: labels.slice(0, TREATMENT_ARM_DISPLAY_LIMIT),
+    hiddenArmCount: Math.max(labels.length - TREATMENT_ARM_DISPLAY_LIMIT, 0),
+    comparator: study.design.comparator,
+  };
+}
+
+/**
+ * Grouping key for Outcomes a single source would report together, mirroring the
+ * validator's `getClinicalComparisonGroupKey`. The endpoint is fixed by the caller, so
+ * only the analysis axes remain, and they enter the key through the **same shared
+ * canonicalization the validator uses**: both must draw the same group boundary, or a
+ * casing or hyphenation variant would split a group here that the validator treats as one.
+ */
+function comparisonGroupKeyOf(outcome: ClinicalOutcomeRecord): string {
+  return [
+    outcome.result.resultType,
+    canonicalizeClinicalAnalysisPopulation(outcome.analysisPopulation),
+    canonicalizeClinicalEstimand(outcome.estimand),
+  ].join("|");
+}
+
+/**
+ * Deterministic Primary finding for the Asset Clinical Detail table.
+ *
+ * Selection only — never calculation. Every value rendered is a stored
+ * `result.value` for a stored anchor; the low/high pair is two reported results, not a
+ * computed range. A Study with no Outcome yields null, which the UI renders as
+ * "Not reported" (outcome existence is the only authority, per the contract).
+ */
+function toPrimaryFinding(study: ClinicalStudyRecord): PrimaryFindingView | null {
+  const outcomes = clinicalOutcomesByStudyId.get(study.id) ?? [];
+  if (outcomes.length === 0) {
+    return null;
+  }
+
+  const outcomesByEndpointId = new Map<string, ClinicalOutcomeRecord[]>();
+  for (const outcome of outcomes) {
+    const list = outcomesByEndpointId.get(outcome.endpointId);
+    if (list) list.push(outcome);
+    else outcomesByEndpointId.set(outcome.endpointId, [outcome]);
+  }
+
+  // Highest-ranked role that actually carries a result. Sort is stable, so endpoints
+  // sharing a role keep curated source order. Studies whose prespecified primary
+  // endpoint has no recorded Outcome fall through to the next role rather than
+  // reporting nothing.
+  const endpoint = (clinicalEndpointsByStudyId.get(study.id) ?? [])
+    .filter((candidate) => (outcomesByEndpointId.get(candidate.id) ?? []).length > 0)
+    .sort(
+      (a, b) => (endpointRoleRank[a.role] ?? 99) - (endpointRoleRank[b.role] ?? 99),
+    )[0];
+  if (!endpoint) {
+    return null;
+  }
+
+  const studyArms = clinicalArmsByStudyId.get(study.id) ?? [];
+  const armLabelById = new Map(studyArms.map((arm) => [arm.id, arm.label]));
+  const experimentalArmIds = new Set(
+    studyArms.filter((arm) => arm.role === "experimental").map((arm) => arm.id),
+  );
+  const groupLabelById = new Map(
+    (clinicalAnalysisGroupsByStudyId.get(study.id) ?? []).map((group) => [
+      group.id,
+      group.label,
+    ]),
+  );
+
+  const comparisonGroups = new Map<string, ClinicalOutcomeRecord[]>();
+  for (const outcome of outcomesByEndpointId.get(endpoint.id) ?? []) {
+    const key = comparisonGroupKeyOf(outcome);
+    const list = comparisonGroups.get(key);
+    if (list) list.push(outcome);
+    else comparisonGroups.set(key, [outcome]);
+  }
+
+  // Every comparison group of the endpoint is returned, in curated source order. Groups
+  // separated by analysis population, estimand, or cohort are distinct results by
+  // contract, so the read model neither merges nor discards them; how many a given
+  // screen shows is that screen's presentation policy, not a data decision.
+  const toGroupView = (
+    group: ClinicalOutcomeRecord[],
+  ): PrimaryFindingGroupView => {
+    // Comparison family, defined as the validator defines it: the subset sharing an
+    // anchor arm (typically the pooled placebo). Reporting across a family keeps the
+    // comparison context that a bare value range would lose.
+    let family = group;
+    let anchorArmId: string | undefined;
+    if (group[0].result.resultType === "arm-level") {
+      // An arm-level group also carries the comparator's own value. Spanning treatment
+      // and placebo would read as a dose range, so keep the experimental arms only and
+      // let the Treatment column carry the comparator. A group with no experimental arm
+      // at all — a cohort-scoped placebo group, say — keeps its outcomes as authored.
+      const experimentalOnly = group.filter((outcome) =>
+        (outcome.armIds ?? []).every((armId) => experimentalArmIds.has(armId)),
+      );
+      if (experimentalOnly.length > 0) {
+        family = experimentalOnly;
+      }
+    } else if (group[0].result.resultType === "between-arm" && group.length > 1) {
+      const occurrences = new Map<string, number>();
+      for (const outcome of group) {
+        for (const armId of outcome.armIds ?? []) {
+          occurrences.set(armId, (occurrences.get(armId) ?? 0) + 1);
+        }
+      }
+      anchorArmId = Array.from(occurrences.entries()).find(
+        ([, count]) => count > 1,
+      )?.[0];
+      if (anchorArmId) {
+        family = group.filter((outcome) =>
+          (outcome.armIds ?? []).includes(anchorArmId as string),
+        );
+      }
+    }
+
+    const labelOf = (outcome: ClinicalOutcomeRecord): string => {
+      if (outcome.analysisGroupId) {
+        return (
+          groupLabelById.get(outcome.analysisGroupId) ?? outcome.analysisGroupId
+        );
+      }
+      const armIds = (outcome.armIds ?? []).filter(
+        (armId) => armId !== anchorArmId,
+      );
+      return armIds.map((armId) => armLabelById.get(armId) ?? armId).join(" vs ");
+    };
+
+    // Every Outcome of the family, in curated source order (dose-ascending, ADR-0040).
+    // Showing only the extremes would silently drop middle doses, leaving the cell
+    // disagreeing with the dose list in the Treatment column; each value carries its
+    // own unit and anchor, so no ordering or comparability is derived here.
+    return {
+      effectMeasure: family[0].result.effectMeasure,
+      comparatorLabel: anchorArmId ? armLabelById.get(anchorArmId) : undefined,
+      estimand: family[0].estimand,
+      analysisPopulation: family[0].analysisPopulation,
+      values: family.map((outcome) => ({
+        value: outcome.result.value,
+        unit: outcome.result.unit,
+        label: labelOf(outcome),
+      })),
+    };
+  };
+
+  return {
+    endpointName: endpoint.name,
+    assessmentTimepoint: endpoint.assessmentTimepoint,
+    endpointRole: endpoint.role,
+    groups: Array.from(comparisonGroups.values()).map(toGroupView),
+  };
+}
+
+/**
+ * Program / regimen mapping for one Study. Both relationships remain explicit and
+ * fail loud: a Study naming a Program that does not exist is corrupt generated data,
+ * not something to render as a blank row.
+ */
+function toMappingContext(study: ClinicalStudyRecord): {
+  programContext?: StudyProgramContext;
+  regimenContext?: StudyRegimenContext;
+} {
+  if (study.programId) {
+    const program = pipelineProgramsById.get(study.programId);
+    if (!program) {
+      throw new Error(
+        `Clinical Evidence Study "${study.id}" references missing Program "${study.programId}"`,
+      );
+    }
+    return {
+      programContext: {
+        programId: study.programId,
+        route: program.administration.route,
+        dosageForm: program.administration.dosageForm,
+        dosingInterval: program.administration.dosingInterval,
+      },
+    };
+  }
+
+  if (study.regimenId) {
+    const regimen = regimensById.get(study.regimenId);
+    if (!regimen) {
+      throw new Error(
+        `Clinical Evidence Study "${study.id}" references missing regimen "${study.regimenId}"`,
+      );
+    }
+    return {
+      regimenContext: { regimenId: study.regimenId, name: regimen.name },
+    };
+  }
+
+  return {};
+}
+
 function toStudySummary(study: ClinicalStudyRecord): StudySummaryView {
   return {
     id: study.id,
@@ -190,11 +479,88 @@ function toStudySummary(study: ClinicalStudyRecord): StudySummaryView {
     acronym: study.acronym,
     title: study.acronym?.trim() || study.officialTitle,
     phase: study.phase,
+    population: study.population,
+    duration: study.overallDuration ?? null,
+    treatment: toTreatmentView(study),
+    primaryFinding: toPrimaryFinding(study),
+    studyFamily: study.studyFamily,
+    ...toMappingContext(study),
     registryStatus: study.registryStatus,
     hasReportedOutcomes:
       (clinicalOutcomesByStudyId.get(study.id) ?? []).length > 0,
     referenceRegistryId: study.registryStatus.registryId,
   };
+}
+
+/**
+ * Groups Studies by their authored family, preserving canonical order: groups appear
+ * in order of first membership, and the unclassified group is always last. Family is
+ * never inferred — an absent `studyFamily` means unclassified, so those Studies stay
+ * visible in their own group rather than being dropped or bucketed by guesswork.
+ */
+function toFamilyGroups(studies: StudySummaryView[]): StudyFamilyGroupView[] {
+  const groups: StudyFamilyGroupView[] = [];
+  const groupByFamily = new Map<string, StudyFamilyGroupView>();
+  const unclassified: StudySummaryView[] = [];
+
+  for (const study of studies) {
+    if (!study.studyFamily) {
+      unclassified.push(study);
+      continue;
+    }
+    let group = groupByFamily.get(study.studyFamily);
+    if (!group) {
+      group = { family: study.studyFamily, studies: [] };
+      groupByFamily.set(study.studyFamily, group);
+      groups.push(group);
+    }
+    group.studies.push(study);
+  }
+
+  if (unclassified.length > 0) {
+    groups.push({ family: null, studies: unclassified });
+  }
+  return groups;
+}
+
+/**
+ * Family groups must remain an exact, duplicate-free partition of the canonical list
+ * they were built from. This is the retargeted form of the Program-grouping invariant:
+ * a future grouping change must not be able to hide or double-render a Study.
+ */
+function assertFamilyPartition(
+  groups: StudyFamilyGroupView[],
+  canonicalStudyIds: string[],
+  context: string,
+): void {
+  const groupedIds = groups.flatMap((group) =>
+    group.studies.map((study) => study.id),
+  );
+  const canonicalIdSet = new Set(canonicalStudyIds);
+  const counts = new Map<string, number>();
+  for (const id of groupedIds) {
+    counts.set(id, (counts.get(id) ?? 0) + 1);
+  }
+  const duplicateIds = Array.from(counts)
+    .filter(([, count]) => count > 1)
+    .map(([id]) => id);
+  const groupedIdSet = new Set(groupedIds);
+  const missingIds = canonicalStudyIds.filter((id) => !groupedIdSet.has(id));
+  const unexpectedIds = groupedIds.filter((id) => !canonicalIdSet.has(id));
+
+  if (
+    groupedIds.length !== canonicalStudyIds.length ||
+    duplicateIds.length > 0 ||
+    missingIds.length > 0 ||
+    unexpectedIds.length > 0
+  ) {
+    throw new Error(
+      `Clinical Evidence study-family partition failed for ${context}: ` +
+        `expected ${canonicalStudyIds.length}, got ${groupedIds.length}; ` +
+        `duplicates [${duplicateIds.join(", ")}], missing [${missingIds.join(", ")}], ` +
+        `unexpected [${unexpectedIds.join(", ")}]`,
+    );
+  }
 }
 
 export function getStudySummary(studyId: string): StudySummaryView | undefined {
@@ -345,11 +711,13 @@ export function getAssetStudies(
       .filter((summary): summary is StudySummaryView => Boolean(summary));
 
   const canonicalFocalStudyIds = entry?.focalStudyIds ?? [];
+  const canonicalLinkedStudyIds = entry?.linkedStudyIds ?? [];
   const focalStudies = toSummaries(canonicalFocalStudyIds);
-  const programStudyGroups: ProgramStudyGroupView[] = [];
-  const programStudyGroupById = new Map<string, ProgramStudyGroupView>();
-  const regimenStudies: StudySummaryView[] = [];
+  const linkedStudies = toSummaries(canonicalLinkedStudyIds);
 
+  // Focal mapping stays explicit and asset-owned. Grouping moved to study family, but
+  // these ownership checks did not: a focal Study must still resolve exactly one
+  // Program or regimen, and a Program must still belong to this very asset.
   for (const summary of focalStudies) {
     const study = clinicalStudiesById.get(summary.id);
     if (!study) {
@@ -370,70 +738,25 @@ export function getAssetStudies(
           `Clinical Evidence Study "${study.id}" Program "${study.programId}" does not belong to asset "${companyId}/${assetId}"`,
         );
       }
-
-      let group = programStudyGroupById.get(study.programId);
-      if (!group) {
-        group = {
-          programId: study.programId,
-          route: program.administration.route,
-          dosageForm: program.administration.dosageForm,
-          dosingInterval: program.administration.dosingInterval,
-          indications: [...program.indications],
-          studies: [],
-        };
-        programStudyGroupById.set(study.programId, group);
-        programStudyGroups.push(group);
-      }
-      group.studies.push(summary);
-    } else if (study.regimenId) {
-      regimenStudies.push(summary);
-    } else {
+    } else if (!study.regimenId) {
       throw new Error(
         `Clinical Evidence focal Study "${study.id}" has no Program or regimen mapping`,
       );
     }
   }
 
-  // Program groups plus regimen Studies must form an exact, duplicate-free
-  // partition of the canonical focal list. Keep this fail-loud invariant close
-  // to the grouping logic so future read-model changes cannot silently hide or
-  // double-render a focal Study.
-  const partitionedStudyIds = [
-    ...programStudyGroups.flatMap((group) =>
-      group.studies.map((study) => study.id),
-    ),
-    ...regimenStudies.map((study) => study.id),
-  ];
-  const focalStudyIdSet = new Set(canonicalFocalStudyIds);
-  const partitionedStudyIdSet = new Set(partitionedStudyIds);
-  const duplicateIds = Array.from(
-    partitionedStudyIds.reduce((counts, id) => {
-      counts.set(id, (counts.get(id) ?? 0) + 1);
-      return counts;
-    }, new Map<string, number>()),
-  )
-    .filter(([, count]) => count > 1)
-    .map(([id]) => id);
-  const missingIds = canonicalFocalStudyIds.filter(
-    (id) => !partitionedStudyIdSet.has(id),
+  const focalFamilyGroups = toFamilyGroups(focalStudies);
+  const linkedFamilyGroups = toFamilyGroups(linkedStudies);
+  assertFamilyPartition(
+    focalFamilyGroups,
+    canonicalFocalStudyIds,
+    `focal studies of asset "${companyId}/${assetId}"`,
   );
-  const unexpectedIds = partitionedStudyIds.filter(
-    (id) => !focalStudyIdSet.has(id),
+  assertFamilyPartition(
+    linkedFamilyGroups,
+    canonicalLinkedStudyIds,
+    `linked studies of asset "${companyId}/${assetId}"`,
   );
-
-  if (
-    partitionedStudyIds.length !== canonicalFocalStudyIds.length ||
-    duplicateIds.length > 0 ||
-    missingIds.length > 0 ||
-    unexpectedIds.length > 0
-  ) {
-    throw new Error(
-      `Clinical Evidence focal partition failed for asset "${companyId}/${assetId}": ` +
-        `expected ${canonicalFocalStudyIds.length}, got ${partitionedStudyIds.length}; ` +
-        `duplicates [${duplicateIds.join(", ")}], missing [${missingIds.join(", ")}], ` +
-        `unexpected [${unexpectedIds.join(", ")}]`,
-    );
-  }
 
   return {
     companyId,
@@ -441,9 +764,9 @@ export function getAssetStudies(
     assetName: clinicalAssetNameByKey.get(key) ?? assetId,
     companyName: companyNameById.get(companyId),
     focalStudies,
-    programStudyGroups,
-    regimenStudies,
-    linkedStudies: toSummaries(entry?.linkedStudyIds ?? []),
+    focalFamilyGroups,
+    linkedStudies,
+    linkedFamilyGroups,
   };
 }
 

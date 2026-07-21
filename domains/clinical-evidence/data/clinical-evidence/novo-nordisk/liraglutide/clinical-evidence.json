@@ -10,6 +10,7 @@
       "programId": "novo-nordisk-liraglutide-subcutaneous-injection",
       "officialTitle": "Effect of Liraglutide in the Maintenance of Weight Loss",
       "acronym": "SCALE Obesity and Prediabetes",
+      "studyFamily": "SCALE",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -62,6 +63,7 @@
       "programId": "novo-nordisk-liraglutide-subcutaneous-injection",
       "officialTitle": "Effect of Liraglutide for Weight Management in Subjects With Type 2 Diabetes",
       "acronym": "SCALE Diabetes",
+      "studyFamily": "SCALE",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -111,6 +113,7 @@
       "programId": "novo-nordisk-liraglutide-subcutaneous-injection",
       "officialTitle": "A Long Term Study of Liraglutide in Adolescents Who Have Obesity",
       "acronym": "SCALE Teens",
+      "studyFamily": "SCALE",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -161,6 +164,7 @@
       "programId": "novo-nordisk-liraglutide-subcutaneous-injection",
       "officialTitle": "A Research Study on How Well Liraglutide Works in Children Living With Obesity",
       "acronym": "SCALE Kids",
+      "studyFamily": "SCALE",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

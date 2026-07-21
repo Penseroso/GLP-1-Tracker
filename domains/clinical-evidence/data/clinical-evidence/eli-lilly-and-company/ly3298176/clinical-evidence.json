@@ -10,6 +10,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
       "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight",
       "acronym": "SURMOUNT-1",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -59,6 +60,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
       "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight and Type 2 Diabetes",
       "acronym": "SURMOUNT-2",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -108,6 +110,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
       "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight Following Intensive Lifestyle Intervention",
       "acronym": "SURMOUNT-3",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -157,6 +160,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
       "officialTitle": "A Study of Tirzepatide (LY3298176) in Participants With Obesity or Overweight for the Maintenance of Weight Loss",
       "acronym": "SURMOUNT-4",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -206,6 +210,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
       "officialTitle": "A Study of Tirzepatide Compared With Semaglutide in Participants With Obesity or Overweight",
       "acronym": "SURMOUNT-5",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -255,6 +260,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
       "officialTitle": "A Study of Tirzepatide for Maintenance of Body Weight Reduction in Participants With Obesity or Overweight",
       "acronym": "SURMOUNT-MAINTAIN",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -353,6 +359,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection",
       "officialTitle": "A Study of Tirzepatide in Chinese Participants With Obesity or Overweight",
       "acronym": "SURMOUNT-CN",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -402,6 +409,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-surmount-mmo",
       "officialTitle": "A Phase 3, Randomized, Double-blind, Placebo-Controlled Study to Investigate the Effect of Tirzepatide on the Reduction of Morbidity and Mortality in Adults With Obesity",
       "acronym": "SURMOUNT-MMO",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -534,6 +542,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-adolescent-obesity",
       "officialTitle": "Efficacy and Safety of Tirzepatide Once Weekly Versus Placebo for the Treatment of Obesity and Weight-Related Comorbidities in Adolescents: A Randomized, Double-Blind, Placebo- Controlled Trial (SURMOUNT-ADOLESCENTS-2)",
       "acronym": "SURMOUNT-ADOLESCENTS-2",
+      "studyFamily": "SURMOUNT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -577,6 +586,7 @@
       "programId": "eli-lilly-and-company-ly3298176-subcutaneous-injection-type-1-diabetes",
       "officialTitle": "A Phase 3, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study Evaluating the Efficacy and Safety of Tirzepatide Once Weekly Compared to Placebo in Adult Participants With Type 1 Diabetes and Obesity or Overweight",
       "acronym": "SURPASS-T1D-1",
+      "studyFamily": "SURPASS",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -705,6 +715,7 @@
       "regimenId": "eli-lilly-and-company-ixekizumab-tirzepatide-plaque-psoriasis-obesity",
       "officialTitle": "Efficacy and Safety of Ixekizumab or Ixekizumab Concomitantly Administered With Tirzepatide in Adult Participants With Moderate-to-Severe Plaque Psoriasis and Obesity or Overweight: A Phase 3b, Randomized, Multicenter, Open-Label Study (TOGETHER-PsO)",
       "acronym": "TOGETHER-PsO",
+      "studyFamily": "TOGETHER",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -748,6 +759,7 @@
       "regimenId": "eli-lilly-and-company-ixekizumab-tirzepatide-psoriatic-arthritis-obesity",
       "officialTitle": "Efficacy and Safety of Ixekizumab or Ixekizumab Concomitantly Administered With Tirzepatide in Adult Participants With Active Psoriatic Arthritis and Obesity or Overweight: A Phase 3b, Randomized, Multicenter, Open-Label Study (TOGETHER-PsA)",
       "acronym": "TOGETHER-PsA",
+      "studyFamily": "TOGETHER",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -791,6 +803,7 @@
       "regimenId": "eli-lilly-and-company-mirikizumab-tirzepatide-ulcerative-colitis-obesity",
       "officialTitle": "A Phase 3b, Randomized, Multicenter, Controlled Study of Mirikizumab and Placebo or Mirikizumab Concomitantly Administered With Tirzepatide in Adult Participants With Moderately to Severely Active Ulcerative Colitis and Obesity or Overweight",
       "acronym": "COMMIT-UC",
+      "studyFamily": "COMMIT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -835,6 +848,7 @@
       "regimenId": "eli-lilly-and-company-mirikizumab-tirzepatide-crohns-disease-obesity",
       "officialTitle": "A Phase 3b, Randomized, Multicenter, Controlled Study of Mirikizumab and Placebo or Mirikizumab Concomitantly Administered With Tirzepatide in Adult Participants With Moderately to Severely Active Crohn's Disease and Obesity or Overweight",
       "acronym": "COMMIT-CD",
+      "studyFamily": "COMMIT",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

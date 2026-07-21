@@ -10,6 +10,7 @@
       "programId": "eli-lilly-and-company-ly3502970-oral-tablets",
       "officialTitle": "A Study of Orforglipron (LY3502970) in Participants With Obesity or Overweight With Weight-Related Comorbidities",
       "acronym": "ATTAIN-1",
+      "studyFamily": "ATTAIN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -59,6 +60,7 @@
       "programId": "eli-lilly-and-company-ly3502970-oral-tablets",
       "officialTitle": "A Study of Orforglipron in Participants With Obesity or Overweight and Type 2 Diabetes",
       "acronym": "ATTAIN-2",
+      "studyFamily": "ATTAIN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -108,6 +110,7 @@
       "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-pad",
       "officialTitle": "A Study to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants With Peripheral Artery Disease: A Randomized, Double-Blind, Placebo Controlled Trial",
       "acronym": "ATTAIN-PAD",
+      "studyFamily": "ATTAIN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -153,6 +156,7 @@
       "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-oa",
       "officialTitle": "A Phase 3 Study to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants Who Have Obesity or Overweight and Osteoarthritis of the Knee: A Multicenter, Randomized, Double-Blind, Parallel-Arm, Placebo-Controlled Trial",
       "acronym": "ATTAIN-OA PAIN",
+      "studyFamily": "ATTAIN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -289,6 +293,7 @@
       "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-hypertension",
       "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants With Hypertension and Obesity or Overweight: Randomized, Double-Blind, Placebo-Controlled Trials (ATTAIN-HYPERTENSION)",
       "acronym": "ATTAIN-Hypertension",
+      "studyFamily": "ATTAIN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -333,6 +338,7 @@
       "programId": "eli-lilly-and-company-ly3502970-oral-tablets-attain-osa",
       "officialTitle": "A Master Protocol to Investigate the Efficacy and Safety of Orforglipron Once Daily in Participants Who Have Obstructive Sleep Apnea and Obesity or Overweight: A Randomized, Double-Blind, Placebo-Controlled Trial",
       "acronym": "ATTAIN-OSA",
+      "studyFamily": "ATTAIN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

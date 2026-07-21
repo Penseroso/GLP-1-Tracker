@@ -10,6 +10,7 @@
       "programId": "fixture-co-fixture-asset-subcutaneous-injection",
       "officialTitle": "Synthetic Study of Fixture Asset for Weight Management",
       "acronym": "FIX-WM",
+      "studyFamily": "FIXTURE",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -55,6 +56,7 @@
       "assetId": "fixture-asset",
       "officialTitle": "Synthetic Multi-Timepoint Study of Fixture Asset for Weight Management",
       "acronym": "FIX-TP",
+      "studyFamily": "FIXTURE",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

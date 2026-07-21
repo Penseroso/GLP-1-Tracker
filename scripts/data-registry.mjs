@@ -7,6 +7,12 @@ import {
 } from "node:fs";
 import path from "node:path";
 import process from "node:process";
+// Canonicalization is shared with the Application read model so the validator's semantic
+// keys and the UI's comparison groups cannot drift apart.
+import {
+  canonicalizeClinicalAnalysisPopulation,
+  canonicalizeClinicalEstimand,
+} from "../domains/clinical-evidence/lib/clinical-term-canonicalization.mjs";
 
 const root = process.cwd();
 const dataDir = path.join(root, "data");
@@ -156,20 +162,6 @@ const clinicalAnalysisPopulationEstimandLabelPattern = /\bestimand(?: population
 // means, not what it is measured in; it belongs in result.effectMeasure.
 const clinicalEffectMeasureUnitPattern =
   /\b(hazard ratio|odds ratio|risk ratio|rate ratio|relative risk|mean difference|treatment difference|difference)\b/;
-// Standard analysis-set abbreviations. The vocabulary stays open: an unknown source term is
-// canonicalized structurally (casing/punctuation) and passes through unchanged.
-const clinicalAnalysisSetAliases = new Map([
-  ["itt", "intention to treat"],
-  ["intent to treat", "intention to treat"],
-  ["mitt", "modified intention to treat"],
-  ["modified itt", "modified intention to treat"],
-  ["modified intent to treat", "modified intention to treat"],
-  ["fas", "full analysis set"],
-  ["eas", "efficacy analysis set"],
-  ["pp", "per protocol"],
-  ["safety set", "safety analysis set"],
-]);
-
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, "utf8"));
 }
@@ -188,42 +180,6 @@ function normalize(value) {
 
 function sortedStrings(values) {
   return [...values].sort((a, b) => a.localeCompare(b));
-}
-
-// Field-specific canonicalization (ADR-0037). Used ONLY to compute semantic keys and
-// grouping; the source-reported text stays on the record verbatim. normalize() itself is
-// left punctuation-sensitive because other domains rely on its exact behaviour.
-function canonicalizeClinicalTermText(value) {
-  return normalize(value)
-    .replace(/[‐-―]/g, "-")
-    .replace(/[-_/]+/g, " ")
-    .replace(/[.,;:'"()[\]]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-// "Treatment-policy estimand" and "Treatment policy estimand" are one estimand. The
-// trailing "estimand" / "estimand population" wording is a suffix, not part of the
-// strategy name. Unknown strategies remain valid and are canonicalized structurally.
-function canonicalizeClinicalEstimand(value) {
-  if (value === undefined) {
-    return "";
-  }
-
-  return canonicalizeClinicalTermText(value).replace(/\s*estimand(?: population)?$/, "");
-}
-
-// The analysis set and any trailing parenthetical subgroup are canonicalized separately, so
-// "Full analysis set (overall)" and "Full analysis set (Part B)" stay distinct while "FAS"
-// and "Full analysis set" collapse.
-function canonicalizeClinicalAnalysisPopulation(value) {
-  const trimmed = value.trim();
-  const subgroupMatch = /^(.*?)\s*\(([^()]*)\)$/.exec(trimmed);
-  const setText = canonicalizeClinicalTermText(subgroupMatch ? subgroupMatch[1] : trimmed);
-  const subgroupText = subgroupMatch ? canonicalizeClinicalTermText(subgroupMatch[2]) : "";
-  const canonicalSet = clinicalAnalysisSetAliases.get(setText) ?? setText;
-
-  return subgroupText ? `${canonicalSet}(${subgroupText})` : canonicalSet;
 }
 
 function assert(condition, message) {
@@ -1271,6 +1227,16 @@ function validateClinicalStudy(study, context, references) {
 
   assert(isNonEmptyString(study.officialTitle), `${context}: officialTitle is required`);
   assertOptionalNonEmptyString(study.acronym, `${context}: acronym`);
+  // studyFamily is an authored sponsor series name (ADR-0042). It is never derived from
+  // acronym or title, so the validator checks only its shape here; cross-study label
+  // consistency is an aggregate-level check.
+  assertOptionalNonEmptyString(study.studyFamily, `${context}: studyFamily`);
+  if (study.studyFamily !== undefined) {
+    assert(
+      study.studyFamily === study.studyFamily.trim(),
+      `${context}: studyFamily must not have leading or trailing whitespace`,
+    );
+  }
   assert(Array.isArray(study.registryIdentifiers), `${context}: registryIdentifiers must be an array`);
   assert(study.registryIdentifiers.length > 0, `${context}: at least one registry identifier is required`);
   for (const [index, identifier] of study.registryIdentifiers.entries()) {
@@ -1637,11 +1603,27 @@ function validateClinicalEvidenceAggregate(aggregate, references, context) {
   const resultBearingStudyIds = new Set(
     aggregate.outcomes.map((outcome) => outcome.studyId),
   );
+  // studyFamily is free text, so the only defence against a family splitting in two
+  // ("SURMOUNT" vs "Surmount") is to require one stored spelling per normalized key.
+  const studyFamilyLabels = new Map();
 
   for (const study of aggregate.studies) {
     validateClinicalStudy(study, `${context}: study ${study.id ?? "unknown-study"}`, references);
     assert(!studyIds.has(study.id), `${context}: duplicate study id ${study.id}`);
     studyIds.add(study.id);
+
+    if (study.studyFamily !== undefined) {
+      const familyKey = normalize(study.studyFamily);
+      const existing = studyFamilyLabels.get(familyKey);
+      if (existing === undefined) {
+        studyFamilyLabels.set(familyKey, { label: study.studyFamily, studyId: study.id });
+      } else {
+        assert(
+          existing.label === study.studyFamily,
+          `${context}: studyFamily "${existing.label}" in ${existing.studyId} and "${study.studyFamily}" in ${study.id} are the same family with different stored text; one family has exactly one spelling`,
+        );
+      }
+    }
 
     for (const identifier of study.registryIdentifiers) {
       const identity = `${normalize(identifier.registry)}|${normalize(identifier.id)}`;
@@ -2349,6 +2331,33 @@ function validateClinicalEvidenceSyntheticFixtures() {
         studyId: "fixture-study-reference-registry-second",
       });
     }],
+    // Two studies may share one family, and a study may carry no family at all:
+    // studyFamily is authored, so an absent value is "unclassified", not an error.
+    ["study-family-shared-by-two-studies", (fixture) => {
+      const sibling = {
+        ...cloneJson(fixture.studies[0]),
+        id: "fixture-study-family-sibling",
+        studyFamily: fixture.studies[0].studyFamily,
+        registryIdentifiers: [{ registry: "ClinicalTrials.gov", id: "NCT30000006" }],
+        registryStatus: {
+          registry: "ClinicalTrials.gov",
+          registryId: "NCT30000006",
+          overallStatus: "recruiting",
+          sourceStatus: "Recruiting",
+        },
+      };
+      fixture.studies.push(sibling);
+      fixture.arms.push({
+        ...cloneJson(fixture.arms[0]),
+        id: "fixture-arm-family-sibling",
+        studyId: sibling.id,
+      });
+    }],
+    ["study-family-optional-absent", (fixture) => {
+      for (const study of fixture.studies) {
+        delete study.studyFamily;
+      }
+    }],
   ];
 
   for (const [name, mutate] of validExpectations) {
@@ -2479,6 +2488,22 @@ function validateClinicalEvidenceSyntheticFixtures() {
     }],
     ["study-without-arm", /has no arms/, (fixture) => {
       fixture.studies.push(secondStudy);
+    }],
+    // One family, one spelling: a casing variant would silently split the family into
+    // two groups in the Asset Clinical Detail table.
+    ["study-family-label-drift", /are the same family with different stored text/, (fixture) => {
+      fixture.studies[0].studyFamily = "SURMOUNT";
+      fixture.studies.push({
+        ...cloneJson(secondStudy),
+        studyFamily: "Surmount",
+      });
+      fixture.arms.push(cloneJson(secondArm));
+    }],
+    ["study-family-blank", /studyFamily must be non-empty when present/, (fixture) => {
+      fixture.studies[0].studyFamily = "   ";
+    }],
+    ["study-family-untrimmed", /studyFamily must not have leading or trailing whitespace/, (fixture) => {
+      fixture.studies[0].studyFamily = " SURMOUNT";
     }],
     ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "3\.0"/, (fixture) => {
       fixture.clinicalEvidenceSchemaVersion = "1.0";

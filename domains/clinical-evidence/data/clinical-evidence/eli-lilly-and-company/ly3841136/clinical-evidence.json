@@ -58,6 +58,7 @@
       "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection",
       "officialTitle": "A Phase 3 Randomized, Double-Blind, Placebo-Controlled Study to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Obesity or Overweight, Without Type 2 Diabetes",
       "acronym": "ENLIGHTEN-1",
+      "studyFamily": "ENLIGHTEN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -102,6 +103,7 @@
       "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection",
       "officialTitle": "A Phase 3 Randomized, Double-Blind, Placebo-Controlled Study to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Obesity or Overweight, and Type 2 Diabetes",
       "acronym": "ENLIGHTEN-2",
+      "studyFamily": "ENLIGHTEN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -188,6 +190,7 @@
       "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection-osteoarthritis",
       "officialTitle": "A Master Protocol for Phase 3 Randomized, Double-Blind, Placebo-Controlled Studies to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Osteoarthritis Knee Pain, and Obesity or Overweight (ENLIGHTEN-4)",
       "acronym": "ENLIGHTEN-4",
+      "studyFamily": "ENLIGHTEN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -234,6 +237,7 @@
       "programId": "eli-lilly-and-company-ly3841136-subcutaneous-injection-obstructive-sleep-apnea",
       "officialTitle": "A Master Protocol for Phase 3 Randomized, Double-Blind, Placebo-Controlled Studies to Investigate the Efficacy and Safety of Once Weekly Eloralintide in Adult Participants With Moderate to Severe Obstructive Sleep Apnea, and Obesity or Overweight",
       "acronym": "ENLIGHTEN-3",
+      "studyFamily": "ENLIGHTEN",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

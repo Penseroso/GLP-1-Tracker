@@ -106,6 +106,7 @@
       "programId": "novo-nordisk-amycretin-subcutaneous-injection",
       "officialTitle": "Efficacy and Safety of NNC0487-0111 s.c. Once Weekly in Participants With Obesity Who Have Reached Target Dose During run-in Period (AMAZE 12)",
       "acronym": "AMAZE 12",
+      "studyFamily": "AMAZE",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

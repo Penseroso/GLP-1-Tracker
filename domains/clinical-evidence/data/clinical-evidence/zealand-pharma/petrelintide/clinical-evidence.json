@@ -10,6 +10,7 @@
       "programId": "zealand-pharma-petrelintide-subcutaneous-injection",
       "officialTitle": "A Randomized, Double-blind, Phase 2, Dose-finding Trial of Once Weekly Petrelintide Compared With Placebo in Participants With Obesity or Overweight With Weight Related Comorbidities",
       "acronym": "ZUPREME",
+      "studyFamily": "ZUPREME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",
@@ -54,6 +55,7 @@
       "programId": "zealand-pharma-petrelintide-subcutaneous-injection",
       "officialTitle": "A Randomized, Double-Blind, Phase 2 Trial of Once-Weekly Petrelintide Compared With Placebo in Participants With Overweight or Obesity and Type 2 Diabetes",
       "acronym": "ZUPREME 2",
+      "studyFamily": "ZUPREME",
       "registryIdentifiers": [
         {
           "registry": "ClinicalTrials.gov",

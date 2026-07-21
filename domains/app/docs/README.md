@@ -53,13 +53,32 @@ JSON, and only these canonical selectors import that loader.
 - UI reads generated artifacts through typed loaders and selectors.
 - Program-specific clinical retrieval uses explicit `Study.programId`; it does
   not infer a relationship from asset, indication, title, or source URL.
-- Asset views may use the generated focal/linked asset-study projection. Within
-  the focal list, the Asset Studies view groups only Studies with an explicit
-  `programId`, using the exact Program boundary and displaying its route, dosage
-  form, dosing interval, and indication scope. Regimen-mapped focal Studies stay
-  in a separate regimen section, and reciprocal linked Studies remain an
-  ungrouped asset-level list; neither relationship is assigned to a Program by
-  inference.
+- Asset views may use the generated focal/linked asset-study projection. Focal
+  versus linked is the top-level split. **Inside** each relation, Studies group by
+  the authored `studyFamily` only; a Study without one is unclassified and renders
+  in a trailing "Other studies" group. Family is never inferred from an acronym or
+  title, and the family name appears in the group header only.
+- The Program (or regimen) mapping stays explicit and is displayed as per-row
+  metadata — route, dosage form, dosing interval, or the regimen name — rather than
+  as the grouping boundary. It is still never inferred from asset, indication,
+  title, comparator links, or source URLs.
+- The Asset Studies list is a comparison table: Study, Phase, Population, Treatment,
+  Duration, Primary finding. Registry status is not shown there. Primary finding is
+  **deterministic selection, never calculation**: the highest-ranked endpoint role
+  that carries a recorded Outcome, then one comparison group and family within it,
+  rendered as stored `result.value` text for stored anchors. A Study with no recorded
+  Outcome renders an italic "Not reported".
+- The read model returns **every comparison group** of the selected endpoint, in curated
+  source order, never merging groups that differ by analysis population, estimand, or
+  cohort, and never dropping one for being one too many to show. Comparison-group
+  boundaries come from the canonicalization shared with the validator
+  (`domains/clinical-evidence/lib/clinical-term-canonicalization.mjs`), so both sides
+  draw the same boundary.
+- **Showing at most three groups per row is a presentation policy of the Asset Clinical
+  Detail list alone**, not a data rule: the list renders the first three and reports the
+  remainder as `+N groups`. The Clinical Evidence contract and the validator do not know
+  this number, and another screen may show a different count. Each shown group names its
+  estimand and analysis population, so a reader can tell the analyses apart.
 - Missing optional values render through shared formatting; `N/A` is never
   stored in source data.
 - Outcome existence alone determines whether a Study has recorded results.
