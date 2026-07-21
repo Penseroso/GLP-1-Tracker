@@ -105,6 +105,25 @@ and UI. Its `registry` + `registryId` must match one `registryIdentifiers` entry
 verification time remains `metadata.sources[].checkedAt`; the two dates are not
 interchangeable.
 
+`studyFamily` is the **optional, authored sponsor study-series name** (SURMOUNT, STEP,
+REDEFINE). It is **never inferred** from acronym, official title, asset code, or protocol
+number, and an absent value means the Study is **unclassified** — not that its family is
+pending research. Assign it only when the Study's **own cited sources** show a
+sponsor-declared series:
+
+- sponsor numbering of the **trial name** counts (`AMAZE 12`, `RENEW 1`,
+  `SURPASS-T1D-1`), even when only one member of that series is stored here.
+- an **asset code or protocol-number prefix does not** (`CT-388-101` / `CT388-103`,
+  `CT-996-201`, `BP45702`): those identify the asset or the protocol, not a series.
+- a **master protocol** with sub-protocols is the deferred parent/child case below, not
+  a family.
+- the presence or absence of sibling Studies **in this dataset** is not evidence either
+  way.
+
+One family has exactly one spelling: the validator rejects two Studies whose family text
+differs only by casing or spacing. The field is optional and additive, so it does not
+change the schema version.
+
 Study grouping is not modeled. Extensions, rollovers, and platform/master-protocol
 groupings are stored as **separate Study records with no stored parent/child
 linkage** — an accepted current limitation — **provided each sub-study carries its
