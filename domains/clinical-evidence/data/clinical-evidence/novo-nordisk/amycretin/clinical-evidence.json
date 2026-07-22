@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "novo-nordisk",
   "assetId": "amycretin",
   "studies": [
@@ -23,6 +23,12 @@
         "description": "First-in-human multiple-ascending-dose study."
       },
       "population": "Adults with overweight or obesity without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 12 weeks",
       "safetySummary": "All treatment-emergent adverse events were mild or moderate; gastrointestinal symptoms and decreased appetite were most common and dose related.",
       "metadata": {
@@ -71,6 +77,12 @@
         "description": "Multiple-ascending-dose, dose-response study."
       },
       "population": "Adults aged 18-55 years with overweight or obesity.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 36 weeks",
       "safetySummary": "A high frequency of gastrointestinal events was reported, consistent with GLP-1 and amylin agonism; no unexpected safety signal was disclosed.",
       "metadata": {

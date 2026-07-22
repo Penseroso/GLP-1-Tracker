@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "novo-nordisk",
   "assetId": "ubt251",
   "studies": [
@@ -27,6 +27,13 @@
         "description": "Four-arm dose-ranging trial."
       },
       "population": "Chinese adults with overweight or obesity.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "24 weeks",
       "safetySummary": "The sponsor reported a safety profile consistent with the mechanism; detailed peer-reviewed safety results were not yet available.",
       "metadata": {

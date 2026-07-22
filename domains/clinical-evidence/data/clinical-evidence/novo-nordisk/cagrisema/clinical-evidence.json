@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "novo-nordisk",
   "assetId": "cagrisema",
   "studies": [
@@ -25,6 +25,12 @@
         "description": "Four-arm parallel-group trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common; treatment discontinuation rates were low across groups.",
       "metadata": {
@@ -75,6 +81,12 @@
         "description": "Parallel-group 3:1 trial with lifestyle intervention."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; body-weight reduction was a primary objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal and were mainly mild to moderate.",
       "metadata": {
@@ -125,6 +137,12 @@
         "description": "Active-controlled head-to-head parallel-group trial."
       },
       "population": "Adults with obesity without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "84 weeks",
       "safetySummary": "Both treatments had safety profiles consistent with their component classes; full peer-reviewed safety results were not yet available.",
       "metadata": {

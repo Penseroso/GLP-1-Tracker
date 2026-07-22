@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "ascletis-pharma",
   "assetId": "asc30",
   "studies": [
@@ -33,6 +33,12 @@
         "description": "Seven-cohort parallel-group study evaluating two ASC30 tablet formulations and matching placebo."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "13 weeks",
       "safetySummary": "All gastrointestinal adverse events were mild or moderate, with no grade 3 or higher drug-related adverse events, no drug-related serious adverse events, and no hepatic safety signal reported.",
       "metadata": {
@@ -92,6 +98,12 @@
         "description": "Sequential single- and multiple-ascending-dose study of ASC30 subcutaneous formulations."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 24 weeks",
       "safetySummary": "In the latest 24-week phase 2 portion, there were no discontinuations due to adverse events; adverse events were mild to moderate, gastrointestinal adverse events were mild, and no hepatic safety signal was reported.",
       "metadata": {
@@ -158,6 +170,12 @@
         "description": "Sequential single- and multiple-ascending-dose study with five single-dose levels and three 28-day titration regimens."
       },
       "population": "Adults aged 18 to 65 years with obesity and body mass index 30 to 40 kg/m2, without diabetes or other clinically significant disease.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 35 days",
       "followUpDuration": "7 days after the 28-day multiple-dose treatment period",
       "safetySummary": "No serious adverse events or grade 3 or higher adverse events were reported in the multiple-ascending-dose cohorts; gastrointestinal events were mild to moderate and no hepatic safety signal was detected.",

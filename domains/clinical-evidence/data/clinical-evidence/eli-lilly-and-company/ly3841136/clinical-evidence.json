@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "eli-lilly-and-company",
   "assetId": "ly3841136",
   "studies": [
@@ -23,6 +23,12 @@
         "description": "Parallel-group dose-ranging trial including fixed-dose and dose-escalation regimens."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related condition, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "Nausea and fatigue were the most common adverse events; the study reported no new safety signal that changed the overall benefit-risk interpretation.",
       "metadata": {

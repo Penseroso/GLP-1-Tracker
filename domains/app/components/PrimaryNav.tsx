@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { href: "/", label: "Overview" },
   { href: "/assets", label: "Program Register" },
+  { href: "/efficacy-comparison", label: "Efficacy Comparison" },
 ] as const;
 
 const baseClassName =
@@ -15,7 +16,7 @@ export function PrimaryNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex gap-1 text-sm font-medium text-muted-foreground">
+    <nav className="flex flex-wrap gap-1 text-sm font-medium text-muted-foreground">
       {NAV_ITEMS.map((item) => {
         const isActive = pathname === item.href;
 

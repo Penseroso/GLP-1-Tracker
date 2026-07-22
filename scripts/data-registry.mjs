@@ -92,8 +92,9 @@ const stageOperationalStatesByStatus = {
 // "schemaVersion") because this project also has a separate, differently-numbered
 // Company/Pipeline "Contract 1.1" versioning scheme (ADR-0030); a generic field name
 // here could be misread as versioning the whole registry contract.
-const clinicalEvidenceSchemaVersion = "3.0";
-// The derived reciprocal asset index (R2b) is not part of the canonical v3.0
+// 3.1 adds the optional authored Study.populationProfile (ADR-0044).
+const clinicalEvidenceSchemaVersion = "3.1";
+// The derived reciprocal asset index (R2b) is not part of the canonical Clinical Evidence
 // contract. It is an independently versioned projection,
 // regenerated deterministically and may change shape independently of the
 // canonical schema. It therefore carries its own,
@@ -285,19 +286,421 @@ function validateRegistryEntries(entries, label, requireFamily) {
   validateUniqueRegistryText(entries, label);
 }
 
+const mechanismFamilyCompositions = new Set(["single-molecule", "multi-component"]);
+
+/**
+ * A family's pharmacology, reduced to a comparable key: its composition plus its
+ * target/action pairs, normalized and sorted so authoring order and casing
+ * cannot make two identical families look different.
+ *
+ * This is the identity that matters downstream. Two entries with different ids
+ * but the same signature would split one pharmacologic class across two rows of
+ * a comparison surface, which is the failure this key exists to catch.
+ */
+function getMechanismFamilySignature(entry) {
+  const pairs = entry.targets.map(
+    (target) => `${normalize(target.target)}|${normalize(target.action)}`,
+  );
+  return `${entry.composition}::${sortedStrings(pairs).join(" + ")}`;
+}
+
+/**
+ * Mechanism-family registry. Its shape differs from the label/alias registries:
+ * a family is keyed by a normalized target + action set, and carries the exact
+ * `technical.mechanism` strings that resolve to it.
+ *
+ * Four properties are asserted here rather than left to a consumer:
+ *
+ * - family ids, sortRanks, and normalized labels are unique;
+ * - no mechanism string appears in two families, so an asset can never resolve
+ *   to two families and render twice;
+ * - a family does not repeat a target/action pair within itself;
+ * - no two families share a semantic signature, so the same pharmacology cannot
+ *   be expressed under two ids.
+ */
+function validateMechanismFamilyRegistry(entries, label) {
+  assert(Array.isArray(entries), `${label} registry must be an array`);
+
+  const ids = new Set();
+  const ranks = new Set();
+  const mechanismOwner = new Map();
+  const labelOwner = new Map();
+  const signatureOwner = new Map();
+
+  for (const entry of entries) {
+    assert(isObject(entry), `${label} entries must be objects`);
+    assert(isNonEmptyString(entry.id), `${label} entry id is required`);
+    assert(isNonEmptyString(entry.label), `${label} entry ${entry.id} label is required`);
+    assert(!ids.has(entry.id), `${label} entry id ${entry.id} is duplicated`);
+    ids.add(entry.id);
+
+    const labelKey = normalize(entry.label);
+    const labelHolder = labelOwner.get(labelKey);
+    assert(
+      !labelHolder,
+      `${label} label "${entry.label}" is duplicated by ${labelHolder} and ${entry.id}`,
+    );
+    labelOwner.set(labelKey, entry.id);
+
+    assert(
+      mechanismFamilyCompositions.has(entry.composition),
+      `${label} entry ${entry.id} composition must be single-molecule or multi-component`,
+    );
+    assert(
+      Number.isFinite(entry.sortRank),
+      `${label} entry ${entry.id} sortRank is required`,
+    );
+    assert(!ranks.has(entry.sortRank), `${label} sortRank ${entry.sortRank} is duplicated`);
+    ranks.add(entry.sortRank);
+
+    assert(
+      Array.isArray(entry.targets) && entry.targets.length > 0,
+      `${label} entry ${entry.id} must list at least one target`,
+    );
+    const targetPairs = new Set();
+    for (const target of entry.targets) {
+      assert(
+        isObject(target) && isNonEmptyString(target.target) && isNonEmptyString(target.action),
+        `${label} entry ${entry.id} target entries require target and action`,
+      );
+      const pairKey = `${normalize(target.target)}|${normalize(target.action)}`;
+      assert(
+        !targetPairs.has(pairKey),
+        `${label} entry ${entry.id} repeats target/action pair "${target.target} ${target.action}"`,
+      );
+      targetPairs.add(pairKey);
+    }
+
+    const signature = getMechanismFamilySignature(entry);
+    const signatureHolder = signatureOwner.get(signature);
+    assert(
+      !signatureHolder,
+      `${label} entries ${signatureHolder} and ${entry.id} describe the same pharmacology (${signature})`,
+    );
+    signatureOwner.set(signature, entry.id);
+
+    assert(
+      Array.isArray(entry.mechanisms),
+      `${label} entry ${entry.id} mechanisms must be an array`,
+    );
+    for (const mechanism of entry.mechanisms) {
+      assert(
+        isNonEmptyString(mechanism),
+        `${label} entry ${entry.id} has an empty mechanism string`,
+      );
+      const owner = mechanismOwner.get(mechanism);
+      assert(
+        !owner,
+        `${label} mechanism "${mechanism}" is claimed by both ${owner} and ${entry.id}`,
+      );
+      mechanismOwner.set(mechanism, entry.id);
+    }
+  }
+
+  return {
+    familyById: new Map(entries.map((entry) => [entry.id, entry])),
+    familyIdByMechanism: mechanismOwner,
+  };
+}
+
+/**
+ * Deterministic probe for the mechanism-family registry rules.
+ *
+ * The semantic-uniqueness rules cannot be expressed as a synthetic company-data
+ * fixture: they constrain the registry itself, which the fixture loader reads
+ * from the real path. So the probe mutates an in-memory copy of the live
+ * registry and asserts each rule rejects it, proving the guard is wired rather
+ * than merely present.
+ */
+function probeMechanismFamilyRegistry() {
+  const registryPath = path.join(registryDir, "mechanism-families.json");
+  const live = readJson(registryPath);
+
+  validateMechanismFamilyRegistry(live, "mechanism-families");
+
+  const cases = [
+    {
+      name: "duplicate target/action pair within one family",
+      expected: /repeats target\/action pair/,
+      mutate: (entries) => {
+        entries[0].targets = [...entries[0].targets, { ...entries[0].targets[0] }];
+      },
+    },
+    {
+      name: "two ids describing the same pharmacology",
+      expected: /describe the same pharmacology/,
+      mutate: (entries) => {
+        entries[1].targets = entries[0].targets.map((target) => ({ ...target }));
+        entries[1].composition = entries[0].composition;
+      },
+    },
+    {
+      name: "same pharmacology reached by reordered, differently cased targets",
+      expected: /describe the same pharmacology/,
+      mutate: (entries) => {
+        const source = entries.find((entry) => entry.targets.length > 1);
+        const twin = entries.find(
+          (entry) => entry.id !== source.id && entry.composition === source.composition,
+        );
+        twin.targets = source.targets
+          .map((target) => ({
+            target: target.target.toUpperCase(),
+            action: `  ${target.action.toUpperCase()}  `,
+          }))
+          .reverse();
+      },
+    },
+    {
+      name: "duplicate normalized label",
+      expected: /label .* is duplicated/,
+      mutate: (entries) => {
+        entries[1].label = `  ${entries[0].label.toUpperCase()}  `;
+      },
+    },
+    {
+      name: "mechanism string claimed by two families",
+      expected: /is claimed by both/,
+      mutate: (entries) => {
+        const source = entries.find((entry) => entry.mechanisms.length > 0);
+        const other = entries.find(
+          (entry) => entry.id !== source.id && entry.mechanisms.length > 0,
+        );
+        other.mechanisms = [...other.mechanisms, source.mechanisms[0]];
+      },
+    },
+  ];
+
+  for (const testCase of cases) {
+    const mutated = JSON.parse(JSON.stringify(live));
+    testCase.mutate(mutated);
+
+    let rejected = false;
+    try {
+      validateMechanismFamilyRegistry(mutated, "mechanism-families");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      assert(
+        testCase.expected.test(message),
+        `probe "${testCase.name}" was rejected for the wrong reason: ${message}`,
+      );
+      rejected = true;
+    }
+    assert(rejected, `probe "${testCase.name}" was accepted but must be rejected`);
+  }
+
+  const signatures = live.map((entry) => getMechanismFamilySignature(entry));
+  console.log(
+    `Probed mechanism-family registry: ${live.length} families, ${signatures.length} distinct semantic signatures, ${cases.length} rejection rules verified.`,
+  );
+}
+
+/**
+ * Efficacy Comparison population-coverage gate.
+ *
+ * This is a **readiness gate, not a schema check**: the data is valid whatever
+ * this reports. It exists because the strict population eligibility rule decides
+ * which units the comparison surface can show at all, and that outcome must not
+ * drift silently — an authoring edit that quietly moves a unit in or out of the
+ * comparison would otherwise pass every validator.
+ *
+ * The reviewed snapshot below is the accepted 10-of-15 result. Changing it is a
+ * deliberate act that must be reviewed alongside the authoring change that caused
+ * it, never a mechanical update to make the probe pass again.
+ */
+const efficacyPopulationCoverageSnapshot = {
+  bodyWeightOutcomeStudies: 51,
+  bodyWeightStudiesMissingProfile: 0,
+  evidenceBearingUnits: 15,
+  eligibleUnits: 10,
+  gapUnits: 5,
+  gaps: {
+    "novo-nordisk/liraglutide": "metric-unavailable-percent",
+    "novo-nordisk/cagrilintide": "population-diabetes-status-not-specified",
+    "novo-nordisk/ubt251": "population-diabetes-status-not-specified",
+    "amgen/maridebart-cafraglutide": "population-mixed-diabetes-status",
+    "roche/ct-996": "population-mixed-diabetes-status",
+  },
+};
+
+/**
+ * How far a Study got through the eligibility gates, as an ordered stage. A unit's
+ * single exclusion reason is the **furthest** stage any of its studies reached, so
+ * a unit blocked only by its metric reports that rather than an unrelated sibling
+ * study's population. Without this, a unit with several studies would report a set
+ * of reasons and the gate would have no stable disposition to compare.
+ */
+const efficacyExclusionStages = [
+  "population-unclassified",
+  "population-age-restricted",
+  "population-with-type-2-diabetes",
+  "population-mixed-diabetes-status",
+  "population-diabetes-status-not-specified",
+  "population-requires-additional-condition",
+  "population-treatment-context",
+  "design-not-randomized-controlled",
+  "metric-unavailable-percent",
+];
+
+function getEfficacyStudyExclusion(study, arms, hasPercentArmLevelWeightOutcome) {
+  const profile = study.populationProfile;
+  if (!profile) return "population-unclassified";
+  if (profile.ageGroup !== "adult") return "population-age-restricted";
+  if (profile.diabetesStatus === "with-type-2-diabetes") return "population-with-type-2-diabetes";
+  if (profile.diabetesStatus === "mixed") return "population-mixed-diabetes-status";
+  if (profile.diabetesStatus === "not-specified") return "population-diabetes-status-not-specified";
+  if (profile.requiresAdditionalCondition) return "population-requires-additional-condition";
+  if (profile.treatmentContext !== "initial-treatment") return "population-treatment-context";
+
+  const controlled = arms.some(
+    (arm) => arm.role === "placebo" || arm.role === "active comparator",
+  );
+  if (study.design.randomization !== "Randomized" || !controlled) {
+    return "design-not-randomized-controlled";
+  }
+  if (!hasPercentArmLevelWeightOutcome) return "metric-unavailable-percent";
+  return null;
+}
+
+function probeEfficacyPopulationCoverage() {
+  const aggregate = readJson(path.join(generatedDir, "clinical-evidence.json"));
+
+  const outcomesByEndpoint = new Map();
+  for (const outcome of aggregate.outcomes) {
+    const list = outcomesByEndpoint.get(outcome.endpointId);
+    if (list) list.push(outcome);
+    else outcomesByEndpoint.set(outcome.endpointId, [outcome]);
+  }
+
+  const weightEndpoints = aggregate.endpoints.filter(
+    (endpoint) =>
+      endpoint.domain === "body weight" && outcomesByEndpoint.has(endpoint.id),
+  );
+  const weightStudyIds = new Set(weightEndpoints.map((endpoint) => endpoint.studyId));
+
+  const armsByStudy = new Map();
+  for (const arm of aggregate.arms) {
+    const list = armsByStudy.get(arm.studyId);
+    if (list) list.push(arm);
+    else armsByStudy.set(arm.studyId, [arm]);
+  }
+
+  const percentStudyIds = new Set(
+    weightEndpoints
+      .filter((endpoint) =>
+        outcomesByEndpoint
+          .get(endpoint.id)
+          .some(
+            (outcome) =>
+              outcome.result.resultType === "arm-level" &&
+              outcome.result.unit === "percent",
+          ),
+      )
+      .map((endpoint) => endpoint.studyId),
+  );
+
+  const weightStudies = aggregate.studies.filter((study) => weightStudyIds.has(study.id));
+  const missingProfile = weightStudies.filter((study) => !study.populationProfile);
+
+  const unitStudies = new Map();
+  for (const study of weightStudies) {
+    const unit = `${study.companyId}/${study.assetId}`;
+    const list = unitStudies.get(unit);
+    if (list) list.push(study);
+    else unitStudies.set(unit, [study]);
+  }
+
+  const eligible = [];
+  const gaps = new Map();
+  for (const unit of sortedStrings([...unitStudies.keys()])) {
+    let best = null;
+    let hasEligible = false;
+    for (const study of unitStudies.get(unit)) {
+      const reason = getEfficacyStudyExclusion(
+        study,
+        armsByStudy.get(study.id) ?? [],
+        percentStudyIds.has(study.id),
+      );
+      if (reason === null) {
+        hasEligible = true;
+        break;
+      }
+      const stage = efficacyExclusionStages.indexOf(reason);
+      if (best === null || stage > best.stage) best = { reason, stage };
+    }
+    if (hasEligible) eligible.push(unit);
+    else gaps.set(unit, best.reason);
+  }
+
+  const observed = {
+    bodyWeightOutcomeStudies: weightStudies.length,
+    bodyWeightStudiesMissingProfile: missingProfile.length,
+    evidenceBearingUnits: unitStudies.size,
+    eligibleUnits: eligible.length,
+    gapUnits: gaps.size,
+  };
+
+  console.log("Efficacy Comparison population coverage");
+  for (const [key, value] of Object.entries(observed)) {
+    console.log(`  ${key}: ${value}`);
+  }
+  console.log("  eligible units:");
+  for (const unit of eligible) console.log(`    ${unit}`);
+  console.log("  coverage gaps:");
+  for (const unit of sortedStrings([...gaps.keys()])) {
+    console.log(`    ${unit} — ${gaps.get(unit)}`);
+  }
+
+  for (const [key, expected] of Object.entries(efficacyPopulationCoverageSnapshot)) {
+    if (key === "gaps") continue;
+    assert(
+      observed[key] === expected,
+      `efficacy population coverage: ${key} is ${observed[key]}, reviewed snapshot expects ${expected}`,
+    );
+  }
+
+  const expectedGaps = efficacyPopulationCoverageSnapshot.gaps;
+  for (const [unit, reason] of Object.entries(expectedGaps)) {
+    assert(
+      gaps.has(unit),
+      `efficacy population coverage: reviewed gap ${unit} is no longer a gap`,
+    );
+    assert(
+      gaps.get(unit) === reason,
+      `efficacy population coverage: ${unit} is excluded as "${gaps.get(unit)}", reviewed snapshot expects "${reason}"`,
+    );
+  }
+  for (const unit of gaps.keys()) {
+    assert(
+      expectedGaps[unit],
+      `efficacy population coverage: ${unit} is a new gap not in the reviewed snapshot`,
+    );
+  }
+
+  console.log(
+    `Matched the reviewed snapshot: ${observed.eligibleUnits} of ${observed.evidenceBearingUnits} units eligible, ${observed.gapUnits} dispositioned.`,
+  );
+}
+
 function loadRegistries() {
   const stages = readJson(path.join(registryDir, "development-stages.json"));
   const regulatoryStates = readJson(path.join(registryDir, "regulatory-states.json"));
   const relationshipRoles = readJson(path.join(registryDir, "company-relationship-roles.json"));
+  const mechanismFamilies = readJson(path.join(registryDir, "mechanism-families.json"));
 
   validateRegistryEntries(stages, "development-stages", true);
   validateRegistryEntries(regulatoryStates, "regulatory-states", false);
   validateRegistryEntries(relationshipRoles, "company-relationship-roles", false);
+  const mechanismFamilyIndex = validateMechanismFamilyRegistry(
+    mechanismFamilies,
+    "mechanism-families",
+  );
 
   return {
     stageLabels: new Set(stages.map((stage) => stage.label)),
     regulatoryStateLabels: new Set(regulatoryStates.map((state) => state.label)),
     relationshipRoleLabels: new Set(relationshipRoles.map((role) => role.label)),
+    mechanismFamilyById: mechanismFamilyIndex.familyById,
+    mechanismFamilyIdByMechanism: mechanismFamilyIndex.familyIdByMechanism,
   };
 }
 
@@ -683,6 +1086,15 @@ function validateProgram(program, context, registries, dataset) {
     program.technical.mechanism === null || isNonEmptyString(program.technical.mechanism),
     `${context}: invalid mechanism`,
   );
+  // Exhaustiveness: every disclosed mechanism must resolve to exactly one family
+  // in mechanism-families.json. Catching this here, rather than at render time,
+  // keeps an unmapped mechanism from silently changing how an asset is grouped
+  // on a comparison surface. A null mechanism is undisclosed, not unmapped.
+  assert(
+    program.technical.mechanism === null ||
+      registries.mechanismFamilyIdByMechanism.has(program.technical.mechanism),
+    `${context}: mechanism "${program.technical.mechanism}" is not mapped in mechanism-families.json`,
+  );
   assert(
     program.technical.platform === null || isNonEmptyString(program.technical.platform),
     `${context}: invalid platform`,
@@ -701,6 +1113,19 @@ function validateRegimen(regimen, context, registries, dataset) {
   assert(isNonEmptyString(regimen.id), `${context}: regimen.id is required`);
   assert(isNonEmptyString(regimen.companyId), `${context}: regimen.companyId is required`);
   assert(isNonEmptyString(regimen.name), `${context}: regimen.name is required`);
+  if (regimen.mechanismFamilyId !== undefined) {
+    const family = registries.mechanismFamilyById.get(regimen.mechanismFamilyId);
+    assert(
+      family,
+      `${context}: mechanismFamilyId "${regimen.mechanismFamilyId}" is not in mechanism-families.json`,
+    );
+    // A regimen is two or more independently administered products by
+    // definition, so a single-molecule family would misdescribe it.
+    assert(
+      family.composition === "multi-component",
+      `${context}: mechanismFamilyId "${regimen.mechanismFamilyId}" is a ${family.composition} family; a regimen requires a multi-component family`,
+    );
+  }
   if (regimen.configurationKey !== undefined) {
     assert(
       isNonEmptyString(regimen.configurationKey),
@@ -1026,7 +1451,7 @@ function readClinicalEvidenceSourceTree(baseDir, context) {
     assert(isObject(data), `${fileContext}: root must be an object`);
     assert(
       data.clinicalEvidenceSchemaVersion === clinicalEvidenceSchemaVersion,
-      `${fileContext}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the v3.0 Clinical Evidence schema`,
+      `${fileContext}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the current Clinical Evidence schema`,
     );
     assert(data.companyId === file.companyFolder, `${fileContext}: companyId must match folder name`);
     assert(data.assetId === file.assetFolder, `${fileContext}: assetId must match folder name`);
@@ -1054,7 +1479,7 @@ function readClinicalEvidenceSourceTree(baseDir, context) {
 
 // Derived projection (ADR-0037): reciprocal asset -> studies discovery computed from the
 // canonical internal links only. Never authored, no independent identity, and outside the
-// canonical v3.0 contract — it is regenerated deterministically from the aggregate.
+// canonical Clinical Evidence contract — it is regenerated deterministically from the aggregate.
 function buildClinicalAssetStudyIndex(aggregate) {
   const entries = new Map();
 
@@ -1174,6 +1599,75 @@ function validateClinicalRegistryStatus(registryStatus, registryIdentifiers, con
   );
 }
 
+const clinicalPopulationAgeGroups = new Set(["adult", "adolescent", "pediatric"]);
+const clinicalPopulationDiabetesStatuses = new Set([
+  "without-type-2-diabetes",
+  "with-type-2-diabetes",
+  "mixed",
+  "not-specified",
+]);
+const clinicalPopulationTreatmentContexts = new Set([
+  "initial-treatment",
+  "maintenance-or-continuation",
+  "post-lifestyle-intervention",
+  "randomized-withdrawal-or-switch",
+]);
+const clinicalPopulationProfileKeys = new Set([
+  "ageGroup",
+  "diabetesStatus",
+  "requiresAdditionalCondition",
+  "treatmentContext",
+  "regionRestriction",
+]);
+
+/**
+ * Authored structured reading of `population` (ADR-0044).
+ *
+ * All-or-nothing by design: a half-authored profile is worse than none, because
+ * a consumer gating on it would read the missing axes as permissive and admit a
+ * Study the author never classified. So every required axis must be present
+ * together, and unknown keys are rejected rather than ignored — a typo'd axis
+ * would otherwise silently leave the real axis unset.
+ */
+function validateClinicalPopulationProfile(profile, context) {
+  if (profile === undefined) {
+    return;
+  }
+
+  assert(isObject(profile), `${context}: must be an object when present`);
+
+  for (const key of Object.keys(profile)) {
+    assert(
+      clinicalPopulationProfileKeys.has(key),
+      `${context}: unknown key "${key}"`,
+    );
+  }
+
+  assert(
+    clinicalPopulationAgeGroups.has(profile.ageGroup),
+    `${context}: ageGroup must be one of ${sortedStrings([...clinicalPopulationAgeGroups]).join(", ")}`,
+  );
+  assert(
+    clinicalPopulationDiabetesStatuses.has(profile.diabetesStatus),
+    `${context}: diabetesStatus must be one of ${sortedStrings([...clinicalPopulationDiabetesStatuses]).join(", ")}`,
+  );
+  assert(
+    typeof profile.requiresAdditionalCondition === "boolean",
+    `${context}: requiresAdditionalCondition must be a boolean`,
+  );
+  assert(
+    clinicalPopulationTreatmentContexts.has(profile.treatmentContext),
+    `${context}: treatmentContext must be one of ${sortedStrings([...clinicalPopulationTreatmentContexts]).join(", ")}`,
+  );
+  assertOptionalNonEmptyString(profile.regionRestriction, `${context}: regionRestriction`);
+  if (profile.regionRestriction !== undefined) {
+    assert(
+      profile.regionRestriction === profile.regionRestriction.trim(),
+      `${context}: regionRestriction must not have leading or trailing whitespace`,
+    );
+  }
+}
+
 function validateClinicalStudy(study, context, references) {
   assert(isObject(study), `${context}: study must be an object`);
   // These fields are legacy or derived-only and must never be authored in source data:
@@ -1257,6 +1751,7 @@ function validateClinicalStudy(study, context, references) {
   assert(isNonEmptyString(study.design.comparator), `${context}: design.comparator is required`);
   assertOptionalNonEmptyString(study.design.description, `${context}: design.description`);
   assert(isNonEmptyString(study.population), `${context}: population is required`);
+  validateClinicalPopulationProfile(study.populationProfile, `${context}: populationProfile`);
   assertOptionalNonEmptyString(study.overallDuration, `${context}: overallDuration`);
   assertOptionalNonEmptyString(study.followUpDuration, `${context}: followUpDuration`);
   assertOptionalNonEmptyString(study.safetySummary, `${context}: safetySummary`);
@@ -2505,7 +3000,41 @@ function validateClinicalEvidenceSyntheticFixtures() {
     ["study-family-untrimmed", /studyFamily must not have leading or trailing whitespace/, (fixture) => {
       fixture.studies[0].studyFamily = " SURMOUNT";
     }],
-    ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "3\.0"/, (fixture) => {
+    // populationProfile is all-or-nothing: a partial profile would let a consumer
+    // read the unauthored axes as permissive and admit a Study nobody classified.
+    ["population-profile-partial", /populationProfile: diabetesStatus must be one of/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        requiresAdditionalCondition: false,
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["population-profile-unknown-axis", /populationProfile: unknown key "diabetes"/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        diabetes: "without-type-2-diabetes",
+        diabetesStatus: "without-type-2-diabetes",
+        requiresAdditionalCondition: false,
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["population-profile-open-diabetes-status", /populationProfile: diabetesStatus must be one of/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        diabetesStatus: "non-diabetic",
+        requiresAdditionalCondition: false,
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["population-profile-non-boolean-condition", /populationProfile: requiresAdditionalCondition must be a boolean/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        diabetesStatus: "without-type-2-diabetes",
+        requiresAdditionalCondition: "false",
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "3\.1"/, (fixture) => {
       fixture.clinicalEvidenceSchemaVersion = "1.0";
     }],
     ["study-without-focal-mapping", /exactly one of programId or regimenId is required/, (fixture) => {
@@ -2792,6 +3321,8 @@ function validateSyntheticFixtures() {
     ["duplicate-alias-value", /duplicates alias value/],
     ["invalid-status-operational-state", /is not allowed with status/],
     ["bad-internal-reference", /Use assetName or codeName with externalCompanyName/],
+    ["unmapped-mechanism", /is not mapped in mechanism-families\.json/],
+    ["single-molecule-regimen-family", /a regimen requires a multi-component family/],
     ["foreign-company-id", /Use externalCompanyName for another company/],
     ["mixed-company-identity", /companyId and externalCompanyName cannot both be used/],
   ];
@@ -2843,6 +3374,12 @@ try {
       break;
     case "validate:synthetic":
       validateSyntheticFixtures();
+      break;
+    case "probe:mechanism-families":
+      probeMechanismFamilyRegistry();
+      break;
+    case "probe:efficacy-population-coverage":
+      probeEfficacyPopulationCoverage();
       break;
     case "generate":
       generateAggregates();

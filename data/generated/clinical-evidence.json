@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "studies": [
     {
       "id": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
@@ -21,6 +21,12 @@
         "description": "Dose-ranging trial with 11 treatment groups across two cohorts: seven groups without type 2 diabetes (three fixed monthly doses, one every-8-week dose, two 420 mg monthly dose-escalation groups, and placebo) and four fixed monthly groups with type 2 diabetes."
       },
       "population": "Adults with obesity, or overweight with a weight-related comorbidity, with or without type 2 diabetes (two cohorts).",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "52 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were mostly mild to moderate, concentrated during dose initiation.",
       "metadata": {
@@ -471,6 +477,12 @@
         "description": "Seven-cohort parallel-group study evaluating two ASC30 tablet formulations and matching placebo."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "13 weeks",
       "safetySummary": "All gastrointestinal adverse events were mild or moderate, with no grade 3 or higher drug-related adverse events, no drug-related serious adverse events, and no hepatic safety signal reported.",
       "metadata": {
@@ -530,6 +542,12 @@
         "description": "Sequential single- and multiple-ascending-dose study of ASC30 subcutaneous formulations."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 24 weeks",
       "safetySummary": "In the latest 24-week phase 2 portion, there were no discontinuations due to adverse events; adverse events were mild to moderate, gastrointestinal adverse events were mild, and no hepatic safety signal was reported.",
       "metadata": {
@@ -596,6 +614,12 @@
         "description": "Sequential single- and multiple-ascending-dose study with five single-dose levels and three 28-day titration regimens."
       },
       "population": "Adults aged 18 to 65 years with obesity and body mass index 30 to 40 kg/m2, without diabetes or other clinically significant disease.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 35 days",
       "followUpDuration": "7 days after the 28-day multiple-dose treatment period",
       "safetySummary": "No serious adverse events or grade 3 or higher adverse events were reported in the multiple-ascending-dose cohorts; gastrointestinal events were mild to moderate and no hepatic safety signal was detected.",
@@ -648,6 +672,12 @@
         "description": "Parallel-group fixed target-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were mainly mild to moderate; treatment discontinuation increased with dose.",
       "metadata": {
@@ -698,6 +728,12 @@
         "description": "Parallel-group target-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; weight management was an explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were most common, were generally mild to moderate, and occurred primarily during dose escalation.",
       "metadata": {
@@ -748,6 +784,12 @@
         "description": "A 12-week intensive-lifestyle lead-in preceded the 72-week randomized period."
       },
       "population": "Adults with obesity or overweight who achieved at least 5% weight loss during an intensive lifestyle lead-in, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "post-lifestyle-intervention"
+      },
       "overallDuration": "84 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were primarily mild to moderate.",
       "metadata": {
@@ -798,6 +840,12 @@
         "description": "After a 36-week open-label tirzepatide lead-in, participants were randomized to continue maximum tolerated dose or switch to placebo for 52 weeks."
       },
       "population": "Adults with obesity or overweight and a weight-related complication, without diabetes, who completed the tirzepatide lead-in.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "randomized-withdrawal-or-switch"
+      },
       "overallDuration": "88 weeks",
       "safetySummary": "Gastrointestinal adverse events were most common and were largely mild to moderate.",
       "metadata": {
@@ -848,6 +896,12 @@
         "description": "Active-comparator parallel-group trial using maximum tolerated doses."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were most common in both groups and were mainly mild to moderate during dose escalation.",
       "metadata": {
@@ -898,6 +952,12 @@
         "description": "After a 60-week maximum-tolerated-dose lead-in, participants were randomized to continue that dose, reduce to 5 mg, or switch to placebo for 52 weeks."
       },
       "population": "Adults with obesity or overweight who completed 60 weeks of tirzepatide treatment.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "maintenance-or-continuation"
+      },
       "overallDuration": "112 weeks",
       "safetySummary": "The safety profile was consistent with prior tirzepatide studies; gastrointestinal events were the most common adverse events.",
       "metadata": {
@@ -997,6 +1057,13 @@
         "description": "Parallel-group target-dose trial conducted in China."
       },
       "population": "Chinese adults with obesity or overweight, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "52 weeks",
       "safetySummary": "The most frequent adverse events were gastrointestinal and were mostly mild to moderate.",
       "metadata": {
@@ -1531,6 +1598,13 @@
         "description": "Parallel-group dose-ranging trial conducted in China."
       },
       "population": "Chinese adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were generally mild to moderate; the safety profile was consistent with the known pharmacology.",
       "metadata": {
@@ -1581,6 +1655,13 @@
         "description": "Parallel-group trial of high-dose mazdutide conducted in China."
       },
       "population": "Chinese adults with obesity, with or without type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "60 weeks",
       "safetySummary": "Vomiting, nausea, and diarrhea were the most common adverse events; adverse-event discontinuation was uncommon but higher with mazdutide than placebo.",
       "metadata": {
@@ -1672,6 +1753,12 @@
         "description": "Parallel-group dose-ranging trial with multiple starting-dose titration schedules."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related condition, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal, were dose related and mostly mild to moderate; heart-rate increases peaked at 24 weeks and then declined.",
       "metadata": {
@@ -1722,6 +1809,12 @@
         "description": "Parallel-group trial evaluating weight and knee-osteoarthritis outcomes."
       },
       "population": "Adults with obesity or overweight and knee osteoarthritis, without type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": true,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal and were generally mild to moderate; discontinuation because of adverse events increased with dose.",
       "metadata": {
@@ -2137,6 +2230,12 @@
         "description": "Parallel-group oral-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common, were mainly mild to moderate, and treatment discontinuation increased with dose.",
       "metadata": {
@@ -2187,6 +2286,12 @@
         "description": "Parallel-group oral-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; weight management was an explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "The safety profile was consistent with the GLP-1 receptor agonist class, with gastrointestinal adverse events most frequent.",
       "metadata": {
@@ -2721,6 +2826,12 @@
         "description": "Parallel-group dose-ranging trial including fixed-dose and dose-escalation regimens."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related condition, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "Nausea and fatigue were the most common adverse events; the study reported no new safety signal that changed the overall benefit-risk interpretation.",
       "metadata": {
@@ -3038,6 +3149,12 @@
         "description": "First-in-human multiple-ascending-dose study."
       },
       "population": "Adults with overweight or obesity without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 12 weeks",
       "safetySummary": "All treatment-emergent adverse events were mild or moderate; gastrointestinal symptoms and decreased appetite were most common and dose related.",
       "metadata": {
@@ -3086,6 +3203,12 @@
         "description": "Multiple-ascending-dose, dose-response study."
       },
       "population": "Adults aged 18-55 years with overweight or obesity.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 36 weeks",
       "safetySummary": "A high frequency of gastrointestinal events was reported, consistent with GLP-1 and amylin agonism; no unexpected safety signal was disclosed.",
       "metadata": {
@@ -3179,6 +3302,12 @@
         "description": "Dose-ranging active- and placebo-controlled trial."
       },
       "population": "Adults with overweight or obesity.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "26 weeks",
       "followUpDuration": "6 weeks",
       "safetySummary": "Gastrointestinal disorders occurred in 41%-63% across cagrilintide doses versus 32% with placebo; nausea was the most frequent event.",
@@ -3275,6 +3404,12 @@
         "description": "Four-arm parallel-group trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common; treatment discontinuation rates were low across groups.",
       "metadata": {
@@ -3325,6 +3460,12 @@
         "description": "Parallel-group 3:1 trial with lifestyle intervention."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; body-weight reduction was a primary objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal and were mainly mild to moderate.",
       "metadata": {
@@ -3375,6 +3516,12 @@
         "description": "Active-controlled head-to-head parallel-group trial."
       },
       "population": "Adults with obesity without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "84 weeks",
       "safetySummary": "Both treatments had safety profiles consistent with their component classes; full peer-reviewed safety results were not yet available.",
       "metadata": {
@@ -3483,6 +3630,12 @@
         "description": "Parallel-group 2:1 trial with lifestyle modification."
       },
       "population": "Adults with obesity, or overweight plus treated or untreated dyslipidemia or hypertension, without type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "56 weeks",
       "safetySummary": "Mild or moderate nausea and diarrhea were most frequent; serious adverse events occurred in 6.2% with liraglutide and 5.0% with placebo.",
       "metadata": {
@@ -3533,6 +3686,12 @@
         "description": "Parallel-group 2:1:1 weight-management trial."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; weight management was the explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "56 weeks",
       "safetySummary": "Gastrointestinal disorders were more common with liraglutide than placebo; no pancreatitis was reported.",
       "metadata": {
@@ -3583,6 +3742,12 @@
         "description": "Parallel-group 1:1 trial with lifestyle therapy."
       },
       "population": "Adolescents aged 12 to under 18 years with obesity and poor response to lifestyle therapy alone.",
+      "populationProfile": {
+        "ageGroup": "adolescent",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "post-lifestyle-intervention"
+      },
       "overallDuration": "56 weeks",
       "followUpDuration": "26 weeks",
       "safetySummary": "Gastrointestinal adverse events occurred in 64.8% with liraglutide and 36.5% with placebo; discontinuations due to adverse events occurred in 10.4% and 0%.",
@@ -3634,6 +3799,12 @@
         "description": "Parallel-group 2:1 trial with lifestyle intervention."
       },
       "population": "Children aged 6 to under 12 years with nonmonogenic, nonsyndromic obesity.",
+      "populationProfile": {
+        "ageGroup": "pediatric",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "56 weeks",
       "followUpDuration": "26 weeks",
       "safetySummary": "Adverse events occurred in 89% with liraglutide and 88% with placebo; gastrointestinal events occurred in 80% and 54%, respectively.",
@@ -3856,6 +4027,12 @@
         "description": "Parallel-group 2:1 trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "Gastrointestinal disorders were the most frequent adverse events and were generally mild to moderate; nausea and diarrhea were usually transient.",
       "metadata": {
@@ -3906,6 +4083,12 @@
         "description": "Parallel-group 1:1:1 trial with lifestyle intervention."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; weight management was an explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "Gastrointestinal adverse events were most frequent and occurred more often with semaglutide 2.4 mg than placebo.",
       "metadata": {
@@ -3959,6 +4142,12 @@
         "description": "Two-year parallel-group trial with behavioral intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "104 weeks",
       "safetySummary": "Gastrointestinal adverse events, mostly mild to moderate, occurred in 82.2% with semaglutide and 53.9% with placebo.",
       "metadata": {
@@ -4009,6 +4198,12 @@
         "description": "Parallel-group 2:1 trial with lifestyle intervention."
       },
       "population": "Adolescents aged 12 to under 18 years with obesity, or overweight plus a weight-related condition.",
+      "populationProfile": {
+        "ageGroup": "adolescent",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "followUpDuration": "7 weeks",
       "safetySummary": "Gastrointestinal events occurred in 62% with semaglutide and 42% with placebo; cholelithiasis occurred in five semaglutide participants and none receiving placebo.",
@@ -4060,6 +4255,12 @@
         "description": "Parallel-group 5:1:1 trial with lifestyle intervention."
       },
       "population": "Adults with obesity without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal events occurred in 70.8%, 61.2%, and 42.8% with semaglutide 7.2 mg, 2.4 mg, and placebo; dysaesthesia was more frequent at 7.2 mg.",
       "metadata": {
@@ -4110,6 +4311,12 @@
         "description": "Parallel-group 3:1:1 trial with lifestyle intervention."
       },
       "population": "Adults with obesity and type 2 diabetes; weight management was an explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "The safety profile was consistent with the GLP-1 receptor agonist class; gastrointestinal adverse events were the most common.",
       "metadata": {
@@ -4160,6 +4367,12 @@
         "description": "Parallel-group trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "64 weeks",
       "safetySummary": "Gastrointestinal adverse events were more frequent with oral semaglutide and were mostly mild to moderate.",
       "metadata": {
@@ -4214,6 +4427,12 @@
         "description": "Parallel-group trial with intensive behavioural therapy and an initial low-calorie diet."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4261,6 +4480,12 @@
         "description": "After a 20-week semaglutide run-in, participants continued semaglutide 2.4 mg or switched to placebo for 48 weeks."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes, who reached semaglutide 2.4 mg during run-in.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "randomized-withdrawal-or-switch"
+      },
       "overallDuration": "68 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4307,6 +4532,13 @@
         "description": "Four-arm parallel-group trial of semaglutide 2.4 mg, semaglutide 1.7 mg, and their dose-matched placebos."
       },
       "population": "East Asian adults with obesity or overweight.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "East Asia"
+      },
       "overallDuration": "68 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4353,6 +4585,12 @@
         "description": "Parallel-group trial with diet and physical-activity counselling."
       },
       "population": "Adults with obesity or overweight, with or without type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "44 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4399,6 +4637,12 @@
         "description": "Four-arm parallel-group trial; semaglutide-versus-liraglutide assignment was open-label, with each active treatment double-blinded against its dosing-frequency-matched placebo."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4446,6 +4690,12 @@
         "description": "Parallel-group trial with reduced-calorie diet and increased physical activity."
       },
       "population": "Adults with obesity and knee osteoarthritis.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": true,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4500,6 +4750,12 @@
         "description": "Parallel-group trial with reduced-calorie diet and increased physical activity."
       },
       "population": "Adults with obesity and prediabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": true,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "52 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4546,6 +4802,12 @@
         "description": "Parallel-group trial."
       },
       "population": "Adults with obesity or overweight.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "44 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4593,6 +4855,12 @@
         "description": "Parallel-group trial with study treatment added to standard care."
       },
       "population": "Adults with obesity-related heart failure with preserved ejection fraction, without diabetes, receiving standard care.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": true,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Approximately 59 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4640,6 +4908,12 @@
         "description": "Parallel-group trial."
       },
       "population": "Adults with obesity-related heart failure with preserved ejection fraction and type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": true,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "52 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4731,6 +5005,12 @@
         "description": "Parallel-group trial."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4777,6 +5057,13 @@
         "description": "Parallel-group trial."
       },
       "population": "East Asian adults with obesity or overweight.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "East Asia"
+      },
       "overallDuration": "68 weeks",
       "metadata": {
         "lastVerifiedAt": "2026-07-20",
@@ -4913,6 +5200,13 @@
         "description": "Four-arm dose-ranging trial."
       },
       "population": "Chinese adults with overweight or obesity.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "24 weeks",
       "safetySummary": "The sponsor reported a safety profile consistent with the mechanism; detailed peer-reviewed safety results were not yet available.",
       "metadata": {
@@ -5004,6 +5298,12 @@
         "description": "Three-part, sequential dose-escalation study; recorded outcomes are from the 28-day Part 2 multiple-ascending-dose cohorts in adults with obesity without type 2 diabetes."
       },
       "population": "Part 2 enrolled otherwise healthy adults with obesity without type 2 diabetes; the overall protocol also included overweight/obesity and type 2 diabetes cohorts.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "58 days for Parts 2 and 3, including safety follow-up",
       "safetySummary": "In the Part 2 MAD cohorts, all treatment-emergent adverse events were mild or moderate, one serious event was unrelated to study drug, and no discontinuation was related to study drug; gastrointestinal events were most common.",
       "metadata": {
@@ -5152,6 +5452,12 @@
         "description": "Parallel-group, multi-dose, dose-finding trial of once-weekly subcutaneous enicepatide across five dose levels versus placebo."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, excluding type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "At ADA 2026, adverse events were predominantly gastrointestinal and mostly mild to moderate; serious and Grade 3 events were infrequent and not dose-dependent, and no Grade 4 or 5 events were reported.",
       "metadata": {
@@ -5355,6 +5661,12 @@
         "description": "First-in-human sequential, multi-arm, multi-cohort SAD/MAD/MD study of subcutaneous enicepatide versus matched placebo, including cohorts with overweight or obesity without diabetes and a later cohort with obesity and type 2 diabetes."
       },
       "population": "Adults with overweight or obesity without diabetes in the SAD, MAD, and longer multiple-dose cohorts, plus a 12-week cohort of adults with obesity and type 2 diabetes treated with diet and exercise alone or metformin; weight change was an explicit pharmacodynamic objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 24 weeks",
       "safetySummary": "Across the early SAD/MAD publication and the 12- to 24-week obesity and T2D cohorts, adverse events were predominantly gastrointestinal and mostly mild to moderate; no unexpected safety signal emerged, and the later cohorts reported no study-drug-related discontinuations or serious adverse events in the T2D cohort.",
       "metadata": {

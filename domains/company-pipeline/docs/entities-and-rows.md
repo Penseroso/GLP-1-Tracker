@@ -104,6 +104,42 @@ part of program identity or stable IDs.
   (`assetName`/`codeName` plus `externalCompanyName`) whenever no internal asset
   record exists for the component.
 
+### Mechanism family
+
+[`mechanism-families.json`](../data/registries/mechanism-families.json) is the
+sole authority for grouping assets by pharmacology. A family is defined by its
+normalized **target and pharmacologic action** set — so a GIP receptor *agonist*
+and a GIP receptor *antagonist* are different families even though the target is
+the same, and a peptide and a non-peptide GLP-1 receptor agonist are the same
+family even though the modality differs.
+
+- Resolution is **exact-string lookup** on the stored `technical.mechanism`. The
+  free text is never parsed, normalized, or substring-matched.
+- A family's identity is its **semantic signature**: `composition` plus its
+  normalized, sorted target/action pairs. The validator rejects two ids that
+  carry the same signature, a family that repeats a target/action pair, and two
+  families whose normalized labels collide — so one pharmacologic class cannot be
+  split across two families by reordered, differently cased, or duplicated
+  target entries. `npm run data:probe:mechanism-families` verifies each of those
+  rejections against mutated copies of the live registry.
+- **Modality never enters family identity.** Antibody, peptide, non-peptide, and
+  small-molecule are recorded in the component `role` text and in
+  `technical.platform`, never in a family `label` or in a target `action`. An
+  antibody that blocks a receptor is recorded as `blockade`, not as
+  `antibody blockade`.
+- `composition` separates a **single molecule acting on several targets** from a
+  **product built from several components**, and the two are never merged even
+  when their target sets are identical. Zenagamtide (unimolecular GLP-1 plus
+  amylin) and CagriSema (cagrilintide plus semaglutide) reach the same targets
+  and stay in different families, because a reader comparing them is comparing
+  different things.
+- A **combination asset** resolves through its own `technical.mechanism` like any
+  other row; its component mechanisms are never decomposed to derive a family.
+- A **regimen** has no `technical` block, so it carries an authored
+  `mechanismFamilyId` naming a `multi-component` family. Component `role` text is
+  never parsed to infer one. Absent means unassigned — a comparison surface
+  reports such a regimen as a coverage gap rather than bucketing it as "other".
+
 ### Study classification
 
 Before creating or updating any row, classify the surfaced study or program on

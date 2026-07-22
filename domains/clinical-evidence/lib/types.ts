@@ -9,7 +9,7 @@ import type { ComponentReference } from "@/domains/company-pipeline/lib/types";
  * (ADR-0030) — a generic field name here could be misread as versioning that whole
  * registry contract rather than just this domain (ADR-0038).
  */
-export const CLINICAL_EVIDENCE_SCHEMA_VERSION = "3.0";
+export const CLINICAL_EVIDENCE_SCHEMA_VERSION = "3.1";
 
 export type ClinicalEvidenceAggregate = {
   clinicalEvidenceSchemaVersion: string;
@@ -54,6 +54,54 @@ export type ClinicalRegistryStatus = {
   statusUpdatedAt?: string;
 };
 
+export type ClinicalPopulationAgeGroup = "adult" | "adolescent" | "pediatric";
+
+/**
+ * Diabetes criterion as the source states it. `mixed` means the source
+ * explicitly admits both ("with or without type 2 diabetes"); `not-specified`
+ * means the source states no diabetes criterion at all. The two are kept apart
+ * because only the first is a stated design fact, and neither may be read as
+ * "non-diabetic".
+ */
+export type ClinicalPopulationDiabetesStatus =
+  | "without-type-2-diabetes"
+  | "with-type-2-diabetes"
+  | "mixed"
+  | "not-specified";
+
+export type ClinicalPopulationTreatmentContext =
+  | "initial-treatment"
+  | "maintenance-or-continuation"
+  | "post-lifestyle-intervention"
+  | "randomized-withdrawal-or-switch";
+
+/**
+ * Authored structured reading of `population`, stored alongside it rather than
+ * replacing it — the source wording stays verbatim and is never parsed.
+ *
+ * Four axes rather than one enum: real populations combine them independently
+ * ("East Asian adults with obesity or overweight", "adults with obesity and knee
+ * osteoarthritis"), and a single enum would need either an unstable
+ * combinatorial value list or lossy collapsing.
+ *
+ * Absent means unclassified. A consumer that needs this must disposition such a
+ * Study as a coverage gap; it must never be treated as a permissive default or
+ * selected as a low-ranked fallback.
+ */
+export type ClinicalPopulationProfile = {
+  ageGroup: ClinicalPopulationAgeGroup;
+  diabetesStatus: ClinicalPopulationDiabetesStatus;
+  /**
+   * A non-diabetes disease is an enrolment requirement (knee osteoarthritis,
+   * heart failure, psoriasis, inflammatory bowel disease). A weight-related
+   * comorbidity admitted as one of several qualifying options is not one.
+   */
+  requiresAdditionalCondition: boolean;
+  treatmentContext: ClinicalPopulationTreatmentContext;
+  /** Source-stated geographic restriction, e.g. "China". Display only, never a filter. */
+  regionRestriction?: string;
+};
+
 export type ClinicalStudyRecord = {
   id: string;
   companyId: string;
@@ -74,6 +122,12 @@ export type ClinicalStudyRecord = {
   registryStatus: ClinicalRegistryStatus;
   design: ClinicalStudyDesign;
   population: string;
+  /**
+   * Authored structured reading of `population`. Optional at schema level so an
+   * inventory Study needs no authoring; consumers that require it disposition an
+   * absent profile rather than assuming one.
+   */
+  populationProfile?: ClinicalPopulationProfile;
   overallDuration?: string;
   followUpDuration?: string;
   safetySummary?: string;
@@ -212,7 +266,7 @@ export type ClinicalOutcomeRecord = {
 /**
  * Derived projection (ADR-0037 / audit R2b): reciprocal asset -> studies discovery,
  * computed from canonical internal links only. It is regenerated deterministically,
- * is never authored, and is not part of the canonical v3.0 contract.
+ * is never authored, and is not part of the canonical Clinical Evidence contract.
  */
 export type ClinicalAssetStudyIndexEntry = {
   companyId: string;
@@ -234,7 +288,7 @@ export type ClinicalAssetStudyIndex = {
   /**
    * This projection's own format version — independent of
    * ClinicalEvidenceAggregate.clinicalEvidenceSchemaVersion by design, since the
-   * projection is not part of the canonical v3.0 contract and may change shape on its
+   * projection is not part of the canonical Clinical Evidence contract and may change shape on its
    * own (ADR-0038).
    */
   projectionSchemaVersion: string;

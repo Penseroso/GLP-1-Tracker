@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "roche",
   "assetId": "ct-996",
   "studies": [
@@ -24,6 +24,12 @@
         "description": "Three-part, sequential dose-escalation study; recorded outcomes are from the 28-day Part 2 multiple-ascending-dose cohorts in adults with obesity without type 2 diabetes."
       },
       "population": "Part 2 enrolled otherwise healthy adults with obesity without type 2 diabetes; the overall protocol also included overweight/obesity and type 2 diabetes cohorts.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "58 days for Parts 2 and 3, including safety follow-up",
       "safetySummary": "In the Part 2 MAD cohorts, all treatment-emergent adverse events were mild or moderate, one serious event was unrelated to study drug, and no discontinuation was related to study drug; gastrointestinal events were most common.",
       "metadata": {

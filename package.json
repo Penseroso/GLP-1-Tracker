@@ -2,6 +2,9 @@
   "name": "obesity-landscape",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,6 +16,9 @@
     "data:validate:clinical-evidence": "node scripts/data-registry.mjs validate:clinical-evidence",
     "data:validate:clinical-evidence:generated": "node scripts/data-registry.mjs validate:clinical-evidence:generated",
     "data:validate:clinical-evidence:synthetic": "node scripts/data-registry.mjs validate:clinical-evidence:synthetic",
+    "data:probe:efficacy-comparison": "node --experimental-strip-types --no-warnings --import ./scripts/ts-alias-hooks.mjs scripts/probe-efficacy-comparison.mts",
+    "data:probe:efficacy-population-coverage": "node scripts/data-registry.mjs probe:efficacy-population-coverage",
+    "data:probe:mechanism-families": "node scripts/data-registry.mjs probe:mechanism-families",
     "data:validate:registries": "node scripts/data-registry.mjs validate:registries",
     "data:validate:synthetic": "node scripts/data-registry.mjs validate:synthetic"
   },

@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "eli-lilly-and-company",
   "assetId": "ly3298176",
   "studies": [
@@ -25,6 +25,12 @@
         "description": "Parallel-group fixed target-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were mainly mild to moderate; treatment discontinuation increased with dose.",
       "metadata": {
@@ -75,6 +81,12 @@
         "description": "Parallel-group target-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; weight management was an explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were most common, were generally mild to moderate, and occurred primarily during dose escalation.",
       "metadata": {
@@ -125,6 +137,12 @@
         "description": "A 12-week intensive-lifestyle lead-in preceded the 72-week randomized period."
       },
       "population": "Adults with obesity or overweight who achieved at least 5% weight loss during an intensive lifestyle lead-in, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "post-lifestyle-intervention"
+      },
       "overallDuration": "84 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were primarily mild to moderate.",
       "metadata": {
@@ -175,6 +193,12 @@
         "description": "After a 36-week open-label tirzepatide lead-in, participants were randomized to continue maximum tolerated dose or switch to placebo for 52 weeks."
       },
       "population": "Adults with obesity or overweight and a weight-related complication, without diabetes, who completed the tirzepatide lead-in.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "randomized-withdrawal-or-switch"
+      },
       "overallDuration": "88 weeks",
       "safetySummary": "Gastrointestinal adverse events were most common and were largely mild to moderate.",
       "metadata": {
@@ -225,6 +249,12 @@
         "description": "Active-comparator parallel-group trial using maximum tolerated doses."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related complication, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were most common in both groups and were mainly mild to moderate during dose escalation.",
       "metadata": {
@@ -275,6 +305,12 @@
         "description": "After a 60-week maximum-tolerated-dose lead-in, participants were randomized to continue that dose, reduce to 5 mg, or switch to placebo for 52 weeks."
       },
       "population": "Adults with obesity or overweight who completed 60 weeks of tirzepatide treatment.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "maintenance-or-continuation"
+      },
       "overallDuration": "112 weeks",
       "safetySummary": "The safety profile was consistent with prior tirzepatide studies; gastrointestinal events were the most common adverse events.",
       "metadata": {
@@ -374,6 +410,13 @@
         "description": "Parallel-group target-dose trial conducted in China."
       },
       "population": "Chinese adults with obesity or overweight, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "52 weeks",
       "safetySummary": "The most frequent adverse events were gastrointestinal and were mostly mild to moderate.",
       "metadata": {
