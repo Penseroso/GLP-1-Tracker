@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "roche",
   "assetId": "enicepatide",
   "studies": [
@@ -24,6 +24,12 @@
         "description": "Parallel-group, multi-dose, dose-finding trial of once-weekly subcutaneous enicepatide across five dose levels versus placebo."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, excluding type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "At ADA 2026, adverse events were predominantly gastrointestinal and mostly mild to moderate; serious and Grade 3 events were infrequent and not dose-dependent, and no Grade 4 or 5 events were reported.",
       "metadata": {
@@ -227,6 +233,12 @@
         "description": "First-in-human sequential, multi-arm, multi-cohort SAD/MAD/MD study of subcutaneous enicepatide versus matched placebo, including cohorts with overweight or obesity without diabetes and a later cohort with obesity and type 2 diabetes."
       },
       "population": "Adults with overweight or obesity without diabetes in the SAD, MAD, and longer multiple-dose cohorts, plus a 12-week cohort of adults with obesity and type 2 diabetes treated with diet and exercise alone or metformin; weight change was an explicit pharmacodynamic objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "Up to 24 weeks",
       "safetySummary": "Across the early SAD/MAD publication and the 12- to 24-week obesity and T2D cohorts, adverse events were predominantly gastrointestinal and mostly mild to moderate; no unexpected safety signal emerged, and the later cohorts reported no study-drug-related discontinuations or serious adverse events in the T2D cohort.",
       "metadata": {

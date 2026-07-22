@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "eli-lilly-and-company",
   "assetId": "ly3305677",
   "studies": [
@@ -25,6 +25,13 @@
         "description": "Parallel-group dose-ranging trial conducted in China."
       },
       "population": "Chinese adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were generally mild to moderate; the safety profile was consistent with the known pharmacology.",
       "metadata": {
@@ -75,6 +82,13 @@
         "description": "Parallel-group trial of high-dose mazdutide conducted in China."
       },
       "population": "Chinese adults with obesity, with or without type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment",
+        "regionRestriction": "China"
+      },
       "overallDuration": "60 weeks",
       "safetySummary": "Vomiting, nausea, and diarrhea were the most common adverse events; adverse-event discontinuation was uncommon but higher with mazdutide than placebo.",
       "metadata": {

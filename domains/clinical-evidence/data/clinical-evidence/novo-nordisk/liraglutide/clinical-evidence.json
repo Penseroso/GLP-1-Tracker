@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "novo-nordisk",
   "assetId": "liraglutide",
   "studies": [
@@ -28,6 +28,12 @@
         "description": "Parallel-group 2:1 trial with lifestyle modification."
       },
       "population": "Adults with obesity, or overweight plus treated or untreated dyslipidemia or hypertension, without type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "56 weeks",
       "safetySummary": "Mild or moderate nausea and diarrhea were most frequent; serious adverse events occurred in 6.2% with liraglutide and 5.0% with placebo.",
       "metadata": {
@@ -78,6 +84,12 @@
         "description": "Parallel-group 2:1:1 weight-management trial."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; weight management was the explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "56 weeks",
       "safetySummary": "Gastrointestinal disorders were more common with liraglutide than placebo; no pancreatitis was reported.",
       "metadata": {
@@ -128,6 +140,12 @@
         "description": "Parallel-group 1:1 trial with lifestyle therapy."
       },
       "population": "Adolescents aged 12 to under 18 years with obesity and poor response to lifestyle therapy alone.",
+      "populationProfile": {
+        "ageGroup": "adolescent",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "post-lifestyle-intervention"
+      },
       "overallDuration": "56 weeks",
       "followUpDuration": "26 weeks",
       "safetySummary": "Gastrointestinal adverse events occurred in 64.8% with liraglutide and 36.5% with placebo; discontinuations due to adverse events occurred in 10.4% and 0%.",
@@ -179,6 +197,12 @@
         "description": "Parallel-group 2:1 trial with lifestyle intervention."
       },
       "population": "Children aged 6 to under 12 years with nonmonogenic, nonsyndromic obesity.",
+      "populationProfile": {
+        "ageGroup": "pediatric",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "56 weeks",
       "followUpDuration": "26 weeks",
       "safetySummary": "Adverse events occurred in 89% with liraglutide and 88% with placebo; gastrointestinal events occurred in 80% and 54%, respectively.",

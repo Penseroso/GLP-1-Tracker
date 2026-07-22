@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "novo-nordisk",
   "assetId": "cagrilintide",
   "studies": [
@@ -23,6 +23,12 @@
         "description": "Dose-ranging active- and placebo-controlled trial."
       },
       "population": "Adults with overweight or obesity.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "not-specified",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "26 weeks",
       "followUpDuration": "6 weeks",
       "safetySummary": "Gastrointestinal disorders occurred in 41%-63% across cagrilintide doses versus 32% with placebo; nausea was the most frequent event.",

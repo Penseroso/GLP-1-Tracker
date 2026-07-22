@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "eli-lilly-and-company",
   "assetId": "ly3502970",
   "studies": [
@@ -25,6 +25,12 @@
         "description": "Parallel-group oral-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related comorbidity, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common, were mainly mild to moderate, and treatment discontinuation increased with dose.",
       "metadata": {
@@ -75,6 +81,12 @@
         "description": "Parallel-group oral-dose trial with lifestyle intervention."
       },
       "population": "Adults with obesity or overweight and type 2 diabetes; weight management was an explicit objective.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "with-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "72 weeks",
       "safetySummary": "The safety profile was consistent with the GLP-1 receptor agonist class, with gastrointestinal adverse events most frequent.",
       "metadata": {

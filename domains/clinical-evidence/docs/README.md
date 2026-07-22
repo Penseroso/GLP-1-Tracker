@@ -7,9 +7,10 @@ update-boundary: Update when Clinical Evidence entities, field semantics, identi
 
 # Clinical Evidence Data Contract
 
-**Schema version: 3.0** (ADR-0039; builds on ADR-0037 and ADR-0038). v3.0 is a
-distinct version: every source file declares
-`"clinicalEvidenceSchemaVersion": "3.0"` and an earlier file is rejected. The field is
+**Schema version: 3.1** (ADR-0044; builds on ADR-0039, ADR-0037, and ADR-0038).
+3.1 is additive over v3.0: it introduces the optional authored
+`Study.populationProfile` and changes nothing else. Every source file declares
+`"clinicalEvidenceSchemaVersion": "3.1"` and an earlier file is rejected. The field is
 namespaced to this domain — not a bare `schemaVersion` — because Company/Pipeline
 data is separately versioned as "Contract 1.1" (ADR-0030); a generic name here could
 be misread as versioning that whole registry contract instead of just Clinical
@@ -63,7 +64,7 @@ Each asset file declares its schema version and contains five parallel arrays:
 
 ```json
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "<company-id>",
   "assetId": "<asset-id>",
   "studies": [],
@@ -123,6 +124,45 @@ sponsor-declared series:
 One family has exactly one spelling: the validator rejects two Studies whose family text
 differs only by casing or spacing. The field is optional and additive, so it does not
 change the schema version.
+
+`populationProfile` is the **optional, authored structured reading** of `population`
+(ADR-0044, schema 3.1). The source wording in `population` stays verbatim and is
+**never parsed** to derive it. Four axes, all required together when the field is
+present:
+
+| Axis | Values |
+| --- | --- |
+| `ageGroup` | `adult`, `adolescent`, `pediatric` |
+| `diabetesStatus` | `without-type-2-diabetes`, `with-type-2-diabetes`, `mixed`, `not-specified` |
+| `requiresAdditionalCondition` | boolean |
+| `treatmentContext` | `initial-treatment`, `maintenance-or-continuation`, `post-lifestyle-intervention`, `randomized-withdrawal-or-switch` |
+
+Plus optional `regionRestriction`, a source-stated geography such as `"China"`.
+
+Authoring rules:
+
+- `mixed` means the source **explicitly admits both** ("with or without type 2
+  diabetes", or a protocol spanning a non-diabetic and a T2D cohort).
+  `not-specified` means the source states **no** diabetes criterion. The two are
+  distinct, and **neither may be read as non-diabetic** — only the first is a
+  stated design fact, and the second is an absence of one.
+- `requiresAdditionalCondition` is true only when a **named non-diabetes disease
+  is an enrolment requirement** (knee osteoarthritis, heart failure, psoriasis,
+  inflammatory bowel disease). "Obesity, **or** overweight with a weight-related
+  comorbidity" offers the comorbidity as one of several qualifying routes, so it
+  is false.
+- The profile describes the **Study**. A multi-cohort protocol is `mixed` even
+  when a particular result comes from one cohort; cohort-level population is not
+  representable (see Deferred limitations).
+- The field is **all-or-nothing**: the validator rejects a partial profile and any
+  unknown key, because a consumer gating on it would otherwise read an unauthored
+  axis as permissive.
+- Absent means **unclassified**, not "pending" and not "unrestricted". A consumer
+  that needs the profile must disposition such a Study explicitly rather than
+  assume a default.
+
+The field is optional and additive; it does not change what any existing consumer
+reads.
 
 Study grouping is not modeled. Extensions, rollovers, and platform/master-protocol
 groupings are stored as **separate Study records with no stored parent/child
@@ -459,7 +499,7 @@ Neither generated file is an editable source of record.
 
 ## Deferred limitations
 
-v3.0 is explicit about what it still cannot represent. Each is logged in
+The schema is explicit about what it still cannot represent. Each is logged in
 [Edge Cases](../../company-pipeline/docs/edge-cases.md), and a research run that meets one
 **omits and reports** it under the workflow's case-scoped fallback rather than
 distorting the data:
@@ -474,6 +514,12 @@ distorting the data:
   enum is kept as-is and this limitation is documented, not fixed.
 - **Cross-study pooled analyses** — AnalysisGroup is study-scoped; there is no
   evidentiary unit above one Study.
+- **Cohort-level population** — `populationProfile` describes the whole Study, so a
+  protocol enrolling a non-diabetic cohort and a T2D cohort is `mixed` even when a
+  given result comes from only one of them. There is no authored population anchor
+  on an Arm, AnalysisGroup, or Outcome, and `analysisPopulation` free text must not
+  be parsed to supply one. A consumer that needs a non-diabetic population must
+  therefore disposition such a Study rather than infer the cohort.
 - **Comparisons between analysis groups** (group vs group, or group vs arm) — an
   analysis-group Outcome carries a single-unit result only.
 - **Structured superseded-value history** and **field-level provenance**.

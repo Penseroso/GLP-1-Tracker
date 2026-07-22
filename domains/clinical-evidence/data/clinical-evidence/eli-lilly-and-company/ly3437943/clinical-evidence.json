@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "eli-lilly-and-company",
   "assetId": "ly3437943",
   "studies": [
@@ -23,6 +23,12 @@
         "description": "Parallel-group dose-ranging trial with multiple starting-dose titration schedules."
       },
       "population": "Adults with obesity, or overweight with at least one weight-related condition, without diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "48 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal, were dose related and mostly mild to moderate; heart-rate increases peaked at 24 weeks and then declined.",
       "metadata": {
@@ -73,6 +79,12 @@
         "description": "Parallel-group trial evaluating weight and knee-osteoarthritis outcomes."
       },
       "population": "Adults with obesity or overweight and knee osteoarthritis, without type 2 diabetes.",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "without-type-2-diabetes",
+        "requiresAdditionalCondition": true,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "68 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal and were generally mild to moderate; discontinuation because of adverse events increased with dose.",
       "metadata": {

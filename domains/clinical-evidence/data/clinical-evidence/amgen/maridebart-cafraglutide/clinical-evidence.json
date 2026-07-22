@@ -1,5 +1,5 @@
 {
-  "clinicalEvidenceSchemaVersion": "3.0",
+  "clinicalEvidenceSchemaVersion": "3.1",
   "companyId": "amgen",
   "assetId": "maridebart-cafraglutide",
   "studies": [
@@ -23,6 +23,12 @@
         "description": "Dose-ranging trial with 11 treatment groups across two cohorts: seven groups without type 2 diabetes (three fixed monthly doses, one every-8-week dose, two 420 mg monthly dose-escalation groups, and placebo) and four fixed monthly groups with type 2 diabetes."
       },
       "population": "Adults with obesity, or overweight with a weight-related comorbidity, with or without type 2 diabetes (two cohorts).",
+      "populationProfile": {
+        "ageGroup": "adult",
+        "diabetesStatus": "mixed",
+        "requiresAdditionalCondition": false,
+        "treatmentContext": "initial-treatment"
+      },
       "overallDuration": "52 weeks",
       "safetySummary": "Gastrointestinal adverse events were the most common and were mostly mild to moderate, concentrated during dose initiation.",
       "metadata": {

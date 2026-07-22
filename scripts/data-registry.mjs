@@ -92,7 +92,8 @@ const stageOperationalStatesByStatus = {
 // "schemaVersion") because this project also has a separate, differently-numbered
 // Company/Pipeline "Contract 1.1" versioning scheme (ADR-0030); a generic field name
 // here could be misread as versioning the whole registry contract.
-const clinicalEvidenceSchemaVersion = "3.0";
+// 3.1 adds the optional authored Study.populationProfile (ADR-0044).
+const clinicalEvidenceSchemaVersion = "3.1";
 // The derived reciprocal asset index (R2b) is not part of the canonical v3.0
 // contract. It is an independently versioned projection,
 // regenerated deterministically and may change shape independently of the
@@ -1263,7 +1264,7 @@ function readClinicalEvidenceSourceTree(baseDir, context) {
     assert(isObject(data), `${fileContext}: root must be an object`);
     assert(
       data.clinicalEvidenceSchemaVersion === clinicalEvidenceSchemaVersion,
-      `${fileContext}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the v3.0 Clinical Evidence schema`,
+      `${fileContext}: clinicalEvidenceSchemaVersion must be "${clinicalEvidenceSchemaVersion}"; this file is not migrated to the current Clinical Evidence schema`,
     );
     assert(data.companyId === file.companyFolder, `${fileContext}: companyId must match folder name`);
     assert(data.assetId === file.assetFolder, `${fileContext}: assetId must match folder name`);
@@ -1411,6 +1412,75 @@ function validateClinicalRegistryStatus(registryStatus, registryIdentifiers, con
   );
 }
 
+const clinicalPopulationAgeGroups = new Set(["adult", "adolescent", "pediatric"]);
+const clinicalPopulationDiabetesStatuses = new Set([
+  "without-type-2-diabetes",
+  "with-type-2-diabetes",
+  "mixed",
+  "not-specified",
+]);
+const clinicalPopulationTreatmentContexts = new Set([
+  "initial-treatment",
+  "maintenance-or-continuation",
+  "post-lifestyle-intervention",
+  "randomized-withdrawal-or-switch",
+]);
+const clinicalPopulationProfileKeys = new Set([
+  "ageGroup",
+  "diabetesStatus",
+  "requiresAdditionalCondition",
+  "treatmentContext",
+  "regionRestriction",
+]);
+
+/**
+ * Authored structured reading of `population` (ADR-0044).
+ *
+ * All-or-nothing by design: a half-authored profile is worse than none, because
+ * a consumer gating on it would read the missing axes as permissive and admit a
+ * Study the author never classified. So every required axis must be present
+ * together, and unknown keys are rejected rather than ignored — a typo'd axis
+ * would otherwise silently leave the real axis unset.
+ */
+function validateClinicalPopulationProfile(profile, context) {
+  if (profile === undefined) {
+    return;
+  }
+
+  assert(isObject(profile), `${context}: must be an object when present`);
+
+  for (const key of Object.keys(profile)) {
+    assert(
+      clinicalPopulationProfileKeys.has(key),
+      `${context}: unknown key "${key}"`,
+    );
+  }
+
+  assert(
+    clinicalPopulationAgeGroups.has(profile.ageGroup),
+    `${context}: ageGroup must be one of ${sortedStrings([...clinicalPopulationAgeGroups]).join(", ")}`,
+  );
+  assert(
+    clinicalPopulationDiabetesStatuses.has(profile.diabetesStatus),
+    `${context}: diabetesStatus must be one of ${sortedStrings([...clinicalPopulationDiabetesStatuses]).join(", ")}`,
+  );
+  assert(
+    typeof profile.requiresAdditionalCondition === "boolean",
+    `${context}: requiresAdditionalCondition must be a boolean`,
+  );
+  assert(
+    clinicalPopulationTreatmentContexts.has(profile.treatmentContext),
+    `${context}: treatmentContext must be one of ${sortedStrings([...clinicalPopulationTreatmentContexts]).join(", ")}`,
+  );
+  assertOptionalNonEmptyString(profile.regionRestriction, `${context}: regionRestriction`);
+  if (profile.regionRestriction !== undefined) {
+    assert(
+      profile.regionRestriction === profile.regionRestriction.trim(),
+      `${context}: regionRestriction must not have leading or trailing whitespace`,
+    );
+  }
+}
+
 function validateClinicalStudy(study, context, references) {
   assert(isObject(study), `${context}: study must be an object`);
   // These fields are legacy or derived-only and must never be authored in source data:
@@ -1494,6 +1564,7 @@ function validateClinicalStudy(study, context, references) {
   assert(isNonEmptyString(study.design.comparator), `${context}: design.comparator is required`);
   assertOptionalNonEmptyString(study.design.description, `${context}: design.description`);
   assert(isNonEmptyString(study.population), `${context}: population is required`);
+  validateClinicalPopulationProfile(study.populationProfile, `${context}: populationProfile`);
   assertOptionalNonEmptyString(study.overallDuration, `${context}: overallDuration`);
   assertOptionalNonEmptyString(study.followUpDuration, `${context}: followUpDuration`);
   assertOptionalNonEmptyString(study.safetySummary, `${context}: safetySummary`);
@@ -2742,7 +2813,41 @@ function validateClinicalEvidenceSyntheticFixtures() {
     ["study-family-untrimmed", /studyFamily must not have leading or trailing whitespace/, (fixture) => {
       fixture.studies[0].studyFamily = " SURMOUNT";
     }],
-    ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "3\.0"/, (fixture) => {
+    // populationProfile is all-or-nothing: a partial profile would let a consumer
+    // read the unauthored axes as permissive and admit a Study nobody classified.
+    ["population-profile-partial", /populationProfile: diabetesStatus must be one of/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        requiresAdditionalCondition: false,
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["population-profile-unknown-axis", /populationProfile: unknown key "diabetes"/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        diabetes: "without-type-2-diabetes",
+        diabetesStatus: "without-type-2-diabetes",
+        requiresAdditionalCondition: false,
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["population-profile-open-diabetes-status", /populationProfile: diabetesStatus must be one of/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        diabetesStatus: "non-diabetic",
+        requiresAdditionalCondition: false,
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["population-profile-non-boolean-condition", /populationProfile: requiresAdditionalCondition must be a boolean/, (fixture) => {
+      fixture.studies[0].populationProfile = {
+        ageGroup: "adult",
+        diabetesStatus: "without-type-2-diabetes",
+        requiresAdditionalCondition: "false",
+        treatmentContext: "initial-treatment",
+      };
+    }],
+    ["stale-schema-version", /clinicalEvidenceSchemaVersion must be "3\.1"/, (fixture) => {
       fixture.clinicalEvidenceSchemaVersion = "1.0";
     }],
     ["study-without-focal-mapping", /exactly one of programId or regimenId is required/, (fixture) => {
