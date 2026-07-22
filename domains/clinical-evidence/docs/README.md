@@ -514,12 +514,16 @@ distorting the data:
   enum is kept as-is and this limitation is documented, not fixed.
 - **Cross-study pooled analyses** — AnalysisGroup is study-scoped; there is no
   evidentiary unit above one Study.
-- **Cohort-level population** — `populationProfile` describes the whole Study, so a
-  protocol enrolling a non-diabetic cohort and a T2D cohort is `mixed` even when a
-  given result comes from only one of them. There is no authored population anchor
-  on an Arm, AnalysisGroup, or Outcome, and `analysisPopulation` free text must not
-  be parsed to supply one. A consumer that needs a non-diabetic population must
-  therefore disposition such a Study rather than infer the cohort.
+- **Cohort-level structured population** — `populationProfile` describes the whole
+  Study, so a protocol enrolling a non-diabetic cohort and a T2D cohort is `mixed`
+  even when a given result comes from only one of them. Cohort-specific **Arm
+  anchors do exist** (`"Cohort A (without T2D): …"`, `"Part 2 CT-996 MAD cohort 1"`),
+  but there is **no authored structured population authority on an Arm,
+  AnalysisGroup, or Outcome** that a comparison selector may use for deterministic
+  population eligibility. `arm.label`, `arm.intervention`, and `analysisPopulation`
+  are free text and must not be parsed to supply one. A consumer that needs a
+  non-diabetic population therefore dispositions such a Study. Introducing a
+  cohort-level structured authority is a separate future schema decision.
 - **Comparisons between analysis groups** (group vs group, or group vs arm) — an
   analysis-group Outcome carries a single-unit result only.
 - **Structured superseded-value history** and **field-level provenance**.

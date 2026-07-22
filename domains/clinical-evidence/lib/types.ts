@@ -266,7 +266,7 @@ export type ClinicalOutcomeRecord = {
 /**
  * Derived projection (ADR-0037 / audit R2b): reciprocal asset -> studies discovery,
  * computed from canonical internal links only. It is regenerated deterministically,
- * is never authored, and is not part of the canonical v3.0 contract.
+ * is never authored, and is not part of the canonical Clinical Evidence contract.
  */
 export type ClinicalAssetStudyIndexEntry = {
   companyId: string;
@@ -288,7 +288,7 @@ export type ClinicalAssetStudyIndex = {
   /**
    * This projection's own format version — independent of
    * ClinicalEvidenceAggregate.clinicalEvidenceSchemaVersion by design, since the
-   * projection is not part of the canonical v3.0 contract and may change shape on its
+   * projection is not part of the canonical Clinical Evidence contract and may change shape on its
    * own (ADR-0038).
    */
   projectionSchemaVersion: string;

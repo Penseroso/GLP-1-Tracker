@@ -54,5 +54,7 @@ through ADR-0039 is available only through the
 
 | ADR-0044 | Adopt Clinical Evidence 3.1 with an optional authored `Study.populationProfile` on four closed axes. | Deterministic population handling needs structure, but `population` is free text that must not be parsed; one enum could not represent independently combining axes (region, diabetes status, age, treatment context). All-or-nothing so a partial profile cannot read as permissive. | Active | [Clinical Evidence contract](../../clinical-evidence/docs/README.md) |
 
+| ADR-0045 | Accept 10-of-15 Efficacy Comparison population coverage and freeze it behind `npm run data:probe:efficacy-population-coverage`. | Correctness over coverage: liraglutide reports weight in kg only; cagrilintide and UBT251 state no diabetes criterion; MariTide phase 2 and CT-996-201 span a non-diabetic and a T2D cohort. Relaxing `mixed` or `not-specified` to non-diabetic would mix populations the sources never claimed. | Active | [Clinical Evidence contract](../../clinical-evidence/docs/README.md#deferred-limitations) |
+
 New entries stay one row. Put the enforceable rule in its current authority and
 use this index only to preserve the decision, short reason, status, and pointer.

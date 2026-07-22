@@ -94,7 +94,7 @@ const stageOperationalStatesByStatus = {
 // here could be misread as versioning the whole registry contract.
 // 3.1 adds the optional authored Study.populationProfile (ADR-0044).
 const clinicalEvidenceSchemaVersion = "3.1";
-// The derived reciprocal asset index (R2b) is not part of the canonical v3.0
+// The derived reciprocal asset index (R2b) is not part of the canonical Clinical Evidence
 // contract. It is an independently versioned projection,
 // regenerated deterministically and may change shape independently of the
 // canonical schema. It therefore carries its own,
@@ -491,6 +491,193 @@ function probeMechanismFamilyRegistry() {
   const signatures = live.map((entry) => getMechanismFamilySignature(entry));
   console.log(
     `Probed mechanism-family registry: ${live.length} families, ${signatures.length} distinct semantic signatures, ${cases.length} rejection rules verified.`,
+  );
+}
+
+/**
+ * Efficacy Comparison population-coverage gate.
+ *
+ * This is a **readiness gate, not a schema check**: the data is valid whatever
+ * this reports. It exists because the strict population eligibility rule decides
+ * which units the comparison surface can show at all, and that outcome must not
+ * drift silently — an authoring edit that quietly moves a unit in or out of the
+ * comparison would otherwise pass every validator.
+ *
+ * The reviewed snapshot below is the accepted 10-of-15 result. Changing it is a
+ * deliberate act that must be reviewed alongside the authoring change that caused
+ * it, never a mechanical update to make the probe pass again.
+ */
+const efficacyPopulationCoverageSnapshot = {
+  bodyWeightOutcomeStudies: 51,
+  bodyWeightStudiesMissingProfile: 0,
+  evidenceBearingUnits: 15,
+  eligibleUnits: 10,
+  gapUnits: 5,
+  gaps: {
+    "novo-nordisk/liraglutide": "metric-unavailable-percent",
+    "novo-nordisk/cagrilintide": "population-diabetes-status-not-specified",
+    "novo-nordisk/ubt251": "population-diabetes-status-not-specified",
+    "amgen/maridebart-cafraglutide": "population-mixed-diabetes-status",
+    "roche/ct-996": "population-mixed-diabetes-status",
+  },
+};
+
+/**
+ * How far a Study got through the eligibility gates, as an ordered stage. A unit's
+ * single exclusion reason is the **furthest** stage any of its studies reached, so
+ * a unit blocked only by its metric reports that rather than an unrelated sibling
+ * study's population. Without this, a unit with several studies would report a set
+ * of reasons and the gate would have no stable disposition to compare.
+ */
+const efficacyExclusionStages = [
+  "population-unclassified",
+  "population-age-restricted",
+  "population-with-type-2-diabetes",
+  "population-mixed-diabetes-status",
+  "population-diabetes-status-not-specified",
+  "population-requires-additional-condition",
+  "population-treatment-context",
+  "design-not-randomized-controlled",
+  "metric-unavailable-percent",
+];
+
+function getEfficacyStudyExclusion(study, arms, hasPercentArmLevelWeightOutcome) {
+  const profile = study.populationProfile;
+  if (!profile) return "population-unclassified";
+  if (profile.ageGroup !== "adult") return "population-age-restricted";
+  if (profile.diabetesStatus === "with-type-2-diabetes") return "population-with-type-2-diabetes";
+  if (profile.diabetesStatus === "mixed") return "population-mixed-diabetes-status";
+  if (profile.diabetesStatus === "not-specified") return "population-diabetes-status-not-specified";
+  if (profile.requiresAdditionalCondition) return "population-requires-additional-condition";
+  if (profile.treatmentContext !== "initial-treatment") return "population-treatment-context";
+
+  const controlled = arms.some(
+    (arm) => arm.role === "placebo" || arm.role === "active comparator",
+  );
+  if (study.design.randomization !== "Randomized" || !controlled) {
+    return "design-not-randomized-controlled";
+  }
+  if (!hasPercentArmLevelWeightOutcome) return "metric-unavailable-percent";
+  return null;
+}
+
+function probeEfficacyPopulationCoverage() {
+  const aggregate = readJson(path.join(generatedDir, "clinical-evidence.json"));
+
+  const outcomesByEndpoint = new Map();
+  for (const outcome of aggregate.outcomes) {
+    const list = outcomesByEndpoint.get(outcome.endpointId);
+    if (list) list.push(outcome);
+    else outcomesByEndpoint.set(outcome.endpointId, [outcome]);
+  }
+
+  const weightEndpoints = aggregate.endpoints.filter(
+    (endpoint) =>
+      endpoint.domain === "body weight" && outcomesByEndpoint.has(endpoint.id),
+  );
+  const weightStudyIds = new Set(weightEndpoints.map((endpoint) => endpoint.studyId));
+
+  const armsByStudy = new Map();
+  for (const arm of aggregate.arms) {
+    const list = armsByStudy.get(arm.studyId);
+    if (list) list.push(arm);
+    else armsByStudy.set(arm.studyId, [arm]);
+  }
+
+  const percentStudyIds = new Set(
+    weightEndpoints
+      .filter((endpoint) =>
+        outcomesByEndpoint
+          .get(endpoint.id)
+          .some(
+            (outcome) =>
+              outcome.result.resultType === "arm-level" &&
+              outcome.result.unit === "percent",
+          ),
+      )
+      .map((endpoint) => endpoint.studyId),
+  );
+
+  const weightStudies = aggregate.studies.filter((study) => weightStudyIds.has(study.id));
+  const missingProfile = weightStudies.filter((study) => !study.populationProfile);
+
+  const unitStudies = new Map();
+  for (const study of weightStudies) {
+    const unit = `${study.companyId}/${study.assetId}`;
+    const list = unitStudies.get(unit);
+    if (list) list.push(study);
+    else unitStudies.set(unit, [study]);
+  }
+
+  const eligible = [];
+  const gaps = new Map();
+  for (const unit of sortedStrings([...unitStudies.keys()])) {
+    let best = null;
+    let hasEligible = false;
+    for (const study of unitStudies.get(unit)) {
+      const reason = getEfficacyStudyExclusion(
+        study,
+        armsByStudy.get(study.id) ?? [],
+        percentStudyIds.has(study.id),
+      );
+      if (reason === null) {
+        hasEligible = true;
+        break;
+      }
+      const stage = efficacyExclusionStages.indexOf(reason);
+      if (best === null || stage > best.stage) best = { reason, stage };
+    }
+    if (hasEligible) eligible.push(unit);
+    else gaps.set(unit, best.reason);
+  }
+
+  const observed = {
+    bodyWeightOutcomeStudies: weightStudies.length,
+    bodyWeightStudiesMissingProfile: missingProfile.length,
+    evidenceBearingUnits: unitStudies.size,
+    eligibleUnits: eligible.length,
+    gapUnits: gaps.size,
+  };
+
+  console.log("Efficacy Comparison population coverage");
+  for (const [key, value] of Object.entries(observed)) {
+    console.log(`  ${key}: ${value}`);
+  }
+  console.log("  eligible units:");
+  for (const unit of eligible) console.log(`    ${unit}`);
+  console.log("  coverage gaps:");
+  for (const unit of sortedStrings([...gaps.keys()])) {
+    console.log(`    ${unit} — ${gaps.get(unit)}`);
+  }
+
+  for (const [key, expected] of Object.entries(efficacyPopulationCoverageSnapshot)) {
+    if (key === "gaps") continue;
+    assert(
+      observed[key] === expected,
+      `efficacy population coverage: ${key} is ${observed[key]}, reviewed snapshot expects ${expected}`,
+    );
+  }
+
+  const expectedGaps = efficacyPopulationCoverageSnapshot.gaps;
+  for (const [unit, reason] of Object.entries(expectedGaps)) {
+    assert(
+      gaps.has(unit),
+      `efficacy population coverage: reviewed gap ${unit} is no longer a gap`,
+    );
+    assert(
+      gaps.get(unit) === reason,
+      `efficacy population coverage: ${unit} is excluded as "${gaps.get(unit)}", reviewed snapshot expects "${reason}"`,
+    );
+  }
+  for (const unit of gaps.keys()) {
+    assert(
+      expectedGaps[unit],
+      `efficacy population coverage: ${unit} is a new gap not in the reviewed snapshot`,
+    );
+  }
+
+  console.log(
+    `Matched the reviewed snapshot: ${observed.eligibleUnits} of ${observed.evidenceBearingUnits} units eligible, ${observed.gapUnits} dispositioned.`,
   );
 }
 
@@ -1292,7 +1479,7 @@ function readClinicalEvidenceSourceTree(baseDir, context) {
 
 // Derived projection (ADR-0037): reciprocal asset -> studies discovery computed from the
 // canonical internal links only. Never authored, no independent identity, and outside the
-// canonical v3.0 contract — it is regenerated deterministically from the aggregate.
+// canonical Clinical Evidence contract — it is regenerated deterministically from the aggregate.
 function buildClinicalAssetStudyIndex(aggregate) {
   const entries = new Map();
 
@@ -3190,6 +3377,9 @@ try {
       break;
     case "probe:mechanism-families":
       probeMechanismFamilyRegistry();
+      break;
+    case "probe:efficacy-population-coverage":
+      probeEfficacyPopulationCoverage();
       break;
     case "generate":
       generateAggregates();
