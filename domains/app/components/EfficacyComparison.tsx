@@ -7,6 +7,7 @@ import type {
   EfficacyComparisonView,
   EfficacyCoverageGap,
 } from "@/domains/app/lib/efficacy-comparison/read-model";
+import type { HeadToHeadPair } from "@/domains/app/lib/efficacy-comparison/head-to-head";
 
 type EfficacyComparisonProps = {
   view: EfficacyComparisonView;
@@ -29,7 +30,7 @@ const gapCopy: Record<EfficacyCoverageGap["reason"], string> = {
   "population-with-type-2-diabetes":
     "Weight results come from populations enrolled with type 2 diabetes.",
   "population-mixed-diabetes-status":
-    "The protocol enrols both a non-diabetic and a type 2 diabetes cohort, and cohort-level population is not stored.",
+    "The protocol enrols both a non-diabetic and a type 2 diabetes cohort, and cohort-level structured population classification is not stored.",
   "population-diabetes-status-not-specified":
     "The source states no diabetes criterion, which is not the same as a non-diabetic population.",
   "population-requires-additional-condition":
@@ -64,6 +65,57 @@ function ValueList({
         </li>
       ))}
     </ul>
+  );
+}
+
+/**
+ * One direct head-to-head pair. Kept structurally separate from a cross-trial row:
+ * this is a within-trial comparison the source actually reported, not two rows placed
+ * side by side. Its evidence is whatever proved the pair — a stored between-arm
+ * estimate, or the arm-level results the source reported together.
+ */
+function HeadToHeadEntry({ pair }: { pair: HeadToHeadPair }) {
+  return (
+    <li className="border-t border-border px-5 py-4 first:border-t-0">
+      <h3 className="text-base font-semibold text-card-foreground">
+        {pair.left.label} <span className="text-muted-foreground">vs</span>{" "}
+        {pair.right.label}
+      </h3>
+      <dd className="mt-2">
+        {pair.evidence.kind === "between-arm" ? (
+          <ul className="space-y-1">
+            {pair.evidence.values.map((value) => (
+              <li key={value.outcomeId} className="text-sm">
+                <span className="font-semibold tabular-nums text-foreground">
+                  {value.value}
+                </span>{" "}
+                <span className="text-muted-foreground">{value.unit}</span>
+                <span className="block text-xs text-muted-foreground">
+                  {formatNullableValue(value.comparisonType ?? value.effectMeasure)}
+                  {value.confidenceInterval ? (
+                    <> &middot; {value.confidenceInterval}</>
+                  ) : null}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ValueList values={pair.evidence.values} />
+        )}
+      </dd>
+      <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+        <Link
+          href={pair.href}
+          className={`rounded-sm font-medium text-primary hover:underline ${focusRing}`}
+        >
+          {pair.studyTitle}
+        </Link>
+        <span>{pair.phase}</span>
+        <span>{pair.endpointName}</span>
+        <span>{pair.assessmentTimepoint}</span>
+        {pair.duration ? <span>{pair.duration}</span> : null}
+      </p>
+    </li>
   );
 }
 
@@ -118,11 +170,34 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
 
         <div>
           <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-            Placebo, same comparison group
+            Same-group reference
           </dt>
           <dd className="mt-1.5">
-            {evidence.placeboValues.length > 0 ? (
-              <ValueList values={evidence.placeboValues} />
+            {evidence.placeboValues.length > 0 ||
+            evidence.activeComparatorValues.length > 0 ? (
+              <ul className="flex flex-wrap gap-x-4 gap-y-1">
+                {evidence.placeboValues.map((value) => (
+                  <li key={value.outcomeId} className="text-sm">
+                    <span className="text-muted-foreground">Placebo:</span>{" "}
+                    <span className="font-semibold tabular-nums text-foreground">
+                      {value.value}
+                    </span>{" "}
+                    <span className="text-muted-foreground">{value.unit}</span>
+                  </li>
+                ))}
+                {evidence.activeComparatorValues.map((value) => (
+                  <li key={value.outcomeId} className="text-sm">
+                    <span className="text-muted-foreground">{value.label}:</span>{" "}
+                    <span className="font-semibold tabular-nums text-foreground">
+                      {value.value}
+                    </span>{" "}
+                    <span className="text-muted-foreground">{value.unit}</span>
+                    <span className="block text-xs text-muted-foreground">
+                      Active comparator
+                    </span>
+                  </li>
+                ))}
+              </ul>
             ) : (
               <p className="text-sm italic text-muted-foreground">
                 Not reported in this comparison group.
@@ -133,7 +208,7 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
 
         <div>
           <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-            Placebo-adjusted, as reported
+            Between-arm estimate, as reported
           </dt>
           <dd className="mt-1.5">
             {evidence.storedBetweenArmValues.length > 0 ? (
@@ -206,25 +281,30 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
         </h2>
         <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
           <li>
-            Every figure is a value a source reported. Nothing here is calculated,
-            adjusted, averaged, or converted between units.
+            The application does not calculate, average, adjust, or convert any
+            figure. Every number is a value a source reported &mdash; including any
+            between-arm estimate, which is shown separately, in the source&rsquo;s own
+            effect measure and unit, and only where the source published it.
           </li>
           <li>
-            One study is selected per asset by a fixed rule &mdash; trial phase,
-            endpoint role, estimand, analysis population, source completeness, then
-            evidence maturity &mdash; never by which result is largest.
+            One study is selected per comparison unit by a fixed rule &mdash; trial
+            phase, endpoint role, estimand, analysis population, source completeness,
+            then evidence maturity &mdash; never by which result is largest.
           </li>
           <li>
-            Only one measure appears: percent change from baseline in body weight, in
-            adults enrolled without type 2 diabetes and starting treatment.
+            Rows share one arm-level metric: percent change from baseline in body
+            weight, in adults enrolled without type 2 diabetes and starting treatment.
+            A between-arm estimate appears under its own label, in the source&rsquo;s
+            effect measure and unit &mdash; it is not this shared metric.
           </li>
           <li>
             <strong className="font-semibold text-foreground">
               These rows come from separate trials and are not a ranking.
             </strong>{" "}
-            Populations, durations, and analyses differ, and no comparison between
-            two rows is implied. Results from studies that compared two products
-            directly are not part of this comparison.
+            Populations, durations, and analyses differ, and no comparison between two
+            rows is implied &mdash; including where a representative study used an
+            active comparator. A trial that compared two products directly is reported
+            in the Head-to-head section below, not as a cross-trial row here.
           </li>
         </ul>
       </section>
@@ -233,7 +313,7 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
         <section className="rounded-md border border-border bg-card shadow-soft">
           <EmptyState
             title="No comparable results"
-            description="No asset currently has a recorded percent-change body-weight result in an eligible population."
+            description="No comparison unit currently has a recorded percent-change body-weight result in an eligible population."
           />
         </section>
       ) : (
@@ -268,18 +348,47 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
       <section className="rounded-md border border-border bg-card shadow-soft">
         <div className="border-b border-border px-5 py-4">
           <h2 className="text-base font-semibold text-card-foreground">
+            Head-to-head
+          </h2>
+          <p className="mt-0.5 text-sm text-muted-foreground">
+            Direct comparisons a single trial reported between two products. These are
+            separate from the cross-trial rows above &mdash; the comparison is internal
+            to one study, so a diabetic or maintenance population does not disqualify
+            it.
+          </p>
+        </div>
+        {view.headToHead.length === 0 ? (
+          <EmptyState
+            title="No direct comparisons"
+            description="No trial with recorded body-weight evidence reported a direct comparison between two products."
+          />
+        ) : (
+          <ul>
+            {view.headToHead.map((pair) => (
+              <HeadToHeadEntry
+                key={`${pair.studyId}:${pair.left.key}:${pair.right.key}`}
+                pair={pair}
+              />
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section className="rounded-md border border-border bg-card shadow-soft">
+        <div className="border-b border-border px-5 py-4">
+          <h2 className="text-base font-semibold text-card-foreground">
             Coverage gaps
           </h2>
           <p className="mt-0.5 text-sm text-muted-foreground">
-            {view.gaps.length} of {view.totalUnits} assets with recorded body-weight
-            evidence are not shown above. Each is listed with the reason it falls
-            outside this comparison.
+            {view.gaps.length} of {view.totalUnits} comparison units with recorded
+            body-weight evidence are not shown above. Each is listed with the reason it
+            falls outside this comparison.
           </p>
         </div>
         {view.gaps.length === 0 ? (
           <EmptyState
             title="No coverage gaps"
-            description="Every asset with recorded body-weight evidence appears in the comparison."
+            description="Every comparison unit with recorded body-weight evidence appears in the comparison."
           />
         ) : (
           <ul className="divide-y divide-border">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import type { FocusEvent } from "react";
 
 type EfficacySelectionDetailsProps = {
   unitName: string;
@@ -16,9 +17,13 @@ type EfficacySelectionDetailsProps = {
  * selection rationale and repeats the analysis detail in one place. If it fails to
  * open — no JavaScript, an unsupported browser — the page stays fully usable.
  *
- * Opens on hover **and** on focus, and toggles on click/Enter/Space, so pointer,
- * keyboard, and touch all reach it. The native `title` attribute used elsewhere in
- * this repo would not: it is invisible to keyboard focus and to touch.
+ * **The button click is the single toggle authority.** Click, tap, Enter, and Space
+ * all resolve through the one `onClick` path, so no gesture opens and closes in the
+ * same interaction. There is deliberately no open-on-focus and no open-on-hover: a
+ * touch tap fires focus *and* click together, and a mouse click is preceded by a
+ * pointer-enter, so letting either also open would race the toggle and flicker the
+ * panel shut. The popover closes when focus leaves the component, on Escape (returning
+ * focus to the trigger), and on a pointer-down outside it.
  */
 export function EfficacySelectionDetails({
   unitName,
@@ -58,18 +63,20 @@ export function EfficacySelectionDetails({
     };
   }, [open]);
 
+  // Close once focus lands outside the component entirely — tabbing past the trigger,
+  // not moving between the trigger and its own panel.
+  const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (!containerRef.current?.contains(event.relatedTarget as Node | null)) {
+      setOpen(false);
+    }
+  };
+
   return (
-    <div
-      ref={containerRef}
-      className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
+    <div ref={containerRef} className="relative" onBlur={handleBlur}>
       <button
         ref={buttonRef}
         type="button"
         onClick={() => setOpen((value) => !value)}
-        onFocus={() => setOpen(true)}
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}

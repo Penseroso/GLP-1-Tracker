@@ -60,6 +60,7 @@ const REVIEWED_EVIDENCE: Record<
     comparisonGroupKey: string;
     treatmentOutcomeIds: string[];
     placeboOutcomeIds: string[];
+    activeComparatorOutcomeIds: string[];
     betweenArmOutcomeIds: string[];
   }
 > = {
@@ -71,6 +72,7 @@ const REVIEWED_EVIDENCE: Record<
       "arm-level|participants with reported day 29 body weight data(mad cohort 1 n=7)|",
     treatmentOutcomeIds: ["asc30-102-mad-1-body-weight-day-29"],
     placeboOutcomeIds: [],
+    activeComparatorOutcomeIds: [],
     betweenArmOutcomeIds: [],
   },
   "asset:eli-lilly-and-company/ly3502970": {
@@ -84,6 +86,7 @@ const REVIEWED_EVIDENCE: Record<
       "attain1-weight-orfor36",
     ],
     placeboOutcomeIds: ["attain1-weight-placebo"],
+    activeComparatorOutcomeIds: [],
     betweenArmOutcomeIds: [],
   },
   "asset:novo-nordisk/semaglutide": {
@@ -93,6 +96,7 @@ const REVIEWED_EVIDENCE: Record<
     comparisonGroupKey: "arm-level|full analysis set(overall)|",
     treatmentOutcomeIds: ["step8-weight-semaglutide"],
     placeboOutcomeIds: [],
+    activeComparatorOutcomeIds: ["step8-weight-liraglutide"],
     betweenArmOutcomeIds: ["step8-weight-between"],
   },
   "asset:eli-lilly-and-company/ly3298176": {
@@ -103,6 +107,7 @@ const REVIEWED_EVIDENCE: Record<
       "arm-level|full analysis set(overall)|modified treatment regimen",
     treatmentOutcomeIds: ["sm5-weight-tirz"],
     placeboOutcomeIds: [],
+    activeComparatorOutcomeIds: ["sm5-weight-sema"],
     betweenArmOutcomeIds: ["sm5-weight-between"],
   },
   "asset:roche/enicepatide": {
@@ -118,6 +123,7 @@ const REVIEWED_EVIDENCE: Record<
       "en103-weight-efficacy-24mg",
     ],
     placeboOutcomeIds: ["en103-weight-efficacy-placebo"],
+    activeComparatorOutcomeIds: [],
     betweenArmOutcomeIds: ["en103-weight-efficacy"],
   },
   "asset:eli-lilly-and-company/ly3305677": {
@@ -127,6 +133,7 @@ const REVIEWED_EVIDENCE: Record<
     comparisonGroupKey: "arm-level|full analysis set(overall)|treatment policy",
     treatmentOutcomeIds: ["glory1-weight-maz4", "glory1-weight-maz6"],
     placeboOutcomeIds: ["glory1-weight-placebo"],
+    activeComparatorOutcomeIds: [],
     betweenArmOutcomeIds: [],
   },
   "asset:eli-lilly-and-company/ly3437943": {
@@ -141,6 +148,7 @@ const REVIEWED_EVIDENCE: Record<
       "reta-p2-weight-12mg",
     ],
     placeboOutcomeIds: ["reta-p2-weight-placebo"],
+    activeComparatorOutcomeIds: [],
     betweenArmOutcomeIds: [],
   },
   "asset:eli-lilly-and-company/ly3841136": {
@@ -157,6 +165,7 @@ const REVIEWED_EVIDENCE: Record<
       "elora-p2-weight-3to9-treatment-regimen",
     ],
     placeboOutcomeIds: ["elora-p2-weight-placebo-treatment-regimen"],
+    activeComparatorOutcomeIds: [],
     betweenArmOutcomeIds: [],
   },
   "asset:novo-nordisk/amycretin": {
@@ -166,6 +175,7 @@ const REVIEWED_EVIDENCE: Record<
     comparisonGroupKey: "arm-level|full analysis set(overall)|",
     treatmentOutcomeIds: ["amyoral-weight-100"],
     placeboOutcomeIds: ["amyoral-weight-placebo"],
+    activeComparatorOutcomeIds: [],
     betweenArmOutcomeIds: [],
   },
   "asset:novo-nordisk/cagrisema": {
@@ -175,6 +185,7 @@ const REVIEWED_EVIDENCE: Record<
     comparisonGroupKey: "arm-level|full analysis set(overall)|treatment regimen",
     treatmentOutcomeIds: ["redefine4-weight-cagrisema"],
     placeboOutcomeIds: [],
+    activeComparatorOutcomeIds: ["redefine4-weight-tirzepatide"],
     betweenArmOutcomeIds: [],
   },
 };
@@ -235,6 +246,9 @@ for (const group of view.families) {
       `         placebo:   ${row.evidence.placeboValues.map((v) => `${v.value} ${v.unit}`).join("; ") || "(none in group)"}`,
     );
     console.log(
+      `         activeComp: ${row.evidence.activeComparatorValues.map((v) => `${v.value} ${v.unit} (${v.label})`).join("; ") || "(none in group)"}`,
+    );
+    console.log(
       `         betweenArm: ${row.evidence.storedBetweenArmValues.length}   maturity: ${row.evidence.maturity}`,
     );
   }
@@ -293,6 +307,7 @@ for (const { familyId, row } of rows) {
   const actual = {
     treatment: row.evidence.treatmentValues.map((value) => value.outcomeId),
     placebo: row.evidence.placeboValues.map((value) => value.outcomeId),
+    activeComparator: row.evidence.activeComparatorValues.map((value) => value.outcomeId),
     betweenArm: row.evidence.storedBetweenArmValues.map((value) => value.outcomeId),
   };
   check(
@@ -304,6 +319,10 @@ for (const { familyId, row } of rows) {
     `${context}: placebo ids [${actual.placebo}] != [${reviewed.placeboOutcomeIds}]`,
   );
   check(
+    actual.activeComparator.join(",") === reviewed.activeComparatorOutcomeIds.join(","),
+    `${context}: active-comparator ids [${actual.activeComparator}] != [${reviewed.activeComparatorOutcomeIds}]`,
+  );
+  check(
     actual.betweenArm.join(",") === reviewed.betweenArmOutcomeIds.join(","),
     `${context}: between-arm ids [${actual.betweenArm}] != [${reviewed.betweenArmOutcomeIds}]`,
   );
@@ -311,13 +330,24 @@ for (const { familyId, row } of rows) {
   for (const value of [
     ...row.evidence.treatmentValues,
     ...row.evidence.placeboValues,
+    ...row.evidence.activeComparatorValues,
     ...row.evidence.storedBetweenArmValues,
   ]) {
     checkStoredValue(context, value);
   }
-  for (const value of [...row.evidence.treatmentValues, ...row.evidence.placeboValues]) {
+  for (const value of [
+    ...row.evidence.treatmentValues,
+    ...row.evidence.placeboValues,
+    ...row.evidence.activeComparatorValues,
+  ]) {
     check(value.unit === EFFICACY_OVERVIEW_UNIT, `${context}: overview unit "${value.unit}"`);
     check(value.resultType === "arm-level", `${context}: overview value is ${value.resultType}`);
+  }
+  for (const value of row.evidence.activeComparatorValues) {
+    check(
+      value.armRole === "active comparator",
+      `${context}: activeComparatorValues holds armRole ${value.armRole}`,
+    );
   }
   for (const value of row.evidence.storedBetweenArmValues) {
     check(

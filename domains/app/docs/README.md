@@ -116,10 +116,24 @@ shared `comparisonGroupKeyOf` primitive.
   controlled, and percent change from baseline in body weight. `mixed` and
   `not-specified` are never read as non-diabetic. `regionRestriction` is display
   only. Coverage is frozen at 10 of 15 units by ADR-0045 and two probes.
-- **One metric only.** `kg` and `percentage points` never appear as an overview
-  value, and units are never converted. A placebo-adjusted figure is shown only
-  where a `between-arm` Outcome is stored; it is never derived from the arm-level
-  values beside it.
+- **One arm-level metric.** `kg` and `percentage points` never appear as an overview
+  arm-level value, and units are never converted. A stored `between-arm` estimate is
+  shown separately, under a **comparator-neutral heading** ("Between-arm estimate, as
+  reported") and in the source's own effect measure and unit; it is never derived from
+  the arm-level values beside it, and it is never labelled placebo-adjusted, because a
+  between-arm estimate may be against an active comparator (STEP 8's is vs. liraglutide,
+  SURMOUNT-5's vs. semaglutide).
+- **An active-comparator study can be a representative row.** Using an active comparator
+  does not disqualify a study — its experimental arm still supplies the arm-level metric
+  (STEP 8, SURMOUNT-5, REDEFINE 4). The comparator arm's own arm-level value is surfaced
+  as a **same-group reference**, held distinct from a placebo reference, never merged
+  into it, and never borrowed from another study or comparison group.
+- **Direct head-to-head evidence is a separate section**, not a cross-trial row, and a
+  row's presence never implies a comparison with any other row. Where one trial reported
+  a direct comparison between two products — a stored between-arm estimate, or arm-level
+  results reported together — it appears in the Head-to-head section, which is exempt
+  from the population and single-metric gates because the comparison is internal to one
+  study.
 - Every unit with recorded body-weight evidence appears either as a row or in
   **Coverage gaps** with its single reason, and the read model asserts that
   partition. Gap copy must state what the data does not claim — an absent

@@ -79,6 +79,14 @@ export type RepresentativeEvidence = {
   treatmentValues: EfficacyValue[];
   /** Placebo arms of the same Study and the same comparison group. */
   placeboValues: EfficacyValue[];
+  /**
+   * Active-comparator arms of the same Study and the same comparison group — e.g.
+   * liraglutide in STEP 8, semaglutide in SURMOUNT-5. Surfaced as its own
+   * same-group reference rather than dropped: an active-comparator study is still a
+   * representative arm-level row, and hiding the comparator arm would leave the row's
+   * between-arm estimate with no in-group reference to read it against.
+   */
+  activeComparatorValues: EfficacyValue[];
   /** Stored between-arm results for the same endpoint/estimand/population. Never computed. */
   storedBetweenArmValues: EfficacyBetweenArmValue[];
   /** One line per ranking key, in the order they were applied. */
@@ -198,6 +206,9 @@ export function selectRepresentative(
   // value this page needs to display as its own labelled reference.
   const treatmentValues = values.filter((value) => value.armRole === "experimental");
   const placeboValues = values.filter((value) => value.armRole === "placebo");
+  const activeComparatorValues = values.filter(
+    (value) => value.armRole === "active comparator",
+  );
 
   const anchor = candidate.group[0].outcome;
   const anchorEstimand = canonicalizeClinicalEstimand(anchor.estimand);
@@ -268,6 +279,7 @@ export function selectRepresentative(
     sourceCount: winner.sourceCount,
     treatmentValues,
     placeboValues,
+    activeComparatorValues,
     storedBetweenArmValues,
     selectionRationale: rationale,
     href: `/studies/${candidate.study.id}`,
