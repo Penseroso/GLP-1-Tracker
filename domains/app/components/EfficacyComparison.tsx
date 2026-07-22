@@ -81,7 +81,7 @@ function HeadToHeadEntry({ pair }: { pair: HeadToHeadPair }) {
         {pair.left.label} <span className="text-muted-foreground">vs</span>{" "}
         {pair.right.label}
       </h3>
-      <dd className="mt-2">
+      <div className="mt-2">
         {pair.evidence.kind === "between-arm" ? (
           <ul className="space-y-1">
             {pair.evidence.values.map((value) => (
@@ -102,7 +102,7 @@ function HeadToHeadEntry({ pair }: { pair: HeadToHeadPair }) {
         ) : (
           <ValueList values={pair.evidence.values} />
         )}
-      </dd>
+      </div>
       <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
         <Link
           href={pair.href}
