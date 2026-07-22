@@ -112,9 +112,12 @@ function toValue(view: OutcomeView, armById: Map<string, ArmView>): EfficacyValu
     value: view.outcome.result.value,
     unit: view.outcome.result.unit,
     label,
-    armRole:
-      armById.get((view.outcome.armIds ?? [])[0])?.role ?? "other",
+    armRole: armById.get((view.outcome.armIds ?? [])[0])?.role ?? "other",
     outcomeId: view.outcome.id,
+    resultType: view.outcome.result.resultType,
+    armIds: view.outcome.armIds,
+    analysisGroupId: view.outcome.analysisGroupId,
+    maturity: view.outcome.maturity,
   };
 }
 
@@ -156,7 +159,11 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
       href: `/studies/${study.id}`,
     };
 
-    // (a) stored direct estimates
+    // (a) stored direct estimates.
+    //
+    // A between-arm Outcome is ONE reported comparison, so it proves exactly one
+    // pair. Enumerating its arms pairwise would copy a single stored number onto
+    // several pairs and assert comparisons the source never made.
     for (const view of endpointGroup.outcomes) {
       if (view.outcome.result.resultType !== "between-arm") continue;
       const entities = Array.from(
@@ -167,30 +174,40 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
             .map((entity) => [entity.key, entity]),
         ).values(),
       );
-      for (let i = 0; i < entities.length; i += 1) {
-        for (let j = i + 1; j < entities.length; j += 1) {
-          const key = pairKey(entities[i], entities[j]);
-          if (pairs.has(key)) continue;
-          pairs.set(key, {
-            ...base,
-            left: entities[i],
-            right: entities[j],
-            evidence: {
-              kind: "between-arm",
-              outcomeId: view.outcome.id,
-              values: [
-                {
-                  ...toValue(view, armById),
-                  effectMeasure: view.outcome.result.effectMeasure,
-                  comparisonType: view.outcome.result.comparisonType,
-                  confidenceInterval: view.outcome.result.confidenceInterval,
-                  pValue: view.outcome.result.pValue,
-                },
-              ],
-            },
-          });
-        }
+
+      // Fewer than two entities: a dose comparison within one entity, or an
+      // estimate anchored on placebo. Neither is a head-to-head.
+      if (entities.length < 2) continue;
+
+      if (entities.length > 2) {
+        throw new Error(
+          `Efficacy Comparison: between-arm Outcome "${view.outcome.id}" in study "${study.id}" ` +
+            `resolves ${entities.length} distinct comparison entities ` +
+            `(${entities.map((entity) => entity.key).join(", ")}); a single stored estimate ` +
+            `cannot be attributed to more than one entity pair`,
+        );
       }
+
+      const key = pairKey(entities[0], entities[1]);
+      if (pairs.has(key)) continue;
+      pairs.set(key, {
+        ...base,
+        left: entities[0],
+        right: entities[1],
+        evidence: {
+          kind: "between-arm",
+          outcomeId: view.outcome.id,
+          values: [
+            {
+              ...toValue(view, armById),
+              effectMeasure: view.outcome.result.effectMeasure,
+              comparisonType: view.outcome.result.comparisonType,
+              confidenceInterval: view.outcome.result.confidenceInterval,
+              pValue: view.outcome.result.pValue,
+            },
+          ],
+        },
+      });
     }
 
     // (b) arm-level results the source reported together

@@ -2,7 +2,10 @@ import {
   canonicalizeClinicalAnalysisPopulation,
   canonicalizeClinicalEstimand,
 } from "@/domains/clinical-evidence/lib/clinical-term-canonicalization.mjs";
-import type { ClinicalResultMaturity } from "@/domains/clinical-evidence/lib/types";
+import type {
+  ClinicalEndpointRole,
+  ClinicalResultMaturity,
+} from "@/domains/clinical-evidence/lib/types";
 
 /**
  * Ordered preference tables for the Efficacy Comparison page.
@@ -43,6 +46,37 @@ const phaseTierByPhase = new Map<string, EfficacyPhaseTier>([
 /** Returns null when the stored phase text has no tier — the caller dispositions it. */
 export function getEfficacyPhaseTier(phase: string): EfficacyPhaseTier | null {
   return phaseTierByPhase.get(phase) ?? null;
+}
+
+/**
+ * Endpoint-role preference.
+ *
+ * Feature-local rather than reused from the Clinical Evidence selectors: this page
+ * ranks candidates across studies, where the asset table only orders endpoint
+ * sections within one study. Without this key a study's secondary weight endpoint
+ * could outrank its prespecified primary purely on a later tie-breaker.
+ */
+const endpointRoleOrder: ClinicalEndpointRole[] = [
+  "primary",
+  "co-primary",
+  "key-secondary",
+  "secondary",
+  "exploratory",
+  "other",
+];
+
+/**
+ * A safety-role endpoint is never an efficacy candidate, even when its domain is
+ * body weight — weight recorded as a safety observation is not the trial's
+ * efficacy claim. Excluded outright rather than ranked last.
+ */
+export function isOverviewEligibleEndpointRole(role: ClinicalEndpointRole): boolean {
+  return role !== "safety";
+}
+
+export function getEndpointRoleRank(role: ClinicalEndpointRole): number {
+  const index = endpointRoleOrder.indexOf(role);
+  return index === -1 ? endpointRoleOrder.length : index;
 }
 
 /**

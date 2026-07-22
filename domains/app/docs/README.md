@@ -95,3 +95,16 @@ spacing, color, or component refactors that preserve those boundaries.
 
 Validate UI changes with `npm run lint`, `npm run build`, and relevant data
 validators when data consumption changes.
+
+## Probe runtime
+
+`npm run data:probe:efficacy-comparison` executes the shipped TypeScript read model
+directly, so it needs **Node >= 22.18** (declared in `package.json` `engines`) for
+`--experimental-strip-types`. `scripts/ts-alias-hooks.mjs` supplies the two things
+bare Node lacks and the Next.js toolchain otherwise provides: the `@/…` path alias
+and extensionless module resolution, plus the `type: "json"` import attribute.
+
+The hook exists so the probe runs the **real** read model. Reimplementing the
+selection rules in JavaScript for probing would let the probe and the shipped code
+drift, which is precisely the failure the probe is meant to catch. The other probes
+and every validator are plain `.mjs` and need no hook.

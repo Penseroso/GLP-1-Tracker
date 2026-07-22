@@ -17,10 +17,19 @@ import type { EvidenceCandidate } from "./candidates";
 import {
   getAnalysisPopulationRank,
   getBestMaturityRank,
+  getEndpointRoleRank,
   getEstimandRank,
+  getMaturityRank,
 } from "./policy";
 
-/** One stored value plus the analysis unit it belongs to. Never a derived figure. */
+/**
+ * One stored value plus the analysis unit it belongs to. Never a derived figure.
+ *
+ * `outcomeId` plus the anchor (`armIds` xor `analysisGroupId`) are carried so a
+ * consumer or probe can resolve the exact source record. Checking a rendered number
+ * against "some value somewhere in the aggregate" would pass even if the row showed
+ * a different study's result.
+ */
 export type EfficacyValue = {
   /** `outcome.result.value`, exactly as stored. */
   value: string;
@@ -29,6 +38,10 @@ export type EfficacyValue = {
   label: string;
   armRole: ClinicalArmRole;
   outcomeId: string;
+  resultType: "arm-level" | "between-arm";
+  armIds?: string[];
+  analysisGroupId?: string;
+  maturity: ClinicalResultMaturity;
 };
 
 export type EfficacyBetweenArmValue = EfficacyValue & {
@@ -44,12 +57,23 @@ export type RepresentativeEvidence = {
   phase: string;
   population: string;
   duration: string | null;
+  /** Identity of the selected endpoint, not just its display name. */
+  endpointId: string;
   endpointName: string;
   endpointRole: ClinicalEndpointRole;
   assessmentTimepoint: string;
+  /** The exact comparison group this evidence came from. */
+  comparisonGroupKey: string;
   estimand?: string;
   analysisPopulation: string;
+  /**
+   * The group's **best** maturity — the same figure the ranking used. Reporting the
+   * first Outcome's maturity instead would let the row disclose a weaker source than
+   * the one that won it its position.
+   */
   maturity: ClinicalResultMaturity;
+  /** Every distinct maturity in the group, so a mixed group is not flattened. */
+  groupMaturities: ClinicalResultMaturity[];
   sourceCount: number;
   /** Experimental arms of the selected group, in authored dose-ascending order. */
   treatmentValues: EfficacyValue[];
@@ -116,6 +140,10 @@ function toValue(
     label,
     armRole: resolveArmRole(view, detail),
     outcomeId: view.outcome.id,
+    resultType: view.outcome.result.resultType,
+    armIds: view.outcome.armIds,
+    analysisGroupId: view.outcome.analysisGroupId,
+    maturity: view.outcome.maturity,
   };
 }
 
@@ -135,6 +163,7 @@ export function selectRepresentative(
 ): RepresentativeEvidence {
   const scored = candidates.map((candidate) => ({
     candidate,
+    endpointRoleRank: getEndpointRoleRank(candidate.endpoint.role),
     estimandRank: getEstimandRank(candidate.group[0].outcome.estimand),
     populationRank: getAnalysisPopulationRank(
       candidate.group[0].outcome.analysisPopulation,
@@ -148,6 +177,7 @@ export function selectRepresentative(
   scored.sort(
     (a, b) =>
       a.candidate.phaseTier - b.candidate.phaseTier ||
+      a.endpointRoleRank - b.endpointRoleRank ||
       a.estimandRank - b.estimandRank ||
       a.populationRank - b.populationRank ||
       b.sourceCount - a.sourceCount ||
@@ -199,12 +229,22 @@ export function selectRepresentative(
       pValue: view.outcome.result.pValue,
     }));
 
+  // The ranking used the group's best maturity, so that is what the row discloses.
+  // Surfacing the first Outcome's maturity instead would let a row advertise a
+  // weaker source than the one that actually won it its position.
+  const groupMaturities = Array.from(
+    new Set(candidate.group.map((view) => view.outcome.maturity)),
+  ).sort((a, b) => getMaturityRank(a) - getMaturityRank(b));
+  const bestMaturity = groupMaturities[0];
+
   const rationale = [
     `Phase tier ${candidate.phaseTier} (${candidate.study.phase})`,
+    `Endpoint role: ${candidate.endpoint.role}`,
     `Estimand: ${anchor.estimand ?? "not reported"}`,
     `Analysis population: ${anchor.analysisPopulation}`,
     `Sources supporting this group: ${winner.sourceCount}`,
-    `Maturity: ${anchor.maturity}`,
+    `Best maturity in group: ${bestMaturity}` +
+      (groupMaturities.length > 1 ? ` (also ${groupMaturities.slice(1).join(", ")})` : ""),
     scored.length > 1
       ? `Chosen from ${scored.length} eligible candidates; ties fall to curated source order`
       : "Only eligible candidate for this unit",
@@ -216,12 +256,15 @@ export function selectRepresentative(
     phase: candidate.study.phase,
     population: candidate.study.population,
     duration: candidate.study.overallDuration ?? null,
+    endpointId: candidate.endpoint.id,
     endpointName: candidate.endpoint.name,
     endpointRole: candidate.endpoint.role,
     assessmentTimepoint: candidate.endpoint.assessmentTimepoint,
+    comparisonGroupKey: candidate.comparisonGroupKey,
     estimand: anchor.estimand,
     analysisPopulation: anchor.analysisPopulation,
-    maturity: anchor.maturity,
+    maturity: bestMaturity,
+    groupMaturities,
     sourceCount: winner.sourceCount,
     treatmentValues,
     placeboValues,

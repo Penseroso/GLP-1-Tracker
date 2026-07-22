@@ -5,12 +5,14 @@ import type {
   StudyDetailView,
 } from "@/domains/app/lib/clinical-evidence/selectors";
 import type {
+  ClinicalArmRole,
   ClinicalEndpointRecord,
   ClinicalStudyRecord,
 } from "@/domains/clinical-evidence/lib/types";
 import {
   EFFICACY_OVERVIEW_UNIT,
   getEfficacyPhaseTier,
+  isOverviewEligibleEndpointRole,
   type EfficacyPhaseTier,
 } from "./policy";
 
@@ -65,10 +67,52 @@ export type EvidenceCandidate = {
   endpointIndex: number;
   /** Every Outcome of one comparison group, in curated source order. */
   group: OutcomeView[];
+  /** The shared comparison-group key, carried so consumers can cite the exact group. */
+  comparisonGroupKey: string;
   groupIndex: number;
   phaseTier: EfficacyPhaseTier;
   arms: ArmView[];
 };
+
+/**
+ * Resolves the arm roles behind one Outcome, following an analysis group to its
+ * member arms when the Outcome is group-anchored.
+ */
+export function outcomeArmRoles(
+  view: OutcomeView,
+  arms: ArmView[],
+  analysisGroups: { id: string; memberArmIds: string[] }[],
+): Set<ClinicalArmRole> {
+  const armById = new Map(arms.map((arm) => [arm.id, arm]));
+  const armIds = view.outcome.analysisGroupId
+    ? (analysisGroups.find((group) => group.id === view.outcome.analysisGroupId)
+        ?.memberArmIds ?? [])
+    : (view.outcome.armIds ?? []);
+  return new Set(
+    armIds
+      .map((armId) => armById.get(armId)?.role)
+      .filter((role): role is ClinicalArmRole => Boolean(role)),
+  );
+}
+
+/**
+ * A comparison group only becomes a candidate when it actually reports the focal
+ * treatment.
+ *
+ * A group carrying only the placebo arm, or only an active comparator, is a real
+ * comparison group but says nothing about this unit's efficacy — promoting it would
+ * put another asset's number, or a control value, in this unit's row.
+ */
+function hasFocalTreatmentValue(
+  group: OutcomeView[],
+  arms: ArmView[],
+  analysisGroups: { id: string; memberArmIds: string[] }[],
+): boolean {
+  return group.some((view) => {
+    const roles = outcomeArmRoles(view, arms, analysisGroups);
+    return roles.size === 1 && roles.has("experimental");
+  });
+}
 
 /**
  * G1 — population. Requires an authored profile matching the adult, non-diabetic,
@@ -157,6 +201,7 @@ export function screenStudy(
 
   detail.endpointGroups.forEach((endpointGroup, endpointIndex) => {
     if (endpointGroup.endpoint.domain !== "body weight") return;
+    if (!isOverviewEligibleEndpointRole(endpointGroup.endpoint.role)) return;
 
     // Comparison-group boundaries come from the primitive the validator shares, so
     // this screen and the data validator always draw the same group.
@@ -169,13 +214,15 @@ export function screenStudy(
       else groups.set(key, [view]);
     }
 
-    Array.from(groups.values()).forEach((group, groupIndex) => {
+    Array.from(groups.entries()).forEach(([comparisonGroupKey, group], groupIndex) => {
+      if (!hasFocalTreatmentValue(group, arms, detail.analysisGroups)) return;
       candidates.push({
         study,
         studyIndex,
         endpoint: endpointGroup.endpoint,
         endpointIndex,
         group,
+        comparisonGroupKey,
         groupIndex,
         phaseTier,
         arms,

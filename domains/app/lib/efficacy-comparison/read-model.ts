@@ -14,7 +14,7 @@ import { findHeadToHeadPairs, type HeadToHeadPair } from "./head-to-head";
 import {
   efficacyMechanismFamilies,
   getAssetDisplay,
-  getRegimenName,
+  getRegimenDisplay,
   resolveAssetMechanismFamily,
   resolveRegimenMechanismFamily,
   type EfficacyMechanismFamily,
@@ -157,11 +157,7 @@ export function getEfficacyComparison(): EfficacyComparisonView {
     const display =
       unit.unitKind === "asset"
         ? getAssetDisplay(unit.companyId, unit.assetId!)
-        : {
-            assetName: getRegimenName(unit.regimenId!),
-            companyName: getAssetDisplay(unit.companyId, unit.assetId ?? "").companyName,
-            mechanism: null,
-          };
+        : getRegimenDisplay(unit.regimenId!);
     const href =
       unit.unitKind === "asset" ? `/assets/${unit.companyId}/${unit.assetId}` : null;
 
@@ -174,7 +170,7 @@ export function getEfficacyComparison(): EfficacyComparisonView {
       gaps.push({
         unitKey,
         unitKind: unit.unitKind,
-        name: display.assetName,
+        name: display.name,
         companyName: display.companyName,
         reason:
           resolution.reason === "family-unassigned"
@@ -197,7 +193,7 @@ export function getEfficacyComparison(): EfficacyComparisonView {
       gaps.push({
         unitKey,
         unitKind: unit.unitKind,
-        name: display.assetName,
+        name: display.name,
         companyName: display.companyName,
         reason: furthestDisposition(reasons),
         href,
@@ -208,7 +204,7 @@ export function getEfficacyComparison(): EfficacyComparisonView {
     const row: EfficacyComparisonRow = {
       unitKey,
       unitKind: unit.unitKind,
-      name: display.assetName,
+      name: display.name,
       companyName: display.companyName,
       mechanism: display.mechanism,
       href,

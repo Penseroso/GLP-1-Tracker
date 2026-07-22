@@ -98,19 +98,47 @@ export function resolveRegimenMechanismFamily(
   return { family, mechanism: null };
 }
 
-export function getRegimenName(regimenId: string): string {
-  return regimensById.get(regimenId)?.name ?? regimenId;
+export type EfficacyUnitDisplay = {
+  name: string;
+  companyName: string;
+  mechanism: string | null;
+  mechanismFamilyId: string | null;
+};
+
+/**
+ * Display identity for a regimen unit, resolved from the regimen record and its own
+ * joined company.
+ *
+ * Deliberately does **not** route through the asset lookup: a regimen has no
+ * `assetId`, so an asset-keyed lookup would miss and fall back to printing the raw
+ * `companyId` slug where the company's registered name belongs.
+ */
+export function getRegimenDisplay(regimenId: string): EfficacyUnitDisplay {
+  const regimen = regimensById.get(regimenId);
+  if (!regimen) {
+    throw new Error(
+      `Efficacy Comparison: Study references missing regimen "${regimenId}"`,
+    );
+  }
+  return {
+    name: regimen.name,
+    companyName: regimen.company?.name ?? regimen.companyId,
+    mechanism: null,
+    mechanismFamilyId: regimen.mechanismFamilyId ?? null,
+  };
 }
 
 export function getAssetDisplay(
   companyId: string,
   assetId: string,
-): { assetName: string; companyName: string; mechanism: string | null } {
+): EfficacyUnitDisplay {
   const programs = programsByAssetKey.get(`${companyId}|${assetId}`);
   const program = programs?.[0];
+  const mechanism = program?.technical.mechanism ?? null;
   return {
-    assetName: program?.assetName ?? assetId,
+    name: program?.assetName ?? assetId,
     companyName: program?.company?.name ?? companyId,
-    mechanism: program?.technical.mechanism ?? null,
+    mechanism,
+    mechanismFamilyId: mechanism === null ? null : getMechanismFamilyId(mechanism),
   };
 }
