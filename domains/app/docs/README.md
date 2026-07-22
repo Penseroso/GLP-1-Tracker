@@ -16,6 +16,7 @@ boundaries. Historical UI audits are not part of the implementation path.
 | --- | --- |
 | `/` | Portfolio overview and summary views |
 | `/assets` | Searchable/filterable program register |
+| `/efficacy-comparison` | Reported body-weight reduction by mechanism family |
 | `/companies/[companyId]` | Company detail and associated clinical inventory |
 | `/assets/[companyId]/[assetId]` | Focal and linked studies for an asset |
 | `/studies/[studyId]` | Study, arms, endpoints, outcomes, and source detail |
@@ -86,6 +87,48 @@ JSON, and only these canonical selectors import that loader.
   no public result exists.
 - Clinical stage and regulatory milestone presentation must preserve the
   distinctions supplied by the Company/Pipeline contract.
+
+## Efficacy Comparison
+
+`/efficacy-comparison` compares reported body-weight reduction across mechanism
+families. Its read model is `domains/app/lib/efficacy-comparison/read-model.ts`,
+composing the mechanism family (Company/Pipeline) with representative clinical
+evidence; selection policy lives in that directory's sibling modules, not in the
+Clinical Evidence selectors, which contribute only record-level joins and the
+shared `comparisonGroupKeyOf` primitive.
+
+- The comparison unit is an **asset xor regimen**. Mechanism family comes from the
+  authored registry (ADR-0043); a regimen carries an authored `mechanismFamilyId`.
+- Selection operates on **evidence candidates** — one (Study, Endpoint, comparison
+  group) triple — ranked by trial phase tier, endpoint role, estimand, analysis
+  population, source completeness, evidence maturity, then curated source order.
+  It is **selection, never calculation**: every rendered figure is a stored
+  `result.value` for a stored anchor.
+- **Trial phase tier is feature-local**, not a Clinical Evidence authority.
+  `study.phase` stays open free text; an unrecognised phase dispositions one
+  candidate rather than failing data validation.
+- **Maturity ranks venue-first and only as a late tie-breaker**, because the
+  Clinical Evidence contract documents that it conflates finality with venue. The
+  row discloses the group's *best* maturity — the same figure the ranking used —
+  alongside every maturity in the group.
+- Eligibility is a **hard gate, never a down-rank**: adult, `without-type-2-diabetes`
+  exactly, no additional required condition, initial treatment, randomised and
+  controlled, and percent change from baseline in body weight. `mixed` and
+  `not-specified` are never read as non-diabetic. `regionRestriction` is display
+  only. Coverage is frozen at 10 of 15 units by ADR-0045 and two probes.
+- **One metric only.** `kg` and `percentage points` never appear as an overview
+  value, and units are never converted. A placebo-adjusted figure is shown only
+  where a `between-arm` Outcome is stored; it is never derived from the arm-level
+  values beside it.
+- Every unit with recorded body-weight evidence appears either as a row or in
+  **Coverage gaps** with its single reason, and the read model asserts that
+  partition. Gap copy must state what the data does not claim — an absent
+  percent-change result is not evidence of no effect.
+- Rows are ordered by registry `sortRank` and curated order, **never by magnitude**;
+  the page states that its rows are separate trials and not a ranking.
+- **Disclosure**: every fact needed to read a row renders inline, and every row
+  links to its Study. The hover/focus popover is auxiliary — it adds the selection
+  rationale only, and the page stays fully usable without it.
 
 ## Change boundary
 
