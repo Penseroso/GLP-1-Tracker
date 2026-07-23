@@ -35,9 +35,30 @@ const phaseTierBadgeClass: Record<number, string> = {
 };
 const neutralPhaseBadgeClass = "border-border text-muted-foreground";
 
-function phaseBadgeClass(phase: string): string {
+function phaseTierColorClass(phase: string): string {
   const tier = getEfficacyPhaseTier(phase);
   return tier ? phaseTierBadgeClass[tier] : neutralPhaseBadgeClass;
+}
+
+/** Full class list for a phase badge — kept in one place so both card kinds match. */
+function phaseBadgeClass(phase: string): string {
+  return `rounded border px-1 py-px text-[10px] font-medium leading-none ${phaseTierColorClass(phase)}`;
+}
+
+/**
+ * Compact form of a mechanism-family label for the jump-nav chips, where the full
+ * pharmacology name ("GLP-1 / GIP receptor agonist") is too long. Deterministic
+ * string compression, not a second authored label: "receptor agonist" → "RA" (the
+ * conventional abbreviation, e.g. GLP-1RA), antagonist/blockade and "plus" shortened
+ * likewise. The full label still heads each section.
+ */
+function shortFamilyLabel(label: string): string {
+  return label
+    .replace(/ receptor agonist/g, "RA")
+    .replace(/ receptor antagonist/g, "R antag")
+    .replace(/ receptor blockade/g, "R block")
+    .replace(/ receptor/g, "R")
+    .replace(/ plus /g, " + ");
 }
 
 /**
@@ -130,11 +151,7 @@ function HeadToHeadEntry({ group }: { group: HeadToHeadGroup }) {
                 <HeadToHeadEntity entity={item.entity} />
               </span>
             ))}
-            <span
-              className={`rounded border px-1 text-[10px] font-normal uppercase tracking-wide ${phaseBadgeClass(group.phase)}`}
-            >
-              {group.phase}
-            </span>
+            <span className={phaseBadgeClass(group.phase)}>{group.phase}</span>
           </h3>
         </div>
         <EfficacySelectionDetails
@@ -148,7 +165,12 @@ function HeadToHeadEntry({ group }: { group: HeadToHeadGroup }) {
         />
       </div>
 
-      <ul className="mt-2 space-y-1">
+      <p className="mt-2 text-xs text-muted-foreground">
+        {group.endpointName}
+        {group.duration ? ` · ${group.duration}` : ""}
+      </p>
+
+      <ul className="mt-1.5 space-y-1">
         {group.entities.map((item) => (
           <li
             key={item.entity.key}
@@ -219,9 +241,7 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
             ) : (
               row.name
             )}
-            <span
-              className={`rounded border px-1 text-[10px] font-normal uppercase tracking-wide ${phaseBadgeClass(evidence.phase)}`}
-            >
+            <span className={phaseBadgeClass(evidence.phase)}>
               {evidence.phase}
             </span>
           </h3>
@@ -373,9 +393,10 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
             <a
               key={group.family.id}
               href={`#family-${group.family.id}`}
+              title={group.family.label}
               className={`shrink-0 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:bg-muted hover:text-foreground ${focusRing}`}
             >
-              {group.family.label}
+              {shortFamilyLabel(group.family.label)}
             </a>
           ))}
           <a
