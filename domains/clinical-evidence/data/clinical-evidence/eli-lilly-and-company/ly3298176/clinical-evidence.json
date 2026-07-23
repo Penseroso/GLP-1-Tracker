@@ -314,8 +314,8 @@
       "overallDuration": "112 weeks",
       "safetySummary": "The safety profile was consistent with prior tirzepatide studies; gastrointestinal events were the most common adverse events.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT06047548",
@@ -328,7 +328,7 @@
             "title": "Tirzepatide for maintenance of bodyweight reduction in adults with obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2026-05-12",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-23"
           }
         ]
       },
@@ -1716,7 +1716,7 @@
       "id": "smmaintain-weight-week112",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
       "name": "Percentage change from original baseline in body weight",
-      "role": "secondary",
+      "role": "primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 112"
     },
