@@ -223,8 +223,8 @@ function EndpointCard({
                   />
                 ) : (
                   <Fragment key={`cluster-${row.outcomes[0].outcome.id}`}>
-                    <li className="flex flex-wrap items-center gap-x-2 gap-y-1 bg-muted/30 px-1 py-2 text-xs text-muted-foreground">
-                      <Badge>{row.outcomes.length} results</Badge>
+                    <li className="flex flex-wrap items-center gap-x-2 gap-y-1 border-l-2 border-primary/50 bg-muted/30 py-2 pl-3 pr-1 text-xs text-muted-foreground sm:pl-4">
+                      <Badge>{row.outcomes.length} grouped results</Badge>
                       <span>
                         <span className="font-semibold text-foreground">
                           Population

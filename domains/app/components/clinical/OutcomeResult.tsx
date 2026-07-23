@@ -63,7 +63,12 @@ type OutcomeResultProps = {
   hideSource?: boolean;
   /** Suppress the per-row Population/Estimand block when a cluster header above already states it. */
   hidePopulationEstimand?: boolean;
-  /** Indents the row to read as nested under a cluster header rather than a top-level entry. */
+  /**
+   * Reads as nested under a cluster header rather than a top-level entry. Carries a
+   * left border rail matching the cluster header's, unbroken from the header through
+   * every member row, so the grouping stays visible without relying on indentation
+   * alone (indentation-only read as an unexplained layout quirk, not a group).
+   */
   clustered?: boolean;
 };
 
@@ -102,7 +107,7 @@ export function OutcomeResult({
   return (
     <li
       className={`grid grid-cols-1 gap-x-5 gap-y-2 py-4 sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)] sm:items-center ${
-        clustered ? "pl-3 sm:pl-4" : ""
+        clustered ? "border-l-2 border-primary/50 pl-3 sm:pl-4" : ""
       }`}
     >
       {/* Column 1: treatment-regimen subject (arm/dose or analysis-group). */}
