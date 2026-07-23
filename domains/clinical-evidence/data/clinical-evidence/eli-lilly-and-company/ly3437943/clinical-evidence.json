@@ -32,8 +32,8 @@
       "overallDuration": "48 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal, were dose related and mostly mild to moderate; heart-rate increases peaked at 24 weeks and then declined.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-14",
-        "updatedAt": "2026-07-14",
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT04881760",
@@ -942,6 +942,14 @@
   ],
   "endpoints": [
     {
+      "id": "reta-p2-weight-week24",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "name": "Percentage change from baseline in body weight",
+      "role": "primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 24"
+    },
+    {
       "id": "reta-p2-weight-week48",
       "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
       "name": "Percentage change from baseline in body weight",
@@ -967,6 +975,142 @@
     }
   ],
   "outcomes": [
+    {
+      "id": "reta-p2-weight24-1mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week24",
+      "armIds": [
+        "reta-p2-1mg"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-7.2",
+        "numericValue": -7.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight24-4mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week24",
+      "analysisGroupId": "reta-p2-pooled-4mg",
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-12.9",
+        "numericValue": -12.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight24-8mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week24",
+      "analysisGroupId": "reta-p2-pooled-8mg",
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-17.3",
+        "numericValue": -17.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight24-12mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week24",
+      "armIds": [
+        "reta-p2-12mg"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-17.5",
+        "numericValue": -17.5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-weight24-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-weight-week24",
+      "armIds": [
+        "reta-p2-placebo"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "estimand": "Efficacy estimand",
+      "result": {
+        "value": "-1.6",
+        "numericValue": -1.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37366315/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
     {
       "id": "reta-p2-weight-1mg",
       "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
