@@ -40,6 +40,27 @@ function phaseBadgeClass(phase: string): string {
   return tier ? phaseTierBadgeClass[tier] : neutralPhaseBadgeClass;
 }
 
+/**
+ * A stored figure with its unit. The page's shared metric is percent change from
+ * baseline, so its unit reads as a "%" glyph fused to the number ("−15.0%") rather
+ * than the spelled word repeated down a dose list. Any other unit — a between-arm
+ * effect measure in percentage points, kg, etc. — stays spelled out and muted, so a
+ * different measure never hides behind the same glyph.
+ */
+function ValueNumber({ value, unit }: { value: string; unit: string }) {
+  if (unit === "percent") {
+    return (
+      <span className="font-semibold tabular-nums text-foreground">{value}%</span>
+    );
+  }
+  return (
+    <>
+      <span className="font-semibold tabular-nums text-foreground">{value}</span>{" "}
+      <span className="text-muted-foreground">{unit}</span>
+    </>
+  );
+}
+
 function ValueList({
   values,
 }: {
@@ -49,10 +70,7 @@ function ValueList({
     <ul className="flex flex-wrap gap-x-4 gap-y-1">
       {values.map((value) => (
         <li key={value.outcomeId} className="text-sm">
-          <span className="font-semibold tabular-nums text-foreground">
-            {value.value}
-          </span>{" "}
-          <span className="text-muted-foreground">{value.unit}</span>
+          <ValueNumber value={value.value} unit={value.unit} />
           <span className="block text-xs text-muted-foreground">{value.label}</span>
         </li>
       ))}
@@ -142,10 +160,7 @@ function HeadToHeadEntry({ group }: { group: HeadToHeadGroup }) {
             {item.values.length > 0 ? (
               item.values.map((value) => (
                 <span key={value.outcomeId}>
-                  <span className="font-semibold tabular-nums text-foreground">
-                    {value.value}
-                  </span>{" "}
-                  <span className="text-muted-foreground">{value.unit}</span>
+                  <ValueNumber value={value.value} unit={value.unit} />
                 </span>
               ))
             ) : (
@@ -251,57 +266,47 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
           </dd>
         </div>
 
-        <div>
-          <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-            Same-group reference
-          </dt>
-          <dd className="mt-1.5">
-            {evidence.placeboValues.length > 0 ||
-            evidence.activeComparatorValues.length > 0 ? (
-              <ul className="flex flex-wrap gap-x-4 gap-y-1">
+        {evidence.placeboValues.length > 0 ||
+        evidence.activeComparatorValues.length > 0 ? (
+          <div>
+            <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+              Same-group reference
+            </dt>
+            <dd className="mt-1.5">
+              <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
                 {evidence.placeboValues.map((value) => (
                   <li key={value.outcomeId} className="text-sm">
-                    <span className="text-muted-foreground">Placebo:</span>{" "}
-                    <span className="font-semibold tabular-nums text-foreground">
-                      {value.value}
-                    </span>{" "}
-                    <span className="text-muted-foreground">{value.unit}</span>
+                    <span className="font-medium text-card-foreground">Placebo</span>{" "}
+                    <ValueNumber value={value.value} unit={value.unit} />
+                    <span className="block text-xs text-muted-foreground">
+                      Placebo reference
+                    </span>
                   </li>
                 ))}
                 {evidence.activeComparatorValues.map((value) => (
                   <li key={value.outcomeId} className="text-sm">
-                    <span className="text-muted-foreground">{value.label}:</span>{" "}
-                    <span className="font-semibold tabular-nums text-foreground">
-                      {value.value}
-                    </span>{" "}
-                    <span className="text-muted-foreground">{value.unit}</span>
+                    <span className="font-medium text-card-foreground">{value.label}</span>{" "}
+                    <ValueNumber value={value.value} unit={value.unit} />
                     <span className="block text-xs text-muted-foreground">
                       Active comparator
                     </span>
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="text-sm italic text-muted-foreground">
-                Not reported in this comparison group.
-              </p>
-            )}
-          </dd>
-        </div>
+            </dd>
+          </div>
+        ) : null}
 
-        <div>
-          <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-            Between-arm estimate, as reported
-          </dt>
-          <dd className="mt-1.5">
-            {evidence.storedBetweenArmValues.length > 0 ? (
+        {evidence.storedBetweenArmValues.length > 0 ? (
+          <div>
+            <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+              Between-arm estimate, as reported
+            </dt>
+            <dd className="mt-1.5">
               <ul className="space-y-1">
                 {evidence.storedBetweenArmValues.map((value) => (
                   <li key={value.outcomeId} className="text-sm">
-                    <span className="font-semibold tabular-nums text-foreground">
-                      {value.value}
-                    </span>{" "}
-                    <span className="text-muted-foreground">{value.unit}</span>
+                    <ValueNumber value={value.value} unit={value.unit} />
                     <span className="block text-xs text-muted-foreground">
                       {formatNullableValue(value.comparisonType ?? value.effectMeasure)}
                       {value.confidenceInterval ? <> &middot; {value.confidenceInterval}</> : null}
@@ -309,13 +314,9 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="text-sm italic text-muted-foreground">
-                Not reported by the source.
-              </p>
-            )}
-          </dd>
-        </div>
+            </dd>
+          </div>
+        ) : null}
       </dl>
     </li>
   );
@@ -384,10 +385,6 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
                 {group.family.composition === "multi-component"
                   ? "Multi-component product"
                   : "Single molecule"}
-                {" · "}
-                {group.family.targets
-                  .map((target) => `${target.target} ${target.action}`)
-                  .join(", ")}
               </p>
             </div>
             <ul>
