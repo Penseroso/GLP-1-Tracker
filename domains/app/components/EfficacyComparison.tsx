@@ -8,7 +8,7 @@ import type {
 } from "@/domains/app/lib/efficacy-comparison/read-model";
 import type {
   ComparisonEntity,
-  HeadToHeadPair,
+  HeadToHeadGroup,
 } from "@/domains/app/lib/efficacy-comparison/head-to-head";
 import { getEfficacyPhaseTier } from "@/domains/app/lib/efficacy-comparison/policy";
 
@@ -91,63 +91,100 @@ function HeadToHeadEntity({ entity }: { entity: ComparisonEntity }) {
 }
 
 /**
- * One direct head-to-head pair. Kept structurally separate from a cross-trial row:
- * this is a within-trial comparison the source actually reported, not two rows placed
- * side by side. Its evidence is whatever proved the pair — a stored between-arm
- * estimate, or the arm-level results the source reported together.
+ * One study's direct comparison, as a single card. Kept structurally separate from a
+ * cross-trial row: this is a within-trial comparison the source actually reported,
+ * not rows placed side by side. Every entity the study compared is listed together —
+ * a 3-arm study is one card, not three — and any stored between-arm estimate rides
+ * alongside, attributed to the exact pair it compares. Study identity, like the
+ * cross-trial rows, lives on the phase badge and the ⓘ disclosure, not a text footer.
  */
-function HeadToHeadEntry({ pair }: { pair: HeadToHeadPair }) {
+function HeadToHeadEntry({ group }: { group: HeadToHeadGroup }) {
   return (
     <li className="border-t border-border px-5 py-4 first:border-t-0">
-      <h3 className="text-base font-semibold text-card-foreground">
-        <HeadToHeadEntity entity={pair.left} />{" "}
-        <span className="text-muted-foreground">vs</span>{" "}
-        <HeadToHeadEntity entity={pair.right} />
-      </h3>
-      <div className="mt-2">
-        {pair.evidence.armLevel.length > 0 ? (
-          <ValueList values={pair.evidence.armLevel} />
-        ) : (
-          <p className="text-sm italic text-muted-foreground">
-            Not reported as arm-level results in this comparison.
-          </p>
-        )}
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+        <div className="min-w-0">
+          <h3 className="flex flex-wrap items-center gap-2 text-base font-semibold text-card-foreground">
+            {group.entities.map((item, index) => (
+              <span key={item.entity.key} className="inline-flex items-center gap-2">
+                {index > 0 ? (
+                  <span className="text-muted-foreground">/</span>
+                ) : null}
+                <HeadToHeadEntity entity={item.entity} />
+              </span>
+            ))}
+            <span
+              className={`rounded border px-1 text-[10px] font-normal uppercase tracking-wide ${phaseBadgeClass(group.phase)}`}
+            >
+              {group.phase}
+            </span>
+          </h3>
+        </div>
+        <EfficacySelectionDetails
+          facts={[
+            { label: "Study", value: group.studyTitle, href: group.href },
+            { label: "Endpoint", value: group.endpointName },
+            { label: "Timepoint", value: group.assessmentTimepoint },
+            { label: "Duration", value: formatNullableValue(group.duration) },
+            { label: "Population", value: group.population },
+          ]}
+        />
       </div>
-      {pair.evidence.betweenArm.length > 0 ? (
-        <div className="mt-2">
+
+      <ul className="mt-2 space-y-1">
+        {group.entities.map((item) => (
+          <li
+            key={item.entity.key}
+            className="flex flex-wrap items-baseline gap-x-3 text-sm"
+          >
+            <span className="font-medium text-card-foreground">
+              <HeadToHeadEntity entity={item.entity} />
+            </span>
+            {item.values.length > 0 ? (
+              item.values.map((value) => (
+                <span key={value.outcomeId}>
+                  <span className="font-semibold tabular-nums text-foreground">
+                    {value.value}
+                  </span>{" "}
+                  <span className="text-muted-foreground">{value.unit}</span>
+                </span>
+              ))
+            ) : (
+              <span className="italic text-muted-foreground">
+                no arm-level value on this axis
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+
+      {group.betweenArm.length > 0 ? (
+        <div className="mt-3">
           <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
             Between-arm estimate, as reported
           </p>
           <ul className="mt-1 space-y-1">
-            {pair.evidence.betweenArm.map((value) => (
-              <li key={value.outcomeId} className="text-sm">
-                <span className="font-semibold tabular-nums text-foreground">
-                  {value.value}
-                </span>{" "}
-                <span className="text-muted-foreground">{value.unit}</span>
-                <span className="block text-xs text-muted-foreground">
-                  {formatNullableValue(value.comparisonType ?? value.effectMeasure)}
-                  {value.confidenceInterval ? (
-                    <> &middot; {value.confidenceInterval}</>
-                  ) : null}
-                </span>
-              </li>
-            ))}
+            {group.betweenArm.flatMap((pair) =>
+              pair.values.map((value) => (
+                <li key={value.outcomeId} className="text-sm">
+                  <span className="text-xs text-muted-foreground">
+                    {pair.left.label} &minus; {pair.right.label}:
+                  </span>{" "}
+                  <span className="font-semibold tabular-nums text-foreground">
+                    {value.value}
+                  </span>{" "}
+                  <span className="text-muted-foreground">{value.unit}</span>
+                  <span className="block text-xs text-muted-foreground">
+                    {formatNullableValue(value.comparisonType ?? value.effectMeasure)}
+                    {value.confidenceInterval ? (
+                      <> &middot; {value.confidenceInterval}</>
+                    ) : null}
+                  </span>
+                </li>
+              )),
+            )}
           </ul>
         </div>
       ) : null}
-      <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-        <Link
-          href={pair.href}
-          className={`rounded-sm font-medium text-primary hover:underline ${focusRing}`}
-        >
-          {pair.studyTitle}
-        </Link>
-        <span>{pair.phase}</span>
-        <span>{pair.endpointName}</span>
-        <span>{pair.assessmentTimepoint}</span>
-        {pair.duration ? <span>{pair.duration}</span> : null}
-      </p>
     </li>
   );
 }
@@ -381,10 +418,10 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
           />
         ) : (
           <ul>
-            {view.headToHead.map((pair) => (
+            {view.headToHead.map((group) => (
               <HeadToHeadEntry
-                key={`${pair.studyId}:${pair.left.key}:${pair.right.key}`}
-                pair={pair}
+                key={`${group.studyId}:${group.endpointName}`}
+                group={group}
               />
             ))}
           </ul>

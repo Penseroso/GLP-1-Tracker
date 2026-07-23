@@ -10,7 +10,7 @@ import {
   type EfficacyDispositionReason,
   type EvidenceCandidate,
 } from "./candidates";
-import { findHeadToHeadPairs, type HeadToHeadPair } from "./head-to-head";
+import { findHeadToHeadGroups, type HeadToHeadGroup } from "./head-to-head";
 import {
   efficacyMechanismFamilies,
   getAssetDisplay,
@@ -69,7 +69,7 @@ export type EfficacyCoverageGap = {
 export type EfficacyComparisonView = {
   families: EfficacyFamilyGroup[];
   gaps: EfficacyCoverageGap[];
-  headToHead: HeadToHeadPair[];
+  headToHead: HeadToHeadGroup[];
   totalUnits: number;
 };
 
@@ -130,7 +130,7 @@ export function getEfficacyComparison(): EfficacyComparisonView {
 
   const rowsByFamilyId = new Map<string, EfficacyComparisonRow[]>();
   const gaps: EfficacyCoverageGap[] = [];
-  const headToHead: HeadToHeadPair[] = [];
+  const headToHead: HeadToHeadGroup[] = [];
   let evidenceBearingUnits = 0;
 
   for (const [unitKey, unit] of units) {
@@ -142,7 +142,7 @@ export function getEfficacyComparison(): EfficacyComparisonView {
     // metric gates: a direct comparison is internally controlled, so a diabetic or
     // maintenance population does not invalidate it.
     for (const detail of details) {
-      headToHead.push(...findHeadToHeadPairs(detail));
+      headToHead.push(...findHeadToHeadGroups(detail));
     }
 
     // Only units with recorded body-weight evidence are counted or dispositioned;

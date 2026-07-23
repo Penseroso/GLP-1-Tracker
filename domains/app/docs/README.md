@@ -130,10 +130,13 @@ shared `comparisonGroupKeyOf` primitive.
   into it, and never borrowed from another study or comparison group.
 - **Direct head-to-head evidence is a separate section**, not a cross-trial row, and a
   row's presence never implies a comparison with any other row. Where one trial reported
-  a direct comparison between two products — a stored between-arm estimate, or arm-level
-  results reported together — it appears in the Head-to-head section, which is exempt
-  from the population and single-metric gates because the comparison is internal to one
-  study.
+  a direct comparison between two or more products — a stored between-arm estimate, or
+  arm-level results reported together — it appears in the Head-to-head section, which is
+  exempt from the population and single-metric gates because the comparison is internal
+  to one study. Each study is **one card** listing every entity it compared (a 3-arm
+  study is not split into pair cards), read from a single best-ranked (population,
+  estimand) axis so two analysis sets are never pooled; any stored between-arm estimate
+  is shown alongside, attributed to the exact pair it compares.
 - Every unit with recorded body-weight evidence appears either as a row or in
   **Coverage gaps** with its single reason, and the read model asserts that
   partition. Gap copy must state what the data does not claim — an absent

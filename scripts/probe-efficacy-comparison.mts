@@ -14,7 +14,7 @@ import { readFileSync } from "node:fs";
 
 import { getEfficacyComparison } from "@/domains/app/lib/efficacy-comparison/read-model";
 import { EFFICACY_OVERVIEW_UNIT } from "@/domains/app/lib/efficacy-comparison/policy";
-import { findHeadToHeadPairs } from "@/domains/app/lib/efficacy-comparison/head-to-head";
+import { findHeadToHeadGroups } from "@/domains/app/lib/efficacy-comparison/head-to-head";
 import { getRegimenDisplay } from "@/domains/app/lib/efficacy-comparison/mechanism-family";
 import type { StudyDetailView } from "@/domains/app/lib/clinical-evidence/selectors";
 
@@ -35,7 +35,7 @@ const REVIEWED_TOTALS = {
   gapUnits: 5,
   totalUnits: 15,
   headToHeadStudies: 5,
-  headToHeadPairs: 7,
+  headToHeadGroups: 5,
 };
 
 const REVIEWED_GAPS: Record<string, string> = {
@@ -256,18 +256,14 @@ for (const group of view.families) {
 console.log("  coverage gaps:");
 for (const gap of view.gaps) console.log(`    ${gap.unitKey} — ${gap.reason}`);
 
-const h2hStudies = new Set(view.headToHead.map((pair) => pair.studyId));
-console.log(`  head-to-head: ${h2hStudies.size} studies, ${view.headToHead.length} pairs`);
-for (const pair of view.headToHead) {
-  const proof = [
-    pair.evidence.armLevel.length > 0 ? `arm-level x${pair.evidence.armLevel.length}` : null,
-    pair.evidence.betweenArm.length > 0 ? `between-arm x${pair.evidence.betweenArm.length}` : null,
-  ]
-    .filter(Boolean)
-    .join(" + ");
-  console.log(
-    `    ${pair.studyTitle}: ${pair.left.label} :: ${pair.right.label}  <- ${proof}`,
-  );
+const h2hStudies = new Set(view.headToHead.map((group) => group.studyId));
+console.log(`  head-to-head: ${h2hStudies.size} studies, ${view.headToHead.length} groups`);
+for (const group of view.headToHead) {
+  const entities = group.entities
+    .map((item) => `${item.entity.label} ${item.values.map((v) => v.value).join("/") || "—"}`)
+    .join(" · ");
+  const betweenArm = group.betweenArm.length > 0 ? `  + between-arm x${group.betweenArm.length}` : "";
+  console.log(`    ${group.studyTitle}: ${entities}${betweenArm}`);
 }
 
 // --- totals and dispositions ---------------------------------------------
@@ -370,17 +366,34 @@ for (const { familyId, row } of rows) {
 
 check(h2hStudies.size === REVIEWED_TOTALS.headToHeadStudies, `h2h studies ${h2hStudies.size}`);
 check(
-  view.headToHead.length === REVIEWED_TOTALS.headToHeadPairs,
-  `h2h pairs ${view.headToHead.length}`,
+  view.headToHead.length === REVIEWED_TOTALS.headToHeadGroups,
+  `h2h groups ${view.headToHead.length}`,
 );
-for (const pair of view.headToHead) {
-  check(pair.left.key !== pair.right.key, `${pair.studyTitle}: identical entities`);
+for (const group of view.headToHead) {
+  // A group is a real comparison only with two or more distinct entities.
+  const entityKeys = new Set(group.entities.map((item) => item.entity.key));
   check(
-    pair.evidence.armLevel.length > 0 || pair.evidence.betweenArm.length > 0,
-    `${pair.studyTitle}: no Outcome proof`,
+    entityKeys.size === group.entities.length,
+    `${group.studyTitle}: duplicate entity in group`,
   );
-  for (const value of [...pair.evidence.armLevel, ...pair.evidence.betweenArm]) {
-    checkStoredValue(`h2h ${pair.studyTitle}`, value);
+  check(group.entities.length >= 2, `${group.studyTitle}: group has < 2 entities`);
+
+  const armLevelValues = group.entities.flatMap((item) => item.values);
+  const betweenArmValues = group.betweenArm.flatMap((pair) => pair.values);
+  check(
+    armLevelValues.length > 0 || betweenArmValues.length > 0,
+    `${group.studyTitle}: no Outcome proof`,
+  );
+  for (const value of [...armLevelValues, ...betweenArmValues]) {
+    checkStoredValue(`h2h ${group.studyTitle}`, value);
+  }
+  // Every between-arm estimate names two entities that belong to the group.
+  for (const pair of group.betweenArm) {
+    check(pair.left.key !== pair.right.key, `${group.studyTitle}: between-arm identical entities`);
+    check(
+      entityKeys.has(pair.left.key) && entityKeys.has(pair.right.key),
+      `${group.studyTitle}: between-arm names an entity outside the group`,
+    );
   }
 }
 
@@ -454,7 +467,7 @@ function syntheticThreeEntityStudy(): StudyDetailView {
 
 let threeEntityRejected = false;
 try {
-  findHeadToHeadPairs(syntheticThreeEntityStudy());
+  findHeadToHeadGroups(syntheticThreeEntityStudy());
 } catch (error) {
   const message = error instanceof Error ? error.message : String(error);
   threeEntityRejected = /cannot be attributed to more than one entity pair/.test(message);

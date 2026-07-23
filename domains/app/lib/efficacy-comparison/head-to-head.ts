@@ -81,18 +81,33 @@ export function resolveArmEntity(
   return { key: `external:${label}`, label, unresolved: true };
 }
 
-/**
- * Both proof kinds are reported when both exist, never one hiding the other — the
- * same rule the cross-trial rows use for their arm-level metric and any stored
- * between-arm estimate. `armLevel` is the shared arm-level metric; `betweenArm` is
- * whatever direct estimate the source published for the same pair, alongside it.
- */
-export type HeadToHeadEvidence = {
-  armLevel: EfficacyValue[];
-  betweenArm: EfficacyBetweenArmValue[];
+/** One entity in a group, with the arm-level values the source reported for it. */
+export type HeadToHeadEntityValues = {
+  entity: ComparisonEntity;
+  values: EfficacyValue[];
 };
 
-export type HeadToHeadPair = {
+/**
+ * A stored between-arm estimate, attributed to the exact pair it compares. Kept
+ * pair-scoped inside the group so a 3-arm study can carry, say, only the one direct
+ * estimate the source actually published without implying the others.
+ */
+export type HeadToHeadBetweenArm = {
+  left: ComparisonEntity;
+  right: ComparisonEntity;
+  values: EfficacyBetweenArmValue[];
+};
+
+/**
+ * One study's direct comparison, as a single card rather than a card per entity pair.
+ *
+ * A 3-arm study is ONE comparison the source ran, so it is ONE group listing every
+ * entity's arm-level value together; enumerating it as C(n,2) pair cards repeated the
+ * study and duplicated each bold number. Both proof kinds ride together when both
+ * exist — arm-level per entity, and whatever between-arm estimates the source
+ * published for specific pairs — never one hiding the other.
+ */
+export type HeadToHeadGroup = {
   studyId: string;
   studyTitle: string;
   phase: string;
@@ -100,9 +115,8 @@ export type HeadToHeadPair = {
   duration: string | null;
   endpointName: string;
   assessmentTimepoint: string;
-  left: ComparisonEntity;
-  right: ComparisonEntity;
-  evidence: HeadToHeadEvidence;
+  entities: HeadToHeadEntityValues[];
+  betweenArm: HeadToHeadBetweenArm[];
   href: string;
 };
 
@@ -151,9 +165,67 @@ type Axis = {
   >;
 };
 
+type GroupBase = Omit<HeadToHeadGroup, "entities" | "betweenArm">;
+
 /**
- * Finds every entity pair this Study actually compared, proven from its body-weight
- * Outcomes.
+ * Builds one group from a single axis, or null when the axis holds no comparison
+ * (fewer than two distinct entities across its arm-level and between-arm evidence).
+ *
+ * Entity order is arm-level entities first, in source order, then any entity that
+ * appears only in a between-arm estimate — so the heading lists everyone the study
+ * compared even when one arm has no standalone arm-level value on this axis.
+ */
+function buildGroupFromAxis(
+  axis: Axis,
+  base: GroupBase,
+  armById: Map<string, ArmView>,
+): HeadToHeadGroup | null {
+  const order: ComparisonEntity[] = [];
+  const seen = new Set<string>();
+  const valuesByKey = new Map<string, EfficacyValue[]>();
+
+  for (const { entity, views } of axis.byEntity.values()) {
+    order.push(entity);
+    seen.add(entity.key);
+    valuesByKey.set(entity.key, views.map((view) => toValue(view, armById)));
+  }
+
+  const betweenArm: HeadToHeadBetweenArm[] = [];
+  for (const { entities, views } of axis.betweenArm.values()) {
+    for (const entity of entities) {
+      if (!seen.has(entity.key)) {
+        order.push(entity);
+        seen.add(entity.key);
+      }
+    }
+    betweenArm.push({
+      left: entities[0],
+      right: entities[1],
+      values: views.map((view) => ({
+        ...toValue(view, armById),
+        effectMeasure: view.outcome.result.effectMeasure,
+        comparisonType: view.outcome.result.comparisonType,
+        confidenceInterval: view.outcome.result.confidenceInterval,
+        pValue: view.outcome.result.pValue,
+      })),
+    });
+  }
+
+  if (order.length < 2) return null;
+
+  return {
+    ...base,
+    entities: order.map((entity) => ({
+      entity,
+      values: valuesByKey.get(entity.key) ?? [],
+    })),
+    betweenArm,
+  };
+}
+
+/**
+ * Finds the direct comparison this Study reported, proven from its body-weight
+ * Outcomes, as one group per study.
  *
  * Two qualifying proofs, and nothing else:
  *   (a) a stored between-arm Outcome whose arms resolve to two distinct entities;
@@ -161,13 +233,14 @@ type Axis = {
  *       canonicalized analysis population + estimand — i.e. results the source
  *       reported together.
  *
- * When a pair is provable on more than one axis, only the best-ranked axis — by the
- * same population/estimand policy `selectRepresentative` uses — is reported. Its
- * arm-level and between-arm evidence are never pooled across axes: that would
- * attribute one axis's between-arm estimate to another axis's arm-level values, or
- * show the same two products twice with two different, uncombinable reductions.
+ * A study's whole comparison is ONE card. Its entities are read from a single
+ * best-ranked (population, estimand) axis — the same policy `selectRepresentative`
+ * uses — so numbers are never pooled across two analysis sets (SURMOUNT-5 reports
+ * tirzepatide vs semaglutide on both a full-analysis and an efficacy-analysis axis,
+ * with different reductions on each). The first body-weight endpoint that yields a
+ * comparison wins, mirroring the earlier first-endpoint-wins dedup.
  */
-export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
+export function findHeadToHeadGroups(detail: StudyDetailView): HeadToHeadGroup[] {
   const { study, arms } = detail;
   const armById = new Map(arms.map((arm) => [arm.id, arm]));
   const entityByArmId = new Map<string, ComparisonEntity>();
@@ -176,12 +249,10 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
     if (entity) entityByArmId.set(arm.id, entity);
   }
 
-  const pairs = new Map<string, HeadToHeadPair>();
-
   for (const endpointGroup of detail.endpointGroups) {
     if (endpointGroup.endpoint.domain !== "body weight") continue;
 
-    const base = {
+    const base: GroupBase = {
       studyId: study.id,
       studyTitle: study.acronym?.trim() || study.officialTitle,
       phase: study.phase,
@@ -259,66 +330,17 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
       axis.betweenArm.set(key, bucket);
     }
 
-    // For every pair provable on some axis, keep only the best-ranked axis.
-    const bestAxisForPair = new Map<
-      string,
-      { rank: [number, number]; axisKey: string; entities: [ComparisonEntity, ComparisonEntity] }
-    >();
-    for (const [axisKey, axis] of axisByKey) {
+    // Pick the single best-ranked axis that actually holds a comparison, build the
+    // study's one group from it, and stop at the first endpoint that yields one.
+    let best: { rank: [number, number]; group: HeadToHeadGroup } | null = null;
+    for (const axis of axisByKey.values()) {
+      const group = buildGroupFromAxis(axis, base, armById);
+      if (!group) continue;
       const rank: [number, number] = [axis.populationRank, axis.estimandRank];
-
-      const entries = [...axis.byEntity.values()];
-      for (let i = 0; i < entries.length; i += 1) {
-        for (let j = i + 1; j < entries.length; j += 1) {
-          const key = pairKey(entries[i].entity, entries[j].entity);
-          const current = bestAxisForPair.get(key);
-          if (!current || rankIsBetter(rank, current.rank)) {
-            bestAxisForPair.set(key, {
-              rank,
-              axisKey,
-              entities: [entries[i].entity, entries[j].entity],
-            });
-          }
-        }
-      }
-
-      for (const [key, bucket] of axis.betweenArm) {
-        const current = bestAxisForPair.get(key);
-        if (!current || rankIsBetter(rank, current.rank)) {
-          bestAxisForPair.set(key, { rank, axisKey, entities: bucket.entities });
-        }
-      }
+      if (!best || rankIsBetter(rank, best.rank)) best = { rank, group };
     }
-
-    // A pair already set by an earlier endpointGroup is left alone — dedup stays
-    // scoped to the first endpointGroup that proved it, same as before.
-    for (const [key, best] of bestAxisForPair) {
-      if (pairs.has(key)) continue;
-      const axis = axisByKey.get(best.axisKey)!;
-      const betweenArmBucket = axis.betweenArm.get(key);
-      const [entityA, entityB] = betweenArmBucket?.entities ?? best.entities;
-      const armLevelViews = [
-        ...(axis.byEntity.get(entityA.key)?.views ?? []),
-        ...(axis.byEntity.get(entityB.key)?.views ?? []),
-      ];
-
-      pairs.set(key, {
-        ...base,
-        left: entityA,
-        right: entityB,
-        evidence: {
-          armLevel: armLevelViews.map((view) => toValue(view, armById)),
-          betweenArm: (betweenArmBucket?.views ?? []).map((view) => ({
-            ...toValue(view, armById),
-            effectMeasure: view.outcome.result.effectMeasure,
-            comparisonType: view.outcome.result.comparisonType,
-            confidenceInterval: view.outcome.result.confidenceInterval,
-            pValue: view.outcome.result.pValue,
-          })),
-        },
-      });
-    }
+    if (best) return [best.group];
   }
 
-  return [...pairs.values()];
+  return [];
 }
