@@ -59,14 +59,12 @@ asset:
    **and** no alternative primary source could be obtained, and record which surface
    was blocked and which alternatives were tried.
 
-   For
-   `RESULT_SOURCE_FOUND`, review every confirmed result-bearing source that is
-   discovered or cited in Study metadata. Record an in-session disposition for
-   each distinct directly disclosed result, identified at least by source,
-   endpoint/measure, timepoint, analysis unit or comparison, and the reported
-   analysis population, subgroup, and estimand. Record "not reported" rather
-   than inferring a missing analysis detail.
-5. Give each disclosed result exactly one disposition:
+   For `RESULT_SOURCE_FOUND`, enter the results found in the ordinary course of
+   research from its cited sources, and complete the step 6 completion check
+   before considering the Study done. Record "not reported" rather than
+   inferring a missing analysis detail.
+5. When entering, excluding, or deferring a specific result, use exactly one
+   of these dispositions:
    - **entered**: represented by an Endpoint and Outcome whose metadata cites
      the source that directly supports the stored value;
    - **excluded**: outside the Clinical Evidence scope or an explicit contract
@@ -85,7 +83,7 @@ asset:
 Do not stop at one asset or the chronologically latest trial. Deduplicate
 publications to stable registry/Study identity. The result-review manifest is
 in-session only and is not operating data. A result-bearing source cited only
-in Study metadata has not satisfied result review or result disposition.
+in Study metadata has not satisfied the step 6 completion check.
 
 ## 3. Sources and updates
 
@@ -101,9 +99,9 @@ source that directly supports that exact value. Preserve only directly
 reported results; do not calculate, infer, visually transcribe, redistribute,
 or broaden a result beyond its supported analysis unit.
 
-A result-bearing source may disclose several distinct results. Review each one
-rather than assigning one disposition to the source as a whole. If the source
-publishes only an adjusted or between-unit effect, enter only that directly
+A result-bearing source may disclose several distinct results of differing
+reliability and scope; do not assign one disposition to the source as a whole.
+If the source publishes only an adjusted or between-unit effect, enter only that directly
 reported effect when its anchors are reliable; do not reconstruct undisclosed
 arm-level values. Study-level citation and Outcome-level result provenance are
 separate obligations under the contract.
@@ -132,13 +130,15 @@ identity, source-reported results, latest-result replacement, inventory-only
 Studies, and generated projections. Reuse existing stable entity IDs and never
 mint a second ID for the same real-world Arm, AnalysisGroup, or Endpoint.
 
-Store concise study-level safety summaries only; do not reproduce exhaustive
-adverse-event tables. When a cited source reports them, also capture the
-study-level serious-adverse-event rate, nausea/vomiting rate, and anti-drug
-antibody (immunogenicity) rate in their own `Study` fields
-(`seriousAdverseEventIncidence`, `nauseaVomitingIncidence`,
-`antiDrugAntibodyIncidence`) — concise source-reported text, not a per-arm
-table. Omit a field the sources do not report.
+Keep `Study.safetySummary` concise; do not reproduce exhaustive adverse-event
+tables in it. When a cited source directly reports a per-arm breakdown, also
+enter serious adverse events, nausea, vomiting, or anti-drug antibodies
+(immunogenicity) as an ordinary Endpoint (`role`/`domain`: `"safety"`) with
+arm-level Outcomes — this is a closed set of exactly four named facts, not a
+general adverse-event modeling mechanism; never add an Endpoint for any other
+AE term. When the cited source does not support a per-arm breakdown for one
+of these four, do not enter it as an Endpoint; the `safetySummary` narrative
+may still cover it in prose.
 
 ## 5. Case-scoped schema fallback
 
@@ -185,41 +185,38 @@ git diff --check
 Before claiming completion, reconcile the in-session result-review manifest:
 
 1. every Study has a recorded result-availability check;
-2. every confirmed result-bearing source has been reviewed;
-3. every directly disclosed result is entered, excluded, deferred, or recorded
-   in the Schema boundary report;
-4. every entered result has direct supporting source metadata on its Outcome;
-5. every omitted public result appears individually in the final report with
-   its source, disposition, reason, and re-entry condition where applicable;
-6. the count of undispositioned disclosed results is zero;
-7. every comparison family touched in this run was re-evaluated as a whole, with
+2. every entered result has direct supporting source metadata on its Outcome;
+3. every comparison family touched in this run was re-evaluated as a whole, with
    no Outcome left on a superseded source;
-8. every `NO_PUBLIC_RESULTS` names the surfaces exhausted and the check date, and
+4. every `NO_PUBLIC_RESULTS` names the surfaces exhausted and the check date, and
    the count of `NO_PUBLIC_RESULTS` recorded without an exhausted search is zero;
-9. every `RESULT_AVAILABILITY_UNRESOLVED` names the blocked surface and the
+5. every `RESULT_AVAILABILITY_UNRESOLVED` names the blocked surface and the
    alternative primary sources attempted;
-10. every previously unresolved or deferred result — whether known from an
-    earlier run's report or evident from an existing record that omits a
-    disclosed result — was re-searched in this run, and each is reported as
-    newly resolved, still blocked by the same obstacle, or moved to a different
-    disposition. A prior `RESULT_AVAILABILITY_UNRESOLVED` or deferral is never
-    carried forward untested;
-11. before completing any Study entered or updated as result-bearing in this
-    run, its canonical record was cross-checked against its highest-priority
-    reviewed result source to confirm each of the following is reflected:
-    primary/co-primary results, central/key-secondary results, headline
-    responder results, and the safety/tolerability/discontinuation summary.
-    Enter any core result this check finds missing under the ordinary
-    dispositions above. For any of these four categories the highest-priority
-    source does not support, record a short standing note — `not reported`,
-    `not applicable`, `outside scope`, or `unresolved` — rather than leaving it
-    unaddressed. This check does not require exhaustively extracting and
-    classifying every disclosed result or supplement; consult an additional
-    source only where needed to confirm one of these four categories.
+6. every previously unresolved or deferred result known from an earlier run's
+   report was re-searched in this run, and each is reported as newly resolved,
+   still blocked by the same obstacle, or moved to a different disposition. A
+   prior `RESULT_AVAILABILITY_UNRESOLVED` or deferral is never carried forward
+   untested;
+7. **completion check** — before completing any Study entered or updated as
+   result-bearing in this run, its canonical record was cross-checked against
+   its highest-priority reviewed result source to confirm each of the
+   following is reflected: primary/co-primary results, central/key-secondary
+   results, headline responder results, and the concise safety summary (plus
+   any of the four named safety Endpoints — serious adverse events, nausea,
+   vomiting, anti-drug antibodies — that source directly reports a per-arm
+   breakdown for). Enter any core result this check finds missing under the
+   ordinary dispositions above. For any of these four categories the
+   highest-priority source does not support, record a short standing note — `not reported`,
+   `not applicable`, `outside scope`, or `unresolved` — rather than leaving it
+   unaddressed. This is the only completion gate on result coverage: it does
+   not require exhaustively extracting and classifying every disclosed result
+   or supplement, and no other step requires an exhaustive per-result
+   disposition ledger. Consult an additional source only where needed to
+   confirm one of these four categories.
 
 The JSON validators enforce only facts represented in canonical data. They
 cannot inspect external source contents or infer that a Study-level citation is
-result-bearing, so validator success does not replace this reconciliation gate.
+result-bearing, so validator success does not replace the completion check.
 
 If Clinical Evidence sources become inaccessible after Company/Pipeline
 Research completed, retain those Company/Pipeline changes, make no Clinical
@@ -236,11 +233,9 @@ Report:
   plus the result-bearing sources reviewed. Keep "no result was disclosed" and
   "a source could not be reached" distinct in the wording; do not report a
   blocked source as non-disclosure;
-- entered results and every omitted public result, each with its source,
-  disposition, reason, and re-entry condition where applicable;
-- result-disposition counts, including an explicit zero count for
-  undispositioned disclosed results;
-- for each Study checked under completion-check item 11: any core result
+- entered results, with source, disposition, reason, and re-entry condition
+  where applicable;
+- for each Study checked under the step 6 completion check: any core result
   entered as a result of the check, and the standing note (`not reported`,
   `not applicable`, `outside scope`, or `unresolved`) for any of the four
   categories the highest-priority source did not support;
@@ -250,6 +245,6 @@ Report:
 - source-access blockers;
 - full or partial completion.
 
-Do not claim Clinical Evidence completion unless traversal, result-source
-review and disposition reconciliation, valid updates, generation, validation,
-and reporting all completed.
+Do not claim Clinical Evidence completion unless traversal, the step 6
+completion check, valid updates, generation, validation, and reporting all
+completed.

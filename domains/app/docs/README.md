@@ -105,12 +105,14 @@ JSON, and only these canonical selectors import that loader.
 - Endpoints & outcomes shows no per-outcome or per-endpoint Source line. Only
   the Study-level Sources section (bottom of the page) renders citations, since
   it already lists every source cited anywhere in the Study.
-- Safety is never modeled as an Endpoint/Outcome on this page. `safetySummary`
-  and the three optional incidence fields (`seriousAdverseEventIncidence`,
-  `nauseaVomitingIncidence`, `antiDrugAntibodyIncidence`) render as Overview
-  rows. The Endpoints & outcomes "Safety" role filter is expected to stay empty
-  for essentially every Study and shows explanatory copy rather than "No safety
-  endpoints recorded." when it does.
+- The free-text `safetySummary` narrative stays an Overview row. The
+  Endpoints & outcomes "Safety" role filter renders ordinary Endpoint cards
+  like any other role — ones named exactly "Serious adverse events",
+  "Nausea", "Vomiting", or "Anti-drug antibodies" (the closed four-fact set
+  the Clinical Evidence contract permits as safety Endpoints) — through the
+  same clustering, badge, and family-grouping behavior described above. Most
+  Studies have none entered yet, so the tab still shows the generic "No
+  safety endpoints recorded." for them.
 - A between-arm outcome's subject line always leads with the compared arms'
   dose identity (e.g. "Retatrutide 4 mg vs Placebo") when arm labels are
   available; `comparisonType`/`effectMeasure` renders as secondary text below

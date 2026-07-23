@@ -31,8 +31,6 @@
       },
       "overallDuration": "48 weeks",
       "safetySummary": "Adverse events occurred in 73% to 94% of retatrutide groups and 70% with placebo; gastrointestinal events were most common, predominantly mild to moderate, dose related, concentrated during escalation, and partly mitigated by a 2 mg rather than 4 mg starting dose. Adverse-event discontinuation occurred in 6% to 16% with retatrutide and 0% with placebo, while serious adverse events occurred in 4% of both groups. Heart rate increased dose dependently through week 24 and then declined.",
-      "seriousAdverseEventIncidence": "0% to 6% across retatrutide dose groups (lowest with the 4 mg 2 mg-starting-dose arm, highest with the 4 mg and 8 mg 4 mg-starting-dose arms) versus 4% with placebo.",
-      "nauseaVomitingIncidence": "Nausea occurred in 14% to 60% of retatrutide arms (dose dependent, highest with the 8 mg 4 mg-starting-dose arm) versus 11% with placebo; vomiting occurred in 3% to 26% of retatrutide arms (dose dependent) versus 1% with placebo.",
       "metadata": {
         "lastVerifiedAt": "2026-07-23",
         "updatedAt": "2026-07-23",
@@ -988,6 +986,30 @@
       "role": "secondary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 48",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760"
+    },
+    {
+      "id": "reta-p2-safety-sae",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Up to 52 weeks",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760"
+    },
+    {
+      "id": "reta-p2-safety-nausea",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Up to 52 weeks",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760"
+    },
+    {
+      "id": "reta-p2-safety-vomiting",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Up to 52 weeks",
       "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760"
     },
     {
@@ -2782,6 +2804,447 @@
             "title": "Triple-Hormone-Receptor Agonist Retatrutide for Obesity — A Phase 2 Trial",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2023-06-26",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-sae-1mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-sae",
+      "armIds": ["reta-p2-1mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "4.3", "numericValue": 4.3, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-sae-4mg-start2",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-sae",
+      "armIds": ["reta-p2-4mg-start2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-sae-4mg-start4",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-sae",
+      "armIds": ["reta-p2-4mg-start4"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "6.1", "numericValue": 6.1, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-sae-8mg-start2",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-sae",
+      "armIds": ["reta-p2-8mg-start2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "2.9", "numericValue": 2.9, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-sae-8mg-start4",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-sae",
+      "armIds": ["reta-p2-8mg-start4"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "5.7", "numericValue": 5.7, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-sae-12mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-sae",
+      "armIds": ["reta-p2-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "3.2", "numericValue": 3.2, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-sae-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-sae",
+      "armIds": ["reta-p2-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "4.3", "numericValue": 4.3, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-nausea-1mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-nausea",
+      "armIds": ["reta-p2-1mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "14.5", "numericValue": 14.5, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-nausea-4mg-start2",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-nausea",
+      "armIds": ["reta-p2-4mg-start2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "18.2", "numericValue": 18.2, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-nausea-4mg-start4",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-nausea",
+      "armIds": ["reta-p2-4mg-start4"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "36.4", "numericValue": 36.4, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-nausea-8mg-start2",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-nausea",
+      "armIds": ["reta-p2-8mg-start2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "17.1", "numericValue": 17.1, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-nausea-8mg-start4",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-nausea",
+      "armIds": ["reta-p2-8mg-start4"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "60", "numericValue": 60, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-nausea-12mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-nausea",
+      "armIds": ["reta-p2-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "45.2", "numericValue": 45.2, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-nausea-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-nausea",
+      "armIds": ["reta-p2-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "11.4", "numericValue": 11.4, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-vomiting-1mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-vomiting",
+      "armIds": ["reta-p2-1mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "2.9", "numericValue": 2.9, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-vomiting-4mg-start2",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-vomiting",
+      "armIds": ["reta-p2-4mg-start2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "12.1", "numericValue": 12.1, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-vomiting-4mg-start4",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-vomiting",
+      "armIds": ["reta-p2-4mg-start4"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "12.1", "numericValue": 12.1, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-vomiting-8mg-start2",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-vomiting",
+      "armIds": ["reta-p2-8mg-start2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "5.7", "numericValue": 5.7, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-vomiting-8mg-start4",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-vomiting",
+      "armIds": ["reta-p2-8mg-start4"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "25.7", "numericValue": 25.7, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-vomiting-12mg",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-vomiting",
+      "armIds": ["reta-p2-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "19.4", "numericValue": 19.4, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
+            "checkedAt": "2026-07-23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reta-p2-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-phase-2-nct04881760",
+      "endpointId": "reta-p2-safety-vomiting",
+      "armIds": ["reta-p2-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": { "value": "1.4", "numericValue": 1.4, "unit": "percent", "resultType": "arm-level" },
+      "maturity": "registry result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-23",
+        "updatedAt": "2026-07-23",
+        "sources": [
+          {
+            "url": "https://clinicaltrials.gov/study/NCT04881760",
+            "title": "Retatrutide Phase 2 obesity study record",
+            "sourceType": "trial registry",
             "checkedAt": "2026-07-23"
           }
         ]

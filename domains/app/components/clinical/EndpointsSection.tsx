@@ -555,14 +555,6 @@ export function EndpointsSection({
             );
           })}
         </div>
-      ) : roleFilter === "Safety" ? (
-        <p className="text-sm text-muted-foreground">
-          Safety is recorded as concise study-level fields, not as individual
-          endpoints — see the Safety summary, Serious adverse events,
-          Nausea/vomiting, and Anti-drug antibodies rows in Overview above.
-          This tab stays empty unless a cited source explicitly designates its
-          own safety endpoint.
-        </p>
       ) : (
         <p className="text-sm text-muted-foreground">
           No {roleFilter.toLowerCase()} endpoints recorded.

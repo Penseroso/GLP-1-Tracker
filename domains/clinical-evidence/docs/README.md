@@ -373,13 +373,18 @@ the disclosed results nor proves that they were reviewed. Every stored Outcome
 must cite in `Outcome.metadata.sources` a source that directly supports that
 exact value and analysis context.
 
-For every confirmed result-bearing source reviewed during research, each
-distinct directly disclosed result must either be represented when the current
-contract can do so faithfully or receive an explicit excluded, deferred, or
-schema-boundary disposition in the final research report. These dispositions
-are execution/reporting state, not canonical fields: result availability is not
-persisted, and validator success cannot establish that an external source was
-fully reviewed. See the workflow's result-review completion gate.
+Before a result-bearing Study is complete, its canonical record must be
+cross-checked against its highest-priority reviewed source to confirm
+primary/co-primary results, central/key-secondary results, headline responder
+results, and the concise safety summary (plus any of the four named safety
+Endpoints the source directly reports a per-arm breakdown for) are each
+represented, or given a short standing note (`not reported`, `not applicable`,
+`outside scope`, or `unresolved`) when the source does not support one. This is a completion
+check on four core categories, not a requirement to extract and disposition
+every disclosed result or supplement. Dispositions (excluded, deferred,
+schema-boundary) are execution/reporting state, not canonical fields: result
+availability is not persisted, and validator success cannot establish that an
+external source was reviewed. See the workflow's completion check.
 
 A **comparison family** is the set of results a single source reports together: the same
 Study, Endpoint, analysis population, and estimand, sharing a common comparator or anchor
@@ -430,15 +435,25 @@ The omission is a deferred schema case, not an operating-data defect.
   map to pooled "Arms"; the current contract represents it without distortion.
 
 Safety stays separate from efficacy outcomes and does not attempt exhaustive
-adverse-event capture in this module — no per-arm or per-event Endpoint/Outcome
-modeling. Beyond the free-text `safetySummary` narrative, three specific
-source-reported incidence facts each get their own optional `Study` field,
-required whenever a cited source reports them: `seriousAdverseEventIncidence`
-(SAE rate), `nauseaVomitingIncidence` (the most common GI tolerability signal
-for this drug class), and `antiDrugAntibodyIncidence` (immunogenicity, ADA).
-Each is concise source-reported text (e.g. a range across arms), never a
-per-arm structured result. Omit a field the cited sources do not report;
-never write "not reported" as if it were a value.
+adverse-event capture in this module: no participant-flow rows, no severity
+strata, and no Endpoint/Outcome for an individual AE term outside the bounded
+set below. The free-text `Study.safetySummary` narrative remains the default
+home for overall tolerability, discontinuation, and dose-related patterns.
+
+Exactly four named safety facts may additionally be modeled as an ordinary
+Endpoint (`role: "safety"`, `domain: "safety"`) with arm-level Outcomes, when a
+cited source directly reports a per-arm breakdown: serious adverse events,
+nausea, vomiting, and anti-drug antibodies (immunogenicity, ADA). Each is its
+own Endpoint (nausea and vomiting are reported and stored separately, never
+combined into one) named exactly `"Serious adverse events"`, `"Nausea"`,
+`"Vomiting"`, or `"Anti-drug antibodies"`. Outcomes follow the ordinary
+arm-level Outcome shape used elsewhere — `result.value`/`numericValue` as a
+percentage, `unit: "percent"`, `analysisPopulation` naming the safety
+population the source reports against. This is a fixed, closed set of four
+facts, not a general mechanism for adverse-event modeling: do not add an
+Endpoint for any other AE term. When a cited source does not support a
+per-arm breakdown for one of these four, omit the Endpoint rather than
+approximate it — the `safetySummary` narrative may still cover it in prose.
 
 ## Reference Rules
 

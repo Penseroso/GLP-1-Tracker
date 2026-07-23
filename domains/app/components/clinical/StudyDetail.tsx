@@ -81,19 +81,33 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
           <tr>
             <th className="px-3 py-2.5 font-semibold">Arm</th>
             <th className="px-3 py-2.5 font-semibold">Intervention</th>
-            <th className="px-3 py-2.5 font-semibold">Role</th>
-            <th className="px-3 py-2.5 font-semibold">Dose</th>
+            <th className="w-px whitespace-nowrap px-3 py-2.5 font-semibold">
+              Role
+            </th>
+            <th className="w-px whitespace-nowrap px-3 py-2.5 font-semibold">
+              Dose
+            </th>
             {showTitration ? (
               <th className="px-3 py-2.5 font-semibold">Titration</th>
             ) : null}
-            <th className="px-3 py-2.5 font-semibold">Route</th>
-            <th className="px-3 py-2.5 font-semibold">Frequency</th>
-            <th className="px-3 py-2.5 font-semibold">Duration</th>
+            <th className="w-px whitespace-nowrap px-3 py-2.5 font-semibold">
+              Route
+            </th>
+            <th className="w-px whitespace-nowrap px-3 py-2.5 font-semibold">
+              Frequency
+            </th>
+            <th className="w-px whitespace-nowrap px-3 py-2.5 font-semibold">
+              Duration
+            </th>
             {showPlannedN ? (
-              <th className="px-3 py-2.5 font-semibold">Planned N</th>
+              <th className="w-px whitespace-nowrap px-3 py-2.5 font-semibold">
+                Planned N
+              </th>
             ) : null}
             {showAnalyzedN ? (
-              <th className="px-3 py-2.5 font-semibold">Analyzed N</th>
+              <th className="w-px whitespace-nowrap px-3 py-2.5 font-semibold">
+                Analyzed N
+              </th>
             ) : null}
           </tr>
         </thead>
@@ -114,8 +128,8 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
                 <td className="px-3 py-2.5 align-middle">
                   <ArmInterventionCell arm={arm} />
                 </td>
-                <td className="px-3 py-2.5">{arm.role}</td>
-                <td className="px-3 py-2.5">
+                <td className="whitespace-nowrap px-3 py-2.5">{arm.role}</td>
+                <td className="whitespace-nowrap px-3 py-2.5">
                   {formatNullableValue(doseCellValue(arm))}
                 </td>
                 {showTitration ? (
@@ -123,22 +137,22 @@ function ArmsTable({ arms }: { arms: ArmView[] }) {
                     {formatNullableValue(arm.titration)}
                   </td>
                 ) : null}
-                <td className="px-3 py-2.5">
+                <td className="whitespace-nowrap px-3 py-2.5">
                   {formatNullableValue(arm.route)}
                 </td>
-                <td className="px-3 py-2.5">
+                <td className="whitespace-nowrap px-3 py-2.5">
                   {formatNullableValue(arm.dosingFrequency)}
                 </td>
-                <td className="px-3 py-2.5">
+                <td className="whitespace-nowrap px-3 py-2.5">
                   {formatNullableValue(arm.treatmentDuration)}
                 </td>
                 {showPlannedN ? (
-                  <td className="px-3 py-2.5 tabular-nums">
+                  <td className="whitespace-nowrap px-3 py-2.5 tabular-nums">
                     {formatCount(arm.plannedN)}
                   </td>
                 ) : null}
                 {showAnalyzedN ? (
-                  <td className="px-3 py-2.5 tabular-nums">
+                  <td className="whitespace-nowrap px-3 py-2.5 tabular-nums">
                     {formatCount(arm.analyzedN)}
                   </td>
                 ) : null}
@@ -284,18 +298,6 @@ export function StudyDetail({ detail }: { detail: StudyDetailView }) {
           <MetaRow label="Overall duration" value={study.overallDuration} />
           <MetaRow label="Follow-up" value={study.followUpDuration} />
           <MetaRow label="Safety summary" value={study.safetySummary} />
-          <MetaRow
-            label="Serious adverse events"
-            value={study.seriousAdverseEventIncidence}
-          />
-          <MetaRow
-            label="Nausea/vomiting"
-            value={study.nauseaVomitingIncidence}
-          />
-          <MetaRow
-            label="Anti-drug antibodies"
-            value={study.antiDrugAntibodyIncidence}
-          />
         </dl>
       </section>
 
