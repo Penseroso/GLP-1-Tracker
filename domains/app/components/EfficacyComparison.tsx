@@ -5,7 +5,6 @@ import { formatNullableValue } from "@/domains/app/lib/format";
 import type {
   EfficacyComparisonRow,
   EfficacyComparisonView,
-  EfficacyCoverageGap,
 } from "@/domains/app/lib/efficacy-comparison/read-model";
 import type {
   ComparisonEntity,
@@ -18,38 +17,6 @@ type EfficacyComparisonProps = {
 
 const focusRing =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
-
-/**
- * User-facing wording for each disposition. Kept explicit rather than derived from
- * the reason slug: every one of these has to say what the data does *not* claim.
- * "No percent-change result" must never read as "this asset does not reduce weight",
- * and an unstated diabetes criterion is not the same as a non-diabetic population.
- */
-const gapCopy: Record<EfficacyCoverageGap["reason"], string> = {
-  "population-unclassified":
-    "Study population is not yet classified, so eligibility cannot be decided.",
-  "population-age-restricted":
-    "Weight results come from adolescent or paediatric populations only.",
-  "population-with-type-2-diabetes":
-    "Weight results come from populations enrolled with type 2 diabetes.",
-  "population-mixed-diabetes-status":
-    "The protocol enrols both a non-diabetic and a type 2 diabetes cohort, and cohort-level structured population classification is not stored.",
-  "population-diabetes-status-not-specified":
-    "The source states no diabetes criterion, which is not the same as a non-diabetic population.",
-  "population-requires-additional-condition":
-    "Enrolment requires a further condition, such as knee osteoarthritis or heart failure.",
-  "population-treatment-context":
-    "Weight results come from maintenance, withdrawal, or post-lifestyle-intervention designs.",
-  "design-not-randomized-controlled":
-    "No randomised, controlled study carries a recorded weight result.",
-  "phase-unresolved": "The recorded trial phase is not one this page ranks.",
-  "metric-unavailable-percent":
-    "Weight change is recorded, but not as percent change from baseline.",
-  "mechanism-undisclosed":
-    "The mechanism is not publicly disclosed, so no family can be assigned.",
-  "regimen-family-unassigned":
-    "This regimen has no assigned mechanism family.",
-};
 
 function ValueList({
   values,
@@ -116,9 +83,21 @@ function HeadToHeadEntry({ pair }: { pair: HeadToHeadPair }) {
         <HeadToHeadEntity entity={pair.right} />
       </h3>
       <div className="mt-2">
-        {pair.evidence.kind === "between-arm" ? (
-          <ul className="space-y-1">
-            {pair.evidence.values.map((value) => (
+        {pair.evidence.armLevel.length > 0 ? (
+          <ValueList values={pair.evidence.armLevel} />
+        ) : (
+          <p className="text-sm italic text-muted-foreground">
+            Not reported as arm-level results in this comparison.
+          </p>
+        )}
+      </div>
+      {pair.evidence.betweenArm.length > 0 ? (
+        <div className="mt-2">
+          <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+            Between-arm estimate, as reported
+          </p>
+          <ul className="mt-1 space-y-1">
+            {pair.evidence.betweenArm.map((value) => (
               <li key={value.outcomeId} className="text-sm">
                 <span className="font-semibold tabular-nums text-foreground">
                   {value.value}
@@ -133,10 +112,8 @@ function HeadToHeadEntry({ pair }: { pair: HeadToHeadPair }) {
               </li>
             ))}
           </ul>
-        ) : (
-          <ValueList values={pair.evidence.values} />
-        )}
-      </div>
+        </div>
+      ) : null}
       <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
         <Link
           href={pair.href}
@@ -200,6 +177,7 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
         <div className="sm:col-span-2">
           <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
             Change from baseline in body weight
+            {evidence.duration ? <> ({evidence.duration})</> : null}
           </dt>
           <dd className="mt-1.5">
             <ValueList values={evidence.treatmentValues} />
@@ -283,7 +261,6 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
         <span>{evidence.phase}</span>
         <span>{evidence.endpointName}</span>
         <span>{evidence.assessmentTimepoint}</span>
-        <span>{formatNullableValue(evidence.duration)}</span>
         <span>{evidence.analysisPopulation}</span>
         {evidence.estimand ? <span>{evidence.estimand}</span> : null}
       </p>
@@ -292,6 +269,27 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
   );
 }
 
+/**
+ * How this page selects its numbers (kept here, off the rendered surface, as the
+ * standing rationale for the row/rationale logic below — not shown to users):
+ *
+ * - The application does not calculate, average, adjust, or convert any figure.
+ *   Every number is a value a source reported, including any between-arm estimate,
+ *   which is shown separately, in the source's own effect measure and unit, and
+ *   only where the source published it.
+ * - One study is selected per comparison unit by a fixed rule — trial phase,
+ *   endpoint role, estimand, analysis population, source completeness, then
+ *   evidence maturity — never by which result is largest.
+ * - Rows share one arm-level metric: percent change from baseline in body weight,
+ *   in adults enrolled without type 2 diabetes and starting treatment. A
+ *   between-arm estimate appears under its own label, in the source's effect
+ *   measure and unit — it is not this shared metric.
+ * - These rows come from separate trials and are not a ranking. Populations,
+ *   durations, and analyses differ, and no comparison between two rows is
+ *   implied, including where a representative study used an active comparator.
+ *   A trial that compared two products directly is reported in the Head-to-head
+ *   section, not as a cross-trial row.
+ */
 export function EfficacyComparison({ view }: EfficacyComparisonProps) {
   const rowCount = view.families.reduce(
     (total, group) => total + group.rows.length,
@@ -311,40 +309,6 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
           Reported body-weight reduction by mechanism family, for assets and
           registered combination products with a recorded percent-change result.
         </p>
-      </section>
-
-      <section className="rounded-md border border-border bg-card p-5 shadow-soft">
-        <h2 className="text-base font-semibold text-card-foreground">
-          How this page selects its numbers
-        </h2>
-        <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-          <li>
-            The application does not calculate, average, adjust, or convert any
-            figure. Every number is a value a source reported &mdash; including any
-            between-arm estimate, which is shown separately, in the source&rsquo;s own
-            effect measure and unit, and only where the source published it.
-          </li>
-          <li>
-            One study is selected per comparison unit by a fixed rule &mdash; trial
-            phase, endpoint role, estimand, analysis population, source completeness,
-            then evidence maturity &mdash; never by which result is largest.
-          </li>
-          <li>
-            Rows share one arm-level metric: percent change from baseline in body
-            weight, in adults enrolled without type 2 diabetes and starting treatment.
-            A between-arm estimate appears under its own label, in the source&rsquo;s
-            effect measure and unit &mdash; it is not this shared metric.
-          </li>
-          <li>
-            <strong className="font-semibold text-foreground">
-              These rows come from separate trials and are not a ranking.
-            </strong>{" "}
-            Populations, durations, and analyses differ, and no comparison between two
-            rows is implied &mdash; including where a representative study used an
-            active comparator. A trial that compared two products directly is reported
-            in the Head-to-head section below, not as a cross-trial row here.
-          </li>
-        </ul>
       </section>
 
       {rowCount === 0 ? (
@@ -407,50 +371,6 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
                 key={`${pair.studyId}:${pair.left.key}:${pair.right.key}`}
                 pair={pair}
               />
-            ))}
-          </ul>
-        )}
-      </section>
-
-      <section className="rounded-md border border-border bg-card shadow-soft">
-        <div className="border-b border-border px-5 py-4">
-          <h2 className="text-base font-semibold text-card-foreground">
-            Coverage gaps
-          </h2>
-          <p className="mt-0.5 text-sm text-muted-foreground">
-            {view.gaps.length} of {view.totalUnits} comparison units with recorded
-            body-weight evidence are not shown above. Each is listed with the reason it
-            falls outside this comparison.
-          </p>
-        </div>
-        {view.gaps.length === 0 ? (
-          <EmptyState
-            title="No coverage gaps"
-            description="Every comparison unit with recorded body-weight evidence appears in the comparison."
-          />
-        ) : (
-          <ul className="divide-y divide-border">
-            {view.gaps.map((gap) => (
-              <li key={gap.unitKey} className="px-5 py-3">
-                <p className="text-sm font-medium text-foreground">
-                  {gap.href ? (
-                    <Link
-                      href={gap.href}
-                      className={`rounded-sm hover:text-primary hover:underline ${focusRing}`}
-                    >
-                      {gap.name}
-                    </Link>
-                  ) : (
-                    gap.name
-                  )}
-                  <span className="ml-2 text-xs font-normal text-muted-foreground">
-                    {gap.companyName}
-                  </span>
-                </p>
-                <p className="mt-0.5 text-sm text-muted-foreground">
-                  {gapCopy[gap.reason]}
-                </p>
-              </li>
             ))}
           </ul>
         )}

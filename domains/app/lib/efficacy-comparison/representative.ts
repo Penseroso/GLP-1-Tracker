@@ -248,17 +248,17 @@ export function selectRepresentative(
   ).sort((a, b) => getMaturityRank(a) - getMaturityRank(b));
   const bestMaturity = groupMaturities[0];
 
+  // User-facing rationale: the clinical facts the ranking turned on, not the
+  // ranking's own plumbing (phase *tier* numbers, candidate counts, tie-break
+  // order) — that machinery means nothing to a reader outside this codebase.
   const rationale = [
-    `Phase tier ${candidate.phaseTier} (${candidate.study.phase})`,
+    `Phase: ${candidate.study.phase}`,
     `Endpoint role: ${candidate.endpoint.role}`,
     `Estimand: ${anchor.estimand ?? "not reported"}`,
     `Analysis population: ${anchor.analysisPopulation}`,
     `Sources supporting this group: ${winner.sourceCount}`,
     `Best maturity in group: ${bestMaturity}` +
       (groupMaturities.length > 1 ? ` (also ${groupMaturities.slice(1).join(", ")})` : ""),
-    scored.length > 1
-      ? `Chosen from ${scored.length} eligible candidates; ties fall to curated source order`
-      : "Only eligible candidate for this unit",
   ];
 
   return {

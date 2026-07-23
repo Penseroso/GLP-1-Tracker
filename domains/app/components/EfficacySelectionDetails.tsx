@@ -80,10 +80,11 @@ export function EfficacySelectionDetails({
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}
-        className="inline-flex items-center gap-1 rounded-md border border-border px-2 py-1 text-xs font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        aria-label="Why this study"
+        title="Why this study"
+        className="inline-flex items-center justify-center rounded-md border border-border px-1.5 py-1 text-xs font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
         <span aria-hidden="true">ⓘ</span>
-        Why this study
       </button>
 
       {open ? (
@@ -91,7 +92,17 @@ export function EfficacySelectionDetails({
           id={panelId}
           className="absolute right-0 z-20 mt-2 w-[min(26rem,calc(100vw-2.5rem))] rounded-md border border-border bg-card p-3 text-left shadow-soft"
         >
-          <p className="text-sm font-semibold text-card-foreground">
+          <dl className="space-y-1 text-xs">
+            {facts.map((fact) => (
+              <div key={fact.label} className="flex gap-2">
+                <dt className="shrink-0 font-medium text-foreground">
+                  {fact.label}
+                </dt>
+                <dd className="text-muted-foreground">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-3 border-t border-border pt-2 text-sm font-semibold text-card-foreground">
             Selection rationale
           </p>
           <ol className="mt-2 space-y-1 text-xs text-muted-foreground">
@@ -104,16 +115,6 @@ export function EfficacySelectionDetails({
               </li>
             ))}
           </ol>
-          <dl className="mt-3 space-y-1 border-t border-border pt-2 text-xs">
-            {facts.map((fact) => (
-              <div key={fact.label} className="flex gap-2">
-                <dt className="shrink-0 font-medium text-foreground">
-                  {fact.label}
-                </dt>
-                <dd className="text-muted-foreground">{fact.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       ) : null}
     </div>

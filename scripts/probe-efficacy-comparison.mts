@@ -259,11 +259,14 @@ for (const gap of view.gaps) console.log(`    ${gap.unitKey} — ${gap.reason}`)
 const h2hStudies = new Set(view.headToHead.map((pair) => pair.studyId));
 console.log(`  head-to-head: ${h2hStudies.size} studies, ${view.headToHead.length} pairs`);
 for (const pair of view.headToHead) {
+  const proof = [
+    pair.evidence.armLevel.length > 0 ? `arm-level x${pair.evidence.armLevel.length}` : null,
+    pair.evidence.betweenArm.length > 0 ? `between-arm x${pair.evidence.betweenArm.length}` : null,
+  ]
+    .filter(Boolean)
+    .join(" + ");
   console.log(
-    `    ${pair.studyTitle}: ${pair.left.label} :: ${pair.right.label}  <- ` +
-      (pair.evidence.kind === "between-arm"
-        ? `between-arm ${pair.evidence.outcomeId}`
-        : `arm-level group ${pair.evidence.groupKey.split("|")[0]}`),
+    `    ${pair.studyTitle}: ${pair.left.label} :: ${pair.right.label}  <- ${proof}`,
   );
 }
 
@@ -373,12 +376,10 @@ check(
 for (const pair of view.headToHead) {
   check(pair.left.key !== pair.right.key, `${pair.studyTitle}: identical entities`);
   check(
-    pair.evidence.kind === "between-arm"
-      ? Boolean(pair.evidence.outcomeId)
-      : Boolean(pair.evidence.groupKey),
+    pair.evidence.armLevel.length > 0 || pair.evidence.betweenArm.length > 0,
     `${pair.studyTitle}: no Outcome proof`,
   );
-  for (const value of pair.evidence.values) {
+  for (const value of [...pair.evidence.armLevel, ...pair.evidence.betweenArm]) {
     checkStoredValue(`h2h ${pair.studyTitle}`, value);
   }
 }

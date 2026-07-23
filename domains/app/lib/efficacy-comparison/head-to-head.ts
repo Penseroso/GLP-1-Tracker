@@ -80,9 +80,16 @@ export function resolveArmEntity(
   return { key: `external:${label}`, label, unresolved: true };
 }
 
-export type HeadToHeadEvidence =
-  | { kind: "between-arm"; outcomeId: string; values: EfficacyBetweenArmValue[] }
-  | { kind: "arm-level"; groupKey: string; values: EfficacyValue[] };
+/**
+ * Both proof kinds are reported when both exist, never one hiding the other — the
+ * same rule the cross-trial rows use for their arm-level metric and any stored
+ * between-arm estimate. `armLevel` is the shared arm-level metric; `betweenArm` is
+ * whatever direct estimate the source published for the same pair, alongside it.
+ */
+export type HeadToHeadEvidence = {
+  armLevel: EfficacyValue[];
+  betweenArm: EfficacyBetweenArmValue[];
+};
 
 export type HeadToHeadPair = {
   studyId: string;
@@ -159,11 +166,15 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
       href: `/studies/${study.id}`,
     };
 
-    // (a) stored direct estimates.
+    // (a) stored direct estimates, grouped by the pair each proves.
     //
     // A between-arm Outcome is ONE reported comparison, so it proves exactly one
     // pair. Enumerating its arms pairwise would copy a single stored number onto
     // several pairs and assert comparisons the source never made.
+    const betweenArmByPair = new Map<
+      string,
+      { entities: [ComparisonEntity, ComparisonEntity]; values: EfficacyBetweenArmValue[] }
+    >();
     for (const view of endpointGroup.outcomes) {
       if (view.outcome.result.resultType !== "between-arm") continue;
       const entities = Array.from(
@@ -189,28 +200,21 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
       }
 
       const key = pairKey(entities[0], entities[1]);
-      if (pairs.has(key)) continue;
-      pairs.set(key, {
-        ...base,
-        left: entities[0],
-        right: entities[1],
-        evidence: {
-          kind: "between-arm",
-          outcomeId: view.outcome.id,
-          values: [
-            {
-              ...toValue(view, armById),
-              effectMeasure: view.outcome.result.effectMeasure,
-              comparisonType: view.outcome.result.comparisonType,
-              confidenceInterval: view.outcome.result.confidenceInterval,
-              pValue: view.outcome.result.pValue,
-            },
-          ],
-        },
+      const bucket = betweenArmByPair.get(key) ?? {
+        entities: [entities[0], entities[1]] as [ComparisonEntity, ComparisonEntity],
+        values: [],
+      };
+      bucket.values.push({
+        ...toValue(view, armById),
+        effectMeasure: view.outcome.result.effectMeasure,
+        comparisonType: view.outcome.result.comparisonType,
+        confidenceInterval: view.outcome.result.confidenceInterval,
+        pValue: view.outcome.result.pValue,
       });
+      betweenArmByPair.set(key, bucket);
     }
 
-    // (b) arm-level results the source reported together
+    // (b) arm-level results the source reported together, grouped by the pair.
     const coReported = new Map<string, OutcomeView[]>();
     for (const view of endpointGroup.outcomes) {
       if (view.outcome.result.resultType !== "arm-level") continue;
@@ -224,7 +228,11 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
       else coReported.set(key, [view]);
     }
 
-    for (const [groupKey, group] of coReported) {
+    const armLevelByPair = new Map<
+      string,
+      { entities: [ComparisonEntity, ComparisonEntity]; values: EfficacyValue[] }
+    >();
+    for (const group of coReported.values()) {
       const byEntity = new Map<string, { entity: ComparisonEntity; views: OutcomeView[] }>();
       for (const view of group) {
         for (const armId of view.outcome.armIds ?? []) {
@@ -240,21 +248,38 @@ export function findHeadToHeadPairs(detail: StudyDetailView): HeadToHeadPair[] {
       for (let i = 0; i < entries.length; i += 1) {
         for (let j = i + 1; j < entries.length; j += 1) {
           const key = pairKey(entries[i].entity, entries[j].entity);
-          if (pairs.has(key)) continue;
-          pairs.set(key, {
-            ...base,
-            left: entries[i].entity,
-            right: entries[j].entity,
-            evidence: {
-              kind: "arm-level",
-              groupKey,
-              values: [...entries[i].views, ...entries[j].views].map((view) =>
-                toValue(view, armById),
-              ),
-            },
-          });
+          const bucket = armLevelByPair.get(key) ?? {
+            entities: [entries[i].entity, entries[j].entity] as [ComparisonEntity, ComparisonEntity],
+            values: [],
+          };
+          bucket.values.push(
+            ...[...entries[i].views, ...entries[j].views].map((view) => toValue(view, armById)),
+          );
+          armLevelByPair.set(key, bucket);
         }
       }
+    }
+
+    // Merge: a pair proven by either proof is reported once, carrying whichever
+    // evidence kinds this endpointGroup actually found for it. Arm-level is the
+    // shared metric; a stored between-arm estimate rides alongside it rather than
+    // replacing it. A pair already set by an earlier endpointGroup is left alone —
+    // dedup stays scoped to the first proof encountered, same as before.
+    const pairKeysHere = new Set([...betweenArmByPair.keys(), ...armLevelByPair.keys()]);
+    for (const key of pairKeysHere) {
+      if (pairs.has(key)) continue;
+      const betweenArm = betweenArmByPair.get(key);
+      const armLevel = armLevelByPair.get(key);
+      const entities = armLevel?.entities ?? betweenArm!.entities;
+      pairs.set(key, {
+        ...base,
+        left: entities[0],
+        right: entities[1],
+        evidence: {
+          armLevel: armLevel?.values ?? [],
+          betweenArm: betweenArm?.values ?? [],
+        },
+      });
     }
   }
 
