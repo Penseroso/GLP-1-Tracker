@@ -99,7 +99,7 @@ export function EfficacySelectionDetails({
         aria-controls={open ? panelId : undefined}
         aria-label="Study details"
         title="Study details"
-        className="inline-flex items-center justify-center rounded-md border border-border px-1.5 py-1 text-xs font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
         <span aria-hidden="true">ⓘ</span>
       </button>

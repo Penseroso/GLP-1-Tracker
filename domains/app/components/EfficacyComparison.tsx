@@ -364,6 +364,29 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
         </p>
       </section>
 
+      {rowCount > 0 ? (
+        <nav
+          aria-label="Jump to a mechanism family"
+          className="flex gap-2 overflow-x-auto pb-1"
+        >
+          {view.families.map((group) => (
+            <a
+              key={group.family.id}
+              href={`#family-${group.family.id}`}
+              className={`shrink-0 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:bg-muted hover:text-foreground ${focusRing}`}
+            >
+              {group.family.label}
+            </a>
+          ))}
+          <a
+            href="#head-to-head"
+            className={`shrink-0 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition hover:bg-muted hover:text-foreground ${focusRing}`}
+          >
+            Head-to-head
+          </a>
+        </nav>
+      ) : null}
+
       {rowCount === 0 ? (
         <section className="rounded-md border border-border bg-card shadow-soft">
           <EmptyState
@@ -375,7 +398,8 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
         view.families.map((group) => (
           <section
             key={group.family.id}
-            className="rounded-md border border-border bg-card shadow-soft"
+            id={`family-${group.family.id}`}
+            className="scroll-mt-20 rounded-md border border-border bg-card shadow-soft"
           >
             <div className="border-b border-border px-5 py-4">
               <h2 className="text-base font-semibold text-card-foreground">
@@ -396,7 +420,10 @@ export function EfficacyComparison({ view }: EfficacyComparisonProps) {
         ))
       )}
 
-      <section className="rounded-md border border-border bg-card shadow-soft">
+      <section
+        id="head-to-head"
+        className="scroll-mt-20 rounded-md border border-border bg-card shadow-soft"
+      >
         <div className="border-b border-border px-5 py-4">
           <h2 className="text-base font-semibold text-card-foreground">
             Head-to-head
