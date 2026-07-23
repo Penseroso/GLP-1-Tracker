@@ -184,8 +184,7 @@ function HeadToHeadEntry({ group }: { group: HeadToHeadGroup }) {
       </div>
 
       <p className="mt-2 text-xs text-muted-foreground">
-        {group.endpointName}
-        {group.duration ? ` · ${group.duration}` : ""}
+        {group.endpointName} · {group.assessmentTimepoint}
       </p>
 
       <ul className="mt-1.5 space-y-1">
@@ -296,8 +295,7 @@ function ComparisonRow({ row }: { row: EfficacyComparisonRow }) {
       <dl className="mt-3 grid gap-3 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <dt className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
-            Change from baseline in body weight
-            {evidence.duration ? <> ({evidence.duration})</> : null}
+            Change from baseline in body weight ({evidence.assessmentTimepoint})
           </dt>
           <dd className="mt-1.5">
             <ValueList values={evidence.treatmentValues} />
