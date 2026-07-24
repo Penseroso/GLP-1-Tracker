@@ -30,6 +30,11 @@
     "headquartersCountry": "Denmark"
   },
   {
+    "id": "pfizer",
+    "name": "Pfizer",
+    "headquartersCountry": "United States"
+  },
+  {
     "id": "ql-biopharm",
     "name": "QL Biopharm",
     "headquartersCountry": "China"
