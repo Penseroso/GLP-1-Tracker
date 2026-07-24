@@ -155,6 +155,22 @@ axes identically to the blocked source. When it supports only some, enter
 only the results it supports and leave the rest `unresolved` — merely
 mentioning the same endpoint is not, by itself, equivalent evidence.
 
+Fallback equivalence governs one specific claim: that an accessible
+lower-priority source may stand in for a **specific blocked source's specific
+result**. Do not treat every lower-priority source consulted after a block as
+a substitute for that blocked source. When the accessible source
+independently and directly reports a distinct Endpoint or Outcome, it may
+support that result on its own provenance rather than as a substitute,
+provided it directly supports the endpoint, timepoint, analysis unit or
+comparison, analysis population, and estimand required for that result.
+Fallback equivalence to the inaccessible source applies only when the entry
+claims the accessible source represents the same result that source would
+have disclosed.
+
+Source selection is result-scoped: different Endpoints and Outcomes within
+one Study may use different directly supporting sources and different
+`maturity` values, each on its own provenance.
+
 A result-bearing source may disclose several distinct results of differing
 reliability and scope; do not assign one disposition to the source as a whole.
 If the source publishes only an adjusted or between-unit effect, enter only that directly
