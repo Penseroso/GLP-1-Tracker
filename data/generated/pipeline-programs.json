@@ -1,5 +1,96 @@
 [
   {
+    "id": "abbvie-abbv-295-subcutaneous-injection",
+    "assetId": "abbv-295",
+    "companyId": "abbvie",
+    "assetName": "ABBV-295",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "GUB014295"
+      }
+    ],
+    "technical": {
+      "mechanism": "Agonist that specifically activates amylin and calcitonin receptors",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Phase 1b",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Gubra",
+        "role": "originator",
+        "sourceUrls": [
+          "https://news.abbvie.com/2025-03-03-AbbVie-and-Gubra-Announce-License-Agreement-to-Develop-an-Amylin-Analog-for-the-Treatment-of-Obesity"
+        ]
+      },
+      {
+        "externalCompanyName": "Gubra",
+        "role": "licensor",
+        "territories": [
+          "Worldwide"
+        ],
+        "rights": [
+          "development",
+          "manufacturing",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-04-01",
+        "sourceUrls": [
+          "https://news.abbvie.com/2025-03-03-AbbVie-and-Gubra-Announce-License-Agreement-to-Develop-an-Amylin-Analog-for-the-Treatment-of-Obesity",
+          "https://www.gubra.dk/mfn_news/trading-statement-q1-2025-a-landmark-deal-for-gubamy?m-page=1"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://news.abbvie.com/2025-03-03-AbbVie-and-Gubra-Announce-License-Agreement-to-Develop-an-Amylin-Analog-for-the-Treatment-of-Obesity",
+          "title": "AbbVie and Gubra Announce License Agreement to Develop an Amylin Analog for the Treatment of Obesity",
+          "sourceType": "press release",
+          "publishedAt": "2025-03-03",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.gubra.dk/mfn_news/trading-statement-q1-2025-a-landmark-deal-for-gubamy?m-page=1",
+          "title": "Trading statement Q1-2025: A landmark deal for GUBamy",
+          "sourceType": "company trading statement",
+          "publishedAt": "2025-05-09",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://news.abbvie.com/2026-03-09-AbbVie-Announces-Positive-Topline-Results-from-a-Phase-1-Multiple-Ascending-Dose-Study-of-ABBV-295,-a-Long-Acting-Amylin-Analog,-in-Adults",
+          "title": "AbbVie Announces Positive Topline Results from a Phase 1 Multiple Ascending Dose Study of ABBV-295, a Long-Acting Amylin Analog, in Adults",
+          "sourceType": "press release",
+          "publishedAt": "2026-03-09",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07291232",
+          "title": "A Study of ABBV-295 Subcutaneous Injections to Assess Adverse Events and Pharmacokinetics in Adult Participants With Obesity",
+          "sourceType": "trial registry",
+          "publishedAt": "2026-05-11",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
     "id": "amgen-maridebart-cafraglutide-subcutaneous-injection",
     "assetId": "maridebart-cafraglutide",
     "companyId": "amgen",
@@ -2903,6 +2994,288 @@
     }
   },
   {
+    "id": "gan-lee-pharmaceuticals-gzr102-fdc-subcutaneous-injection",
+    "assetId": "gzr102",
+    "companyId": "gan-lee-pharmaceuticals",
+    "assetType": "co-formulation",
+    "assetName": "GZR102",
+    "codeName": null,
+    "components": [
+      {
+        "assetId": "gzr18",
+        "role": "GLP-1 receptor agonist"
+      },
+      {
+        "codeName": "GZR4",
+        "companyId": "gan-lee-pharmaceuticals",
+        "role": "Basal insulin agonist"
+      }
+    ],
+    "technical": {
+      "mechanism": "Basal insulin agonist plus GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "regulatoryStates": [
+      {
+        "state": "IND cleared",
+        "jurisdiction": "China",
+        "authority": "NMPA",
+        "date": "2025-04-22"
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.ganlee.com/detail/796.html",
+          "title": "Gan & Lee Pharmaceuticals Announces IND Clearance by NMPA for Class 1 New Drug Weekly Fixed Ratio Combination GZR102",
+          "sourceType": "company press release",
+          "publishedAt": "2025-04-22",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.ganlee.com/detail/797.html",
+          "title": "Gan & Lee Pharmaceuticals Announced First Participant Dosed in Phase 1 Clinical Study of GZR102 Injection, a Once-weekly Fixed-Ratio Combination of Basal Insulin and GLP-1 RA",
+          "sourceType": "company press release",
+          "publishedAt": "2025-05-16",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "gan-lee-pharmaceuticals-gzr18-subcutaneous-injection",
+    "assetId": "gzr18",
+    "companyId": "gan-lee-pharmaceuticals",
+    "assetName": "Bofanglutide",
+    "codeName": "GZR18",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once every 2 weeks; once monthly also under investigation"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "JW Pharmaceutical",
+        "role": "licensee",
+        "territories": [
+          "South Korea"
+        ],
+        "rights": [
+          "development",
+          "regulatory filing",
+          "commercialization"
+        ],
+        "effectiveDate": "2026-04-09",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-signs-exclusive-license-agreement-with-jw-pharmaceutical-the-leading-south-korean-pharma-to-advance-the-global-commercialization-of-the-innovative-glp-1-receptor-agonist-bofanglutide-302738066.html"
+        ]
+      },
+      {
+        "externalCompanyName": "Lupin Limited",
+        "role": "licensee",
+        "territories": [
+          "India"
+        ],
+        "rights": [
+          "development",
+          "regulatory filing",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-12-29",
+        "sourceUrls": [
+          "https://www.ganlee.com/detail/819.html"
+        ]
+      },
+      {
+        "externalCompanyName": "Productos Cientificos S.A. de C.V. (CARNOT Laboratorios)",
+        "role": "licensee",
+        "territories": [
+          "Mexico",
+          "Brazil",
+          "Colombia"
+        ],
+        "rights": [
+          "development",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-11-25",
+        "sourceUrls": [
+          "https://www.ganlee.com/detail/813.html"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.ganlee.com/detail/765.html",
+          "title": "Gan & Lee Pharmaceuticals Announced First Participant Dosed in a Phase 3 Clinical Study (GRADUAL-1) of Bofanglutide (GZR18) injection in Chinese Patients with Overweight or Obesity",
+          "sourceType": "company press release",
+          "publishedAt": "2024-12-30",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/once-monthly-glp-1-ra--gan--lee-pharmaceuticals-initiates-phase-3-clinical-study-gradual-3-of-the-first-chinese-once-monthly-glp-1-ra-for-weight-management-302627433.html",
+          "title": "Once-Monthly GLP-1 RA | Gan & Lee Pharmaceuticals Initiates Phase 3 Clinical Study (GRADUAL-3) of the First Chinese Once-Monthly GLP-1 RA for Weight Management",
+          "sourceType": "company press release",
+          "publishedAt": "2025-11-27",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-bi-weekly-twice-a-month-glp-1-receptor-agonist-gzr18-injection-achieved-17-29-weight-loss-at-30-weeks-in-a-phase-iib-clinical-trial-302202575.html",
+          "title": "Gan & Lee Pharmaceuticals' Bi-weekly (twice a month) GLP-1 Receptor Agonist GZR18 Injection Achieved 17.29% Weight Loss at 30 Weeks in a Phase IIb Clinical Trial",
+          "sourceType": "company press release",
+          "publishedAt": "2024-07-22",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06728124",
+          "title": "A Phase III Clinical Study to Evaluate the Efficacy and Safety of GZR18 Injection in Adult Obese/Overweight Subjects",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-achieves-significant-progress-in-its-dual-pipeline-for-metabolic-diseases--weekly-insulin-ludefen-gzr4-meets-primary-endpoint-in-phase-iii-clinical-trial-in-china-bofanglutide-meets-primary-endpoints--302794945.html",
+          "title": "Gan & Lee Pharmaceuticals Achieves Significant Progress in Its Dual Pipeline for Metabolic Diseases -- Weekly Insulin Ludefen (GZR4) Meets Primary Endpoint in Phase III Clinical Trial in China; Bofanglutide Meets Primary Endpoints in Phase III Weight Loss Study in China and Phase II Study in the U.S.",
+          "sourceType": "company press release",
+          "publishedAt": "2026-06-12",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "gan-lee-pharmaceuticals-gzr18-subcutaneous-injection-obstructive-sleep-apnea",
+    "assetId": "gzr18",
+    "companyId": "gan-lee-pharmaceuticals",
+    "assetName": "Bofanglutide",
+    "codeName": "GZR18",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once every 2 weeks"
+    },
+    "indications": [
+      "Obstructive sleep apnea"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.ganlee.com/detail/853.html",
+          "title": "Gan & Lee Pharmaceuticals ADA 2026 Abstract Data Review | Multiple Metabolic Pipeline Research Results Presented at International Academic Conference",
+          "sourceType": "company pipeline update",
+          "publishedAt": "2026-06-11",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07493057",
+          "title": "Evaluate the Efficacy and Safety of GZR18 Injection in Obese Subjects With Obstructive Sleep Apnea Not Treated With Positive Airway Pressure (PAP) Therapy",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07501832",
+          "title": "Evaluate the Efficacy and Safety of GZR18 Injection in Obese Subjects With Obstructive Sleep Apnea Receiving Positive Airway Pressure (PAP) Therapy",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "gan-lee-pharmaceuticals-gzr18-subcutaneous-injection-type-2-diabetes",
+    "assetId": "gzr18",
+    "companyId": "gan-lee-pharmaceuticals",
+    "assetName": "Bofanglutide",
+    "codeName": "GZR18",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once every 2 weeks"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-three-innovative-drugs-gzr18-injection-gzr4-injection-and-gzr101-injection-achieve-primary-endpoints-in-phase-2-clinical-studies-302276311.html",
+          "title": "Gan & Lee Pharmaceuticals' Three Innovative Drugs: GZR18 Injection, GZR4 Injection, and GZR101 Injection Achieve Primary Endpoints in Phase 2 Clinical Studies",
+          "sourceType": "company press release",
+          "publishedAt": "2024-10-15",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06777238",
+          "title": "A Phase III Clinical Study to Evaluate the Efficacy and Safety of GZR18 Injection in Subjects With Type 2 Diabetes Mellitus and Poor Blood Glucose Control by Diet and Exercise",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06778967",
+          "title": "A Phase III Clinical Study to Evaluate the Efficacy and Safety of GZR18 Injection in Adult Type 2 Diabetes Mellitus",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
     "id": "novo-nordisk-amycretin-oral-tablets",
     "assetId": "amycretin",
     "companyId": "novo-nordisk",
@@ -4157,6 +4530,554 @@
     }
   },
   {
+    "id": "pfizer-pf-06882961-oral-tablets",
+    "assetId": "pf-06882961",
+    "companyId": "pfizer",
+    "assetName": "Danuglipron",
+    "codeName": "PF-06882961",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": "Small molecule"
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": "Once daily"
+    },
+    "indications": [
+      "Obesity",
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Discontinued",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-provides-update-oral-glp-1-receptor-agonist",
+          "title": "Pfizer Provides Update on Oral GLP-1 Receptor Agonist Danuglipron",
+          "sourceType": "press release",
+          "publishedAt": "2025-04-14",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-advances-development-once-daily-formulation-oral-glp",
+          "title": "Pfizer Advances Development of Once-Daily Formulation of Oral GLP-1 Receptor Agonist Danuglipron",
+          "sourceType": "press release",
+          "publishedAt": "2024-07-11",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pfizer-pf-06954522-oral-tablets",
+    "assetId": "pf-06954522",
+    "companyId": "pfizer",
+    "assetName": "PF-06954522",
+    "codeName": null,
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": "Small molecule"
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity",
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Unknown",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06003777",
+          "title": "A Study to Learn How Different Amounts of the Study Medicine Called PF-06954522 Are Tolerated and Act in the Body in Healthy Adults",
+          "sourceType": "trial registry",
+          "publishedAt": "2023",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06279234",
+          "title": "A Study to Learn How Different Amounts of PF-06954522 Are Tolerated and Act in Adults With Type 2 Diabetes Mellitus",
+          "sourceType": "trial registry",
+          "publishedAt": "2024",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://investors.nxera.life/common/pdf/20240618_Annual_Report_2023_EN.pdf",
+          "title": "Nxera Pharma Annual Report 2023",
+          "sourceType": "annual report",
+          "publishedAt": "2024-06-18",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pfizer-pf-07081532-oral-tablets",
+    "assetId": "pf-07081532",
+    "companyId": "pfizer",
+    "assetName": "Lotiglipron",
+    "codeName": "PF-07081532",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": "Small molecule"
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": "Once daily"
+    },
+    "indications": [
+      "Obesity",
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Discontinued",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11618248/",
+          "title": "Evaluation of an oral small-molecule glucagon-like peptide-1 receptor agonist, lotiglipron, for type 2 diabetes and obesity: A dose-ranging, phase 2, randomized, placebo-controlled study",
+          "sourceType": "peer-reviewed publication",
+          "publishedAt": "2024",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-provides-update-glp-1-ra-clinical-development",
+          "title": "Pfizer Provides Update on GLP-1-RA Clinical Development Program for Adults with Obesity and Type 2 Diabetes Mellitus",
+          "sourceType": "press release",
+          "publishedAt": "2023-06-26",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pfizer-pf-07976016-oral-tablets",
+    "assetId": "pf-07976016",
+    "companyId": "pfizer",
+    "assetName": "PF-07976016",
+    "codeName": null,
+    "technical": {
+      "mechanism": "GIPR antagonist",
+      "platform": "Small molecule"
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": "Once daily"
+    },
+    "indications": [
+      "Chronic weight management"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Completed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://cdn.pfizer.com/pfizercom/product-pipeline/Q1%202026%20Pipeline%20Update_vFinal_0.pdf",
+          "title": "Pfizer Pipeline Update, May 5, 2026",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-05-05",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.tipranks.com/news/company-announcements/pfizer-completes-mid-stage-trial-of-new-obesity-drug-candidate-pf-07976016",
+          "title": "Pfizer Completes Mid-Stage Trial of New Obesity Drug Candidate PF-07976016",
+          "sourceType": "news article",
+          "publishedAt": "2026",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pfizer-pf-08653944-subcutaneous-injection",
+    "assetId": "pf-08653944",
+    "companyId": "pfizer",
+    "assetName": "Berobenatide",
+    "codeName": "PF-08653944",
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "MET-097i"
+      }
+    ],
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": "NuSH platform"
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly or once monthly"
+    },
+    "indications": [
+      "Chronic weight management"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Initiated or active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Metsera",
+        "role": "originator",
+        "sourceUrls": [
+          "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-acquire-metsera-and-its-next-generation-obesity"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://cdn.pfizer.com/pfizercom/product-pipeline/Q1%202026%20Pipeline%20Update_vFinal_0.pdf",
+          "title": "Pfizer Pipeline Update, May 5, 2026",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-05-05",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizers-ultra-long-acting-injectable-glp-1-ra-shows-robust",
+          "title": "Pfizer's Ultra-Long-Acting Injectable GLP-1 RA Shows Robust and Continued Weight Loss with Monthly Dosing in Phase 2b Trial",
+          "sourceType": "press release",
+          "publishedAt": "2026-06",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pfizer-pf-08653945-subcutaneous-injection",
+    "assetId": "pf-08653945",
+    "companyId": "pfizer",
+    "assetName": "MET-233i",
+    "codeName": "PF-08653945",
+    "technical": {
+      "mechanism": "Amylin analog with dual amylin and calcitonin receptor activity",
+      "platform": "NuSH platform"
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once monthly"
+    },
+    "indications": [
+      "Chronic weight management"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Initiated or active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Metsera",
+        "role": "originator",
+        "sourceUrls": [
+          "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-acquire-metsera-and-its-next-generation-obesity"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://cdn.pfizer.com/pfizercom/product-pipeline/Q1%202026%20Pipeline%20Update_vFinal_0.pdf",
+          "title": "Pfizer Pipeline Update, May 5, 2026",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-05-05",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.biospace.com/press-releases/metsera-announces-positive-phase-1-data-of-first-in-class-once-monthly-amylin-candidate-met-233i",
+          "title": "Metsera Announces Positive Phase 1 Data of First-in-Class Once-Monthly Amylin Candidate MET-233i",
+          "sourceType": "press release",
+          "publishedAt": "2025-06-09",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pfizer-pf-08654698-subcutaneous-injection",
+    "assetId": "pf-08654698",
+    "companyId": "pfizer",
+    "assetName": "MET-034i",
+    "codeName": "PF-08654698",
+    "technical": {
+      "mechanism": "GIPR agonist",
+      "platform": "NuSH platform"
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Chronic weight management"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Initiated or active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Metsera",
+        "role": "originator",
+        "sourceUrls": [
+          "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-acquire-metsera-and-its-next-generation-obesity"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://cdn.pfizer.com/pfizercom/product-pipeline/Q1%202026%20Pipeline%20Update_vFinal_0.pdf",
+          "title": "Pfizer Pipeline Update, May 5, 2026",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-05-05",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ql-biopharm-zt002-subcutaneous-injection",
+    "assetId": "zt002",
+    "companyId": "ql-biopharm",
+    "assetName": "Zovaglutide",
+    "codeName": "ZT002",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once monthly"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/ql-biopharm-reports-phase-2-results-of-a-monthly-dose-study-evaluating-zovaglutide-a-novel-extended-half-life-glp-1-receptor-agonist-at-easd-2025-302558945.html",
+          "title": "QL Biopharm reports Phase 2 results of a monthly dose study evaluating zovaglutide, a novel, extended half-life GLP-1 receptor agonist at EASD 2025",
+          "sourceType": "company press release",
+          "publishedAt": "2025-09-18",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07230119",
+          "title": "A Study of Zovaglutide in Subjects With Overweight or Obesity (HORIZON-1)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07020884",
+          "title": "A Study of ZT002 Injection With Subjects With Overweight or Obesity",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.linkedin.com/posts/qlbiopharm_qlbiopharm-horizon1-zovaglutide-activity-7420679673493225473-4sIj",
+          "title": "QL Biopharm Completes Dosing of First Patient in HORIZON-1, a Phase 3 Trial for Weight Loss with Zovaglutide, a Once-Monthly GLP-1 RA Peptide",
+          "sourceType": "company social media announcement",
+          "publishedAt": "2026-01-19",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ql-biopharm-zt002-subcutaneous-injection-type-2-diabetes",
+    "assetId": "zt002",
+    "companyId": "ql-biopharm",
+    "assetName": "Zovaglutide",
+    "codeName": "ZT002",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once every 2 weeks"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 1b/2a",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Completed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07065032",
+          "title": "A Study of ZT002 Injection in Adult Chinese Subjects With Type 2 Diabetes Mellitus (T2DM)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ql-biopharm-zt003-subcutaneous-injection",
+    "assetId": "zt003",
+    "companyId": "ql-biopharm",
+    "assetName": "ZT003",
+    "codeName": null,
+    "technical": {
+      "mechanism": "GLP-1/FGF21 dual agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Metabolic dysfunction-associated steatohepatitis"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "regulatoryStates": [
+      {
+        "state": "IND cleared",
+        "jurisdiction": "United States",
+        "authority": "U.S. FDA",
+        "date": "2025-06-27"
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.qlbiopharm.com/en/news-info/368.html",
+          "title": "QL Biopharm's GLP-1/FGF21 Dual Agonist ZT003 Obtains FDA Approval for New Drug Clinical Trial",
+          "sourceType": "company press release",
+          "publishedAt": "2025-06-30",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07184502",
+          "title": "A Phase 1, Randomized, Double-blind, Placebo-controlled, Single and Multiple Ascending Dose Trial of ZT003 Injection",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ql-biopharm-zt006-oral-tablets",
+    "assetId": "zt006",
+    "companyId": "ql-biopharm",
+    "assetName": "ZT006",
+    "codeName": null,
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": "Once daily or once weekly"
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/posts/qlbiopharm_qlbiopharm-zt006-glp1-activity-7408911537480019970-IWdB",
+          "title": "QL Biopharm Doses First Patient in ZT006 Phase 2 Obesity Study",
+          "sourceType": "company social media announcement",
+          "publishedAt": "2025-12-12",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07230132",
+          "title": "Efficacy and Safety of ZT006 in Overweight and Obese Participants",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07307638",
+          "title": "Dose-escalation and Food Effect Study of ZT006 in Healthy, Overweight and Obese Participants",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
     "id": "roche-ct-868-subcutaneous-injection",
     "assetId": "ct-868",
     "companyId": "roche",
@@ -4450,6 +5371,629 @@
           "title": "Enicepatide | CVRM | Genentech Pipeline and Clinical Trials",
           "sourceType": "company pipeline page",
           "checkedAt": "2026-07-21"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-ecnoglutide-oral-tablets",
+    "assetId": "ecnoglutide",
+    "companyId": "sciwind-biosciences",
+    "assetName": "Ecnoglutide",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "XW003"
+      },
+      {
+        "type": "development-code",
+        "value": "XW004"
+      }
+    ],
+    "technical": {
+      "mechanism": "cAMP-biased GLP-1 peptide analog",
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Tablets",
+      "dosingInterval": "Once daily; once weekly also under investigation"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 1b/2a",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Verdiva Bio Limited",
+        "role": "licensee",
+        "territories": [
+          "Worldwide excluding Greater China and South Korea"
+        ],
+        "rights": [
+          "development",
+          "manufacturing",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-01-10",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-global-licensing-and-collaboration-agreement-for-metabolic-disease-portfolio-302347773.html"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07243171",
+          "title": "A Phase Ib/IIa Study to Evaluate the Safety, Tolerability, Pharmacokinetics and Pharmacodynamics of Oral Ecnoglutide Tablets in Chinese Participants With Overweight or Obesity",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05184322",
+          "title": "XW004 To Evaluate the Safety, Tolerability, PK, and PD of Oral Ecnoglutide Tablet in Healthy Adults",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-positive-results-from-phase-1-clinical-trial-of-xw004-an-oral-formulation-of-long-acting-glp-1-analog-ecnoglutide-302042633.html",
+          "title": "Sciwind Biosciences Announces Positive Results from Phase 1 Clinical Trial of XW004, an Oral Formulation of Long-acting GLP-1 Analog Ecnoglutide",
+          "sourceType": "company press release",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-global-licensing-and-collaboration-agreement-for-metabolic-disease-portfolio-302347773.html",
+          "title": "Sciwind Biosciences Announces Global Licensing and Collaboration Agreement for Metabolic Disease Portfolio",
+          "sourceType": "company press release",
+          "publishedAt": "2025-01-10",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-ecnoglutide-subcutaneous-injection",
+    "assetId": "ecnoglutide",
+    "companyId": "sciwind-biosciences",
+    "assetName": "Ecnoglutide",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "XW003"
+      },
+      {
+        "type": "development-code",
+        "value": "XW004"
+      }
+    ],
+    "technical": {
+      "mechanism": "cAMP-biased GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Approved",
+      "status": "Active",
+      "stageBasis": "Official regulatory-development milestone",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "regulatoryStates": [
+      {
+        "state": "NDA approved",
+        "jurisdiction": "China",
+        "authority": "National Medical Products Administration (NMPA)",
+        "date": "2026-03-06"
+      }
+    ],
+    "relationships": [
+      {
+        "externalCompanyName": "Pfizer",
+        "role": "commercialization partner",
+        "territories": [
+          "China"
+        ],
+        "rights": [
+          "commercialization"
+        ],
+        "effectiveDate": "2026-02-24",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/sciwind-biosciences-partners-with-pfizer-china-to-commercialize-its-biased-glp-1-in-china-302695339.html"
+        ]
+      },
+      {
+        "externalCompanyName": "HK inno.N Corporation",
+        "role": "licensee",
+        "territories": [
+          "South Korea"
+        ],
+        "rights": [
+          "development",
+          "commercialization"
+        ],
+        "effectiveDate": "2024-05-07",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/sciwind-biosciences-and-hk-innon-corporation-announce-licensing-and-partnership-agreement-for-ecnoglutide-injection-xw003-in-south-korea-302137754.html"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-ecnoglutide-injection-approved-by-chinas-national-medical-products-administration-nmpa-for-chronic-weight-management-302706442.html",
+          "title": "Sciwind Biosciences Announces Ecnoglutide Injection Approved by China's National Medical Products Administration (NMPA) for Chronic Weight Management",
+          "sourceType": "company press release",
+          "publishedAt": "2026-03-06",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05680155",
+          "title": "SLIMMER: A Phase 3 Study of Ecnoglutide (XW003) in Chinese Adults With Overweight or Obesity",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(25)00141-X/abstract",
+          "title": "Efficacy and safety of a biased GLP-1 receptor agonist ecnoglutide in adults with overweight or obesity: a multicentre, randomised, double-blind, placebo-controlled, phase 3 trial",
+          "sourceType": "peer-reviewed publication",
+          "publishedAt": "2025-06",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.hkexnews.hk/app/sehk/2026/108322/a131023/sehk26032301329.pdf",
+          "title": "Hangzhou Sciwind Biosciences Co., Ltd. - Application Proof / Business Section (Our Pipeline of Drug Candidates)",
+          "sourceType": "IPO prospectus (draft)",
+          "publishedAt": "2026-03-22",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-ecnoglutide-subcutaneous-injection-adolescent-obesity",
+    "assetId": "ecnoglutide",
+    "companyId": "sciwind-biosciences",
+    "assetName": "Ecnoglutide",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "XW003"
+      },
+      {
+        "type": "development-code",
+        "value": "XW004"
+      }
+    ],
+    "technical": {
+      "mechanism": "cAMP-biased GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Phase 1b",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "regulatoryStates": [
+      {
+        "state": "IND cleared",
+        "jurisdiction": "China",
+        "authority": "National Medical Products Administration (NMPA)",
+        "date": "2026-01"
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.hkexnews.hk/app/sehk/2026/108322/a131023/sehk26032301329.pdf",
+          "title": "Hangzhou Sciwind Biosciences Co., Ltd. - Application Proof / Business Section (Our Pipeline of Drug Candidates)",
+          "sourceType": "IPO prospectus (draft)",
+          "publishedAt": "2026-03-22",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07143227",
+          "title": "A Study of XW003 Injection in Chinese Adolescents With Obesity",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-ecnoglutide-subcutaneous-injection-mash",
+    "assetId": "ecnoglutide",
+    "companyId": "sciwind-biosciences",
+    "assetName": "Ecnoglutide",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "XW003"
+      },
+      {
+        "type": "development-code",
+        "value": "XW004"
+      }
+    ],
+    "technical": {
+      "mechanism": "cAMP-biased GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Metabolic dysfunction-associated steatohepatitis"
+    ],
+    "development": {
+      "stage": "IND cleared",
+      "status": "Planned",
+      "stageBasis": "Official regulatory-development milestone",
+      "stageOperationalState": "Cleared, not yet initiated"
+    },
+    "regulatoryStates": [
+      {
+        "state": "IND cleared",
+        "jurisdiction": "China",
+        "authority": "National Medical Products Administration (NMPA)",
+        "date": "2021-02-28"
+      }
+    ],
+    "relationships": [
+      {
+        "externalCompanyName": "HK inno.N Corporation",
+        "role": "licensee",
+        "territories": [
+          "South Korea"
+        ],
+        "rights": [
+          "development",
+          "commercialization"
+        ],
+        "effectiveDate": "2024-05-07",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/sciwind-biosciences-and-hk-innon-corporation-announce-licensing-and-partnership-agreement-for-ecnoglutide-injection-xw003-in-south-korea-302137754.html"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.sciwindbio.com/portal/index/pipeline/category_id/3.html",
+          "title": "Sciwind Biosciences Pipeline",
+          "sourceType": "company pipeline",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.sciwindbio.com/portal/index/newsdetail/id/119/category_id/5.html",
+          "title": "Sciwind's Investigational New Drug Approved for NASH Trial",
+          "sourceType": "company press release",
+          "publishedAt": "2021-02-28",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.hkexnews.hk/app/sehk/2026/108322/a131023/sehk26032301329.pdf",
+          "title": "Hangzhou Sciwind Biosciences Co., Ltd. - Application Proof / Business Section (Our Pipeline of Drug Candidates)",
+          "sourceType": "IPO prospectus (draft)",
+          "publishedAt": "2026-03-22",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-and-hk-innon-corporation-announce-licensing-and-partnership-agreement-for-ecnoglutide-injection-xw003-in-south-korea-302137754.html",
+          "title": "Sciwind Biosciences and HK inno.N Corporation Announce Licensing and Partnership Agreement for Ecnoglutide Injection (XW003) in South Korea",
+          "sourceType": "company press release",
+          "publishedAt": "2024-05-07",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-ecnoglutide-subcutaneous-injection-osa",
+    "assetId": "ecnoglutide",
+    "companyId": "sciwind-biosciences",
+    "assetName": "Ecnoglutide",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "XW003"
+      },
+      {
+        "type": "development-code",
+        "value": "XW004"
+      }
+    ],
+    "technical": {
+      "mechanism": "cAMP-biased GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Obstructive sleep apnea"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07434050",
+          "title": "A Study of XW003 in Obese Participants With Obstructive Sleep Apnea Receiving Positive Airway Pressure Therapy",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT07387094",
+          "title": "A Study of XW003 in Obese Participants With Obstructive Sleep Apnea But Not Receive Positive Airway Pressure Therapy",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.hkexnews.hk/app/sehk/2026/108322/a131023/sehk26032301329.pdf",
+          "title": "Hangzhou Sciwind Biosciences Co., Ltd. - Application Proof / Business Section (Our Pipeline of Drug Candidates)",
+          "sourceType": "IPO prospectus (draft)",
+          "publishedAt": "2026-03-22",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-ecnoglutide-subcutaneous-injection-type-2-diabetes",
+    "assetId": "ecnoglutide",
+    "companyId": "sciwind-biosciences",
+    "assetName": "Ecnoglutide",
+    "codeName": null,
+    "aliases": [
+      {
+        "type": "development-code",
+        "value": "XW003"
+      },
+      {
+        "type": "development-code",
+        "value": "XW004"
+      }
+    ],
+    "technical": {
+      "mechanism": "cAMP-biased GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Approved",
+      "status": "Active",
+      "stageBasis": "Official regulatory-development milestone",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "regulatoryStates": [
+      {
+        "state": "NDA approved",
+        "jurisdiction": "China",
+        "authority": "National Medical Products Administration (NMPA)",
+        "date": "2026-01-30"
+      }
+    ],
+    "relationships": [
+      {
+        "externalCompanyName": "Pfizer",
+        "role": "commercialization partner",
+        "territories": [
+          "China"
+        ],
+        "rights": [
+          "commercialization"
+        ],
+        "effectiveDate": "2026-02-24",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/sciwind-biosciences-partners-with-pfizer-china-to-commercialize-its-biased-glp-1-in-china-302695339.html"
+        ]
+      },
+      {
+        "externalCompanyName": "HK inno.N Corporation",
+        "role": "licensee",
+        "territories": [
+          "South Korea"
+        ],
+        "rights": [
+          "development",
+          "commercialization"
+        ],
+        "effectiveDate": "2024-05-07",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/sciwind-biosciences-and-hk-innon-corporation-announce-licensing-and-partnership-agreement-for-ecnoglutide-injection-xw003-in-south-korea-302137754.html"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/apac/news-releases/sciwind-biosciences-announces-ecnoglutide-injection-approved-by-chinas-national-medical-products-administration-nmpa-for-adult-type-2-diabetes-302675016.html",
+          "title": "Sciwind Biosciences Announces Ecnoglutide Injection Approved by China's National Medical Products Administration (NMPA) for Adult Type 2 Diabetes",
+          "sourceType": "company press release",
+          "publishedAt": "2026-01-30",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-positive-topline-results-from-phase-3-clinical-trial-of-ecnoglutide-xw003-a-long-acting-camp-signaling-biased-glp-1-analog-in-adult-patients-with-type-2-diabetes-in-china-302023591.html",
+          "title": "Sciwind Biosciences Announces Positive Topline Results from Phase 3 Clinical Trial of Ecnoglutide (XW003) in Adult Patients with Type 2 Diabetes in China",
+          "sourceType": "company press release",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.hkexnews.hk/app/sehk/2026/108322/a131023/sehk26032301329.pdf",
+          "title": "Hangzhou Sciwind Biosciences Co., Ltd. - Application Proof / Business Section (Our Pipeline of Drug Candidates)",
+          "sourceType": "IPO prospectus (draft)",
+          "publishedAt": "2026-03-22",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-xw014-oral-capsule",
+    "assetId": "xw014",
+    "companyId": "sciwind-biosciences",
+    "assetName": "XW014",
+    "codeName": null,
+    "technical": {
+      "mechanism": "cAMP-biased GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Capsule",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity",
+      "Overweight",
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Completed"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-initiation-of-dosing-in-phase-1-clinical-trial-evaluating-xw014-an-oral-small-molecule-glp-1-receptor-agonist-for-the-treatment-of-obesity-and-type-2-diabetes-301644252.html",
+          "title": "Sciwind Biosciences Announces Initiation of Dosing in Phase 1 Clinical Trial Evaluating XW014, an Oral Small Molecule GLP-1 Receptor Agonist for the Treatment of Obesity and Type 2 Diabetes",
+          "sourceType": "company press release",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT05579314",
+          "title": "XW014 in Healthy Subjects and Patients With Type 2 Diabetes Mellitus (T2DM)",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.hkexnews.hk/app/sehk/2026/108322/a131023/sehk26032301329.pdf",
+          "title": "Hangzhou Sciwind Biosciences Co., Ltd. - Application Proof / Business Section (Our Pipeline of Drug Candidates)",
+          "sourceType": "IPO prospectus (draft)",
+          "publishedAt": "2026-03-22",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sciwind-biosciences-xw015-subcutaneous-injection",
+    "assetId": "xw015",
+    "companyId": "sciwind-biosciences",
+    "assetName": "XW015",
+    "codeName": null,
+    "technical": {
+      "mechanism": "Amylin receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "IND-enabling",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Not separately confirmed"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "Verdiva Bio Limited",
+        "role": "licensee",
+        "territories": [
+          "Worldwide excluding Greater China and South Korea"
+        ],
+        "rights": [
+          "development",
+          "manufacturing",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-01-10",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-global-licensing-and-collaboration-agreement-for-metabolic-disease-portfolio-302347773.html"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/sciwind-biosciences-announces-global-licensing-and-collaboration-agreement-for-metabolic-disease-portfolio-302347773.html",
+          "title": "Sciwind Biosciences Announces Global Licensing and Collaboration Agreement for Metabolic Disease Portfolio",
+          "sourceType": "company press release",
+          "publishedAt": "2025-01-10",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.hkexnews.hk/app/sehk/2026/108322/a131023/sehk26032301329.pdf",
+          "title": "Hangzhou Sciwind Biosciences Co., Ltd. - Application Proof / Business Section (Our Pipeline of Drug Candidates)",
+          "sourceType": "IPO prospectus (draft)",
+          "publishedAt": "2026-03-22",
+          "checkedAt": "2026-07-24"
         }
       ]
     }

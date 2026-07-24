@@ -1,5 +1,10 @@
 [
   {
+    "id": "abbvie",
+    "name": "AbbVie",
+    "headquartersCountry": "United States"
+  },
+  {
     "id": "amgen",
     "name": "Amgen Inc.",
     "headquartersCountry": "United States"
@@ -15,14 +20,34 @@
     "headquartersCountry": "United States"
   },
   {
+    "id": "gan-lee-pharmaceuticals",
+    "name": "Gan & Lee Pharmaceuticals",
+    "headquartersCountry": "China"
+  },
+  {
     "id": "novo-nordisk",
     "name": "Novo Nordisk",
     "headquartersCountry": "Denmark"
   },
   {
+    "id": "pfizer",
+    "name": "Pfizer",
+    "headquartersCountry": "United States"
+  },
+  {
+    "id": "ql-biopharm",
+    "name": "QL Biopharm",
+    "headquartersCountry": "China"
+  },
+  {
     "id": "roche",
     "name": "Roche",
     "headquartersCountry": "Switzerland"
+  },
+  {
+    "id": "sciwind-biosciences",
+    "name": "Sciwind Biosciences",
+    "headquartersCountry": "China"
   },
   {
     "id": "zealand-pharma",
