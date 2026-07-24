@@ -486,8 +486,8 @@
       "overallDuration": "13 weeks",
       "safetySummary": "All gastrointestinal adverse events were mild or moderate, with no grade 3 or higher drug-related adverse events, no drug-related serious adverse events, and no hepatic safety signal reported.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-20",
-        "updatedAt": "2026-07-20",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT07002905",
@@ -1825,8 +1825,8 @@
       "overallDuration": "68 weeks",
       "safetySummary": "The most common adverse events were gastrointestinal and were generally mild to moderate; discontinuation because of adverse events increased with dose.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05931367",
@@ -5282,7 +5282,7 @@
         "randomization": "Randomized",
         "masking": "Double-blind",
         "comparator": "Placebo",
-        "description": "Four-arm dose-ranging trial."
+        "description": "Five-arm dose-ranging trial with four UBT251 regimens and placebo."
       },
       "population": "Chinese adults with overweight or obesity.",
       "populationProfile": {
@@ -5295,8 +5295,8 @@
       "overallDuration": "24 weeks",
       "safetySummary": "The sponsor reported a safety profile consistent with the mechanism; detailed peer-reviewed safety results were not yet available.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://www.chictr.org.cn/showproj.html?proj=286437",
@@ -5310,6 +5310,12 @@
             "sourceType": "company topline announcement",
             "publishedAt": "2026-02-24",
             "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "title": "UBT251 Phase 2 obesity study abstract 3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -5392,8 +5398,8 @@
       "overallDuration": "58 days for Parts 2 and 3, including safety follow-up",
       "safetySummary": "In the Part 2 MAD cohorts, all treatment-emergent adverse events were mild or moderate, one serious event was unrelated to study drug, and no discontinuation was related to study drug; gastrointestinal events were most common.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-21",
-        "updatedAt": "2026-07-21",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05814107",
@@ -5546,8 +5552,8 @@
       "overallDuration": "48 weeks",
       "safetySummary": "At ADA 2026, adverse events were predominantly gastrointestinal and mostly mild to moderate; serious and Grade 3 events were infrequent and not dose-dependent, and no Grade 4 or 5 events were reported.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-21",
-        "updatedAt": "2026-07-21",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT06525935",
@@ -11014,10 +11020,25 @@
       "treatmentDuration": "24 weeks"
     },
     {
-      "id": "ubt251-p2-4",
+      "id": "ubt251-p2-4-id05",
       "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
       "role": "experimental",
-      "label": "UBT251 4 mg",
+      "label": "UBT251 4 mg (initial dose 0.5 mg)",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "dose": "4 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "24 weeks"
+    },
+    {
+      "id": "ubt251-p2-4-id10",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "role": "experimental",
+      "label": "UBT251 4 mg (initial dose 1.0 mg)",
       "intervention": "UBT251",
       "linkedAsset": {
         "companyId": "novo-nordisk",
@@ -12295,6 +12316,22 @@
       "assessmentTimepoint": "Week 13"
     },
     {
+      "id": "asc30-202-nausea-week13",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 13"
+    },
+    {
+      "id": "asc30-202-vomiting-week13",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 13"
+    },
+    {
       "id": "elora-p2-weight-week48",
       "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
       "name": "Percentage change from baseline in body weight",
@@ -12580,6 +12617,22 @@
       "name": "Change from baseline in WOMAC pain score",
       "role": "co-primary",
       "domain": "musculoskeletal",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "triumph4-nausea-week68",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "triumph4-vomiting-week68",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
       "assessmentTimepoint": "Week 68"
     },
     {
@@ -14175,6 +14228,30 @@
       "assessmentTimepoint": "Day 28"
     },
     {
+      "id": "ct996-sae-day58",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Through Day 58"
+    },
+    {
+      "id": "ct996-nausea-day58",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Through Day 58"
+    },
+    {
+      "id": "ct996-vomiting-day58",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Through Day 58"
+    },
+    {
       "id": "en101-sad-weight-d8",
       "studyId": "roche-enicepatide-ct388-101-nct04838405",
       "name": "Percentage change from baseline in body weight",
@@ -14404,6 +14481,30 @@
       "name": "Proportion of participants with baseline prediabetes achieving normoglycemia",
       "role": "key-secondary",
       "domain": "glycemic",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-sae-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-nausea-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-vomiting-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
       "assessmentTimepoint": "Week 48"
     }
   ],
@@ -17085,6 +17186,60 @@
             "sourceType": "company topline announcement",
             "publishedAt": "2025-12-08",
             "checkedAt": "2026-07-20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "asc30-202-nausea-60mg",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "endpointId": "asc30-202-nausea-week13",
+      "armIds": [
+        "asc30-202-cohort-6-tablets-a1-60mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "40",
+        "numericValue": 40,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.ascletis.com/data/upload/pdf/ASC30%20Phase%202%20%40%20ADA%202026%20-%2020250518%20-%20final.pdf",
+            "sourceType": "official scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "asc30-202-vomiting-60mg",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "endpointId": "asc30-202-vomiting-week13",
+      "armIds": [
+        "asc30-202-cohort-6-tablets-a1-60mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "30",
+        "numericValue": 30,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.ascletis.com/data/upload/pdf/ASC30%20Phase%202%20%40%20ADA%202026%20-%2020250518%20-%20final.pdf",
+            "sourceType": "official scientific presentation",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -23001,6 +23156,168 @@
             "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
             "sourceType": "company topline",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-nausea-reta9",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-nausea-week68",
+      "armIds": [
+        "triumph4-reta9"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "38.1",
+        "numericValue": 38.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-nausea-reta12",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-nausea-week68",
+      "armIds": [
+        "triumph4-reta12"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "43.2",
+        "numericValue": 43.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-nausea-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-nausea-week68",
+      "armIds": [
+        "triumph4-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "10.7",
+        "numericValue": 10.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-vomiting-reta9",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-vomiting-week68",
+      "armIds": [
+        "triumph4-reta9"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "20.4",
+        "numericValue": 20.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-vomiting-reta12",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-vomiting-week68",
+      "armIds": [
+        "triumph4-reta12"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "20.9",
+        "numericValue": 20.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "triumph4-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-vomiting-week68",
+      "armIds": [
+        "triumph4-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "topline",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average",
+            "sourceType": "company topline",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -38501,11 +38818,65 @@
       }
     },
     {
-      "id": "ubt251-p2-weight-6",
+      "id": "ubt251-p2-weight-2",
       "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
       "endpointId": "ubt251-p2-weight-week24",
       "armIds": [
-        "ubt251-p2-6"
+        "ubt251-p2-2"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-13.6",
+        "numericValue": -13.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ubt251-p2-weight-4-id05",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "endpointId": "ubt251-p2-weight-week24",
+      "armIds": [
+        "ubt251-p2-4-id05"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-16.2",
+        "numericValue": -16.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ubt251-p2-weight-4-id10",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "endpointId": "ubt251-p2-weight-week24",
+      "armIds": [
+        "ubt251-p2-4-id10"
       ],
       "analysisPopulation": "Full analysis set (overall)",
       "result": {
@@ -38514,15 +38885,42 @@
         "unit": "percent",
         "resultType": "arm-level"
       },
-      "maturity": "topline",
+      "maturity": "conference result",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
-            "url": "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916503",
-            "sourceType": "company topline announcement",
-            "checkedAt": "2026-07-13"
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ubt251-p2-weight-6",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "endpointId": "ubt251-p2-weight-week24",
+      "armIds": [
+        "ubt251-p2-6"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-18.7",
+        "numericValue": -18.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -38541,15 +38939,15 @@
         "unit": "percent",
         "resultType": "arm-level"
       },
-      "maturity": "topline",
+      "maturity": "conference result",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
-            "url": "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916503",
-            "sourceType": "company topline announcement",
-            "checkedAt": "2026-07-13"
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -38952,6 +39350,330 @@
             "sourceType": "company press release",
             "publishedAt": "2024-07-17",
             "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-sae-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": [
+        "ct996-201-part2-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-sae-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": [
+        "ct996-201-part2-cohort1"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "16.7",
+        "numericValue": 16.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-sae-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": [
+        "ct996-201-part2-cohort2"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-sae-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": [
+        "ct996-201-part2-cohort3"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-nausea-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": [
+        "ct996-201-part2-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "16.7",
+        "numericValue": 16.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-nausea-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": [
+        "ct996-201-part2-cohort1"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "83.3",
+        "numericValue": 83.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-nausea-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": [
+        "ct996-201-part2-cohort2"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "85.7",
+        "numericValue": 85.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-nausea-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": [
+        "ct996-201-part2-cohort3"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "83.3",
+        "numericValue": 83.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-vomiting-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": [
+        "ct996-201-part2-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "16.7",
+        "numericValue": 16.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-vomiting-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": [
+        "ct996-201-part2-cohort1"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "16.7",
+        "numericValue": 16.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-vomiting-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": [
+        "ct996-201-part2-cohort2"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "71.4",
+        "numericValue": 71.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ct996-vomiting-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": [
+        "ct996-201-part2-cohort3"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "33.3",
+        "numericValue": 33.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -42278,6 +43000,492 @@
             "sourceType": "company press release",
             "publishedAt": "2026-01-27",
             "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-sae-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-sae-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "4",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-sae-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-sae-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-sae-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "1",
+        "numericValue": 1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-sae-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "5",
+        "numericValue": 5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-nausea-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "19",
+        "numericValue": 19,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-nausea-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "33",
+        "numericValue": 33,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-nausea-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "36",
+        "numericValue": 36,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-nausea-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "39",
+        "numericValue": 39,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-nausea-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "41",
+        "numericValue": 41,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-nausea-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "46",
+        "numericValue": 46,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-vomiting-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": [
+        "en103-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-vomiting-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": [
+        "en103-enicepatide-4mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "8",
+        "numericValue": 8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-vomiting-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": [
+        "en103-enicepatide-8mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "12",
+        "numericValue": 12,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-vomiting-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": [
+        "en103-enicepatide-12mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "25",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-vomiting-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": [
+        "en103-enicepatide-16mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "23",
+        "numericValue": 23,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "en103-vomiting-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": [
+        "en103-enicepatide-24mg"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "21",
+        "numericValue": 21,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf",
+            "sourceType": "scientific presentation",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

@@ -40,10 +40,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "13 weeks",
-      "safetySummary": "All gastrointestinal adverse events were mild or moderate, with no grade 3 or higher drug-related adverse events, no drug-related serious adverse events, and no hepatic safety signal reported.",
-      "metadata": {
-        "lastVerifiedAt": "2026-07-20",
-        "updatedAt": "2026-07-20",
+    "safetySummary": "All gastrointestinal adverse events were mild or moderate, with no grade 3 or higher drug-related adverse events, no drug-related serious adverse events, and no hepatic safety signal reported.",
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT07002905",
@@ -908,6 +908,22 @@
       "role": "secondary",
       "domain": "body weight",
       "assessmentTimepoint": "Day 29"
+    },
+    {
+      "id": "asc30-202-nausea-week13",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 13"
+    },
+    {
+      "id": "asc30-202-vomiting-week13",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 13"
     }
   ],
   "outcomes": [
@@ -1357,6 +1373,26 @@
           }
         ]
       }
+    },
+    {
+      "id": "asc30-202-nausea-60mg",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "endpointId": "asc30-202-nausea-week13",
+      "armIds": ["asc30-202-cohort-6-tablets-a1-60mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "40", "numericValue": 40, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://www.ascletis.com/data/upload/pdf/ASC30%20Phase%202%20%40%20ADA%202026%20-%2020250518%20-%20final.pdf", "sourceType": "official scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "asc30-202-vomiting-60mg",
+      "studyId": "ascletis-pharma-asc30-nct07002905",
+      "endpointId": "asc30-202-vomiting-week13",
+      "armIds": ["asc30-202-cohort-6-tablets-a1-60mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "30", "numericValue": 30, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://www.ascletis.com/data/upload/pdf/ASC30%20Phase%202%20%40%20ADA%202026%20-%2020250518%20-%20final.pdf", "sourceType": "official scientific presentation", "checkedAt": "2026-07-24"}]}
     }
   ]
 }

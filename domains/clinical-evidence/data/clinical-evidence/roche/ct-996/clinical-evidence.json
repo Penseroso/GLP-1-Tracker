@@ -31,10 +31,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "58 days for Parts 2 and 3, including safety follow-up",
-      "safetySummary": "In the Part 2 MAD cohorts, all treatment-emergent adverse events were mild or moderate, one serious event was unrelated to study drug, and no discontinuation was related to study drug; gastrointestinal events were most common.",
-      "metadata": {
-        "lastVerifiedAt": "2026-07-21",
-        "updatedAt": "2026-07-21",
+    "safetySummary": "In the Part 2 MAD cohorts, all treatment-emergent adverse events were mild or moderate, one serious event was unrelated to study drug, and no discontinuation was related to study drug; gastrointestinal events were most common.",
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05814107",
@@ -444,6 +444,30 @@
       "role": "secondary",
       "domain": "glycemic",
       "assessmentTimepoint": "Day 28"
+    },
+    {
+      "id": "ct996-sae-day58",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Through Day 58"
+    },
+    {
+      "id": "ct996-nausea-day58",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Through Day 58"
+    },
+    {
+      "id": "ct996-vomiting-day58",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Through Day 58"
     }
   ],
   "outcomes": [
@@ -848,6 +872,126 @@
           }
         ]
       }
+    },
+    {
+      "id": "ct996-sae-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": ["ct996-201-part2-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-sae-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": ["ct996-201-part2-cohort1"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-sae-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": ["ct996-201-part2-cohort2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-sae-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-sae-day58",
+      "armIds": ["ct996-201-part2-cohort3"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-nausea-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": ["ct996-201-part2-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-nausea-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": ["ct996-201-part2-cohort1"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "83.3", "numericValue": 83.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-nausea-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": ["ct996-201-part2-cohort2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "85.7", "numericValue": 85.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-nausea-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-nausea-day58",
+      "armIds": ["ct996-201-part2-cohort3"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "83.3", "numericValue": 83.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-vomiting-placebo",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": ["ct996-201-part2-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-vomiting-cohort1",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": ["ct996-201-part2-cohort1"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-vomiting-cohort2",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": ["ct996-201-part2-cohort2"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "71.4", "numericValue": 71.4, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "ct996-vomiting-cohort3",
+      "studyId": "roche-ct-996-201-nct05814107",
+      "endpointId": "ct996-vomiting-day58",
+      "armIds": ["ct996-201-part2-cohort3"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "33.3", "numericValue": 33.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/fd3ea522a9/easd_final_to-share-130924.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
     }
   ]
 }

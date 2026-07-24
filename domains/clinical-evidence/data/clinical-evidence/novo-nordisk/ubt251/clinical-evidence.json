@@ -24,7 +24,7 @@
         "randomization": "Randomized",
         "masking": "Double-blind",
         "comparator": "Placebo",
-        "description": "Four-arm dose-ranging trial."
+        "description": "Five-arm dose-ranging trial with four UBT251 regimens and placebo."
       },
       "population": "Chinese adults with overweight or obesity.",
       "populationProfile": {
@@ -37,8 +37,8 @@
       "overallDuration": "24 weeks",
       "safetySummary": "The sponsor reported a safety profile consistent with the mechanism; detailed peer-reviewed safety results were not yet available.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://www.chictr.org.cn/showproj.html?proj=286437",
@@ -52,6 +52,12 @@
             "sourceType": "company topline announcement",
             "publishedAt": "2026-02-24",
             "checkedAt": "2026-07-13"
+          },
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "title": "UBT251 Phase 2 obesity study abstract 3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -122,10 +128,25 @@
       "treatmentDuration": "24 weeks"
     },
     {
-      "id": "ubt251-p2-4",
+      "id": "ubt251-p2-4-id05",
       "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
       "role": "experimental",
-      "label": "UBT251 4 mg",
+      "label": "UBT251 4 mg (initial dose 0.5 mg)",
+      "intervention": "UBT251",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "ubt251"
+      },
+      "dose": "4 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "24 weeks"
+    },
+    {
+      "id": "ubt251-p2-4-id10",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "role": "experimental",
+      "label": "UBT251 4 mg (initial dose 1.0 mg)",
       "intervention": "UBT251",
       "linkedAsset": {
         "companyId": "novo-nordisk",
@@ -311,11 +332,65 @@
   ],
   "outcomes": [
     {
-      "id": "ubt251-p2-weight-6",
+      "id": "ubt251-p2-weight-2",
       "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
       "endpointId": "ubt251-p2-weight-week24",
       "armIds": [
-        "ubt251-p2-6"
+        "ubt251-p2-2"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-13.6",
+        "numericValue": -13.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ubt251-p2-weight-4-id05",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "endpointId": "ubt251-p2-weight-week24",
+      "armIds": [
+        "ubt251-p2-4-id05"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-16.2",
+        "numericValue": -16.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ubt251-p2-weight-4-id10",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "endpointId": "ubt251-p2-weight-week24",
+      "armIds": [
+        "ubt251-p2-4-id10"
       ],
       "analysisPopulation": "Full analysis set (overall)",
       "result": {
@@ -324,15 +399,42 @@
         "unit": "percent",
         "resultType": "arm-level"
       },
-      "maturity": "topline",
+      "maturity": "conference result",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
-            "url": "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916503",
-            "sourceType": "company topline announcement",
-            "checkedAt": "2026-07-13"
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ubt251-p2-weight-6",
+      "studyId": "novo-nordisk-ubt251-china-phase2-nct07177469",
+      "endpointId": "ubt251-p2-weight-week24",
+      "armIds": [
+        "ubt251-p2-6"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-18.7",
+        "numericValue": -18.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "conference result",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -351,15 +453,15 @@
         "unit": "percent",
         "resultType": "arm-level"
       },
-      "maturity": "topline",
+      "maturity": "conference result",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
-            "url": "https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916503",
-            "sourceType": "company topline announcement",
-            "checkedAt": "2026-07-13"
+            "url": "https://diabetesjournals.org/diabetes/article/75/Supplement_1/3090-LB/163656/3090-LB",
+            "sourceType": "scientific conference abstract",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

@@ -31,10 +31,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "48 weeks",
-      "safetySummary": "At ADA 2026, adverse events were predominantly gastrointestinal and mostly mild to moderate; serious and Grade 3 events were infrequent and not dose-dependent, and no Grade 4 or 5 events were reported.",
-      "metadata": {
-        "lastVerifiedAt": "2026-07-21",
-        "updatedAt": "2026-07-21",
+    "safetySummary": "At ADA 2026, adverse events were predominantly gastrointestinal and mostly mild to moderate; serious and Grade 3 events were infrequent and not dose-dependent, and no Grade 4 or 5 events were reported.",
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT06525935",
@@ -928,6 +928,30 @@
       "role": "safety",
       "domain": "safety",
       "assessmentTimepoint": "MAD treatment and follow-up period"
+    },
+    {
+      "id": "en103-sae-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-nausea-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "en103-vomiting-w48",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
     }
   ],
   "outcomes": [
@@ -3624,6 +3648,186 @@
       "result": {"value": "33.3", "numericValue": 33.3, "unit": "percent", "resultType": "arm-level"},
       "maturity": "peer-reviewed publication",
       "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-sae-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": ["en103-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-sae-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": ["en103-enicepatide-4mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "4", "numericValue": 4, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-sae-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": ["en103-enicepatide-8mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "3", "numericValue": 3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-sae-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": ["en103-enicepatide-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "3", "numericValue": 3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-sae-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": ["en103-enicepatide-16mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "1", "numericValue": 1, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-sae-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-sae-w48",
+      "armIds": ["en103-enicepatide-24mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "5", "numericValue": 5, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-nausea-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": ["en103-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "19", "numericValue": 19, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-nausea-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": ["en103-enicepatide-4mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "33", "numericValue": 33, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-nausea-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": ["en103-enicepatide-8mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "36", "numericValue": 36, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-nausea-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": ["en103-enicepatide-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "39", "numericValue": 39, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-nausea-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": ["en103-enicepatide-16mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "41", "numericValue": 41, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-nausea-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-nausea-w48",
+      "armIds": ["en103-enicepatide-24mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "46", "numericValue": 46, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-vomiting-placebo",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": ["en103-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-vomiting-4mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": ["en103-enicepatide-4mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "8", "numericValue": 8, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-vomiting-8mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": ["en103-enicepatide-8mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "12", "numericValue": 12, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-vomiting-12mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": ["en103-enicepatide-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "25", "numericValue": 25, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-vomiting-16mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": ["en103-enicepatide-16mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "23", "numericValue": 23, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en103-vomiting-24mg",
+      "studyId": "roche-enicepatide-ct388-103-nct06525935",
+      "endpointId": "en103-vomiting-w48",
+      "armIds": ["en103-enicepatide-24mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "21", "numericValue": 21, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "conference result",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://assets.roche.com/f/176343/x/20033a15c4/ada-ir-event_08-june-2026_final.pdf", "sourceType": "scientific presentation", "checkedAt": "2026-07-24"}]}
     }
   ]
 }

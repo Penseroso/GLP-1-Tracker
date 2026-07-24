@@ -93,10 +93,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "68 weeks",
-      "safetySummary": "The most common adverse events were gastrointestinal and were generally mild to moderate; discontinuation because of adverse events increased with dose.",
-      "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+    "safetySummary": "The most common adverse events were gastrointestinal and were generally mild to moderate; discontinuation because of adverse events increased with dose.",
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05931367",
@@ -1034,6 +1034,22 @@
       "name": "Change from baseline in WOMAC pain score",
       "role": "co-primary",
       "domain": "musculoskeletal",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "triumph4-nausea-week68",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "triumph4-vomiting-week68",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
       "assessmentTimepoint": "Week 68"
     }
   ],
@@ -3768,6 +3784,66 @@
           }
         ]
       }
+    },
+    {
+      "id": "triumph4-nausea-reta9",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-nausea-week68",
+      "armIds": ["triumph4-reta9"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "38.1", "numericValue": 38.1, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "topline",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average", "sourceType": "company topline", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "triumph4-nausea-reta12",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-nausea-week68",
+      "armIds": ["triumph4-reta12"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "43.2", "numericValue": 43.2, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "topline",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average", "sourceType": "company topline", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "triumph4-nausea-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-nausea-week68",
+      "armIds": ["triumph4-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "10.7", "numericValue": 10.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "topline",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average", "sourceType": "company topline", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "triumph4-vomiting-reta9",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-vomiting-week68",
+      "armIds": ["triumph4-reta9"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "20.4", "numericValue": 20.4, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "topline",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average", "sourceType": "company topline", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "triumph4-vomiting-reta12",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-vomiting-week68",
+      "armIds": ["triumph4-reta12"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "20.9", "numericValue": 20.9, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "topline",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average", "sourceType": "company topline", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "triumph4-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-retatrutide-triumph-4-nct05931367",
+      "endpointId": "triumph4-vomiting-week68",
+      "armIds": ["triumph4-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "topline",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-delivered-weight-loss-average", "sourceType": "company topline", "checkedAt": "2026-07-24"}]}
     }
   ]
 }
