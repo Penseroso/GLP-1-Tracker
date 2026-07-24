@@ -82,10 +82,10 @@
           "checkedAt": "2026-07-24"
         },
         {
-          "url": "https://www.fiercebiotech.com/biotech/pfizers-embattled-obesity-program-loses-another-glp-1-drug",
-          "title": "Pfizer's embattled obesity program loses another GLP-1 over poor data and strong competition",
-          "sourceType": "news article",
-          "publishedAt": "2025-08",
+          "url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-provides-update-glp-1-ra-clinical-development",
+          "title": "Pfizer Provides Update on GLP-1-RA Clinical Development Program for Adults with Obesity and Type 2 Diabetes Mellitus",
+          "sourceType": "press release",
+          "publishedAt": "2023-06-26",
           "checkedAt": "2026-07-24"
         }
       ]
@@ -112,19 +112,10 @@
     ],
     "development": {
       "stage": "Phase 1",
-      "status": "Discontinued",
+      "status": "Unknown",
       "stageBasis": "Operational evidence",
       "stageOperationalState": "Not separately confirmed"
     },
-    "relationships": [
-      {
-        "externalCompanyName": "Nxera Pharma",
-        "role": "co-developer",
-        "sourceUrls": [
-          "https://www.pharmtech.com/view/nxera-s-new-glp-1-and-gpcr-targeted-drug-programs-aim-to-advance-obesity-and-metabolic-disorder-therapies"
-        ]
-      }
-    ],
     "metadata": {
       "lastVerifiedAt": "2026-07-24",
       "updatedAt": "2026-07-24",
@@ -137,10 +128,17 @@
           "checkedAt": "2026-07-24"
         },
         {
-          "url": "https://www.pharmtech.com/view/nxera-s-new-glp-1-and-gpcr-targeted-drug-programs-aim-to-advance-obesity-and-metabolic-disorder-therapies",
-          "title": "Nxera's New GLP-1 and GPCR-Targeted Drug Programs Aim to Advance Obesity and Metabolic Disorder Therapies",
-          "sourceType": "news article",
-          "publishedAt": "2025-08",
+          "url": "https://clinicaltrials.gov/study/NCT06279234",
+          "title": "A Study to Learn How Different Amounts of PF-06954522 Are Tolerated and Act in Adults With Type 2 Diabetes Mellitus",
+          "sourceType": "trial registry",
+          "publishedAt": "2024",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://investors.nxera.life/common/pdf/20240618_Annual_Report_2023_EN.pdf",
+          "title": "Nxera Pharma Annual Report 2023",
+          "sourceType": "annual report",
+          "publishedAt": "2024-06-18",
           "checkedAt": "2026-07-24"
         }
       ]
@@ -261,11 +259,11 @@
     }
   },
   {
-    "id": "pfizer-pf-08654696-subcutaneous-injection",
-    "assetId": "pf-08654696",
+    "id": "pfizer-pf-08654698-subcutaneous-injection",
+    "assetId": "pf-08654698",
     "companyId": "pfizer",
     "assetName": "MET-034i",
-    "codeName": "PF-08654696",
+    "codeName": "PF-08654698",
     "technical": {
       "mechanism": "GIPR agonist",
       "platform": "NuSH platform"
