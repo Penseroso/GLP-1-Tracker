@@ -15,6 +15,11 @@
     "headquartersCountry": "United States"
   },
   {
+    "id": "gan-lee-pharmaceuticals",
+    "name": "Gan & Lee Pharmaceuticals",
+    "headquartersCountry": "China"
+  },
+  {
     "id": "novo-nordisk",
     "name": "Novo Nordisk",
     "headquartersCountry": "Denmark"

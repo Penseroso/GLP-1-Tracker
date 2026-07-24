@@ -204,7 +204,10 @@
       { "target": "Insulin receptor", "action": "agonist" }
     ],
     "sortRank": 250,
-    "mechanisms": ["Insulin icodec plus GLP-1 receptor agonist"]
+    "mechanisms": [
+      "Insulin icodec plus GLP-1 receptor agonist",
+      "Basal insulin agonist plus GLP-1 receptor agonist"
+    ]
   },
   {
     "id": "glp1-plus-thr-beta-combination",

@@ -2903,6 +2903,238 @@
     }
   },
   {
+    "id": "gan-lee-pharmaceuticals-gzr102-fdc-subcutaneous-injection",
+    "assetId": "gzr102",
+    "companyId": "gan-lee-pharmaceuticals",
+    "assetType": "co-formulation",
+    "assetName": "GZR102",
+    "codeName": null,
+    "components": [
+      {
+        "assetId": "gzr18",
+        "role": "GLP-1 receptor agonist"
+      },
+      {
+        "codeName": "GZR4",
+        "companyId": "gan-lee-pharmaceuticals",
+        "role": "Basal insulin agonist"
+      }
+    ],
+    "technical": {
+      "mechanism": "Basal insulin agonist plus GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once weekly"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Initiated or active"
+    },
+    "regulatoryStates": [
+      {
+        "state": "IND cleared",
+        "jurisdiction": "China",
+        "authority": "NMPA",
+        "date": "2025-04-22"
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.ganlee.com/detail/796.html",
+          "title": "Gan & Lee Pharmaceuticals Announces IND Clearance by NMPA for Class 1 New Drug Weekly Fixed Ratio Combination GZR102",
+          "sourceType": "company press release",
+          "publishedAt": "2025-04-22",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.ganlee.com/detail/797.html",
+          "title": "Gan & Lee Pharmaceuticals Announced First Participant Dosed in Phase 1 Clinical Study of GZR102 Injection, a Once-weekly Fixed-Ratio Combination of Basal Insulin and GLP-1 RA",
+          "sourceType": "company press release",
+          "publishedAt": "2025-05-16",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "gan-lee-pharmaceuticals-gzr18-subcutaneous-injection",
+    "assetId": "gzr18",
+    "companyId": "gan-lee-pharmaceuticals",
+    "assetName": "Bofanglutide",
+    "codeName": "GZR18",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once every 2 weeks; once monthly also under investigation"
+    },
+    "indications": [
+      "Obesity",
+      "Overweight"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Completed"
+    },
+    "relationships": [
+      {
+        "externalCompanyName": "JW Pharmaceutical",
+        "role": "licensee",
+        "territories": [
+          "South Korea"
+        ],
+        "rights": [
+          "development",
+          "regulatory filing",
+          "commercialization"
+        ],
+        "effectiveDate": "2026-04-09",
+        "sourceUrls": [
+          "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-signs-exclusive-license-agreement-with-jw-pharmaceutical-the-leading-south-korean-pharma-to-advance-the-global-commercialization-of-the-innovative-glp-1-receptor-agonist-bofanglutide-302738066.html"
+        ]
+      },
+      {
+        "externalCompanyName": "Lupin Limited",
+        "role": "licensee",
+        "territories": [
+          "India"
+        ],
+        "rights": [
+          "development",
+          "regulatory filing",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-12-29",
+        "sourceUrls": [
+          "https://www.ganlee.com/detail/819.html"
+        ]
+      },
+      {
+        "externalCompanyName": "Productos Cientificos S.A. de C.V. (CARNOT Laboratorios)",
+        "role": "licensee",
+        "territories": [
+          "Mexico",
+          "Brazil",
+          "Colombia"
+        ],
+        "rights": [
+          "development",
+          "commercialization"
+        ],
+        "effectiveDate": "2025-11-25",
+        "sourceUrls": [
+          "https://www.ganlee.com/detail/813.html"
+        ]
+      }
+    ],
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.ganlee.com/detail/765.html",
+          "title": "Gan & Lee Pharmaceuticals Announced First Participant Dosed in a Phase 3 Clinical Study (GRADUAL-1) of Bofanglutide (GZR18) injection in Chinese Patients with Overweight or Obesity",
+          "sourceType": "company press release",
+          "publishedAt": "2024-12-30",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/once-monthly-glp-1-ra--gan--lee-pharmaceuticals-initiates-phase-3-clinical-study-gradual-3-of-the-first-chinese-once-monthly-glp-1-ra-for-weight-management-302627433.html",
+          "title": "Once-Monthly GLP-1 RA | Gan & Lee Pharmaceuticals Initiates Phase 3 Clinical Study (GRADUAL-3) of the First Chinese Once-Monthly GLP-1 RA for Weight Management",
+          "sourceType": "company press release",
+          "publishedAt": "2025-11-27",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-bi-weekly-twice-a-month-glp-1-receptor-agonist-gzr18-injection-achieved-17-29-weight-loss-at-30-weeks-in-a-phase-iib-clinical-trial-302202575.html",
+          "title": "Gan & Lee Pharmaceuticals' Bi-weekly (twice a month) GLP-1 Receptor Agonist GZR18 Injection Achieved 17.29% Weight Loss at 30 Weeks in a Phase IIb Clinical Trial",
+          "sourceType": "company press release",
+          "publishedAt": "2024-07-22",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06728124",
+          "title": "A Phase III Clinical Study to Evaluate the Efficacy and Safety of GZR18 Injection in Adult Obese/Overweight Subjects",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-achieves-significant-progress-in-its-dual-pipeline-for-metabolic-diseases--weekly-insulin-ludefen-gzr4-meets-primary-endpoint-in-phase-iii-clinical-trial-in-china-bofanglutide-meets-primary-endpoints--302794945.html",
+          "title": "Gan & Lee Pharmaceuticals Achieves Significant Progress in Its Dual Pipeline for Metabolic Diseases -- Weekly Insulin Ludefen (GZR4) Meets Primary Endpoint in Phase III Clinical Trial in China; Bofanglutide Meets Primary Endpoints in Phase III Weight Loss Study in China and Phase II Study in the U.S.",
+          "sourceType": "company press release",
+          "publishedAt": "2026-06-12",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "gan-lee-pharmaceuticals-gzr18-subcutaneous-injection-type-2-diabetes",
+    "assetId": "gzr18",
+    "companyId": "gan-lee-pharmaceuticals",
+    "assetName": "Bofanglutide",
+    "codeName": "GZR18",
+    "technical": {
+      "mechanism": "GLP-1 receptor agonist",
+      "platform": null
+    },
+    "administration": {
+      "route": "Subcutaneous",
+      "dosageForm": "Injection",
+      "dosingInterval": "Once every 2 weeks"
+    },
+    "indications": [
+      "Type 2 diabetes mellitus"
+    ],
+    "development": {
+      "stage": "Phase 3",
+      "status": "Active",
+      "stageBasis": "Operational evidence",
+      "stageOperationalState": "Active not recruiting"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/gan--lee-pharmaceuticals-three-innovative-drugs-gzr18-injection-gzr4-injection-and-gzr101-injection-achieve-primary-endpoints-in-phase-2-clinical-studies-302276311.html",
+          "title": "Gan & Lee Pharmaceuticals' Three Innovative Drugs: GZR18 Injection, GZR4 Injection, and GZR101 Injection Achieve Primary Endpoints in Phase 2 Clinical Studies",
+          "sourceType": "company press release",
+          "publishedAt": "2024-10-15",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06777238",
+          "title": "A Phase III Clinical Study to Evaluate the Efficacy and Safety of GZR18 Injection in Subjects With Type 2 Diabetes Mellitus and Poor Blood Glucose Control by Diet and Exercise",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://clinicaltrials.gov/study/NCT06778967",
+          "title": "A Phase III Clinical Study to Evaluate the Efficacy and Safety of GZR18 Injection in Adult Type 2 Diabetes Mellitus",
+          "sourceType": "trial registry",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
     "id": "novo-nordisk-amycretin-oral-tablets",
     "assetId": "amycretin",
     "companyId": "novo-nordisk",
