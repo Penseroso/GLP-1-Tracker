@@ -90,14 +90,70 @@ in Study metadata has not satisfied the step 6 completion check.
 Default result-source priority is:
 
 1. peer-reviewed publication;
-2. registry-posted result;
-3. conference presentation, poster, or abstract;
-4. official company topline release.
+2. registry-posted results;
+3. official scientific presentation or poster;
+4. conference abstract;
+5. official company topline release.
+
+A source that directly supports the exact recorded result overrides this
+general order: rank by direct support for that value first, and use this list
+only to break a tie or to choose among sources that support the value equally
+well. This is the single authority for Clinical Evidence result-source
+priority; Company/Pipeline research does not maintain its own.
 
 Apply authority and recency together. Outcome maturity comes from the strongest
 source that directly supports that exact value. Preserve only directly
 reported results; do not calculate, infer, visually transcribe, redistribute,
 or broaden a result beyond its supported analysis unit.
+
+### Source access states
+
+Track access to the highest-priority known result source, in-session, using
+exactly one of:
+
+- `FULL_SOURCE_REVIEWED` — every scope needed for the result was opened and
+  read.
+- `PARTIAL_SOURCE_REVIEWED` — some needed scope was opened and read; the rest
+  was not. Record the available scope and the missing scope separately.
+- `SOURCE_IDENTIFIED_NOT_ACCESSED` — the source is identified (citation or URL
+  known) but could not be opened.
+- `SOURCE_NOT_LOCATED` — no candidate source at that priority tier could be
+  found.
+
+When access failed, record a blocker reason where useful: `PAYWALL`,
+`BOT_BLOCK`, `AUTHENTICATION_REQUIRED`, `DEAD_LINK`, `REGION_RESTRICTED`,
+`SUPPLEMENT_UNAVAILABLE`, `ARCHIVE_NOT_SEARCHABLE`, `SOURCE_NOT_IDENTIFIED`, or
+`OTHER`. These states and reasons are execution and reporting vocabulary only:
+they are not operating-schema fields and are never written to canonical data.
+
+### Reviewed definition
+
+A source counts as reviewed for a result only for the part actually opened and
+read in support of that result and its analysis context:
+
+- a search-result snippet is never reviewed;
+- an abstract-only view reviews only the abstract's scope;
+- a body read while its supplement was blocked reviews only the results the
+  body itself supports;
+- a result that depends on a blocked supplement is `unresolved` for that
+  result, or falls to Fallback equivalence below — never entered from the
+  body alone.
+
+### Fallback equivalence
+
+A lower-priority source may substitute for a blocked higher-priority source
+only per result, evaluated on every one of these axes:
+
+- endpoint;
+- timepoint;
+- analysis unit or comparison;
+- analysis population;
+- estimand.
+
+Enter a result from the fallback source only when it supports all required
+axes identically to the blocked source. When it supports only some, enter
+only the results it supports and leave the rest `unresolved` — merely
+mentioning the same endpoint is not, by itself, equivalent evidence.
 
 A result-bearing source may disclose several distinct results of differing
 reliability and scope; do not assign one disposition to the source as a whole.
@@ -198,29 +254,51 @@ Before claiming completion, reconcile the in-session result-review manifest:
    prior `RESULT_AVAILABILITY_UNRESOLVED` or deferral is never carried forward
    untested;
 7. **completion check** — before completing any Study entered or updated as
-   result-bearing in this run, its canonical record was cross-checked against
-   its highest-priority reviewed result source to confirm each of the
-   following is reflected: primary/co-primary results, central/key-secondary
-   results, headline responder results, and the concise safety summary (plus
-   any of the four named safety Endpoints — serious adverse events, nausea,
-   vomiting, anti-drug antibodies — that source directly reports a per-arm
-   breakdown for). Enter any core result this check finds missing under the
-   ordinary dispositions above. For any of these four categories the
-   highest-priority source does not support, record a short standing note — `not reported`,
-   `not applicable`, `outside scope`, or `unresolved` — rather than leaving it
-   unaddressed. This is the only completion gate on result coverage: it does
-   not require exhaustively extracting and classifying every disclosed result
-   or supplement, and no other step requires an exhaustive per-result
+   result-bearing in this run:
+   1. identify the **highest-priority known result source** for that Study
+      (the ranking in step 3, not only what has already been reviewed);
+   2. confirm its access status under Source access states above; a source
+      that is only identified, not located, or not yet accessed is never
+      treated as reviewed;
+   3. when it is fully accessible, cross-check the canonical record against
+      it to confirm primary/co-primary results, central/key-secondary
+      results, headline responder results, and the concise safety summary
+      (plus any of the four named safety Endpoints — serious adverse events,
+      nausea, vomiting, anti-drug antibodies — that source directly reports a
+      per-arm breakdown for) are each reflected, entering any core result
+      this finds missing under the ordinary dispositions above;
+   4. when it is only partially accessible, apply step 3 to the confirmed
+      scope only, and evaluate the missing scope under Fallback equivalence
+      above: substitute an equivalent lower-priority source per result where
+      one exists, and otherwise leave that result `unresolved` and record it
+      in the handover file (step 8);
+   5. when it is not accessible at all, repeat step 4 using the
+      next-highest-priority known source, and record the fallback in the
+      run's report;
+   6. for any of the four categories no accessible source supports, record a
+      short standing note — `not reported`, `not applicable`, `outside
+      scope`, or `unresolved` — rather than leaving it unaddressed.
+   This is the only completion gate on result coverage: it does not require
+   exhaustively extracting and classifying every disclosed result or
+   supplement, and no other step requires an exhaustive per-result
    disposition ledger. Consult an additional source only where needed to
-   confirm one of these four categories.
+   confirm one of these four categories or to evaluate fallback equivalence.
 
 The JSON validators enforce only facts represented in canonical data. They
 cannot inspect external source contents or infer that a Study-level citation is
 result-bearing, so validator success does not replace the completion check.
 
-If Clinical Evidence sources become inaccessible after Company/Pipeline
-Research completed, retain those Company/Pipeline changes, make no Clinical
-Evidence change, and report partial completion.
+A Clinical Evidence source-access failure blocks only the affected Study or
+result, never the whole Clinical Evidence run: continue every other Study and
+result that remains independently supportable, apply Fallback equivalence
+above where an equivalent lower-priority source exists, and record an
+unresolved case in the per-company handover file (step 8). Report the run's
+completion as `FULL` when no result was blocked and no fallback was required,
+`FULL_WITH_FALLBACK` when every otherwise-blocked result was still entered on
+an equivalent fallback source, or `PARTIAL` when at least one result remains
+unresolved after fallback. This blocking is case-scoped and does not reach
+outside Clinical Evidence: Company/Pipeline changes are retained regardless of
+a later Clinical Evidence source-access failure.
 
 ## 7. Report
 
@@ -242,9 +320,53 @@ Report:
 - exclusions, deferrals, conflicts, and pipeline discrepancies;
 - Schema boundary report and status counts;
 - generated output and validation results;
-- source-access blockers;
-- full or partial completion.
+- source-access states and blockers for every source consulted under the
+  completion check, including any fallback used and what it did or did not
+  support;
+- run-level completion status — `FULL`, `FULL_WITH_FALLBACK`, or `PARTIAL` —
+  per the case-scoped rule in step 6;
+- for any company with an unresolved or blocked source, confirmation that the
+  per-company handover file (step 8) was created, updated, or found to need
+  no change.
+
+This report is in-conversation only; it is not persisted as a repository
+document. The per-company handover file (step 8) is the sole persisted record
+of an unresolved or blocked source.
 
 Do not claim Clinical Evidence completion unless traversal, the step 6
 completion check, valid updates, generation, validation, and reporting all
 completed.
+
+## 8. Unresolved-source handover
+
+When a Study or result has a source-access failure or an unresolved fallback,
+persist a per-company record at:
+
+```text
+domains/clinical-evidence/docs/source-access-handover/<company-id>.md
+```
+
+One file per company that currently has an unresolved or blocked source,
+named by that company's existing `companyId`. This file is Clinical
+Evidence-owned research-execution documentation, not operating data: it is
+authored and read only during Clinical Evidence research and is never read by
+generation or validation.
+
+Each entry records at minimum:
+
+- company / asset / Study;
+- the highest-priority known source: identity and URL;
+- access status (`FULL_SOURCE_REVIEWED`, `PARTIAL_SOURCE_REVIEWED`,
+  `SOURCE_IDENTIFIED_NOT_ACCESSED`, or `SOURCE_NOT_LOCATED`) and blocker
+  reason, if any;
+- the scope actually confirmed and the scope still missing;
+- fallback source(s) attempted and what they did not support;
+- the currently affected result or Study scope;
+- the re-entry condition;
+- last checked date.
+
+Do not delete a resolved entry: mark it resolved in place with the resolving
+source and date, or archive it under this repository's existing
+documentation-archival convention if one applies. Step 6 item 6 requires
+re-searching every previously recorded unresolved case in a later run before
+leaving it unresolved again; update or resolve its handover entry accordingly.

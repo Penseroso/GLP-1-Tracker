@@ -155,15 +155,12 @@ not only the trial's general population.
 
 ### Clinical results
 
-Prefer:
-
-- conference presentation or poster
-- peer-reviewed publication
-- registry results
-- official company topline release
-
-An official topline release confirms **what the company announced**, but must
-**not** be treated as independent validation.
+Clinical Evidence, not Company/Pipeline, owns result values and result source
+priority (see the [Clinical Evidence workflow](../../clinical-evidence/docs/workflow.md#3-sources-and-updates)
+for the ranked source classes and fallback rules). Company/Pipeline research
+may cite clinical sources only to confirm that a program exists, its phase,
+its status, and sponsor intent. Do not enter a clinical result value, or a
+clinical result source ranking, in `PipelineProgramRecord`.
 
 ## Stage evidence rules
 

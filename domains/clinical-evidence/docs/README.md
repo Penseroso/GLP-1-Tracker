@@ -374,17 +374,21 @@ must cite in `Outcome.metadata.sources` a source that directly supports that
 exact value and analysis context.
 
 Before a result-bearing Study is complete, its canonical record must be
-cross-checked against its highest-priority reviewed source to confirm
-primary/co-primary results, central/key-secondary results, headline responder
-results, and the concise safety summary (plus any of the four named safety
-Endpoints the source directly reports a per-arm breakdown for) are each
-represented, or given a short standing note (`not reported`, `not applicable`,
-`outside scope`, or `unresolved`) when the source does not support one. This is a completion
-check on four core categories, not a requirement to extract and disposition
-every disclosed result or supplement. Dispositions (excluded, deferred,
-schema-boundary) are execution/reporting state, not canonical fields: result
-availability is not persisted, and validator success cannot establish that an
-external source was reviewed. See the workflow's completion check.
+cross-checked against its highest-priority **known** result source — subject
+to the workflow's source-access and fallback-equivalence rules, since an
+unaccessed source is never treated as reviewed — to confirm primary/co-primary
+results, central/key-secondary results, headline responder results, and the
+concise safety summary (plus any of the four named safety Endpoints the
+source directly reports a per-arm breakdown for) are each represented, or
+given a short standing note (`not reported`, `not applicable`, `outside
+scope`, or `unresolved`) when the source does not support one. This is a
+completion check on four core categories, not a requirement to extract and
+disposition every disclosed result or supplement. Dispositions (excluded,
+deferred, schema-boundary) are execution/reporting state, not canonical
+fields: result availability is not persisted, and validator success cannot
+establish that an external source was reviewed. See the
+[workflow's completion check](./workflow.md#6-generate-and-validate) and its
+[source access states](./workflow.md#source-access-states) for the full rule.
 
 A **comparison family** is the set of results a single source reports together: the same
 Study, Endpoint, analysis population, and estimand, sharing a common comparator or anchor
