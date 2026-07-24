@@ -48,9 +48,10 @@
           "manufacturing",
           "commercialization"
         ],
-        "effectiveDate": "2025-03-03",
+        "effectiveDate": "2025-04-01",
         "sourceUrls": [
-          "https://news.abbvie.com/2025-03-03-AbbVie-and-Gubra-Announce-License-Agreement-to-Develop-an-Amylin-Analog-for-the-Treatment-of-Obesity"
+          "https://news.abbvie.com/2025-03-03-AbbVie-and-Gubra-Announce-License-Agreement-to-Develop-an-Amylin-Analog-for-the-Treatment-of-Obesity",
+          "https://www.gubra.dk/mfn_news/trading-statement-q1-2025-a-landmark-deal-for-gubamy?m-page=1"
         ]
       }
     ],
@@ -63,6 +64,13 @@
           "title": "AbbVie and Gubra Announce License Agreement to Develop an Amylin Analog for the Treatment of Obesity",
           "sourceType": "press release",
           "publishedAt": "2025-03-03",
+          "checkedAt": "2026-07-24"
+        },
+        {
+          "url": "https://www.gubra.dk/mfn_news/trading-statement-q1-2025-a-landmark-deal-for-gubamy?m-page=1",
+          "title": "Trading statement Q1-2025: A landmark deal for GUBamy",
+          "sourceType": "company trading statement",
+          "publishedAt": "2025-05-09",
           "checkedAt": "2026-07-24"
         },
         {
