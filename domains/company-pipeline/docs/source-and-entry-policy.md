@@ -130,6 +130,15 @@ disclosure is unavailable, and do not let secondary coverage override a primary
 source. Record the confirmed role, rights, territory, and effective date in
 `relationships`.
 
+`effectiveDate` must come from a source that states the transaction's
+effective, execution, or closing date specifically — not merely the date the
+deal was publicly announced. An announcement date and an effective date are
+not interchangeable: when the only available source states an announcement
+date without confirming it as the effective date, do not store it as
+`effectiveDate`. When a later source (a closing statement, regulatory filing,
+or annual report) discloses the actual effective date, replace an
+announcement-derived value with it and add the confirming source.
+
 ### Combination, regimen, and company relationships
 
 Prefer official company materials, trial registry records, regulatory filings,
@@ -173,6 +182,17 @@ separate concept. When official sources differ, store the most advanced official
 current stage and use optional `development.stageBasis` and
 `development.stageOperationalState` to preserve the evidence basis and
 operational state.
+
+Evidence must name the specific program row's own scope — asset, route,
+dosage form, and indication scope — not a sibling row for the same asset or
+the asset's aggregate pipeline position. When a company develops the same
+asset across multiple indications, routes, or configurations at different
+stages, confirm each row's `development.stage` from a source that speaks to
+that row's own scope; do not carry a more or less advanced stage confirmed for
+a different row of the same asset into this row. A source that presents only
+a future, planned, or next-phase intention for the row does not advance its
+current stage, even when a different row for the same asset has already
+reached that phase.
 
 Explicit evidence required to assign each enumerated stage:
 
@@ -267,7 +287,13 @@ Rules by field.
   if none is confirmed. Do not place brand names, former names, or unconfirmed
   codes here — use `aliases`. `codeName` must **not equal** the canonical
   `assetName`; when the development code is itself the canonical name, leave
-  `codeName` `null`.
+  `codeName` `null`. A code transcribed from a single secondary or paraphrased
+  reference is prone to transcription error (for example a digit swapped in a
+  development code); before storing it as `codeName`, or using it as the basis
+  for `assetId`, cross-check its exact spelling against a second available
+  source — preferably a trial registry entry, regulatory filing, or the
+  sponsor's own material — and prefer the sponsor's or registry's spelling over
+  a secondary reference when they differ.
 - **Mechanism** — only as published; `null` if not disclosed. The published
   wording is stored verbatim and is never rewritten to a canonical form. Every
   non-null value must additionally appear, character for character, in exactly
@@ -367,6 +393,12 @@ Additional rules:
 - **Delay alone** does **not** prove `On hold`.
 - **Explicit evidence** should support `On hold` and `Discontinued`.
 - A confirmed program with unresolved current status may use `Unknown`.
+- Evidence for a row's `development.status` and `stageOperationalState` must
+  name that row's own program scope. A specific trial's operational state
+  (for example, that one particular registered study has completed) confirms
+  only that trial, and must not be applied to a different program row — a
+  different indication, route, or configuration of the same asset — without
+  evidence that trial supports that row's scope.
 - When official evidence confirms **future regimen development intent** but
   regimen-specific development has not started or its stage is not disclosed, use
   `status: "Planned"` with `stage: "Unknown"` where appropriate. Do **not**

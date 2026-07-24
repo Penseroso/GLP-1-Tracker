@@ -8,7 +8,11 @@
     "technical": { "mechanism": null, "platform": null },
     "administration": { "route": "Oral", "dosageForm": "Tablet", "dosingInterval": null },
     "indications": ["Obesity"],
-    "development": { "stage": "Phase 2", "status": "Active", "stageOperationalState": "Paused" },
-    "metadata": { "lastVerifiedAt": "2026-07-07", "updatedAt": "2026-07-07", "sources": [{ "url": "https://example.com/fixture-source", "checkedAt": "2026-07-07" }] }
+    "development": { "stage": "Phase 1", "status": "Discontinued" },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": [{ "url": "https://example.com/fixture-source", "checkedAt": "2026-07-07" }]
+    }
   }
 ]

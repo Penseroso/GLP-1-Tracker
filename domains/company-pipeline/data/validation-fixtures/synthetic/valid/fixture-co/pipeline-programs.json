@@ -134,6 +134,9 @@
         ],
         "rights": [
           "commercialization"
+        ],
+        "sourceUrls": [
+          "https://example.com/fixture-license-b"
         ]
       }
     ],
@@ -200,6 +203,47 @@
       "sources": [
         {
           "url": "https://example.com/fixture-coform",
+          "sourceType": "synthetic fixture",
+          "publishedAt": "2026-07",
+          "checkedAt": "2026-07-07"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fixture-co-delta-oral-capsule",
+    "assetId": "delta",
+    "companyId": "fixture-co",
+    "assetName": "Delta",
+    "codeName": "DEL",
+    "technical": {
+      "mechanism": null,
+      "platform": null
+    },
+    "administration": {
+      "route": "Oral",
+      "dosageForm": "Capsule",
+      "dosingInterval": null
+    },
+    "indications": [
+      "Obesity"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Discontinued"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "sources": [
+        {
+          "url": "https://example.com/fixture-delta-discontinuation-1",
+          "sourceType": "synthetic fixture",
+          "publishedAt": "2026-06",
+          "checkedAt": "2026-07-07"
+        },
+        {
+          "url": "https://example.com/fixture-delta-discontinuation-2",
           "sourceType": "synthetic fixture",
           "publishedAt": "2026-07",
           "checkedAt": "2026-07-07"

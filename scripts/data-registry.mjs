@@ -753,6 +753,10 @@ function validateMetadata(metadata, context) {
   );
   assert(isValidFullDate(metadata.updatedAt), `${context}: metadata.updatedAt must be YYYY-MM-DD`);
   assert(Array.isArray(metadata.sources), `${context}: metadata.sources must be an array`);
+  assert(
+    metadata.sources.length > 0,
+    `${context}: metadata.sources must not be empty; every record requires at least one cited source`,
+  );
 
   for (const [index, source] of metadata.sources.entries()) {
     validateSource(source, `${context}: metadata.sources[${index}]`);
@@ -787,6 +791,20 @@ function validateDevelopment(development, context, registries) {
       `${context}: development.stageOperationalState "${development.stageOperationalState}" is not allowed with status "${development.status}"`,
     );
   }
+}
+
+function validateDiscontinuationEvidence(development, metadata, context) {
+  // Discontinuation is a claim the source policy calls "explicit evidence"; a single
+  // secondary reference (e.g. one news article inferring a wind-down) has previously
+  // been enough to store a false Discontinued status. Require corroboration.
+  if (development.status !== "Discontinued") {
+    return;
+  }
+
+  assert(
+    metadata.sources.length >= 2,
+    `${context}: development.status "Discontinued" requires at least 2 metadata.sources`,
+  );
 }
 
 function validateAdministration(administration, context, required) {
@@ -1042,7 +1060,10 @@ function validateRelationships(relationships, context, registries, dataset) {
 
     validateStringArray(relationship.territories, `${relationshipContext}.territories`, false);
     validateStringArray(relationship.rights, `${relationshipContext}.rights`, false);
-    validateStringArray(relationship.sourceUrls, `${relationshipContext}.sourceUrls`, false);
+    // A company relationship is a transaction claim (licensing, acquisition, rights,
+    // territory, role) and the source policy requires a transaction source for it;
+    // require at least one so the claim can never be stored with zero evidence.
+    validateStringArray(relationship.sourceUrls, `${relationshipContext}.sourceUrls`, true);
 
     if (relationship.effectiveDate !== undefined) {
       assert(
@@ -1124,6 +1145,7 @@ function validateProgram(program, context, registries, dataset) {
   validateRegulatoryStates(program.regulatoryStates, context, registries);
   validateRelationships(program.relationships, context, registries, dataset);
   validateMetadata(program.metadata, context);
+  validateDiscontinuationEvidence(program.development, program.metadata, context);
 }
 
 function validateRegimen(regimen, context, registries, dataset) {
@@ -1174,6 +1196,7 @@ function validateRegimen(regimen, context, registries, dataset) {
   validateAdministration(regimen.administration, `${context}: administration`, false);
   validateRelationships(regimen.relationships, context, registries, dataset);
   validateMetadata(regimen.metadata, context);
+  validateDiscontinuationEvidence(regimen.development, regimen.metadata, context);
 }
 
 function validateDataset(
@@ -1774,7 +1797,6 @@ function validateClinicalStudy(study, context, references) {
   assertOptionalNonEmptyString(study.followUpDuration, `${context}: followUpDuration`);
   assertOptionalNonEmptyString(study.safetySummary, `${context}: safetySummary`);
   validateMetadata(study.metadata, context);
-  assert(study.metadata.sources.length > 0, `${context}: metadata.sources must contain at least one source`);
 }
 
 // A comparator or component that resolves to a registry asset must be stored as an internal
@@ -2009,7 +2031,6 @@ function validateClinicalOutcome(outcome, context) {
 
   assert(clinicalResultMaturities.has(outcome.maturity), `${context}: maturity "${outcome.maturity}" is not allowed`);
   validateMetadata(outcome.metadata, context);
-  assert(outcome.metadata.sources.length > 0, `${context}: metadata.sources must contain at least one source`);
 }
 
 // Two outcomes differing only by analysis group, estimand, or analysis population are
@@ -3002,10 +3023,10 @@ function validateClinicalEvidenceSyntheticFixtures() {
     ["analysis-population-is-estimand-with-subgroup", /actual analysis set, not an estimand label/, (fixture) => {
       fixture.outcomes[0].analysisPopulation = "Efficacy estimand (baseline type 2 diabetes subgroup)";
     }],
-    ["study-without-source", /metadata\.sources must contain at least one source/, (fixture) => {
+    ["study-without-source", /metadata\.sources must not be empty/, (fixture) => {
       fixture.studies[0].metadata.sources = [];
     }],
-    ["outcome-without-source", /metadata\.sources must contain at least one source/, (fixture) => {
+    ["outcome-without-source", /metadata\.sources must not be empty/, (fixture) => {
       fixture.outcomes[0].metadata.sources = [];
     }],
     ["arm-level-multiple-arms", /arm-level outcomes require exactly one armId/, (fixture) => {
@@ -3375,6 +3396,9 @@ function validateSyntheticFixtures() {
     ["single-molecule-regimen-family", /a regimen requires a multi-component family/],
     ["foreign-company-id", /Use externalCompanyName for another company/],
     ["mixed-company-identity", /companyId and externalCompanyName cannot both be used/],
+    ["missing-program-sources", /metadata\.sources must not be empty/],
+    ["relationship-missing-sources", /relationships\[0\]\.sourceUrls must not be empty/],
+    ["insufficient-discontinuation-evidence", /"Discontinued" requires at least 2 metadata\.sources/],
   ];
 
   for (const [folder, expectedError] of invalidExpectations) {

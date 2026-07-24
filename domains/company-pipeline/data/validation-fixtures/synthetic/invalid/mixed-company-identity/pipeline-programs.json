@@ -25,13 +25,14 @@
       {
         "companyId": "fixture-a",
         "externalCompanyName": "Fixture B",
-        "role": "licensee"
+        "role": "licensee",
+        "sourceUrls": ["https://example.com/fixture-relationship"]
       }
     ],
     "metadata": {
       "lastVerifiedAt": "2026-07-07",
       "updatedAt": "2026-07-07",
-      "sources": []
+      "sources": [{ "url": "https://example.com/fixture-source", "checkedAt": "2026-07-07" }]
     }
   }
 ]

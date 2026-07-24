@@ -33,16 +33,18 @@ sources as appropriate under the source policy.
 
 Review each opened official source for every distinct asset, formulation,
 route, combination, regimen, and relationship it discloses. Every surfaced
-candidate must finish in exactly one state:
+candidate must finish this run in exactly one disposition:
 
-- **entered**: confirmed, in scope, representable, and created or updated;
-- **merged**: confirmed and consolidated into an identified existing record;
-- **deferred**: unresolved identity, evidence, vocabulary, or structure, with a
-  reason;
-- **excluded**: outside scope or insufficiently evidenced, with a reason.
+- **STORED**: confirmed, in scope, representable, and reflected in operating
+  data — either **entered** as a new or updated record or **merged** into an
+  identified existing record;
+- **EXCLUDED**: outside scope or insufficiently evidenced, with a reason;
+- **DEFERRED**: unresolved identity, evidence, vocabulary, or structure, with a
+  reason.
 
-Nothing surfaced may be silently dropped. One deferred candidate does not
-block other valid updates. `deferred` and `excluded` are provisional until the
+Nothing surfaced may be silently dropped, and no in-scope candidate may leave
+this run without one of these three dispositions. One DEFERRED candidate does
+not block other valid updates. DEFERRED and EXCLUDED are provisional until the
 independent coverage pass in section 5 has run: a candidate is not insufficiently
 evidenced merely because the first pass did not surface its evidence.
 
@@ -73,25 +75,50 @@ policy's criteria are satisfied; otherwise defer it.
   `lastVerifiedAt` and source `checkedAt` only for records actually checked.
 - Do not guess a missing required value or invent an ID to resolve a collision.
 
-## 5. Mandatory coverage gate
+## 5. Research-completion gate
 
-Before generation and reporting:
+Before generation and reporting, this run may report completion (**GO**) only
+once every item below holds; while any remain open, the run is **NO-GO**.
 
 1. Reconcile the sponsor's current pipeline page, current investor materials,
    approved/filed obesity products, sponsor and asset registry searches, and
-   licensed, acquired, partnered, renamed, and historical assets.
+   licensed, acquired, partnered, renamed, and historical assets. This
+   reconciliation is the authoritative official-pipeline inventory for this
+   run: every asset, formulation, route, and indication it names is an
+   in-scope candidate that must reach a disposition under section 2, whether
+   or not it was already known before this run started.
 2. For every `Filed` or `Approved` program, reconcile disclosed jurisdiction,
    authority, and official date in `regulatoryStates`.
 3. Classify every newly surfaced candidate.
 4. Repeat company-centred discovery independently, without using the first
    pass's source list or inventory as the starting point.
-5. The independent pass covers previously `deferred` and unresolved candidates
+5. The independent pass covers previously DEFERRED and unresolved candidates
    and claims as well as new ones. Re-search each of them and record which
    applies: new evidence now resolves it, the same blocker still stands, or its
    disposition has changed. A prior deferral is not carried forward untested.
 6. If the independent pass finds an unclassified candidate, research and
-   classify it, then repeat the independent pass. Completion requires a final
-   pass with no unclassified candidate and no unre-searched prior deferral.
+   classify it, then repeat the independent pass. A final pass finds no
+   unclassified candidate and no unre-searched prior deferral.
+7. **Zero undispositioned candidates.** Count every candidate surfaced across
+   both passes that does not carry a final STORED, EXCLUDED, or DEFERRED
+   disposition (section 2). This count must be exactly zero before the run
+   may report GO — a nonzero count is NO-GO regardless of how much other work
+   has completed.
+8. Every touched program row's `development.stage`, `development.status`, and
+   `stageOperationalState` are confirmed by evidence naming that row's own
+   program scope (asset, route, dosage form, and indication scope). Do not
+   carry a sibling row's stage or status, the asset's aggregate pipeline
+   position, or a planned/announced future stage into this row without
+   row-specific evidence — see the row-scoped evidence rule in
+   `entities-and-rows.md` and the stage evidence rules in
+   `source-and-entry-policy.md`.
+9. When this run's branch is stacked on Company/Pipeline changes from a prior
+   research step not yet merged to the default branch, re-run the full
+   validation suite (section 6) against the cumulative working tree — not
+   only the files this run touched — and confirm every value corrected by an
+   earlier step in the stack is still present unchanged. A rebase, merge, or
+   regeneration is never assumed to have preserved a prior correction; verify
+   it directly.
 
 This audit is in-session only. Do not create a per-run ledger or report file.
 
@@ -118,12 +145,18 @@ Report, without a rigid template:
 
 - initial investigation or refresh;
 - assets traversed and records created, changed, or reverified;
-- entered, merged, deferred, and excluded candidates with reasons;
+- every candidate's disposition — STORED (entered or merged), EXCLUDED, or
+  DEFERRED — with reasons, and the count of undispositioned candidates
+  remaining (must be zero to report GO);
 - registry additions;
 - final independent coverage-pass result;
 - principal sources;
 - generation and validation results;
-- blockers or source-access failures.
+- blockers or source-access failures;
+- run-level completion status — **GO** or **NO-GO** — per the gate in
+  section 5, including confirmation that section 5 item 9 (stacked-branch
+  re-validation) was applied when this run's branch is stacked on unmerged
+  prior changes.
 
-Do not claim completion unless the coverage gate and required validation have
-completed.
+Do not claim completion (GO) unless the coverage gate and required validation
+have completed.
