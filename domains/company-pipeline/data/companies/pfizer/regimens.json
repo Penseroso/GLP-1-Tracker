@@ -1,0 +1,78 @@
+[
+  {
+    "id": "pfizer-berobenatide-met-233i-regimen",
+    "companyId": "pfizer",
+    "name": "Berobenatide (MET-097i) plus MET-233i",
+    "mechanismFamilyId": "glp1-plus-amylin-calcitonin-combination",
+    "components": [
+      {
+        "assetId": "pf-08653944",
+        "role": "GLP-1 receptor agonist"
+      },
+      {
+        "assetId": "pf-08653945",
+        "role": "Amylin analog with dual amylin and calcitonin receptor activity"
+      }
+    ],
+    "indications": [
+      "Chronic weight management"
+    ],
+    "development": {
+      "stage": "Phase 2",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://cdn.pfizer.com/pfizercom/product-pipeline/Q1%202026%20Pipeline%20Update_vFinal_0.pdf",
+          "title": "Pfizer Pipeline Update, May 5, 2026",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-05-05",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pfizer-met-034i-berobenatide-regimen",
+    "companyId": "pfizer",
+    "name": "MET-034i plus berobenatide (MET-097i)",
+    "mechanismFamilyId": "glp1-plus-gip-combination",
+    "components": [
+      {
+        "assetId": "pf-08654696",
+        "role": "GIPR agonist"
+      },
+      {
+        "assetId": "pf-08653944",
+        "role": "GLP-1 receptor agonist"
+      }
+    ],
+    "indications": [
+      "Chronic weight management"
+    ],
+    "development": {
+      "stage": "Phase 1",
+      "status": "Active",
+      "stageBasis": "Sponsor-declared current pipeline stage",
+      "stageOperationalState": "Initiated or active"
+    },
+    "metadata": {
+      "lastVerifiedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "sources": [
+        {
+          "url": "https://cdn.pfizer.com/pfizercom/product-pipeline/Q1%202026%20Pipeline%20Update_vFinal_0.pdf",
+          "title": "Pfizer Pipeline Update, May 5, 2026",
+          "sourceType": "investor presentation",
+          "publishedAt": "2026-05-05",
+          "checkedAt": "2026-07-24"
+        }
+      ]
+    }
+  }
+]

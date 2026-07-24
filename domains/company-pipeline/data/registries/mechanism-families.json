@@ -93,7 +93,19 @@
     "composition": "single-molecule",
     "targets": [{ "target": "GIPR", "action": "agonist" }],
     "sortRank": 70,
-    "mechanisms": ["GIP receptor agonist", "Long-acting GIP receptor agonist"]
+    "mechanisms": [
+      "GIP receptor agonist",
+      "Long-acting GIP receptor agonist",
+      "GIPR agonist"
+    ]
+  },
+  {
+    "id": "gip-antagonist",
+    "label": "GIP receptor antagonist",
+    "composition": "single-molecule",
+    "targets": [{ "target": "GIPR", "action": "antagonist" }],
+    "sortRank": 75,
+    "mechanisms": ["GIPR antagonist"]
   },
   {
     "id": "amylin-agonist",
@@ -117,7 +129,10 @@
       { "target": "Calcitonin receptor", "action": "agonist" }
     ],
     "sortRank": 90,
-    "mechanisms": ["Dual amylin and calcitonin receptor agonist"]
+    "mechanisms": [
+      "Dual amylin and calcitonin receptor agonist",
+      "Amylin analog with dual amylin and calcitonin receptor activity"
+    ]
   },
   {
     "id": "glp1-amylin-agonist",
@@ -195,6 +210,18 @@
       { "target": "GIPR", "action": "agonist" }
     ],
     "sortRank": 230,
+    "mechanisms": []
+  },
+  {
+    "id": "glp1-plus-amylin-calcitonin-combination",
+    "label": "GLP-1 receptor agonist plus amylin / calcitonin receptor agonist",
+    "composition": "multi-component",
+    "targets": [
+      { "target": "GLP-1R", "action": "agonist" },
+      { "target": "Amylin receptor", "action": "agonist" },
+      { "target": "Calcitonin receptor", "action": "agonist" }
+    ],
+    "sortRank": 235,
     "mechanisms": []
   },
   {
