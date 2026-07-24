@@ -32,10 +32,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "68 weeks",
-      "safetySummary": "Gastrointestinal adverse events were the most common; treatment discontinuation rates were low across groups.",
+      "safetySummary": "Gastrointestinal adverse events were the most common and were mainly transient and mild-to-moderate; serious adverse events occurred in 9.8% with CagriSema, 5.0% with semaglutide, 8.9% with cagrilintide, and 6.1% with placebo. Permanent trial-product discontinuation due to adverse events was low across groups.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05567796",
@@ -48,7 +48,7 @@
             "title": "Cagrilintide-Semaglutide in Adults with Overweight or Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-06-22",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -88,10 +88,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "68 weeks",
-      "safetySummary": "The most common adverse events were gastrointestinal and were mainly mild to moderate.",
+      "safetySummary": "The most common adverse events were gastrointestinal and were mainly mild to moderate; serious adverse events occurred in 10.4% with CagriSema and 12.9% with placebo.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05394519",
@@ -104,7 +104,7 @@
             "title": "Cagrilintide-Semaglutide in Adults with Overweight or Obesity and Type 2 Diabetes",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-06-22",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -381,12 +381,84 @@
       "assessmentTimepoint": "Week 68"
     },
     {
+      "id": "redefine1-weight-5pct-week68",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "name": "Participants achieving at least 5% body-weight reduction",
+      "role": "co-primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "redefine1-weight-20pct-week68",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "name": "Participants achieving at least 20% body-weight reduction",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "redefine1-weight-25pct-week68",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "name": "Participants achieving at least 25% body-weight reduction",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "redefine1-weight-30pct-week68",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "name": "Participants achieving at least 30% body-weight reduction",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "redefine1-sae-in-trial",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "In-trial period"
+    },
+    {
       "id": "redefine2-weight-week68",
       "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
       "name": "Percentage change from baseline in body weight",
       "role": "co-primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "redefine2-weight-5pct-week68",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "name": "Participants achieving at least 5% body-weight reduction",
+      "role": "co-primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "redefine2-weight-20pct-week68",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "name": "Participants achieving at least 20% body-weight reduction",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 68"
+    },
+    {
+      "id": "redefine2-weight-week20",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "name": "Percentage change from baseline in body weight",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 20"
+    },
+    {
+      "id": "redefine2-sae-in-trial",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "In-trial period"
     },
     {
       "id": "redefine4-weight-week84",
@@ -511,6 +583,578 @@
       }
     },
     {
+      "id": "redefine1-weight-5pct-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-5pct-week68",
+      "armIds": [
+        "redefine1-cagrisema"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "91.9",
+        "numericValue": 91.9,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-5pct-semaglutide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-5pct-week68",
+      "armIds": [
+        "redefine1-semaglutide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "84.1",
+        "numericValue": 84.1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-5pct-cagrilintide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-5pct-week68",
+      "armIds": [
+        "redefine1-cagrilintide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "78.7",
+        "numericValue": 78.7,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-5pct-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-5pct-week68",
+      "armIds": [
+        "redefine1-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "31.5",
+        "numericValue": 31.5,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-20pct-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-20pct-week68",
+      "armIds": [
+        "redefine1-cagrisema"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "53.6",
+        "numericValue": 53.6,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=20%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-20pct-semaglutide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-20pct-week68",
+      "armIds": [
+        "redefine1-semaglutide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "26.5",
+        "numericValue": 26.5,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=20%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-20pct-cagrilintide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-20pct-week68",
+      "armIds": [
+        "redefine1-cagrilintide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "15.4",
+        "numericValue": 15.4,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=20%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-20pct-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-20pct-week68",
+      "armIds": [
+        "redefine1-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "1.9",
+        "numericValue": 1.9,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=20%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-25pct-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-25pct-week68",
+      "armIds": [
+        "redefine1-cagrisema"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "34.7",
+        "numericValue": 34.7,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=25%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-25pct-semaglutide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-25pct-week68",
+      "armIds": [
+        "redefine1-semaglutide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "14.8",
+        "numericValue": 14.8,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=25%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-25pct-cagrilintide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-25pct-week68",
+      "armIds": [
+        "redefine1-cagrilintide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "6.5",
+        "numericValue": 6.5,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=25%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-25pct-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-25pct-week68",
+      "armIds": [
+        "redefine1-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "1.0",
+        "numericValue": 1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=25%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-30pct-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-30pct-week68",
+      "armIds": [
+        "redefine1-cagrisema"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "19.3",
+        "numericValue": 19.3,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=30%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-30pct-semaglutide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-30pct-week68",
+      "armIds": [
+        "redefine1-semaglutide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "8.7",
+        "numericValue": 8.7,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=30%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-30pct-cagrilintide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-30pct-week68",
+      "armIds": [
+        "redefine1-cagrilintide"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "1.6",
+        "numericValue": 1.6,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=30%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-weight-30pct-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-weight-30pct-week68",
+      "armIds": [
+        "redefine1-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "0.4",
+        "numericValue": 0.4,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=30%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-sae-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-sae-in-trial",
+      "armIds": [
+        "redefine1-cagrisema"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "9.8",
+        "numericValue": 9.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-sae-semaglutide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-sae-in-trial",
+      "armIds": [
+        "redefine1-semaglutide"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "5.0",
+        "numericValue": 5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-sae-cagrilintide",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-sae-in-trial",
+      "armIds": [
+        "redefine1-cagrilintide"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "8.9",
+        "numericValue": 8.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine1-sae-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-1-nct05567796",
+      "endpointId": "redefine1-sae-in-trial",
+      "armIds": [
+        "redefine1-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "6.1",
+        "numericValue": 6.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2502081",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
       "id": "redefine2-weight-cagrisema",
       "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
       "endpointId": "redefine2-weight-week68",
@@ -562,6 +1206,232 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-weight-5pct-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-weight-5pct-week68",
+      "armIds": [
+        "redefine2-cagrisema"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "83.6",
+        "numericValue": 83.6,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-weight-5pct-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-weight-5pct-week68",
+      "armIds": [
+        "redefine2-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "30.8",
+        "numericValue": 30.8,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-weight-20pct-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-weight-20pct-week68",
+      "armIds": [
+        "redefine2-cagrisema"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "22.9",
+        "numericValue": 22.9,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=20%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-weight-20pct-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-weight-20pct-week68",
+      "armIds": [
+        "redefine2-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "0.5",
+        "numericValue": 0.5,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=20%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-weight-week20-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-weight-week20",
+      "armIds": [
+        "redefine2-cagrisema"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "-10.1",
+        "numericValue": -10.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-weight-week20-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-weight-week20",
+      "armIds": [
+        "redefine2-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "-2.3",
+        "numericValue": -2.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-sae-cagrisema",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-sae-in-trial",
+      "armIds": [
+        "redefine2-cagrisema"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "10.4",
+        "numericValue": 10.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "redefine2-sae-placebo",
+      "studyId": "novo-nordisk-cagrisema-redefine-2-nct05394519",
+      "endpointId": "redefine2-sae-in-trial",
+      "armIds": [
+        "redefine2-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "12.9",
+        "numericValue": 12.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40544432/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

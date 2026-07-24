@@ -32,10 +32,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "72 weeks",
-      "safetySummary": "Gastrointestinal adverse events were the most common and were mainly mild to moderate; treatment discontinuation increased with dose.",
+      "safetySummary": "Gastrointestinal adverse events were the most common and were mainly mild to moderate; treatment discontinuation increased with dose. Serious adverse events occurred in 5.1-6.9% of tirzepatide arms vs. 6.8% with placebo; nausea (24.6-33.3% vs. 9.5%) and vomiting (8.3-12.2% vs. 1.7%) were more common with tirzepatide.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT04184622",
@@ -48,7 +48,7 @@
             "title": "Tirzepatide Once Weekly for the Treatment of Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2022-06-04",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -88,10 +88,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "72 weeks",
-      "safetySummary": "Gastrointestinal adverse events were most common, were generally mild to moderate, and occurred primarily during dose escalation.",
+      "safetySummary": "Gastrointestinal adverse events were most common, were generally mild to moderate, and occurred primarily during dose escalation. Serious adverse events occurred in 6-9% of tirzepatide arms vs. 7% with placebo; nausea (20-22% vs. 6%) and vomiting (11-13% vs. 3%) were more common with tirzepatide.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT04657003",
@@ -104,7 +104,7 @@
             "title": "Tirzepatide once weekly for the treatment of obesity in people with type 2 diabetes",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2023-06-26",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -144,23 +144,23 @@
         "treatmentContext": "post-lifestyle-intervention"
       },
       "overallDuration": "84 weeks",
-      "safetySummary": "Gastrointestinal adverse events were the most common and were primarily mild to moderate.",
+      "safetySummary": "Serious adverse events occurred in 5.9% and 4.8%, nausea in 39.7% and 14.0%, and vomiting in 18.1% and 1.4% with tirzepatide maximum tolerated dose and placebo, respectively.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT04657016",
             "title": "SURMOUNT-3 study record",
             "sourceType": "trial registry",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           },
           {
             "url": "https://pubmed.ncbi.nlm.nih.gov/37840095/",
             "title": "Tirzepatide after intensive lifestyle intervention in adults with overweight or obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2023-10-15",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -256,10 +256,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "72 weeks",
-      "safetySummary": "Gastrointestinal adverse events were most common in both groups and were mainly mild to moderate during dose escalation.",
+      "safetySummary": "Gastrointestinal adverse events were most common in both groups and were mainly mild to moderate during dose escalation. Serious adverse events occurred in 4.8% of the tirzepatide group vs. 3.5% with semaglutide; nausea was similar (43.6% vs. 44.4%) and vomiting was less frequent with tirzepatide (15.0% vs. 21.3%).",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05822830",
@@ -272,7 +272,7 @@
             "title": "Tirzepatide as Compared with Semaglutide for the Treatment of Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-05-11",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -312,10 +312,10 @@
         "treatmentContext": "maintenance-or-continuation"
       },
       "overallDuration": "112 weeks",
-      "safetySummary": "The safety profile was consistent with prior tirzepatide studies; gastrointestinal events were the most common adverse events.",
+      "safetySummary": "The safety profile was consistent with prior tirzepatide studies; gastrointestinal events were the most common adverse events. During the weight-maintenance period, serious adverse events occurred in 0% (MTD), 1% (5 mg), and 1% (placebo); nausea in 6%, 4%, and 2%; and vomiting in 6%, 1%, and 0%, respectively.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-23",
-        "updatedAt": "2026-07-23",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT06047548",
@@ -328,7 +328,7 @@
             "title": "Tirzepatide for maintenance of bodyweight reduction in adults with obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2026-05-12",
-            "checkedAt": "2026-07-23"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -360,10 +360,10 @@
       },
       "population": "Adults with heart failure with preserved ejection fraction and obesity.",
       "overallDuration": "At least 52 weeks; median follow-up 104 weeks",
-      "safetySummary": "Adverse events leading to treatment discontinuation occurred more frequently with tirzepatide and were mainly gastrointestinal.",
+      "safetySummary": "Nonfatal adverse events leading to treatment discontinuation occurred in 23 (6.3%) tirzepatide patients versus 5 (1.4%) placebo patients, mainly gastrointestinal (15 [4.1%] tirzepatide vs. 0 placebo discontinued for GI symptoms). Serious adverse events appeared similar between groups; per-arm incidence of nausea, vomiting, and anti-drug antibodies was not reported in the main text (only in an inaccessible supplementary table).",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT04847557",
@@ -376,7 +376,7 @@
             "title": "Tirzepatide for Heart Failure with Preserved Ejection Fraction and Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2024-11-16",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -1681,11 +1681,59 @@
       "assessmentTimepoint": "Week 72"
     },
     {
+      "id": "sm1-sae-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm1-nausea-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm1-vomiting-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
       "id": "sm2-weight-week72",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
       "name": "Percentage change from baseline in body weight",
       "role": "co-primary",
       "domain": "body weight",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm2-sae-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm2-nausea-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm2-vomiting-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
       "assessmentTimepoint": "Week 72"
     },
     {
@@ -1697,11 +1745,91 @@
       "assessmentTimepoint": "Week 72 of randomized treatment"
     },
     {
+      "id": "sm3-responder-5-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Participants with at least 5% body-weight reduction from randomization",
+      "role": "co-primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 72 of randomized treatment"
+    },
+    {
+      "id": "sm3-responder-10-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Participants with at least 10% body-weight reduction from randomization",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 72 of randomized treatment"
+    },
+    {
+      "id": "sm3-responder-15-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Participants with at least 15% body-weight reduction from randomization",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 72 of randomized treatment"
+    },
+    {
+      "id": "sm3-responder-20-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Participants with at least 20% body-weight reduction from randomization",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 72 of randomized treatment"
+    },
+    {
+      "id": "sm3-sae-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Double-blind period and safety follow-up"
+    },
+    {
+      "id": "sm3-nausea-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Double-blind period and safety follow-up"
+    },
+    {
+      "id": "sm3-vomiting-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Double-blind period and safety follow-up"
+    },
+    {
       "id": "sm4-weight-week88",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
       "name": "Percentage change in body weight during the randomized withdrawal period",
       "role": "primary",
       "domain": "body weight",
+      "assessmentTimepoint": "Week 36 to Week 88"
+    },
+    {
+      "id": "sm4-sae-week88",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 36 to Week 88"
+    },
+    {
+      "id": "sm4-nausea-week88",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 36 to Week 88"
+    },
+    {
+      "id": "sm4-vomiting-week88",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
       "assessmentTimepoint": "Week 36 to Week 88"
     },
     {
@@ -1713,12 +1841,60 @@
       "assessmentTimepoint": "Week 72"
     },
     {
+      "id": "sm5-sae-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm5-nausea-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "sm5-vomiting-week72",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
       "id": "smmaintain-weight-week112",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
       "name": "Percentage change from original baseline in body weight",
       "role": "primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 112"
+    },
+    {
+      "id": "smmaintain-sae-week112",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 60 to Week 112"
+    },
+    {
+      "id": "smmaintain-nausea-week112",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 60 to Week 112"
+    },
+    {
+      "id": "smmaintain-vomiting-week112",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 60 to Week 112"
     },
     {
       "id": "summit-hf-events",
@@ -1729,11 +1905,51 @@
       "assessmentTimepoint": "Median follow-up 104 weeks"
     },
     {
+      "id": "summit-kccq-css-week52",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "name": "Change in Kansas City Cardiomyopathy Questionnaire clinical summary score",
+      "role": "co-primary",
+      "domain": "patient-reported",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "summit-weight-week52",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "name": "Percent change from baseline in body weight",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
       "id": "smcn-weight-week52",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
       "name": "Percentage change from baseline in body weight",
       "role": "co-primary",
       "domain": "body weight",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "smcn-sae-week52",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "smcn-nausea-week52",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "smcn-vomiting-week52",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
       "assessmentTimepoint": "Week 52"
     }
   ],
@@ -1963,6 +2179,330 @@
       }
     },
     {
+      "id": "sm1-sae-tirz5",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-sae-week72",
+      "armIds": [
+        "sm1-tirz5"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6.3",
+        "numericValue": 6.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-sae-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-sae-week72",
+      "armIds": [
+        "sm1-tirz10"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6.9",
+        "numericValue": 6.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-sae-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-sae-week72",
+      "armIds": [
+        "sm1-tirz15"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "5.1",
+        "numericValue": 5.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-sae-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-sae-week72",
+      "armIds": [
+        "sm1-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6.8",
+        "numericValue": 6.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-nausea-tirz5",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-nausea-week72",
+      "armIds": [
+        "sm1-tirz5"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "24.6",
+        "numericValue": 24.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-nausea-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-nausea-week72",
+      "armIds": [
+        "sm1-tirz10"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "33.3",
+        "numericValue": 33.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-nausea-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-nausea-week72",
+      "armIds": [
+        "sm1-tirz15"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "31",
+        "numericValue": 31,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-nausea-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-nausea-week72",
+      "armIds": [
+        "sm1-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "9.5",
+        "numericValue": 9.5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-vomiting-tirz5",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-vomiting-week72",
+      "armIds": [
+        "sm1-tirz5"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "8.3",
+        "numericValue": 8.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-vomiting-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-vomiting-week72",
+      "armIds": [
+        "sm1-tirz10"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "10.7",
+        "numericValue": 10.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-vomiting-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-vomiting-week72",
+      "armIds": [
+        "sm1-tirz15"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "12.2",
+        "numericValue": 12.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm1-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-1-nct04184622",
+      "endpointId": "sm1-vomiting-week72",
+      "armIds": [
+        "sm1-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "1.7",
+        "numericValue": 1.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
       "id": "sm2-weight-tirz10",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
       "endpointId": "sm2-weight-week72",
@@ -2131,6 +2671,249 @@
       }
     },
     {
+      "id": "sm2-sae-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-sae-week72",
+      "armIds": [
+        "sm2-tirz10"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-sae-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-sae-week72",
+      "armIds": [
+        "sm2-tirz15"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "9",
+        "numericValue": 9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-sae-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-sae-week72",
+      "armIds": [
+        "sm2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "7",
+        "numericValue": 7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-nausea-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-nausea-week72",
+      "armIds": [
+        "sm2-tirz10"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "20",
+        "numericValue": 20,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-nausea-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-nausea-week72",
+      "armIds": [
+        "sm2-tirz15"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "22",
+        "numericValue": 22,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-nausea-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-nausea-week72",
+      "armIds": [
+        "sm2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-vomiting-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-vomiting-week72",
+      "armIds": [
+        "sm2-tirz10"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "11",
+        "numericValue": 11,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-vomiting-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-vomiting-week72",
+      "armIds": [
+        "sm2-tirz15"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "13",
+        "numericValue": 13,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm2-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-2-nct04657003",
+      "endpointId": "sm2-vomiting-week72",
+      "armIds": [
+        "sm2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
       "id": "sm3-weight-tirz",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
       "endpointId": "sm3-weight-week72",
@@ -2241,6 +3024,162 @@
           }
         ]
       }
+    },
+    {
+      "id": "sm3-responder-5-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-5-week72",
+      "armIds": ["sm3-tirz"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 5% body-weight reduction from randomization",
+      "result": {"value": "87.5", "numericValue": 87.5, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-responder-5-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-5-week72",
+      "armIds": ["sm3-placebo"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 5% body-weight reduction from randomization",
+      "result": {"value": "16.5", "numericValue": 16.5, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-responder-10-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-10-week72",
+      "armIds": ["sm3-tirz"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 10% body-weight reduction from randomization",
+      "result": {"value": "76.7", "numericValue": 76.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-responder-10-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-10-week72",
+      "armIds": ["sm3-placebo"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 10% body-weight reduction from randomization",
+      "result": {"value": "8.9", "numericValue": 8.9, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-responder-15-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-15-week72",
+      "armIds": ["sm3-tirz"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 15% body-weight reduction from randomization",
+      "result": {"value": "65.4", "numericValue": 65.4, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-responder-15-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-15-week72",
+      "armIds": ["sm3-placebo"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 15% body-weight reduction from randomization",
+      "result": {"value": "4.2", "numericValue": 4.2, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-responder-20-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-20-week72",
+      "armIds": ["sm3-tirz"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 20% body-weight reduction from randomization",
+      "result": {"value": "44.7", "numericValue": 44.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-responder-20-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-responder-20-week72",
+      "armIds": ["sm3-placebo"],
+      "analysisPopulation": "Modified intention-to-treat (overall)",
+      "estimand": "Treatment-regimen estimand",
+      "responderThreshold": "At least 20% body-weight reduction from randomization",
+      "result": {"value": "2.2", "numericValue": 2.2, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-sae-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-sae-week72",
+      "armIds": ["sm3-tirz"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "5.9", "numericValue": 5.9, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-sae-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-sae-week72",
+      "armIds": ["sm3-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "4.8", "numericValue": 4.8, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-nausea-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-nausea-week72",
+      "armIds": ["sm3-tirz"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "39.7", "numericValue": 39.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-nausea-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-nausea-week72",
+      "armIds": ["sm3-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "14.0", "numericValue": 14.0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-vomiting-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-vomiting-week72",
+      "armIds": ["sm3-tirz"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "18.1", "numericValue": 18.1, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "sm3-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-3-nct04657016",
+      "endpointId": "sm3-vomiting-week72",
+      "armIds": ["sm3-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "1.4", "numericValue": 1.4, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1038/s41591-023-02597-w", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
     },
     {
       "id": "sm4-weight-tirz",
@@ -2531,6 +3470,168 @@
       }
     },
     {
+      "id": "sm5-sae-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-sae-week72",
+      "armIds": [
+        "sm5-tirz"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "4.8",
+        "numericValue": 4.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm5-sae-sema",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-sae-week72",
+      "armIds": [
+        "sm5-sema"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "3.5",
+        "numericValue": 3.5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm5-nausea-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-nausea-week72",
+      "armIds": [
+        "sm5-tirz"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "43.6",
+        "numericValue": 43.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm5-nausea-sema",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-nausea-week72",
+      "armIds": [
+        "sm5-sema"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "44.4",
+        "numericValue": 44.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm5-vomiting-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-vomiting-week72",
+      "armIds": [
+        "sm5-tirz"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "15",
+        "numericValue": 15,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm5-vomiting-sema",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-5-nct05822830",
+      "endpointId": "sm5-vomiting-week72",
+      "armIds": [
+        "sm5-sema"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "21.3",
+        "numericValue": 21.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
       "id": "smmaintain-weight-mtd",
       "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
       "endpointId": "smmaintain-weight-week112",
@@ -2699,6 +3800,249 @@
       }
     },
     {
+      "id": "smmaintain-sae-mtd",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-sae-week112",
+      "armIds": [
+        "smmaintain-mtd"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-sae-5mg",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-sae-week112",
+      "armIds": [
+        "smmaintain-5mg"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "1",
+        "numericValue": 1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-sae-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-sae-week112",
+      "armIds": [
+        "smmaintain-placebo"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "1",
+        "numericValue": 1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-nausea-mtd",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-nausea-week112",
+      "armIds": [
+        "smmaintain-mtd"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-nausea-5mg",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-nausea-week112",
+      "armIds": [
+        "smmaintain-5mg"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "4",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-nausea-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-nausea-week112",
+      "armIds": [
+        "smmaintain-placebo"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "2",
+        "numericValue": 2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-vomiting-mtd",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-vomiting-week112",
+      "armIds": [
+        "smmaintain-mtd"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-vomiting-5mg",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-vomiting-week112",
+      "armIds": [
+        "smmaintain-5mg"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "1",
+        "numericValue": 1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smmaintain-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-maintain-nct06047548",
+      "endpointId": "smmaintain-vomiting-week112",
+      "armIds": [
+        "smmaintain-placebo"
+      ],
+      "analysisPopulation": "Safety population (weight maintenance period)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42119587/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
       "id": "summit-hf-tirz",
       "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
       "endpointId": "summit-hf-events",
@@ -2779,6 +4123,176 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-kccq-css-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-kccq-css-week52",
+      "armIds": [
+        "summit-tirz"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "result": {
+        "value": "19.5",
+        "numericValue": 19.5,
+        "unit": "points",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-kccq-css-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-kccq-css-week52",
+      "armIds": [
+        "summit-placebo"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "result": {
+        "value": "12.7",
+        "numericValue": 12.7,
+        "unit": "points",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-kccq-css-between",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-kccq-css-week52",
+      "armIds": [
+        "summit-tirz",
+        "summit-placebo"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "result": {
+        "value": "6.9",
+        "numericValue": 6.9,
+        "unit": "points",
+        "resultType": "between-arm",
+        "effectMeasure": "Hodges-Lehmann median difference",
+        "comparisonType": "Between-group median difference, tirzepatide minus placebo",
+        "confidenceInterval": "95% CI 3.3 to 10.6"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-weight-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-weight-week52",
+      "armIds": [
+        "summit-tirz"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "result": {
+        "value": "-13.9",
+        "numericValue": -13.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-weight-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-weight-week52",
+      "armIds": [
+        "summit-placebo"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "result": {
+        "value": "-2.2",
+        "numericValue": -2.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "summit-weight-between",
+      "studyId": "eli-lilly-and-company-tirzepatide-summit-nct04847557",
+      "endpointId": "summit-weight-week52",
+      "armIds": [
+        "summit-tirz",
+        "summit-placebo"
+      ],
+      "analysisPopulation": "Intention-to-treat (overall)",
+      "result": {
+        "value": "-11.6",
+        "numericValue": -11.6,
+        "unit": "percentage points",
+        "resultType": "between-arm",
+        "effectMeasure": "Least-squares mean difference",
+        "comparisonType": "Between-group difference, tirzepatide minus placebo",
+        "confidenceInterval": "95% CI -12.9 to -10.4"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555826/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -2947,6 +4461,411 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-sae-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-sae-week88",
+      "armIds": [
+        "sm4-tirz"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "3.0",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-sae-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-sae-week88",
+      "armIds": [
+        "sm4-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "3.0",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-nausea-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-nausea-week88",
+      "armIds": [
+        "sm4-tirz"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "8.1",
+        "numericValue": 8.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-nausea-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-nausea-week88",
+      "armIds": [
+        "sm4-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "2.7",
+        "numericValue": 2.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-vomiting-tirz",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-vomiting-week88",
+      "armIds": [
+        "sm4-tirz"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "5.7",
+        "numericValue": 5.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sm4-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-4-nct04660643",
+      "endpointId": "sm4-vomiting-week88",
+      "armIds": [
+        "sm4-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "1.2",
+        "numericValue": 1.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-sae-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-sae-week52",
+      "armIds": [
+        "smcn-tirz10"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "4.3",
+        "numericValue": 4.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-sae-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-sae-week52",
+      "armIds": [
+        "smcn-tirz15"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "11.3",
+        "numericValue": 11.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-sae-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-sae-week52",
+      "armIds": [
+        "smcn-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "8.7",
+        "numericValue": 8.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-nausea-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-nausea-week52",
+      "armIds": [
+        "smcn-tirz10"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "30.0",
+        "numericValue": 30,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-nausea-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-nausea-week52",
+      "armIds": [
+        "smcn-tirz15"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "32.4",
+        "numericValue": 32.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-nausea-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-nausea-week52",
+      "armIds": [
+        "smcn-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "5.8",
+        "numericValue": 5.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-vomiting-tirz10",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-vomiting-week52",
+      "armIds": [
+        "smcn-tirz10"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "11.4",
+        "numericValue": 11.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-vomiting-tirz15",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-vomiting-week52",
+      "armIds": [
+        "smcn-tirz15"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "19.7",
+        "numericValue": 19.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "smcn-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-tirzepatide-surmount-cn-nct05024032",
+      "endpointId": "smcn-vomiting-week52",
+      "armIds": [
+        "smcn-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "4.3",
+        "numericValue": 4.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38819983/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

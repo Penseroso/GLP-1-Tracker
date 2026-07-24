@@ -35,10 +35,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "56 weeks",
-      "safetySummary": "Mild or moderate nausea and diarrhea were most frequent; serious adverse events occurred in 6.2% with liraglutide and 5.0% with placebo.",
+      "safetySummary": "Mild or moderate gastrointestinal events were most frequent; nausea occurred in 40.2% with liraglutide and 14.7% with placebo, vomiting in 16.3% and 4.1%, and serious adverse events in 6.2% and 5.0%, respectively.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT01272219",
@@ -51,7 +51,7 @@
             "title": "A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2015-07-02",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -148,10 +148,10 @@
       },
       "overallDuration": "56 weeks",
       "followUpDuration": "26 weeks",
-      "safetySummary": "Gastrointestinal adverse events occurred in 64.8% with liraglutide and 36.5% with placebo; discontinuations due to adverse events occurred in 10.4% and 0%.",
+      "safetySummary": "Gastrointestinal adverse events occurred in 64.8% with liraglutide and 36.5% with placebo; nausea occurred in 42.4% and 14.3%, vomiting in 34.4% and 4.0%, and serious adverse events in 2.4% and 4.0%, respectively. Discontinuations due to adverse events occurred in 10.4% and 0%.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT02918279",
@@ -164,7 +164,7 @@
             "title": "A Randomized, Controlled Trial of Liraglutide for Adolescents with Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2020-03-31",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -205,10 +205,10 @@
       },
       "overallDuration": "56 weeks",
       "followUpDuration": "26 weeks",
-      "safetySummary": "Adverse events occurred in 89% with liraglutide and 88% with placebo; gastrointestinal events occurred in 80% and 54%, respectively.",
+      "safetySummary": "Adverse events occurred in 89% with liraglutide and 88% with placebo; gastrointestinal events occurred in 80% and 54%, and serious adverse events in 12% and 8%, respectively.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT04775082",
@@ -221,7 +221,7 @@
             "title": "Liraglutide for Children 6 to Under 12 Years of Age with Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2024-09-10",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -368,10 +368,50 @@
     {
       "id": "scaleobesity-weight-week56",
       "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
-      "name": "Change from baseline in body weight",
+      "name": "Percentage change from baseline in body weight",
       "role": "co-primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scaleobesity-weight-5pct-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "name": "Participants achieving at least 5% body-weight reduction",
+      "role": "co-primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scaleobesity-weight-10pct-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "name": "Participants achieving more than 10% body-weight reduction",
+      "role": "co-primary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scaleobesity-sae-week58",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Up to and including week 58"
+    },
+    {
+      "id": "scaleobesity-nausea-week58",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Up to and including week 58"
+    },
+    {
+      "id": "scaleobesity-vomiting-week58",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Up to and including week 58"
     },
     {
       "id": "scalediabetes-weight-week56",
@@ -379,6 +419,30 @@
       "name": "Percentage change from baseline in body weight",
       "role": "co-primary",
       "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scalediabetes-sae-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scalediabetes-nausea-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scalediabetes-vomiting-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
       "assessmentTimepoint": "Week 56"
     },
     {
@@ -390,12 +454,84 @@
       "assessmentTimepoint": "Week 56"
     },
     {
+      "id": "scaleteens-weight-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "name": "Percentage change from baseline in body weight",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scaleteens-bmi-5pct-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "name": "Participants achieving at least 5% BMI reduction",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scaleteens-bmi-10pct-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "name": "Participants achieving at least 10% BMI reduction",
+      "role": "key-secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scaleteens-sae-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 0 through week 56"
+    },
+    {
+      "id": "scaleteens-nausea-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 0 through week 56"
+    },
+    {
+      "id": "scaleteens-vomiting-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 0 through week 56"
+    },
+    {
       "id": "scalekids-bmi-week56",
       "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
       "name": "Percentage change from baseline in BMI",
       "role": "primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scalekids-weight-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "name": "Percentage change from baseline in body weight",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scalekids-bmi-5pct-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "name": "Participants achieving at least 5% BMI reduction",
+      "role": "secondary",
+      "domain": "body weight",
+      "assessmentTimepoint": "Week 56"
+    },
+    {
+      "id": "scalekids-sae-week56",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Treatment period through week 56"
     }
   ],
   "outcomes": [
@@ -408,20 +544,20 @@
       ],
       "analysisPopulation": "Full analysis set (overall)",
       "result": {
-        "value": "-8.4",
-        "numericValue": -8.4,
-        "unit": "kg",
+        "value": "-8.0",
+        "numericValue": -8,
+        "unit": "percent",
         "resultType": "arm-level"
       },
       "maturity": "peer-reviewed publication",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
             "sourceType": "peer-reviewed publication",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -435,20 +571,294 @@
       ],
       "analysisPopulation": "Full analysis set (overall)",
       "result": {
-        "value": "-2.8",
-        "numericValue": -2.8,
-        "unit": "kg",
+        "value": "-2.6",
+        "numericValue": -2.6,
+        "unit": "percent",
         "resultType": "arm-level"
       },
       "maturity": "peer-reviewed publication",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
             "sourceType": "peer-reviewed publication",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-weight-5pct-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-weight-5pct-week56",
+      "armIds": [
+        "scaleobesity-lira30"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "63.2",
+        "numericValue": 63.2,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-weight-5pct-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-weight-5pct-week56",
+      "armIds": [
+        "scaleobesity-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "27.1",
+        "numericValue": 27.1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-weight-10pct-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-weight-10pct-week56",
+      "armIds": [
+        "scaleobesity-lira30"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "33.1",
+        "numericValue": 33.1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">10%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-weight-10pct-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-weight-10pct-week56",
+      "armIds": [
+        "scaleobesity-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "10.6",
+        "numericValue": 10.6,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">10%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-sae-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-sae-week58",
+      "armIds": [
+        "scaleobesity-lira30"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "6.2",
+        "numericValue": 6.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-sae-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-sae-week58",
+      "armIds": [
+        "scaleobesity-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "5.0",
+        "numericValue": 5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-nausea-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-nausea-week58",
+      "armIds": [
+        "scaleobesity-lira30"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "40.2",
+        "numericValue": 40.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-nausea-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-nausea-week58",
+      "armIds": [
+        "scaleobesity-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "14.7",
+        "numericValue": 14.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-vomiting-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-vomiting-week58",
+      "armIds": [
+        "scaleobesity-lira30"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "16.3",
+        "numericValue": 16.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleobesity-vomiting-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-obesity-nct01272219",
+      "endpointId": "scaleobesity-vomiting-week58",
+      "armIds": [
+        "scaleobesity-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "4.1",
+        "numericValue": 4.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26132939/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -462,20 +872,47 @@
       ],
       "analysisPopulation": "Full analysis set (overall)",
       "result": {
-        "value": "-5.9",
-        "numericValue": -5.9,
+        "value": "-6.0",
+        "numericValue": -6.0,
         "unit": "percent",
         "resultType": "arm-level"
       },
       "maturity": "peer-reviewed publication",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
-            "url": "https://pubmed.ncbi.nlm.nih.gov/26284720/",
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
             "sourceType": "peer-reviewed publication",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-weight-lira18",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-weight-week56",
+      "armIds": [
+        "scalediabetes-lira18"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-4.7",
+        "numericValue": -4.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
@@ -540,6 +977,334 @@
       }
     },
     {
+      "id": "scaleteens-weight-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-weight-week56",
+      "armIds": [
+        "scaleteens-lira30"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-2.65",
+        "numericValue": -2.65,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-weight-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-weight-week56",
+      "armIds": [
+        "scaleteens-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "2.37",
+        "numericValue": 2.37,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-bmi-5pct-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-bmi-5pct-week56",
+      "armIds": [
+        "scaleteens-lira30"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "43.3",
+        "numericValue": 43.3,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-bmi-5pct-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-bmi-5pct-week56",
+      "armIds": [
+        "scaleteens-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "18.7",
+        "numericValue": 18.7,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-bmi-10pct-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-bmi-10pct-week56",
+      "armIds": [
+        "scaleteens-lira30"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "26.1",
+        "numericValue": 26.1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=10%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-bmi-10pct-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-bmi-10pct-week56",
+      "armIds": [
+        "scaleteens-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "8.1",
+        "numericValue": 8.1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=10%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-sae-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-sae-week56",
+      "armIds": [
+        "scaleteens-lira30"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "2.4",
+        "numericValue": 2.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-sae-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-sae-week56",
+      "armIds": [
+        "scaleteens-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "4.0",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-nausea-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-nausea-week56",
+      "armIds": [
+        "scaleteens-lira30"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "42.4",
+        "numericValue": 42.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-nausea-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-nausea-week56",
+      "armIds": [
+        "scaleteens-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "14.3",
+        "numericValue": 14.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-vomiting-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-vomiting-week56",
+      "armIds": [
+        "scaleteens-lira30"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "34.4",
+        "numericValue": 34.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scaleteens-vomiting-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-teens-nct02918279",
+      "endpointId": "scaleteens-vomiting-week56",
+      "armIds": [
+        "scaleteens-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "4.0",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32233338/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
       "id": "scalekids-bmi-lira30",
       "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
       "endpointId": "scalekids-bmi-week56",
@@ -589,6 +1354,399 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/39258838/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-sae-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-sae-week56",
+      "armIds": ["scalediabetes-lira30"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "8.8",
+        "numericValue": 8.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-sae-lira18",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-sae-week56",
+      "armIds": ["scalediabetes-lira18"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "8.6",
+        "numericValue": 8.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-sae-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-sae-week56",
+      "armIds": ["scalediabetes-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "6.1",
+        "numericValue": 6.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-nausea-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-nausea-week56",
+      "armIds": ["scalediabetes-lira30"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "32.7",
+        "numericValue": 32.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-nausea-lira18",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-nausea-week56",
+      "armIds": ["scalediabetes-lira18"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "31.4",
+        "numericValue": 31.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-nausea-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-nausea-week56",
+      "armIds": ["scalediabetes-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "13.7",
+        "numericValue": 13.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-vomiting-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-vomiting-week56",
+      "armIds": ["scalediabetes-lira30"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "15.6",
+        "numericValue": 15.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-vomiting-lira18",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-vomiting-week56",
+      "armIds": ["scalediabetes-lira18"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "10.0",
+        "numericValue": 10.0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalediabetes-vomiting-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-diabetes-nct01272232",
+      "endpointId": "scalediabetes-vomiting-week56",
+      "armIds": ["scalediabetes-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "5.7",
+        "numericValue": 5.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/10.1001/jama.2015.9676",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalekids-weight-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "endpointId": "scalekids-weight-week56",
+      "armIds": [
+        "scalekids-lira30"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "1.6",
+        "numericValue": 1.6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39258838/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalekids-weight-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "endpointId": "scalekids-weight-week56",
+      "armIds": [
+        "scalekids-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "10.0",
+        "numericValue": 10,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39258838/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalekids-bmi-5pct-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "endpointId": "scalekids-bmi-5pct-week56",
+      "armIds": [
+        "scalekids-lira30"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "46",
+        "numericValue": 46,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39258838/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalekids-bmi-5pct-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "endpointId": "scalekids-bmi-5pct-week56",
+      "armIds": [
+        "scalekids-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy estimand",
+      "result": {
+        "value": "9",
+        "numericValue": 9,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "responderThreshold": ">=5%"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39258838/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalekids-sae-lira30",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "endpointId": "scalekids-sae-week56",
+      "armIds": [
+        "scalekids-lira30"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "12",
+        "numericValue": 12,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39258838/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scalekids-sae-placebo",
+      "studyId": "novo-nordisk-liraglutide-scale-kids-nct04775082",
+      "endpointId": "scalekids-sae-week56",
+      "armIds": [
+        "scalekids-placebo"
+      ],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {
+        "value": "8",
+        "numericValue": 8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39258838/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

@@ -30,10 +30,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "48 weeks",
-      "safetySummary": "Nausea and fatigue were the most common adverse events; the study reported no new safety signal that changed the overall benefit-risk interpretation.",
+      "safetySummary": "Nausea and fatigue were the most common adverse events; the study reported no new safety signal that changed the overall benefit-risk interpretation. Serious adverse events occurred in 2-11% of eloralintide arms vs. 6% with placebo; nausea (11-64% vs. 13%) and vomiting (0-25% vs. 0%) increased with dose and were lower in the 3-9 mg dose-escalation arm than fixed 6 mg/9 mg dosing. No deaths occurred. Anti-drug antibody data were noted as collected but not reported with per-arm figures in the main text.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT06230523",
@@ -46,7 +46,7 @@
             "title": "Eloralintide, a Selective Amylin Receptor Agonist, for Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-11-07",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -773,6 +773,30 @@
       "role": "primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "elora-p2-sae-week48",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "elora-p2-nausea-week48",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
+    },
+    {
+      "id": "elora-p2-vomiting-week48",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 48"
     }
   ],
   "outcomes": [
@@ -1164,6 +1188,573 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-sae-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-sae-week48",
+      "armIds": [
+        "elora-p2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-sae-1mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-sae-week48",
+      "armIds": [
+        "elora-p2-1mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "11",
+        "numericValue": 11,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-sae-3mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-sae-week48",
+      "armIds": [
+        "elora-p2-3mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "4",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-sae-6mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-sae-week48",
+      "armIds": [
+        "elora-p2-6mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "4",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-sae-9mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-sae-week48",
+      "armIds": [
+        "elora-p2-9mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-sae-6to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-sae-week48",
+      "armIds": [
+        "elora-p2-6to9"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "8",
+        "numericValue": 8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-sae-3to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-sae-week48",
+      "armIds": [
+        "elora-p2-3to9"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "2",
+        "numericValue": 2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-nausea-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-nausea-week48",
+      "armIds": [
+        "elora-p2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "13",
+        "numericValue": 13,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-nausea-1mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-nausea-week48",
+      "armIds": [
+        "elora-p2-1mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "11",
+        "numericValue": 11,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-nausea-3mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-nausea-week48",
+      "armIds": [
+        "elora-p2-3mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "13",
+        "numericValue": 13,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-nausea-6mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-nausea-week48",
+      "armIds": [
+        "elora-p2-6mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "64",
+        "numericValue": 64,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-nausea-9mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-nausea-week48",
+      "armIds": [
+        "elora-p2-9mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "33",
+        "numericValue": 33,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-nausea-6to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-nausea-week48",
+      "armIds": [
+        "elora-p2-6to9"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "54",
+        "numericValue": 54,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-nausea-3to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-nausea-week48",
+      "armIds": [
+        "elora-p2-3to9"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "25",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-vomiting-week48",
+      "armIds": [
+        "elora-p2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-vomiting-1mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-vomiting-week48",
+      "armIds": [
+        "elora-p2-1mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-vomiting-3mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-vomiting-week48",
+      "armIds": [
+        "elora-p2-3mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-vomiting-6mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-vomiting-week48",
+      "armIds": [
+        "elora-p2-6mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "25",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-vomiting-9mg",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-vomiting-week48",
+      "armIds": [
+        "elora-p2-9mg"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "11",
+        "numericValue": 11,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-vomiting-6to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-vomiting-week48",
+      "armIds": [
+        "elora-p2-6to9"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "13",
+        "numericValue": 13,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "elora-p2-vomiting-3to9",
+      "studyId": "eli-lilly-and-company-eloralintide-phase-2-nct06230523",
+      "endpointId": "elora-p2-vomiting-week48",
+      "armIds": [
+        "elora-p2-3to9"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "2",
+        "numericValue": 2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41207310/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

@@ -31,10 +31,10 @@
       },
       "overallDuration": "26 weeks",
       "followUpDuration": "6 weeks",
-      "safetySummary": "Gastrointestinal disorders occurred in 41%-63% across cagrilintide doses versus 32% with placebo; nausea was the most frequent event.",
+      "safetySummary": "Gastrointestinal disorders occurred in 41%-63% across cagrilintide doses versus 32% with placebo; nausea was the most frequent event. Serious adverse events occurred in 2-7% of cagrilintide arms vs. 4% (liraglutide) and 3% (placebo); nausea (20-47% vs. 39% liraglutide, 18% placebo) and vomiting (5-9% vs. 20% liraglutide, 3% placebo) increased with cagrilintide dose. Anti-cagrilintide antibodies occurred in 46-73% of participants by week 26, increasing with dose; per-arm figures were not given in the accessible main text (only a range). No deaths occurred.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT03856047",
@@ -47,7 +47,7 @@
             "title": "Once-weekly cagrilintide for weight management",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2021-11-16",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -122,6 +122,70 @@
       "plannedN": 102
     },
     {
+      "id": "cagri-p2-03",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "role": "experimental",
+      "label": "Cagrilintide 0.3 mg",
+      "intervention": "Cagrilintide",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "cagrilintide"
+      },
+      "dose": "0.3 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "26 weeks",
+      "plannedN": 101
+    },
+    {
+      "id": "cagri-p2-06",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "role": "experimental",
+      "label": "Cagrilintide 0.6 mg",
+      "intervention": "Cagrilintide",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "cagrilintide"
+      },
+      "dose": "0.6 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "26 weeks",
+      "plannedN": 100
+    },
+    {
+      "id": "cagri-p2-12",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "role": "experimental",
+      "label": "Cagrilintide 1.2 mg",
+      "intervention": "Cagrilintide",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "cagrilintide"
+      },
+      "dose": "1.2 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "26 weeks",
+      "plannedN": 102
+    },
+    {
+      "id": "cagri-p2-24",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "role": "experimental",
+      "label": "Cagrilintide 2.4 mg",
+      "intervention": "Cagrilintide",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "cagrilintide"
+      },
+      "dose": "2.4 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "26 weeks",
+      "plannedN": 102
+    },
+    {
       "id": "cagri-p2-lira30",
       "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
       "role": "active comparator",
@@ -181,9 +245,145 @@
       "role": "primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 26"
+    },
+    {
+      "id": "cagri-p2-sae-week26",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 0 to week 26"
+    },
+    {
+      "id": "cagri-p2-nausea-week26",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 0 to week 26"
+    },
+    {
+      "id": "cagri-p2-vomiting-week26",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 0 to week 26"
     }
   ],
   "outcomes": [
+    {
+      "id": "cagri-p2-weight-03",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-weight-week26",
+      "armIds": [
+        "cagri-p2-03"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Trial product estimand",
+      "result": {
+        "value": "-6",
+        "numericValue": -6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-weight-06",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-weight-week26",
+      "armIds": [
+        "cagri-p2-06"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Trial product estimand",
+      "result": {
+        "value": "-6.8",
+        "numericValue": -6.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-weight-12",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-weight-week26",
+      "armIds": [
+        "cagri-p2-12"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Trial product estimand",
+      "result": {
+        "value": "-9.1",
+        "numericValue": -9.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-weight-24",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-weight-week26",
+      "armIds": [
+        "cagri-p2-24"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Trial product estimand",
+      "result": {
+        "value": "-9.7",
+        "numericValue": -9.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
     {
       "id": "cagri-p2-weight-45",
       "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
@@ -264,6 +464,573 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-sae-03",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-sae-week26",
+      "armIds": [
+        "cagri-p2-03"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-sae-06",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-sae-week26",
+      "armIds": [
+        "cagri-p2-06"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "2",
+        "numericValue": 2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-sae-12",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-sae-week26",
+      "armIds": [
+        "cagri-p2-12"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "7",
+        "numericValue": 7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-sae-24",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-sae-week26",
+      "armIds": [
+        "cagri-p2-24"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-sae-45",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-sae-week26",
+      "armIds": [
+        "cagri-p2-45"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "4",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-sae-lira30",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-sae-week26",
+      "armIds": [
+        "cagri-p2-lira30"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "4",
+        "numericValue": 4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-sae-placebo",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-sae-week26",
+      "armIds": [
+        "cagri-p2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-nausea-03",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-nausea-week26",
+      "armIds": [
+        "cagri-p2-03"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "20",
+        "numericValue": 20,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-nausea-06",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-nausea-week26",
+      "armIds": [
+        "cagri-p2-06"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "27",
+        "numericValue": 27,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-nausea-12",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-nausea-week26",
+      "armIds": [
+        "cagri-p2-12"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "36",
+        "numericValue": 36,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-nausea-24",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-nausea-week26",
+      "armIds": [
+        "cagri-p2-24"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "31",
+        "numericValue": 31,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-nausea-45",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-nausea-week26",
+      "armIds": [
+        "cagri-p2-45"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "47",
+        "numericValue": 47,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-nausea-lira30",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-nausea-week26",
+      "armIds": [
+        "cagri-p2-lira30"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "39",
+        "numericValue": 39,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-nausea-placebo",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-nausea-week26",
+      "armIds": [
+        "cagri-p2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "18",
+        "numericValue": 18,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-vomiting-03",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-vomiting-week26",
+      "armIds": [
+        "cagri-p2-03"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-vomiting-06",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-vomiting-week26",
+      "armIds": [
+        "cagri-p2-06"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-vomiting-12",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-vomiting-week26",
+      "armIds": [
+        "cagri-p2-12"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "5",
+        "numericValue": 5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-vomiting-24",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-vomiting-week26",
+      "armIds": [
+        "cagri-p2-24"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "9",
+        "numericValue": 9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-vomiting-45",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-vomiting-week26",
+      "armIds": [
+        "cagri-p2-45"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "8",
+        "numericValue": 8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-vomiting-lira30",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-vomiting-week26",
+      "armIds": [
+        "cagri-p2-lira30"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "20",
+        "numericValue": 20,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cagri-p2-vomiting-placebo",
+      "studyId": "novo-nordisk-cagrilintide-phase2-nct03856047",
+      "endpointId": "cagri-p2-vomiting-week26",
+      "armIds": [
+        "cagri-p2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34798060/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

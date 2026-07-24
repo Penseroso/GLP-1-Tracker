@@ -240,17 +240,17 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "Up to 24 weeks",
-      "safetySummary": "Across the early SAD/MAD publication and the 12- to 24-week obesity and T2D cohorts, adverse events were predominantly gastrointestinal and mostly mild to moderate; no unexpected safety signal emerged, and the later cohorts reported no study-drug-related discontinuations or serious adverse events in the T2D cohort.",
+      "safetySummary": "In the published SAD cohorts, serious adverse events occurred in one participant each in the 6 mg and 7.5 mg cohorts; nausea and vomiting varied by dose. In the published MAD cohorts, no serious adverse events occurred; nausea was reported in 16.7% to 100% and vomiting in 33.3% to 83.3% of active cohorts.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-21",
-        "updatedAt": "2026-07-21",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT04838405",
             "title": "A Study of CT-388 in Otherwise Healthy Overweight and Obese Adults and Patients With Type 2 Diabetes Mellitus",
             "sourceType": "trial registry",
             "publishedAt": "2021-04-09",
-            "checkedAt": "2026-07-21"
+            "checkedAt": "2026-07-24"
           },
           {
             "url": "https://doi.org/10.2337/db23-75-LB",
@@ -880,6 +880,54 @@
       "role": "other",
       "domain": "body weight",
       "assessmentTimepoint": "Week 12"
+    },
+    {
+      "id": "en101-sad-sae",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "SAD treatment and follow-up period"
+    },
+    {
+      "id": "en101-sad-nausea",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "SAD treatment and follow-up period"
+    },
+    {
+      "id": "en101-sad-vomiting",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "SAD treatment and follow-up period"
+    },
+    {
+      "id": "en101-mad-sae",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "MAD treatment and follow-up period"
+    },
+    {
+      "id": "en101-mad-nausea",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "MAD treatment and follow-up period"
+    },
+    {
+      "id": "en101-mad-vomiting",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "MAD treatment and follow-up period"
     }
   ],
   "outcomes": [
@@ -3276,6 +3324,306 @@
           }
         ]
       }
+    },
+    {
+      "id": "en101-sad-sae-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-sae",
+      "armIds": ["en101-sad-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-sae-c1",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-sae",
+      "armIds": ["en101-sad-c1-0-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-sae-c2",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-sae",
+      "armIds": ["en101-sad-c2-2mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-sae-c3",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-sae",
+      "armIds": ["en101-sad-c3-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-sae-c4",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-sae",
+      "armIds": ["en101-sad-c4-6mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-sae-c5",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-sae",
+      "armIds": ["en101-sad-c5-7-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-nausea-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-nausea",
+      "armIds": ["en101-sad-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "10.0", "numericValue": 10.0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-nausea-c1",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-nausea",
+      "armIds": ["en101-sad-c1-0-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-nausea-c2",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-nausea",
+      "armIds": ["en101-sad-c2-2mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-nausea-c3",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-nausea",
+      "armIds": ["en101-sad-c3-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-nausea-c4",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-nausea",
+      "armIds": ["en101-sad-c4-6mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-nausea-c5",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-nausea",
+      "armIds": ["en101-sad-c5-7-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "83.3", "numericValue": 83.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-vomiting-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-vomiting",
+      "armIds": ["en101-sad-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-vomiting-c1",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-vomiting",
+      "armIds": ["en101-sad-c1-0-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-vomiting-c2",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-vomiting",
+      "armIds": ["en101-sad-c2-2mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-vomiting-c3",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-vomiting",
+      "armIds": ["en101-sad-c3-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "33.3", "numericValue": 33.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-vomiting-c4",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-vomiting",
+      "armIds": ["en101-sad-c4-6mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "33.3", "numericValue": 33.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-sad-vomiting-c5",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-sad-vomiting",
+      "armIds": ["en101-sad-c5-7-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "50.0", "numericValue": 50.0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-sae-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-sae",
+      "armIds": ["en101-mad-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-sae-c6",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-sae",
+      "armIds": ["en101-mad-c6-7-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-sae-c7",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-sae",
+      "armIds": ["en101-mad-c7-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-sae-c8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-sae",
+      "armIds": ["en101-mad-c8-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-nausea-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-nausea",
+      "armIds": ["en101-mad-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-nausea-c6",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-nausea",
+      "armIds": ["en101-mad-c6-7-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "100", "numericValue": 100, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-nausea-c7",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-nausea",
+      "armIds": ["en101-mad-c7-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "16.7", "numericValue": 16.7, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-nausea-c8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-nausea",
+      "armIds": ["en101-mad-c8-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "50.0", "numericValue": 50.0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-vomiting-placebo",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-vomiting",
+      "armIds": ["en101-mad-placebo"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "0", "numericValue": 0, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-vomiting-c6",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-vomiting",
+      "armIds": ["en101-mad-c6-7-5mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "83.3", "numericValue": 83.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-vomiting-c7",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-vomiting",
+      "armIds": ["en101-mad-c7-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "33.3", "numericValue": 33.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
+    },
+    {
+      "id": "en101-mad-vomiting-c8",
+      "studyId": "roche-enicepatide-ct388-101-nct04838405",
+      "endpointId": "en101-mad-vomiting",
+      "armIds": ["en101-mad-c8-12mg"],
+      "analysisPopulation": "Safety population (overall)",
+      "result": {"value": "33.3", "numericValue": 33.3, "unit": "percent", "resultType": "arm-level"},
+      "maturity": "peer-reviewed publication",
+      "metadata": {"lastVerifiedAt": "2026-07-24", "updatedAt": "2026-07-24", "sources": [{"url": "https://doi.org/10.1016/j.molmet.2025.102291", "sourceType": "peer-reviewed publication", "checkedAt": "2026-07-24"}]}
     }
   ]
 }

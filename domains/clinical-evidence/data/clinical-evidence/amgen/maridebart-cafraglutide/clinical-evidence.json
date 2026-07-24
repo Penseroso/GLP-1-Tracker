@@ -1154,6 +1154,30 @@
       "role": "secondary",
       "domain": "cardiovascular",
       "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "mt-p2-endpoint-sae-w52",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "mt-p2-endpoint-nausea-w52",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 52"
+    },
+    {
+      "id": "mt-p2-endpoint-vomiting-w52",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 52"
     }
   ],
   "outcomes": [
@@ -1810,6 +1834,1583 @@
             "sourceType": "scientific presentation",
             "publishedAt": "2025-06-23",
             "checkedAt": "2026-07-21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-140-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-13.6",
+        "numericValue": -13.6,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -15.5 to -11.7"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-280-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-15.5",
+        "numericValue": -15.5,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -17.7 to -13.4"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-14.6",
+        "numericValue": -14.6,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -16.8 to -12.4"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-q8w-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420-q8w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-12.3",
+        "numericValue": -12.3,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -15.0 to -9.7"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-escalation-4w-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-4w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-14.1",
+        "numericValue": -14.1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -16.2 to -12.1"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-escalation-12w-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-12w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-16.2",
+        "numericValue": -16.2,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -18.9 to -13.5"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-b-140-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-b-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-10.3",
+        "numericValue": -10.3,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -13.2 to -7.4"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-b-280-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-b-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-8.4",
+        "numericValue": -8.4,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -11.0 to -5.7"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-b-420-treatment-policy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-b-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Treatment policy",
+      "result": {
+        "value": "-12.3",
+        "numericValue": -12.3,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -15.3 to -9.2"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-placebo-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-2.6",
+        "numericValue": -2.6,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -3.6 to -1.5"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-140-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-16.3",
+        "numericValue": -16.3,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -17.5 to -15.2"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-280-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-19.9",
+        "numericValue": -19.9,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -21.1 to -18.6"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-18.9",
+        "numericValue": -18.9,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -20.2 to -17.6"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-q8w-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420-q8w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-17.7",
+        "numericValue": -17.7,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -19.3 to -16.1"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-escalation-4w-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-4w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-16.7",
+        "numericValue": -16.7,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -18.0 to -15.4"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-a-420-escalation-12w-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-12w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-19.9",
+        "numericValue": -19.9,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -21.4 to -18.4"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-b-placebo-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-b-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-1.4",
+        "numericValue": -1.4,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -2.5 to -0.3"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-b-140-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-b-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-12.3",
+        "numericValue": -12.3,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -14.1 to -10.4"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-b-280-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-b-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-12.1",
+        "numericValue": -12.1,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -14.2 to -10.1"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-weight-b-420-efficacy",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-body-weight-w52",
+      "armIds": [
+        "mt-p2-b-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "estimand": "Efficacy",
+      "result": {
+        "value": "-17",
+        "numericValue": -17,
+        "unit": "percent",
+        "resultType": "arm-level",
+        "confidenceInterval": "95% CI, -18.8 to -15.3"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-a-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-a-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "7",
+        "numericValue": 7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-a-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-a-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "25",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-a-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-a-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-a-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-a-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "5",
+        "numericValue": 5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-a-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-a-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "77",
+        "numericValue": 77,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-a-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-a-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "68",
+        "numericValue": 68,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-a-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-a-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "5",
+        "numericValue": 5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-a-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-a-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "78",
+        "numericValue": 78,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-a-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-a-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "73",
+        "numericValue": 73,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-a-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-a-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-a-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-a-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "87",
+        "numericValue": 87,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-a-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-a-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "87",
+        "numericValue": 87,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-a-420-q8w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-a-420-q8w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "14",
+        "numericValue": 14,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-a-420-q8w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-a-420-q8w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "82",
+        "numericValue": 82,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-a-420-q8w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-a-420-q8w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "92",
+        "numericValue": 92,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-a-420-escalation-4w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-4w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-a-420-escalation-4w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-4w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "71",
+        "numericValue": 71,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-a-420-escalation-4w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-4w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "43",
+        "numericValue": 43,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-a-420-escalation-12w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-12w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-a-420-escalation-12w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-12w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "73",
+        "numericValue": 73,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-a-420-escalation-12w",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-a-420-escalation-12w"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "44",
+        "numericValue": 44,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-b-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-b-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-b-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-b-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "9",
+        "numericValue": 9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-b-placebo",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-b-placebo"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-b-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-b-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-b-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-b-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "58",
+        "numericValue": 58,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-b-140",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-b-140"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "45",
+        "numericValue": 45,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-b-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-b-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-b-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-b-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "41",
+        "numericValue": 41,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-b-280",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-b-280"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "50",
+        "numericValue": 50,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-sae-b-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-sae-w52",
+      "armIds": [
+        "mt-p2-b-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "12",
+        "numericValue": 12,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-nausea-b-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-nausea-w52",
+      "armIds": [
+        "mt-p2-b-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "59",
+        "numericValue": 59,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mt-p2-outcome-vomiting-b-420",
+      "studyId": "amgen-maridebart-cafraglutide-amg133-phase2-nct05669599",
+      "endpointId": "mt-p2-endpoint-vomiting-w52",
+      "armIds": [
+        "mt-p2-b-420"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "75",
+        "numericValue": 75,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://www.nejm.org/doi/10.1056/NEJMoa2504214",
+            "title": "Once-Monthly Maridebart Cafraglutide for the Treatment of Obesity — A Phase 2 Trial",
+            "sourceType": "peer-reviewed publication",
+            "publishedAt": "2025-06-23",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

@@ -32,10 +32,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "72 weeks",
-      "safetySummary": "Gastrointestinal adverse events were the most common, were mainly mild to moderate, and treatment discontinuation increased with dose.",
+      "safetySummary": "Gastrointestinal adverse events were the most common, were mainly mild to moderate, and treatment discontinuation increased with dose. Serious adverse events occurred in 3.8-5.5% of orforglipron arms vs. 4.9% with placebo. Per-arm nausea and vomiting incidence and anti-drug antibody data were not reported in the accessible main text (only in an inaccessible supplementary table).",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05869903",
@@ -48,7 +48,7 @@
             "title": "Orforglipron for the Treatment of Obesity",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-09-16",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -88,10 +88,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "72 weeks",
-      "safetySummary": "The safety profile was consistent with the GLP-1 receptor agonist class, with gastrointestinal adverse events most frequent.",
+      "safetySummary": "The safety profile was consistent with the GLP-1 receptor agonist class, with gastrointestinal adverse events most frequent. Serious adverse events occurred in 7.3-10.9% of orforglipron arms vs. 8.8% with placebo; nausea (20.1-36.4% vs. 8.4%) and vomiting (12.8-23.1% vs. 3.8%) were more common with orforglipron.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05872620",
@@ -104,7 +104,7 @@
             "title": "Orforglipron in Adults with Obesity and Type 2 Diabetes",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-11-21",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -736,6 +736,38 @@
       "role": "primary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "attain1-sae-week72",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "attain2-sae-week72",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "attain2-nausea-week72",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
+    },
+    {
+      "id": "attain2-vomiting-week72",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Week 72"
     }
   ],
   "outcomes": [
@@ -1183,6 +1215,438 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-sae-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-sae-week72",
+      "armIds": [
+        "attain1-orfor6"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "5.5",
+        "numericValue": 5.5,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-sae-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-sae-week72",
+      "armIds": [
+        "attain1-orfor12"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "5.4",
+        "numericValue": 5.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-sae-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-sae-week72",
+      "armIds": [
+        "attain1-orfor36"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "3.8",
+        "numericValue": 3.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain1-sae-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-1-nct05869903",
+      "endpointId": "attain1-sae-week72",
+      "armIds": [
+        "attain1-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "4.9",
+        "numericValue": 4.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40960239/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-sae-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-sae-week72",
+      "armIds": [
+        "attain2-orfor6"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "7.3",
+        "numericValue": 7.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-sae-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-sae-week72",
+      "armIds": [
+        "attain2-orfor12"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "10.3",
+        "numericValue": 10.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-sae-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-sae-week72",
+      "armIds": [
+        "attain2-orfor36"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "10.9",
+        "numericValue": 10.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-sae-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-sae-week72",
+      "armIds": [
+        "attain2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "8.8",
+        "numericValue": 8.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-nausea-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-nausea-week72",
+      "armIds": [
+        "attain2-orfor6"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "20.1",
+        "numericValue": 20.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-nausea-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-nausea-week72",
+      "armIds": [
+        "attain2-orfor12"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "31.1",
+        "numericValue": 31.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-nausea-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-nausea-week72",
+      "armIds": [
+        "attain2-orfor36"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "36.4",
+        "numericValue": 36.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-nausea-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-nausea-week72",
+      "armIds": [
+        "attain2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "8.4",
+        "numericValue": 8.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-vomiting-orfor6",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-vomiting-week72",
+      "armIds": [
+        "attain2-orfor6"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "12.8",
+        "numericValue": 12.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-vomiting-orfor12",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-vomiting-week72",
+      "armIds": [
+        "attain2-orfor12"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "20.2",
+        "numericValue": 20.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-vomiting-orfor36",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-vomiting-week72",
+      "armIds": [
+        "attain2-orfor36"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "23.1",
+        "numericValue": 23.1,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "attain2-vomiting-placebo",
+      "studyId": "eli-lilly-and-company-orforglipron-attain-2-nct05872620",
+      "endpointId": "attain2-vomiting-week72",
+      "armIds": [
+        "attain2-placebo"
+      ],
+      "analysisPopulation": "Safety population",
+      "result": {
+        "value": "3.8",
+        "numericValue": 3.8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41275875/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }

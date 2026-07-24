@@ -13,7 +13,9 @@
       "Bash(git add *)",
       "Bash(git commit -q -m '@ *)",
       "Bash(git push *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(mkdir -p .temp/ctgov)",
+      "Bash(curl -s \"https://clinicaltrials.gov/api/v2/studies/NCT06041217?fields=resultsSection.adverseEventsModule\" -o .temp/ctgov/NCT06041217.json)"
     ]
   }
 }

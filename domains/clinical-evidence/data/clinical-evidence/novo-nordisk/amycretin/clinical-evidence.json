@@ -30,10 +30,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "Up to 12 weeks",
-      "safetySummary": "All treatment-emergent adverse events were mild or moderate; gastrointestinal symptoms and decreased appetite were most common and dose related.",
+      "safetySummary": "All treatment-emergent adverse events were mild or moderate; gastrointestinal symptoms and decreased appetite were most common and dose related. In Part C/D (12-week dosing), serious adverse events occurred in 0% (50 mg), 0% (2x50 mg), and 6% (2x25 mg) vs. 0% placebo; nausea in 31%, 75%, and 94% vs. 8%; vomiting in 38%, 56%, and 63% vs. 0%. Across all parts (A-D), 8 of 111 (7%) participants on active treatment were anti-drug-antibody positive; no per-arm breakdown for Part C/D was reported. No deaths occurred.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT05369390",
@@ -46,7 +46,7 @@
             "title": "First-in-human oral amycretin trial",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-06-20",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -84,10 +84,10 @@
         "treatmentContext": "initial-treatment"
       },
       "overallDuration": "Up to 36 weeks",
-      "safetySummary": "A high frequency of gastrointestinal events was reported, consistent with GLP-1 and amylin agonism; no unexpected safety signal was disclosed.",
+      "safetySummary": "A high frequency of gastrointestinal events was reported, consistent with GLP-1 and amylin agonism; no unexpected safety signal was disclosed. Serious adverse events occurred in 0-3% of amycretin arms vs. 0% placebo across parts B-E. Nausea (50-82% vs. 25-60%) and vomiting (25-53% vs. 0-60%) increased with dose. Anti-drug antibodies (low titres) occurred in 29% (Part B, 60 mg), 21% (Part C, 20 mg), and 38% (Part D, 5 mg) of active-arm participants and did not affect safety or pharmacodynamics; not reported for Part E or placebo. No deaths occurred; one case of recurrent gallstone pancreatitis was reported.",
       "metadata": {
-        "lastVerifiedAt": "2026-07-13",
-        "updatedAt": "2026-07-13",
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
         "sources": [
           {
             "url": "https://clinicaltrials.gov/study/NCT06064006",
@@ -100,7 +100,7 @@
             "title": "Subcutaneous amycretin Phase 1b/2a results",
             "sourceType": "peer-reviewed publication",
             "publishedAt": "2025-06-20",
-            "checkedAt": "2026-07-13"
+            "checkedAt": "2026-07-24"
           }
         ]
       },
@@ -175,6 +175,38 @@
       "plannedN": 16
     },
     {
+      "id": "amyoral-50",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "role": "experimental",
+      "label": "Oral amycretin 50 mg",
+      "intervention": "Amycretin dose escalation to one 50 mg tablet",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "amycretin"
+      },
+      "dose": "50 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "12 weeks",
+      "plannedN": 16
+    },
+    {
+      "id": "amyoral-225",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "role": "experimental",
+      "label": "Oral amycretin 2 x 25 mg",
+      "intervention": "Amycretin dose escalation to two 25 mg tablets",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "amycretin"
+      },
+      "dose": "2 x 25 mg",
+      "route": "Oral",
+      "dosingFrequency": "Once daily",
+      "treatmentDuration": "12 weeks",
+      "plannedN": 16
+    },
+    {
       "id": "amyoral-placebo",
       "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
       "role": "placebo",
@@ -184,7 +216,7 @@
       "route": "Oral",
       "dosingFrequency": "Once daily",
       "treatmentDuration": "12 weeks",
-      "plannedN": 4
+      "plannedN": 12
     },
     {
       "id": "amysc-60",
@@ -205,12 +237,90 @@
       "id": "amysc-placebo",
       "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
       "role": "placebo",
-      "label": "Placebo",
+      "label": "Placebo (Part B)",
       "intervention": "Matched placebo",
       "dose": "Matched placebo",
       "route": "Subcutaneous",
       "dosingFrequency": "Once weekly",
       "treatmentDuration": "36 weeks"
+    },
+    {
+      "id": "amysc-20",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "role": "experimental",
+      "label": "Subcutaneous amycretin 20 mg",
+      "intervention": "Amycretin dose escalation from 0.3 mg to 20 mg",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "amycretin"
+      },
+      "dose": "20 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "36 weeks"
+    },
+    {
+      "id": "amysc-placebo-c",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "role": "placebo",
+      "label": "Placebo (Part C)",
+      "intervention": "Matched placebo",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "36 weeks"
+    },
+    {
+      "id": "amysc-5",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "role": "experimental",
+      "label": "Subcutaneous amycretin 5 mg",
+      "intervention": "Amycretin dose escalation from 0.3 mg to 5 mg",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "amycretin"
+      },
+      "dose": "5 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "28 weeks"
+    },
+    {
+      "id": "amysc-placebo-d",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "role": "placebo",
+      "label": "Placebo (Part D)",
+      "intervention": "Matched placebo",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "28 weeks"
+    },
+    {
+      "id": "amysc-125",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "role": "experimental",
+      "label": "Subcutaneous amycretin 1.25 mg",
+      "intervention": "Amycretin dose escalation from 0.3 mg to 1.25 mg",
+      "linkedAsset": {
+        "companyId": "novo-nordisk",
+        "assetId": "amycretin"
+      },
+      "dose": "1.25 mg",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "20 weeks"
+    },
+    {
+      "id": "amysc-placebo-e",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "role": "placebo",
+      "label": "Placebo (Part E)",
+      "intervention": "Matched placebo",
+      "dose": "Matched placebo",
+      "route": "Subcutaneous",
+      "dosingFrequency": "Once weekly",
+      "treatmentDuration": "20 weeks"
     },
     {
       "id": "amaze-12-nnc0487-0111",
@@ -252,6 +362,62 @@
       "role": "secondary",
       "domain": "body weight",
       "assessmentTimepoint": "Week 36"
+    },
+    {
+      "id": "amyoral-sae-week105",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Day 1 to day 105 (Part C/D)"
+    },
+    {
+      "id": "amyoral-nausea-week105",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Day 1 to day 105 (Part C/D)"
+    },
+    {
+      "id": "amyoral-vomiting-week105",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Day 1 to day 105 (Part C/D)"
+    },
+    {
+      "id": "amysc-sae-eos",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "name": "Serious adverse events",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Baseline to end of study (Parts B-E)"
+    },
+    {
+      "id": "amysc-nausea-eos",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "name": "Nausea",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Baseline to end of study (Parts B-E)"
+    },
+    {
+      "id": "amysc-vomiting-eos",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "name": "Vomiting",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Baseline to end of study (Parts B-E)"
+    },
+    {
+      "id": "amysc-ada-eos",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "name": "Anti-drug antibodies",
+      "role": "safety",
+      "domain": "safety",
+      "assessmentTimepoint": "Baseline to end of study (Parts B-D)"
     }
   ],
   "outcomes": [
@@ -310,6 +476,384 @@
       }
     },
     {
+      "id": "amyoral-weight-50",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-weight-week12",
+      "armIds": [
+        "amyoral-50"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-10.4",
+        "numericValue": -10.4,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-weight-225",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-weight-week12",
+      "armIds": [
+        "amyoral-225"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-12.2",
+        "numericValue": -12.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-sae-50",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-sae-week105",
+      "armIds": [
+        "amyoral-50"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-sae-100",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-sae-week105",
+      "armIds": [
+        "amyoral-100"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-sae-225",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-sae-week105",
+      "armIds": [
+        "amyoral-225"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "6",
+        "numericValue": 6,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-sae-placebo",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-sae-week105",
+      "armIds": [
+        "amyoral-placebo"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-nausea-50",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-nausea-week105",
+      "armIds": [
+        "amyoral-50"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "31",
+        "numericValue": 31,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-nausea-100",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-nausea-week105",
+      "armIds": [
+        "amyoral-100"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "75",
+        "numericValue": 75,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-nausea-225",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-nausea-week105",
+      "armIds": [
+        "amyoral-225"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "94",
+        "numericValue": 94,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-nausea-placebo",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-nausea-week105",
+      "armIds": [
+        "amyoral-placebo"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "8",
+        "numericValue": 8,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-vomiting-50",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-vomiting-week105",
+      "armIds": [
+        "amyoral-50"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "38",
+        "numericValue": 38,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-vomiting-100",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-vomiting-week105",
+      "armIds": [
+        "amyoral-100"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "56",
+        "numericValue": 56,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-vomiting-225",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-vomiting-week105",
+      "armIds": [
+        "amyoral-225"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "63",
+        "numericValue": 63,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amyoral-vomiting-placebo",
+      "studyId": "novo-nordisk-amycretin-oral-phase1-nct05369390",
+      "endpointId": "amyoral-vomiting-week105",
+      "armIds": [
+        "amyoral-placebo"
+      ],
+      "analysisPopulation": "Safety analysis set (Part C/D)",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550229/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
       "id": "amysc-weight-60",
       "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
       "endpointId": "amysc-weight-week36",
@@ -359,6 +903,897 @@
             "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
             "sourceType": "peer-reviewed publication",
             "checkedAt": "2026-07-13"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-weight-20",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-weight-week36",
+      "armIds": [
+        "amysc-20"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-22",
+        "numericValue": -22,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-weight-placebo-c",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-weight-week36",
+      "armIds": [
+        "amysc-placebo-c"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "1.9",
+        "numericValue": 1.9,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-weight-5",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-weight-week36",
+      "armIds": [
+        "amysc-5"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-16.2",
+        "numericValue": -16.2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-weight-placebo-d",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-weight-week36",
+      "armIds": [
+        "amysc-placebo-d"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "2.3",
+        "numericValue": 2.3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-weight-125",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-weight-week36",
+      "armIds": [
+        "amysc-125"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "-9.7",
+        "numericValue": -9.7,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-weight-placebo-e",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-weight-week36",
+      "armIds": [
+        "amysc-placebo-e"
+      ],
+      "analysisPopulation": "Full analysis set (overall)",
+      "result": {
+        "value": "2",
+        "numericValue": 2,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-60",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-60"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-placebo-b",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-placebo"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-20",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-20"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "3",
+        "numericValue": 3,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-placebo-c",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-placebo-c"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-5",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-5"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-placebo-d",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-placebo-d"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-125",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-125"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-sae-placebo-e",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-sae-eos",
+      "armIds": [
+        "amysc-placebo-e"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-60",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-60"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "82",
+        "numericValue": 82,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-placebo-b",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-placebo"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "60",
+        "numericValue": 60,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-20",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-20"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "79",
+        "numericValue": 79,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-placebo-c",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-placebo-c"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "40",
+        "numericValue": 40,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-5",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-5"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "75",
+        "numericValue": 75,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-placebo-d",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-placebo-d"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "25",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-125",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-125"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "50",
+        "numericValue": 50,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-nausea-placebo-e",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-nausea-eos",
+      "armIds": [
+        "amysc-placebo-e"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "50",
+        "numericValue": 50,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-60",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-60"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "47",
+        "numericValue": 47,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-placebo-b",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-placebo"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "60",
+        "numericValue": 60,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-20",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-20"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "53",
+        "numericValue": 53,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-placebo-c",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-placebo-c"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "20",
+        "numericValue": 20,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-5",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-5"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "25",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-placebo-d",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-placebo-d"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "0",
+        "numericValue": 0,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-125",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-125"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "31",
+        "numericValue": 31,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-vomiting-placebo-e",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-vomiting-eos",
+      "armIds": [
+        "amysc-placebo-e"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "25",
+        "numericValue": 25,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-ada-60",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-ada-eos",
+      "armIds": [
+        "amysc-60"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "29",
+        "numericValue": 29,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-ada-20",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-ada-eos",
+      "armIds": [
+        "amysc-20"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "21",
+        "numericValue": 21,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amysc-ada-5",
+      "studyId": "novo-nordisk-amycretin-sc-phase1b2a-nct06064006",
+      "endpointId": "amysc-ada-eos",
+      "armIds": [
+        "amysc-5"
+      ],
+      "analysisPopulation": "Safety analysis set",
+      "result": {
+        "value": "38",
+        "numericValue": 38,
+        "unit": "percent",
+        "resultType": "arm-level"
+      },
+      "maturity": "peer-reviewed publication",
+      "metadata": {
+        "lastVerifiedAt": "2026-07-24",
+        "updatedAt": "2026-07-24",
+        "sources": [
+          {
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40550231/",
+            "sourceType": "peer-reviewed publication",
+            "checkedAt": "2026-07-24"
           }
         ]
       }
